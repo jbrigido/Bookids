@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelBookidsStoreContainer" CdmEntityContainer="ModelBookidsContainer">
+    <EntitySetMapping Name="PessoasSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Pessoas)">
+        <MappingFragment StoreEntitySet="PessoasSet">
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Morada" ColumnName="Morada" />
+          <ScalarProperty Name="Localidade" ColumnName="Localidade" />
+          <ScalarProperty Name="CodPostal" ColumnName="CodPostal" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Telemovel" ColumnName="Telemovel" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Filhos)">
+        <MappingFragment StoreEntitySet="PessoasSet_Filhos">
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="DataNascicmento" ColumnName="DataNascicmento" />
+          <ScalarProperty Name="EscolasIdEscola" ColumnName="EscolasIdEscola" />
+          <ScalarProperty Name="ClientesIdPessoa" ColumnName="ClientesIdPessoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Clientes)">
+        <MappingFragment StoreEntitySet="PessoasSet_Clientes">
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+          <ScalarProperty Name="NrCartao" ColumnName="NrCartao" />
+          <ScalarProperty Name="ValorOferta" ColumnName="ValorOferta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Animadores)">
+        <MappingFragment StoreEntitySet="PessoasSet_Animadores">
+          <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
+          <ScalarProperty Name="Especialidade" ColumnName="Especialidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Eventos)">
+        <MappingFragment StoreEntitySet="EventosSet">
+          <ScalarProperty Name="NrEvento" ColumnName="NrEvento" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Local" ColumnName="Local" />
+          <ScalarProperty Name="DataHora" ColumnName="DataHora" />
+          <ScalarProperty Name="LimiteParticipacoes" ColumnName="LimiteParticipacoes" />
+          <ScalarProperty Name="IdadeInferior" ColumnName="IdadeInferior" />
+          <ScalarProperty Name="IdadeSuperior" ColumnName="IdadeSuperior" />
+          <ScalarProperty Name="TipoEvento" ColumnName="TipoEvento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InscricoesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Inscricoes)">
+        <MappingFragment StoreEntitySet="InscricoesSet">
+          <ScalarProperty Name="FilhosIdPessoa" ColumnName="FilhosIdPessoa" />
+          <ScalarProperty Name="EventosNrEvento" ColumnName="EventosNrEvento" />
+          <ScalarProperty Name="Confirmada" ColumnName="Confirmada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EscolasSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Escolas)">
+        <MappingFragment StoreEntitySet="EscolasSet">
+          <ScalarProperty Name="IdEscola" ColumnName="IdEscola" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Morada" ColumnName="Morada" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="CodPostal" ColumnName="CodPostal" />
+          <ScalarProperty Name="Localidade" ColumnName="Localidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParticipacoesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Participacoes)">
+        <MappingFragment StoreEntitySet="ParticipacoesSet">
+          <ScalarProperty Name="EscolasIdEscola" ColumnName="EscolasIdEscola" />
+          <ScalarProperty Name="EventosNrEvento" ColumnName="EventosNrEvento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ColaboracoesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Colaboracoes)">
+        <MappingFragment StoreEntitySet="ColaboracoesSet">
+          <ScalarProperty Name="AnimadoresIdPessoa" ColumnName="AnimadoresIdPessoa" />
+          <ScalarProperty Name="EventosNrEvento" ColumnName="EventosNrEvento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComprasSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Compras)">
+        <MappingFragment StoreEntitySet="ComprasSet">
+          <ScalarProperty Name="NrCompra" ColumnName="NrCompra" />
+          <ScalarProperty Name="ClientesIdPessoa" ColumnName="ClientesIdPessoa" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="UtilizouCartao" ColumnName="UtilizouCartao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalheComprasSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.DetalheCompras)">
+        <MappingFragment StoreEntitySet="DetalheComprasSet">
+          <ScalarProperty Name="ComprasNrCompra" ColumnName="ComprasNrCompra" />
+          <ScalarProperty Name="ProdutosCodProduto" ColumnName="ProdutosCodProduto" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProdutosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Produtos)">
+        <MappingFragment StoreEntitySet="ProdutosSet">
+          <ScalarProperty Name="CodProduto" ColumnName="CodProduto" />
+          <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+          <ScalarProperty Name="TipoProdutoCodTipoProduto" ColumnName="TipoProdutoCodTipoProduto" />
+          <ScalarProperty Name="StockExistente" ColumnName="StockExistente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoProdutoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.TipoProduto)">
+        <MappingFragment StoreEntitySet="TipoProdutoSet">
+          <ScalarProperty Name="CodTipoProduto" ColumnName="CodTipoProduto" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

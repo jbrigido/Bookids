@@ -1,0 +1,16 @@
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\bin\Debug\Bookids.exe.config
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\bin\Debug\Bookids.exe
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\bin\Debug\Bookids.pdb
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\bin\Debug\EntityFramework.dll
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\bin\Debug\EntityFramework.xml
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\obj\Debug\Bookids.csprojAssemblyReference.cache
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\obj\Debug\Bookids.Form1.resources
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\obj\Debug\Bookids.FormClientes.resources
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\obj\Debug\Bookids.Properties.Resources.resources
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\obj\Debug\Bookids.csproj.GenerateResource.cache
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\obj\Debug\Bookids.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\obj\Debug\Bookids.csproj.CopyComplete
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\obj\Debug\Bookids.exe
+C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto Final - Bookids\Bookids\Bookids\obj\Debug\Bookids.pdb
