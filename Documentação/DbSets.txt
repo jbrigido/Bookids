@@ -1,0 +1,28 @@
+public virtual DbSet<Filhos> FilhosSet { get; set; }
+public virtual DbSet<Clientes> ClientesSet { get; set; }
+public virtual DbSet<Animadores> AnimadoresSet { get; set; }
+
+
+ private void btCriarCliente_Click(object sender, EventArgs e)
+        {
+            if (dadosPreenchidosClientes())
+            {
+                Clientes novo = new Clientes()
+                {
+                    Nome = tbNomeCli.Text,
+                    Morada = tbMoradaCli.Text,
+                    Localidade = tbLocalidadeCli.Text,
+                    CodPostal = tbCodPostalCli.Text,
+                    Telefone = tbTelefoneCli.Text,
+                    Telemovel = tbTelemovelCli.Text,
+                    Mail = tbMailCli.Text,
+                    //Valor Oferta para decimal?
+                    ValorOferta = (Int32)nmValorOferta.Value,
+                    NrCartao = tbCartaoCli.Text,
+                };
+                BookidsContainer.ClientesSet.Add(novo);
+                BookidsContainer.SaveChanges();
+                dgvClientes.DataSource = BookidsContainer.ClientesSet.ToList();
+                    
+            }
+        }

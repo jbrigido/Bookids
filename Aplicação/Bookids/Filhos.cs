@@ -21,9 +21,9 @@ namespace Bookids
         }
     
         public string Sexo { get; set; }
-        public string DataNascicmento { get; set; }
-        public int EscolasIdEscola { get; set; }
-        public int ClientesIdPessoa { get; set; }
+        public System.DateTime DataNascicmento { get; set; }
+        public int IdEscola { get; set; }
+        public int IdProgenitor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inscricoes> Inscricoes { get; set; }

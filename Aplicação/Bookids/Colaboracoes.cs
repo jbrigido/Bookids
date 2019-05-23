@@ -14,8 +14,8 @@ namespace Bookids
     
     public partial class Colaboracoes
     {
-        public int AnimadoresIdPessoa { get; set; }
-        public int EventosNrEvento { get; set; }
+        public int IdAnimador { get; set; }
+        public int NrEventos { get; set; }
     
         public virtual Animadores Animadores { get; set; }
         public virtual Eventos Eventos { get; set; }

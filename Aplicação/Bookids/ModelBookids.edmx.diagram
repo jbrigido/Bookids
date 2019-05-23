@@ -31,7 +31,7 @@
         <AssociationConnector Association="ModelBookids.ComprasDetalheCompras" />
         <EntityTypeShape EntityType="ModelBookids.Produtos" Width="2.125" PointX="8" PointY="7.125" />
         <AssociationConnector Association="ModelBookids.DetalheComprasProdutos" />
-        <EntityTypeShape EntityType="ModelBookids.TipoProduto" Width="1.5" PointX="11.375" PointY="5.875" />
+        <EntityTypeShape EntityType="ModelBookids.TipoProduto" Width="1.5" PointX="11.625" PointY="7.125" />
         <AssociationConnector Association="ModelBookids.ProdutosTipoProduto" />
       </Diagram>
     </edmx:Diagrams>

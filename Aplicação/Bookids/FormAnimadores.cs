@@ -16,12 +16,5 @@ namespace Bookids
         {
             InitializeComponent();
         }
-
-        private void FormAnimadores_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'bookidsDBDataSet.PessoasSet_Animadores' table. You can move, or remove it, as needed.
-            this.pessoasSet_AnimadoresTableAdapter.Fill(this.bookidsDBDataSet.PessoasSet_Animadores);
-
-        }
     }
 }

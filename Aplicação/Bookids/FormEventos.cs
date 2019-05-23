@@ -16,11 +16,5 @@ namespace Bookids
         {
             InitializeComponent();
         }
-
-        private void btCriarEvento_Click(object sender, EventArgs e)
-        {
-            FormDadosEvento formEvento = new FormDadosEvento();
-            formEvento.ShowDialog();
-        }
     }
 }

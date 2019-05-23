@@ -14,8 +14,8 @@ namespace Bookids
     
     public partial class Participacoes
     {
-        public int EscolasIdEscola { get; set; }
-        public int EventosNrEvento { get; set; }
+        public int IdEscola { get; set; }
+        public int NrEvento { get; set; }
     
         public virtual Escolas Escolas { get; set; }
         public virtual Eventos Eventos { get; set; }

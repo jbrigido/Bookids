@@ -22,7 +22,7 @@ namespace Bookids
         }
     
         public string NrCartao { get; set; }
-        public string ValorOferta { get; set; }
+        public Nullable<int> ValorOferta { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Filhos> Filhos { get; set; }

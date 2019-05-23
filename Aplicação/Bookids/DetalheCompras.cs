@@ -14,9 +14,9 @@ namespace Bookids
     
     public partial class DetalheCompras
     {
-        public string Quantidade { get; set; }
-        public int ComprasNrCompra { get; set; }
-        public int ProdutosCodProduto { get; set; }
+        public int Quantidade { get; set; }
+        public int NrCompra { get; set; }
+        public int CodProduto { get; set; }
     
         public virtual Compras Compras { get; set; }
         public virtual Produtos Produtos { get; set; }

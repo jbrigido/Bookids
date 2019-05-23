@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Bookids
 {
-    public partial class FormDadosCliente : Form
+    public partial class FormVendas : Form
     {
-        public FormDadosCliente()
+        public FormVendas()
         {
             InitializeComponent();
         }

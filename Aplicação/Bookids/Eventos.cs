@@ -25,10 +25,10 @@ namespace Bookids
         public int NrEvento { get; set; }
         public string Descricao { get; set; }
         public string Local { get; set; }
-        public string DataHora { get; set; }
-        public string LimiteParticipacoes { get; set; }
-        public string IdadeInferior { get; set; }
-        public string IdadeSuperior { get; set; }
+        public System.DateTime DataHora { get; set; }
+        public int LimiteParticipacoes { get; set; }
+        public Nullable<int> IdadeInferior { get; set; }
+        public Nullable<int> IdadeSuperior { get; set; }
         public string TipoEvento { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -19,8 +19,8 @@
           <ScalarProperty Name="IdPessoa" ColumnName="IdPessoa" />
           <ScalarProperty Name="Sexo" ColumnName="Sexo" />
           <ScalarProperty Name="DataNascicmento" ColumnName="DataNascicmento" />
-          <ScalarProperty Name="EscolasIdEscola" ColumnName="EscolasIdEscola" />
-          <ScalarProperty Name="ClientesIdPessoa" ColumnName="ClientesIdPessoa" />
+          <ScalarProperty Name="IdEscola" ColumnName="IdEscola" />
+          <ScalarProperty Name="IdProgenitor" ColumnName="IdProgenitor" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Clientes)">
@@ -54,8 +54,8 @@
     <EntitySetMapping Name="InscricoesSet">
       <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Inscricoes)">
         <MappingFragment StoreEntitySet="InscricoesSet">
-          <ScalarProperty Name="FilhosIdPessoa" ColumnName="FilhosIdPessoa" />
-          <ScalarProperty Name="EventosNrEvento" ColumnName="EventosNrEvento" />
+          <ScalarProperty Name="IdFilho" ColumnName="IdFilho" />
+          <ScalarProperty Name="NrEvento" ColumnName="NrEvento" />
           <ScalarProperty Name="Confirmada" ColumnName="Confirmada" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -76,16 +76,16 @@
     <EntitySetMapping Name="ParticipacoesSet">
       <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Participacoes)">
         <MappingFragment StoreEntitySet="ParticipacoesSet">
-          <ScalarProperty Name="EscolasIdEscola" ColumnName="EscolasIdEscola" />
-          <ScalarProperty Name="EventosNrEvento" ColumnName="EventosNrEvento" />
+          <ScalarProperty Name="IdEscola" ColumnName="IdEscola" />
+          <ScalarProperty Name="NrEvento" ColumnName="NrEvento" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ColaboracoesSet">
       <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Colaboracoes)">
         <MappingFragment StoreEntitySet="ColaboracoesSet">
-          <ScalarProperty Name="AnimadoresIdPessoa" ColumnName="AnimadoresIdPessoa" />
-          <ScalarProperty Name="EventosNrEvento" ColumnName="EventosNrEvento" />
+          <ScalarProperty Name="IdAnimador" ColumnName="IdAnimador" />
+          <ScalarProperty Name="NrEventos" ColumnName="NrEventos" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -93,7 +93,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.Compras)">
         <MappingFragment StoreEntitySet="ComprasSet">
           <ScalarProperty Name="NrCompra" ColumnName="NrCompra" />
-          <ScalarProperty Name="ClientesIdPessoa" ColumnName="ClientesIdPessoa" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
           <ScalarProperty Name="Data" ColumnName="Data" />
           <ScalarProperty Name="UtilizouCartao" ColumnName="UtilizouCartao" />
         </MappingFragment>
@@ -102,8 +102,8 @@
     <EntitySetMapping Name="DetalheComprasSet">
       <EntityTypeMapping TypeName="IsTypeOf(ModelBookids.DetalheCompras)">
         <MappingFragment StoreEntitySet="DetalheComprasSet">
-          <ScalarProperty Name="ComprasNrCompra" ColumnName="ComprasNrCompra" />
-          <ScalarProperty Name="ProdutosCodProduto" ColumnName="ProdutosCodProduto" />
+          <ScalarProperty Name="NrCompra" ColumnName="NrCompra" />
+          <ScalarProperty Name="CodProduto" ColumnName="CodProduto" />
           <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -114,7 +114,7 @@
           <ScalarProperty Name="CodProduto" ColumnName="CodProduto" />
           <ScalarProperty Name="Designacao" ColumnName="Designacao" />
           <ScalarProperty Name="Preco" ColumnName="Preco" />
-          <ScalarProperty Name="TipoProdutoCodTipoProduto" ColumnName="TipoProdutoCodTipoProduto" />
+          <ScalarProperty Name="CodTipoProduto" ColumnName="CodTipoProduto" />
           <ScalarProperty Name="StockExistente" ColumnName="StockExistente" />
         </MappingFragment>
       </EntityTypeMapping>

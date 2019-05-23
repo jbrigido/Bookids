@@ -84,9 +84,9 @@
     <Property Name="Morada" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Localidade" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CodPostal" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Telefone" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Telemovel" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telemovel" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Mail" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="EventosSet">
     <Key>
@@ -95,20 +95,20 @@
     <Property Name="NrEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Local" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DataHora" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LimiteParticipacoes" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="IdadeInferior" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="IdadeSuperior" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TipoEvento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataHora" Type="datetime" Nullable="false" />
+    <Property Name="LimiteParticipacoes" Type="int" Nullable="false" />
+    <Property Name="IdadeInferior" Type="int" Nullable="true" />
+    <Property Name="IdadeSuperior" Type="int" Nullable="true" />
+    <Property Name="TipoEvento" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="InscricoesSet">
     <Key>
-      <PropertyRef Name="FilhosIdPessoa" />
-      <PropertyRef Name="EventosNrEvento" />
+      <PropertyRef Name="IdFilho" />
+      <PropertyRef Name="NrEvento" />
     </Key>
-    <Property Name="Confirmada" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="FilhosIdPessoa" Type="int" Nullable="false" />
-    <Property Name="EventosNrEvento" Type="int" Nullable="false" />
+    <Property Name="Confirmada" Type="bit" Nullable="false" />
+    <Property Name="IdFilho" Type="int" Nullable="false" />
+    <Property Name="NrEvento" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="EscolasSet">
     <Key>
@@ -116,45 +116,45 @@
     </Key>
     <Property Name="IdEscola" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Morada" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Morada" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Telefone" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CodPostal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CodPostal" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Localidade" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ParticipacoesSet">
     <Key>
-      <PropertyRef Name="EscolasIdEscola" />
-      <PropertyRef Name="EventosNrEvento" />
+      <PropertyRef Name="IdEscola" />
+      <PropertyRef Name="NrEvento" />
     </Key>
-    <Property Name="EscolasIdEscola" Type="int" Nullable="false" />
-    <Property Name="EventosNrEvento" Type="int" Nullable="false" />
+    <Property Name="IdEscola" Type="int" Nullable="false" />
+    <Property Name="NrEvento" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ColaboracoesSet">
     <Key>
-      <PropertyRef Name="AnimadoresIdPessoa" />
-      <PropertyRef Name="EventosNrEvento" />
+      <PropertyRef Name="IdAnimador" />
+      <PropertyRef Name="NrEventos" />
     </Key>
-    <Property Name="AnimadoresIdPessoa" Type="int" Nullable="false" />
-    <Property Name="EventosNrEvento" Type="int" Nullable="false" />
+    <Property Name="IdAnimador" Type="int" Nullable="false" />
+    <Property Name="NrEventos" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ComprasSet">
     <Key>
       <PropertyRef Name="NrCompra" />
     </Key>
     <Property Name="NrCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ClientesIdPessoa" Type="int" Nullable="false" />
-    <Property Name="Data" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UtilizouCartao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdCliente" Type="int" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="UtilizouCartao" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="DetalheComprasSet">
     <Key>
-      <PropertyRef Name="ComprasNrCompra" />
-      <PropertyRef Name="ProdutosCodProduto" />
+      <PropertyRef Name="NrCompra" />
+      <PropertyRef Name="CodProduto" />
     </Key>
-    <Property Name="Quantidade" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ComprasNrCompra" Type="int" Nullable="false" />
-    <Property Name="ProdutosCodProduto" Type="int" Nullable="false" />
+    <Property Name="Quantidade" Type="int" Nullable="false" />
+    <Property Name="NrCompra" Type="int" Nullable="false" />
+    <Property Name="CodProduto" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProdutosSet">
     <Key>
@@ -162,9 +162,9 @@
     </Key>
     <Property Name="CodProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Designacao" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Preco" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TipoProdutoCodTipoProduto" Type="int" Nullable="false" />
-    <Property Name="StockExistente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Preco" Type="decimal" Nullable="false" />
+    <Property Name="CodTipoProduto" Type="int" Nullable="false" />
+    <Property Name="StockExistente" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TipoProdutoSet">
     <Key>
@@ -178,9 +178,9 @@
       <PropertyRef Name="IdPessoa" />
     </Key>
     <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DataNascicmento" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EscolasIdEscola" Type="int" Nullable="false" />
-    <Property Name="ClientesIdPessoa" Type="int" Nullable="false" />
+    <Property Name="DataNascicmento" Type="datetime" Nullable="false" />
+    <Property Name="IdEscola" Type="int" Nullable="false" />
+    <Property Name="IdProgenitor" Type="int" Nullable="false" />
     <Property Name="IdPessoa" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PessoasSet_Clientes">
@@ -188,14 +188,14 @@
       <PropertyRef Name="IdPessoa" />
     </Key>
     <Property Name="NrCartao" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ValorOferta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ValorOferta" Type="int" Nullable="true" />
     <Property Name="IdPessoa" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PessoasSet_Animadores">
     <Key>
       <PropertyRef Name="IdPessoa" />
     </Key>
-    <Property Name="Especialidade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Especialidade" Type="nvarchar(max)" Nullable="true" />
     <Property Name="IdPessoa" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FilhosInscricoes">
@@ -206,7 +206,7 @@
         <PropertyRef Name="IdPessoa" />
       </Principal>
       <Dependent Role="Inscricoes">
-        <PropertyRef Name="FilhosIdPessoa" />
+        <PropertyRef Name="IdFilho" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -218,7 +218,7 @@
         <PropertyRef Name="NrEvento" />
       </Principal>
       <Dependent Role="Inscricoes">
-        <PropertyRef Name="EventosNrEvento" />
+        <PropertyRef Name="NrEvento" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -230,7 +230,7 @@
         <PropertyRef Name="IdEscola" />
       </Principal>
       <Dependent Role="Filhos">
-        <PropertyRef Name="EscolasIdEscola" />
+        <PropertyRef Name="IdEscola" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -242,7 +242,7 @@
         <PropertyRef Name="IdPessoa" />
       </Principal>
       <Dependent Role="Filhos">
-        <PropertyRef Name="ClientesIdPessoa" />
+        <PropertyRef Name="IdProgenitor" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -254,7 +254,7 @@
         <PropertyRef Name="IdEscola" />
       </Principal>
       <Dependent Role="Participacoes">
-        <PropertyRef Name="EscolasIdEscola" />
+        <PropertyRef Name="IdEscola" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -266,7 +266,7 @@
         <PropertyRef Name="NrEvento" />
       </Principal>
       <Dependent Role="Participacoes">
-        <PropertyRef Name="EventosNrEvento" />
+        <PropertyRef Name="NrEvento" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -278,7 +278,7 @@
         <PropertyRef Name="IdPessoa" />
       </Principal>
       <Dependent Role="Colaboracoes">
-        <PropertyRef Name="AnimadoresIdPessoa" />
+        <PropertyRef Name="IdAnimador" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -290,7 +290,7 @@
         <PropertyRef Name="NrEvento" />
       </Principal>
       <Dependent Role="Colaboracoes">
-        <PropertyRef Name="EventosNrEvento" />
+        <PropertyRef Name="NrEventos" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -302,7 +302,7 @@
         <PropertyRef Name="IdPessoa" />
       </Principal>
       <Dependent Role="Compras">
-        <PropertyRef Name="ClientesIdPessoa" />
+        <PropertyRef Name="IdCliente" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -314,7 +314,7 @@
         <PropertyRef Name="NrCompra" />
       </Principal>
       <Dependent Role="DetalheCompras">
-        <PropertyRef Name="ComprasNrCompra" />
+        <PropertyRef Name="NrCompra" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -326,7 +326,7 @@
         <PropertyRef Name="CodProduto" />
       </Principal>
       <Dependent Role="DetalheCompras">
-        <PropertyRef Name="ProdutosCodProduto" />
+        <PropertyRef Name="CodProduto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -338,7 +338,7 @@
         <PropertyRef Name="CodTipoProduto" />
       </Principal>
       <Dependent Role="Produtos">
-        <PropertyRef Name="TipoProdutoCodTipoProduto" />
+        <PropertyRef Name="CodTipoProduto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -246,7 +246,6 @@
             this.btCriarEvento.TabIndex = 12;
             this.btCriarEvento.Text = "Criar Novo Evento";
             this.btCriarEvento.UseVisualStyleBackColor = true;
-            this.btCriarEvento.Click += new System.EventHandler(this.btCriarEvento_Click);
             // 
             // gbColaboracoes
             // 

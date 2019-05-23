@@ -21,9 +21,9 @@ namespace Bookids
         }
     
         public int NrCompra { get; set; }
-        public int ClientesIdPessoa { get; set; }
-        public string Data { get; set; }
-        public string UtilizouCartao { get; set; }
+        public int IdCliente { get; set; }
+        public System.DateTime Data { get; set; }
+        public bool UtilizouCartao { get; set; }
     
         public virtual Clientes Clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
