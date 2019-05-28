@@ -206,7 +206,6 @@
             // 
             // cbSexoFilho
             // 
-            this.cbSexoFilho.Enabled = false;
             this.cbSexoFilho.FormattingEnabled = true;
             this.cbSexoFilho.Items.AddRange(new object[] {
             "Masculino",
@@ -218,7 +217,6 @@
             // 
             // tbNomeFilho
             // 
-            this.tbNomeFilho.Enabled = false;
             this.tbNomeFilho.Location = new System.Drawing.Point(7, 138);
             this.tbNomeFilho.Name = "tbNomeFilho";
             this.tbNomeFilho.Size = new System.Drawing.Size(281, 20);

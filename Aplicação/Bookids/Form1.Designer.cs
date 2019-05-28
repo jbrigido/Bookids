@@ -90,6 +90,7 @@
             this.btProdutos.TabIndex = 2;
             this.btProdutos.Text = "Gestão de Produtos (stocks)";
             this.btProdutos.UseVisualStyleBackColor = true;
+            this.btProdutos.Click += new System.EventHandler(this.btProdutos_Click);
             // 
             // btEventos
             // 

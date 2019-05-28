@@ -84,7 +84,7 @@
     <Property Name="Morada" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Localidade" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CodPostal" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Telefone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telefone" Type="nchar" Nullable="true" />
     <Property Name="Telemovel" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Mail" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
@@ -187,7 +187,7 @@
     <Key>
       <PropertyRef Name="IdPessoa" />
     </Key>
-    <Property Name="NrCartao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NrCartao" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ValorOferta" Type="int" Nullable="true" />
     <Property Name="IdPessoa" Type="int" Nullable="false" />
   </EntityType>

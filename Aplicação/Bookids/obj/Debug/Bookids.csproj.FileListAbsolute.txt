@@ -58,7 +58,6 @@ C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto\Bookids\A
 C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto\Bookids\Aplicação\Bookids\obj\Debug\Bookids.FormAnimadores.resources
 C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto\Bookids\Aplicação\Bookids\obj\Debug\Bookids.FormClientes.resources
 C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto\Bookids\Aplicação\Bookids\obj\Debug\Bookids.FormEventos.resources
-C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto\Bookids\Aplicação\Bookids\obj\Debug\Bookids.FormDadosProduto.resources
 C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto\Bookids\Aplicação\Bookids\obj\Debug\Bookids.FormProdutosLoja.resources
 C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto\Bookids\Aplicação\Bookids\obj\Debug\Bookids.Properties.Resources.resources
 C:\Users\ASUS\OneDrive - IPLeiria\TESP-PSI\2º Semestre\DAplic\Projeto\Bookids\Aplicação\Bookids\obj\Debug\Bookids.csproj.GenerateResource.cache

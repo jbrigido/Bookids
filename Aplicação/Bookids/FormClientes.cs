@@ -26,9 +26,8 @@ namespace Bookids
         private void carregarClientes()
         {
             var listaClientes = from clientes in BookidsContainer.ClientesSet
-                                orderby clientes.IdPessoa
-                                select clientes/*new { NrCartao = clientes.NrCartao, Nome = clientes.Nome,
-                                    Telemovel = clientes.Telemovel }*/;
+                                orderby clientes.Nome
+                                select clientes;
             clientesBindingSource.DataSource = listaClientes.ToList();
 
         }
@@ -116,14 +115,23 @@ namespace Bookids
 
         private bool dadosPreenchidosFilhos()
         {
-            if (tbNomeFilho.Text == "")
+            if (tbNomeFilho.Text == string.Empty)
             {
                 return false;
             }
-            else
+           
+            if (dtpDataNascFilho.Value == null)
             {
-                return true;
+                return false;
             }
+
+            if (cbSexoFilho.Text == string.Empty)
+            {
+                return false;
+            }
+
+            return true;
+            
         }
 
         private void dgvFilhos_MouseClick(object sender, MouseEventArgs e)
@@ -140,7 +148,30 @@ namespace Bookids
 
         private void btAdicionarFilho_Click(object sender, EventArgs e)
         {
+            Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
+            if (cliente != null)
+            {
+                if (dadosPreenchidosFilhos())
+                {
+                    Filhos novo = new Filhos()
+                    {
+                        Nome = tbNomeFilho.Text,
+                        DataNascicmento = dtpDataNascFilho.Value,
+                        Sexo = cbSexoFilho.Text,
+                        IdProgenitor = cliente.IdPessoa,
+                        IdEscola = 1,
 
+                        Morada = cliente.Morada,
+                        Localidade = cliente.Localidade,
+                        CodPostal = cliente.CodPostal,
+                        Telefone = cliente.Telefone,
+                        Telemovel = cliente.Telemovel,
+                        Mail = cliente.Mail
+                    };
+
+                }
+            }
+            
         }
     }
 }

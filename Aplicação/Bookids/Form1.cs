@@ -28,5 +28,12 @@ namespace Bookids
             FormEventos formEventos = new FormEventos();
             formEventos.ShowDialog();
         }
+
+        private void btProdutos_Click(object sender, EventArgs e)
+        {
+            FormProdutosLoja formProdutosLoja = new FormProdutosLoja();
+            formProdutosLoja.ShowDialog();
+
+        }
     }
 }

@@ -64,7 +64,7 @@
     <Key>
       <PropertyRef Name="IdPessoa" />
     </Key>
-    <Property Name="IdPessoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPessoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:GetterAccess="Public" />
     <Property Name="Nome" Type="String" Nullable="false" />
     <Property Name="Morada" Type="String" Nullable="false" />
     <Property Name="Localidade" Type="String" Nullable="false" />
@@ -74,7 +74,7 @@
     <Property Name="Mail" Type="String" Nullable="true" />
   </EntityType>
   <EntityType Name="Clientes" BaseType="ModelBookids.Pessoas">
-    <Property Name="NrCartao" Type="String" Nullable="false" />
+    <Property Name="NrCartao" Type="String" Nullable="true" />
     <Property Name="ValorOferta" Type="Int32" Nullable="true" />
     <NavigationProperty Name="Filhos" Relationship="ModelBookids.ClientesFilhos" FromRole="Clientes" ToRole="Filhos" />
     <NavigationProperty Name="Compras" Relationship="ModelBookids.ComprasClientes" FromRole="Clientes" ToRole="Compras" />
