@@ -97,6 +97,12 @@
     <Compile Include="FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEscolas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEscolas.Designer.cs">
+      <DependentUpon>FormEscolas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEventos.cs">
       <SubType>Form</SubType>
     </Compile>
