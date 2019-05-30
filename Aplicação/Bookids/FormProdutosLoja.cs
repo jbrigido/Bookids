@@ -44,8 +44,22 @@ namespace Bookids
                              orderby TipoProduto.Tipo
                              select TipoProduto;
             cbTipoProduto.DataSource = listaTipos.ToList<TipoProduto>();
-            cbTipoProduto.DisplayMember = "Tipo";
-            cbTipoProduto.ValueMember = "CodTipoProduto";
+            //cbTipoProduto.DisplayMember = "Tipo";
+            //cbTipoProduto.ValueMember = "CodTipoProduto";
+        }
+
+        private void cbTipoProduto_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                menuEditarTipo.Show((ComboBox)sender, e.Location);
+            }
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cbTipoProduto.DropDownStyle = ComboBoxStyle.Simple;
+            cbTipoProduto.Text = string.Empty;
         }
 
         private bool dadosPreenchidosProduto()
@@ -70,6 +84,15 @@ namespace Bookids
 
         //insere um novo produto se não tiver nenhum selecionado, se houver seleção
         //guarda os dados do produto selecionado. bloqueia as text boxs.
+        /// <summary>
+        /// Guardar dados do Produto.
+        /// Se a textbox CodProduto estiver vazia verifica se todas as outras estão preeenchidas
+        /// e cria um novo Produto com os dados nas textboxs atuazlizando a gridview no fim
+        /// Se a textbox CodProduto estiver preenchida verifica o Produto selecionado na gridview
+        /// verifica os dados das textboxs e guarda os mesmo no Produto selecionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btGuardar_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Deseja guardar as alterações efetuadas?",
@@ -87,8 +110,7 @@ namespace Bookids
                             Designacao = tbDesignacao.Text,
                             Preco = nmPreco.Value,
                             StockExistente = (Int32)nmStockProduto.Value,
-                            //código para carregar o tipo de produto da combo box
-                            CodTipoProduto = (Int32)cbTipoProduto.SelectedValue
+                            CodTipoProduto = ((TipoProduto)cbTipoProduto.SelectedItem).CodTipoProduto
                         };
                         BookidsContainer.ProdutosSet.Add(novo);
                         BookidsContainer.SaveChanges();
@@ -103,8 +125,11 @@ namespace Bookids
                         produto.Designacao = tbDesignacao.Text;
                         produto.Preco = nmPreco.Value;
                         produto.StockExistente = (Int32)nmStockProduto.Value;
-                        produto.CodTipoProduto = (Int32)cbTipoProduto.SelectedValue;
+                        //produto.CodTipoProduto = (Int32)cbTipoProduto.SelectedValue;
+                        produto.CodTipoProduto = ((TipoProduto)cbTipoProduto.SelectedItem).CodTipoProduto;
+                        BookidsContainer.SaveChanges();
                     }
+
                 }
                 carregarProdutos();
                 tbDesignacao.Enabled = false;
@@ -126,16 +151,23 @@ namespace Bookids
 
         private void btAdicionarTipo_Click(object sender, EventArgs e)
         {
-            if (cbTipoProduto != null)
+            if (cbTipoProduto.Text != string.Empty)
             {
+                
                 TipoProduto novoTipo = new TipoProduto() { Tipo = cbTipoProduto.Text };
                 BookidsContainer.TipoProdutoSet.Add(novoTipo);
                 BookidsContainer.SaveChanges();
+                cbTipoProduto.DropDownStyle = ComboBoxStyle.DropDownList;
                 carregarComboTipo();
             }
         }
 
         //Carrega a informação do produto selecionado para as text boxs
+        /// <summary>
+        /// Carrega as textbox relativas ao Produto selecionado na data grid view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvProdutosLoja_MouseClick(object sender, MouseEventArgs e)
         {
             Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
@@ -149,10 +181,16 @@ namespace Bookids
             }
         }
 
-        //limpa e desbloqueia as text boxs para edição
+        /// <summary>
+        /// Desbloqueia as textbox relativas ao Produto
+        /// Limpa as textbox relativas ao Produto e torna-as editaveis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btInserirProduto_Click(object sender, EventArgs e)
         {
             dgvProdutosLoja.ClearSelection();
+            tbCodProduto.Clear();
             tbDesignacao.Enabled = true;
             tbDesignacao.Clear();
             nmPreco.Enabled = true;
@@ -162,12 +200,32 @@ namespace Bookids
             cbTipoProduto.Enabled = true;
         }
 
+
+        //Habilita a edição nas textboxs
         private void btEditarProduto_Click(object sender, EventArgs e)
         {
             tbDesignacao.Enabled = true;
             nmPreco.Enabled = true;
             nmStockProduto.Enabled = true;
             cbTipoProduto.Enabled = true;
+        }
+
+        private void btApagarProduto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
+
+                BookidsContainer.ProdutosSet.Remove(produto);
+                BookidsContainer.SaveChanges();
+                carregarProdutos();
+            }
+            catch
+            {
+                MessageBox.Show("Nenhum produto selecionado!");
+            }
+            
+
         }
     }
 }
