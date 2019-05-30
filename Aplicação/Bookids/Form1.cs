@@ -35,5 +35,11 @@ namespace Bookids
             formProdutosLoja.ShowDialog();
 
         }
+
+        private void btEscolas_Click(object sender, EventArgs e)
+        {
+            FormEscolas formEscolas = new FormEscolas();
+            formEscolas.ShowDialog();
+        }
     }
 }

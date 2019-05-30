@@ -119,6 +119,7 @@
             this.btEscolas.TabIndex = 5;
             this.btEscolas.Text = "Gestão de Escolas";
             this.btEscolas.UseVisualStyleBackColor = true;
+            this.btEscolas.Click += new System.EventHandler(this.btEscolas_Click);
             // 
             // tbInfo
             // 

@@ -46,15 +46,13 @@
             this.tbMoradaEscolas = new System.Windows.Forms.TextBox();
             this.tbLocalidadeEscolas = new System.Windows.Forms.TextBox();
             this.tbMailEscolas = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvEscolas = new System.Windows.Forms.DataGridView();
+            this.escolasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.filhosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.escolasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxEscolas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEscolas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escolasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,6 +157,7 @@
             this.btEditarEscola.TabIndex = 36;
             this.btEditarEscola.Text = "Editar Escola";
             this.btEditarEscola.UseVisualStyleBackColor = true;
+            this.btEditarEscola.Click += new System.EventHandler(this.btEditarEscola_Click);
             // 
             // btAdicionarEscola
             // 
@@ -168,6 +167,7 @@
             this.btAdicionarEscola.TabIndex = 35;
             this.btAdicionarEscola.Text = "Adicionar Escola";
             this.btAdicionarEscola.UseVisualStyleBackColor = true;
+            this.btAdicionarEscola.Click += new System.EventHandler(this.btAdicionarEscola_Click);
             // 
             // tbNomeEscolas
             // 
@@ -193,6 +193,7 @@
             this.btGuardarEscola.TabIndex = 32;
             this.btGuardarEscola.Text = "Guardar Alterações";
             this.btGuardarEscola.UseVisualStyleBackColor = true;
+            this.btGuardarEscola.Click += new System.EventHandler(this.btGuardarEscola_Click);
             // 
             // tbTelefoneEscolas
             // 
@@ -222,24 +223,26 @@
             this.tbMailEscolas.Size = new System.Drawing.Size(161, 20);
             this.tbMailEscolas.TabIndex = 30;
             // 
-            // dataGridView1
+            // dgvEscolas
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEscolas.AllowUserToAddRows = false;
+            this.dgvEscolas.AllowUserToDeleteRows = false;
+            this.dgvEscolas.AutoGenerateColumns = false;
+            this.dgvEscolas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEscolas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomeDataGridViewTextBoxColumn,
             this.telefoneDataGridViewTextBoxColumn,
-            this.localidadeDataGridViewTextBoxColumn,
-            this.filhosDataGridViewTextBoxColumn,
-            this.participacoesDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.escolasBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(259, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(488, 301);
-            this.dataGridView1.TabIndex = 38;
+            this.localidadeDataGridViewTextBoxColumn});
+            this.dgvEscolas.DataSource = this.escolasBindingSource;
+            this.dgvEscolas.Location = new System.Drawing.Point(259, 12);
+            this.dgvEscolas.Name = "dgvEscolas";
+            this.dgvEscolas.ReadOnly = true;
+            this.dgvEscolas.Size = new System.Drawing.Size(488, 301);
+            this.dgvEscolas.TabIndex = 38;
+            // 
+            // escolasBindingSource
+            // 
+            this.escolasBindingSource.DataSource = typeof(Bookids.Escolas);
             // 
             // nomeDataGridViewTextBoxColumn
             // 
@@ -262,36 +265,19 @@
             this.localidadeDataGridViewTextBoxColumn.Name = "localidadeDataGridViewTextBoxColumn";
             this.localidadeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // filhosDataGridViewTextBoxColumn
-            // 
-            this.filhosDataGridViewTextBoxColumn.DataPropertyName = "Filhos";
-            this.filhosDataGridViewTextBoxColumn.HeaderText = "Filhos";
-            this.filhosDataGridViewTextBoxColumn.Name = "filhosDataGridViewTextBoxColumn";
-            this.filhosDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // participacoesDataGridViewTextBoxColumn
-            // 
-            this.participacoesDataGridViewTextBoxColumn.DataPropertyName = "Participacoes";
-            this.participacoesDataGridViewTextBoxColumn.HeaderText = "Participacoes";
-            this.participacoesDataGridViewTextBoxColumn.Name = "participacoesDataGridViewTextBoxColumn";
-            this.participacoesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // escolasBindingSource
-            // 
-            this.escolasBindingSource.DataSource = typeof(Bookids.Escolas);
-            // 
             // FormEscolas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(766, 330);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvEscolas);
             this.Controls.Add(this.groupBoxEscolas);
             this.Name = "FormEscolas";
             this.Text = "FormEscolas";
+            this.Load += new System.EventHandler(this.FormEscolas_Load);
             this.groupBoxEscolas.ResumeLayout(false);
             this.groupBoxEscolas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEscolas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.escolasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -309,12 +295,7 @@
         private System.Windows.Forms.TextBox tbMailEscolas;
         private System.Windows.Forms.Button btAdicionarEscola;
         private System.Windows.Forms.Button btEditarEscola;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn localidadeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn filhosDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn participacoesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dgvEscolas;
         private System.Windows.Forms.BindingSource escolasBindingSource;
         private System.Windows.Forms.Label labelNomeEscola;
         private System.Windows.Forms.Label labelMoradaEscola;
@@ -323,5 +304,8 @@
         private System.Windows.Forms.Label labelMailEscolas;
         private System.Windows.Forms.Label labelTelefone;
         private System.Windows.Forms.Label labelLocalidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localidadeDataGridViewTextBoxColumn;
     }
 }
