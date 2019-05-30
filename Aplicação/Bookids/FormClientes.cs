@@ -159,6 +159,8 @@ namespace Bookids
                         DataNascicmento = dtpDataNascFilho.Value,
                         Sexo = cbSexoFilho.Text,
                         IdProgenitor = cliente.IdPessoa,
+                        
+                        //a espera das Escolas
                         IdEscola = 1,
 
                         Morada = cliente.Morada,
