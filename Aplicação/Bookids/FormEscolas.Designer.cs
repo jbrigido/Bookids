@@ -47,6 +47,7 @@
             this.tbLocalidadeEscolas = new System.Windows.Forms.TextBox();
             this.tbMailEscolas = new System.Windows.Forms.TextBox();
             this.dgvEscolas = new System.Windows.Forms.DataGridView();
+            this.btCancelClean = new System.Windows.Forms.Button();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +59,7 @@
             // 
             // groupBoxEscolas
             // 
+            this.groupBoxEscolas.Controls.Add(this.btCancelClean);
             this.groupBoxEscolas.Controls.Add(this.labelMailEscolas);
             this.groupBoxEscolas.Controls.Add(this.labelTelefone);
             this.groupBoxEscolas.Controls.Add(this.labelLocalidade);
@@ -76,7 +78,7 @@
             this.groupBoxEscolas.Controls.Add(this.tbMailEscolas);
             this.groupBoxEscolas.Location = new System.Drawing.Point(12, 12);
             this.groupBoxEscolas.Name = "groupBoxEscolas";
-            this.groupBoxEscolas.Size = new System.Drawing.Size(241, 301);
+            this.groupBoxEscolas.Size = new System.Drawing.Size(241, 332);
             this.groupBoxEscolas.TabIndex = 37;
             this.groupBoxEscolas.TabStop = false;
             this.groupBoxEscolas.Text = "Dados Escolas";
@@ -184,6 +186,7 @@
             this.btApagarEscola.TabIndex = 34;
             this.btApagarEscola.Text = "Apagar Escola";
             this.btApagarEscola.UseVisualStyleBackColor = true;
+            this.btApagarEscola.Click += new System.EventHandler(this.btApagarEscola_Click);
             // 
             // btGuardarEscola
             // 
@@ -237,9 +240,20 @@
             this.dgvEscolas.Location = new System.Drawing.Point(259, 12);
             this.dgvEscolas.Name = "dgvEscolas";
             this.dgvEscolas.ReadOnly = true;
-            this.dgvEscolas.Size = new System.Drawing.Size(347, 301);
+            this.dgvEscolas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEscolas.Size = new System.Drawing.Size(347, 332);
             this.dgvEscolas.TabIndex = 38;
             this.dgvEscolas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEscolas_MouseClick);
+            // 
+            // btCancelClean
+            // 
+            this.btCancelClean.Location = new System.Drawing.Point(6, 301);
+            this.btCancelClean.Name = "btCancelClean";
+            this.btCancelClean.Size = new System.Drawing.Size(229, 23);
+            this.btCancelClean.TabIndex = 45;
+            this.btCancelClean.Text = "Cancelar/Limpar Selecção";
+            this.btCancelClean.UseVisualStyleBackColor = true;
+            this.btCancelClean.Click += new System.EventHandler(this.btCancelClean_Click);
             // 
             // nomeDataGridViewTextBoxColumn
             // 
@@ -270,7 +284,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 330);
+            this.ClientSize = new System.Drawing.Size(618, 356);
             this.Controls.Add(this.dgvEscolas);
             this.Controls.Add(this.groupBoxEscolas);
             this.Name = "FormEscolas";
@@ -308,5 +322,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn localidadeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btCancelClean;
     }
 }

@@ -33,6 +33,7 @@ namespace Bookids
             btEditarEscola.Enabled = false;
             btGuardarEscola.Enabled = false;
             btApagarEscola.Enabled = false;
+            btCancelClean.Enabled = false;
         }
 
         private void carregarEscolas()
@@ -67,6 +68,7 @@ namespace Bookids
         {
             dgvEscolas.ClearSelection();
             btGuardarEscola.Enabled = true;
+            btCancelClean.Enabled = true;
             tbNomeEscolas.Enabled = true;
             tbMoradaEscolas.Enabled = true;
             tbCodPostalEscolas.Enabled = true;
@@ -79,6 +81,7 @@ namespace Bookids
         private void btEditarEscola_Click(object sender, EventArgs e)
         {
             btGuardarEscola.Enabled = true;
+            btCancelClean.Enabled = true;
             tbNomeEscolas.Enabled = true;
             tbMoradaEscolas.Enabled = true;
             tbCodPostalEscolas.Enabled = true;
@@ -145,6 +148,7 @@ namespace Bookids
                     btAdicionarEscola.Enabled = false;
                     btEditarEscola.Enabled = true;
                     btApagarEscola.Enabled = true;
+                    btCancelClean.Enabled = true;
 
                     tbNomeEscolas.Text = escola.Nome;
                     tbMoradaEscolas.Text = escola.Morada;
@@ -179,6 +183,30 @@ namespace Bookids
             btGuardarEscola.Enabled = false;
             btEditarEscola.Enabled = false;
             btApagarEscola.Enabled = false;
+            btCancelClean.Enabled = false;
+        }
+
+        private void btCancelClean_Click(object sender, EventArgs e)
+        {
+            limparDados();
+        }
+
+        private void btApagarEscola_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja apagar esta escola ?",
+                "Apagar", MessageBoxButtons.YesNo);
+
+            if(dr == DialogResult.Yes)
+            {
+                Escolas escola = (Escolas)dgvEscolas.SelectedRows[0].DataBoundItem;
+                if (escola != null)
+                {
+                    BookidsContainer.EscolasSet.Remove(escola);
+                    BookidsContainer.SaveChanges();
+                    limparDados();
+                    carregarEscolas();
+                }
+            }            
         }
     }
 }
