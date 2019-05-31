@@ -47,10 +47,10 @@
             this.tbLocalidadeEscolas = new System.Windows.Forms.TextBox();
             this.tbMailEscolas = new System.Windows.Forms.TextBox();
             this.dgvEscolas = new System.Windows.Forms.DataGridView();
-            this.escolasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.escolasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxEscolas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscolas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escolasBindingSource)).BeginInit();
@@ -237,12 +237,9 @@
             this.dgvEscolas.Location = new System.Drawing.Point(259, 12);
             this.dgvEscolas.Name = "dgvEscolas";
             this.dgvEscolas.ReadOnly = true;
-            this.dgvEscolas.Size = new System.Drawing.Size(488, 301);
+            this.dgvEscolas.Size = new System.Drawing.Size(347, 301);
             this.dgvEscolas.TabIndex = 38;
-            // 
-            // escolasBindingSource
-            // 
-            this.escolasBindingSource.DataSource = typeof(Bookids.Escolas);
+            this.dgvEscolas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEscolas_MouseClick);
             // 
             // nomeDataGridViewTextBoxColumn
             // 
@@ -265,11 +262,15 @@
             this.localidadeDataGridViewTextBoxColumn.Name = "localidadeDataGridViewTextBoxColumn";
             this.localidadeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // escolasBindingSource
+            // 
+            this.escolasBindingSource.DataSource = typeof(Bookids.Escolas);
+            // 
             // FormEscolas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 330);
+            this.ClientSize = new System.Drawing.Size(618, 330);
             this.Controls.Add(this.dgvEscolas);
             this.Controls.Add(this.groupBoxEscolas);
             this.Name = "FormEscolas";

@@ -30,6 +30,9 @@ namespace Bookids
             tbLocalidadeEscolas.Enabled = false;
             tbTelefoneEscolas.Enabled = false;
             tbMailEscolas.Enabled = false;
+            btEditarEscola.Enabled = false;
+            btGuardarEscola.Enabled = false;
+            btApagarEscola.Enabled = false;
         }
 
         private void carregarEscolas()
@@ -63,6 +66,7 @@ namespace Bookids
         private void btAdicionarEscola_Click(object sender, EventArgs e)
         {
             dgvEscolas.ClearSelection();
+            btGuardarEscola.Enabled = true;
             tbNomeEscolas.Enabled = true;
             tbMoradaEscolas.Enabled = true;
             tbCodPostalEscolas.Enabled = true;
@@ -74,6 +78,7 @@ namespace Bookids
 
         private void btEditarEscola_Click(object sender, EventArgs e)
         {
+            btGuardarEscola.Enabled = true;
             tbNomeEscolas.Enabled = true;
             tbMoradaEscolas.Enabled = true;
             tbCodPostalEscolas.Enabled = true;
@@ -95,6 +100,7 @@ namespace Bookids
                     Escolas escola = (Escolas)dgvEscolas.SelectedRows[0].DataBoundItem;
                     if (dadosPreenchidosEscolas())
                     {
+                        btAdicionarEscola.Enabled = false;
                         escola.Nome = tbNomeEscolas.Text;
                         escola.Morada = tbMoradaEscolas.Text;
                         escola.CodPostal = tbCodPostalEscolas.Text;
@@ -103,6 +109,8 @@ namespace Bookids
                         escola.Mail = tbMailEscolas.Text;
                     }
                     BookidsContainer.SaveChanges();
+                    limparDados();
+                    carregarEscolas();           
                 }
                 catch(ArgumentOutOfRangeException ex)
                 {            
@@ -120,11 +128,57 @@ namespace Bookids
                         };
                         BookidsContainer.EscolasSet.Add(nova);
                         BookidsContainer.SaveChanges();
+                        limparDados();
                         carregarEscolas();
                     }
                 }
-                            
+            }                      
+        }
+
+        private void dgvEscolas_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                Escolas escola = (Escolas)dgvEscolas.SelectedRows[0].DataBoundItem;
+                if (escola != null)
+                {
+                    btAdicionarEscola.Enabled = false;
+                    btEditarEscola.Enabled = true;
+                    btApagarEscola.Enabled = true;
+
+                    tbNomeEscolas.Text = escola.Nome;
+                    tbMoradaEscolas.Text = escola.Morada;
+                    tbCodPostalEscolas.Text = escola.CodPostal;
+                    tbLocalidadeEscolas.Text = escola.Localidade;
+                    tbTelefoneEscolas.Text = escola.Telefone;
+                    tbMailEscolas.Text = escola.Mail;
+                }
             }
+            catch(ArgumentOutOfRangeException ex)
+            {
+
+            }
+        }
+
+        private void limparDados()
+        {
+            dgvEscolas.ClearSelection();
+            tbNomeEscolas.Clear();
+            tbMoradaEscolas.Clear();
+            tbCodPostalEscolas.Clear();
+            tbLocalidadeEscolas.Clear();
+            tbTelefoneEscolas.Clear();
+            tbMailEscolas.Clear();
+            tbNomeEscolas.Enabled = false;
+            tbMoradaEscolas.Enabled = false;
+            tbCodPostalEscolas.Enabled = false;
+            tbLocalidadeEscolas.Enabled = false;
+            tbTelefoneEscolas.Enabled = false;
+            tbMailEscolas.Enabled = false;
+            btAdicionarEscola.Enabled = true;
+            btGuardarEscola.Enabled = false;
+            btEditarEscola.Enabled = false;
+            btApagarEscola.Enabled = false;
         }
     }
 }
