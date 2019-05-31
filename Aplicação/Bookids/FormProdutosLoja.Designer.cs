@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvProdutosLoja = new System.Windows.Forms.DataGridView();
             this.btInserirProduto = new System.Windows.Forms.Button();
             this.btEditarProduto = new System.Windows.Forms.Button();
@@ -45,6 +46,9 @@
             this.cbTipoProduto = new System.Windows.Forms.ComboBox();
             this.tbDesignacao = new System.Windows.Forms.TextBox();
             this.btAdicionarTipo = new System.Windows.Forms.Button();
+            this.menuEditarTipo = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gbPL = new System.Windows.Forms.GroupBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosLoja)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmStockProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmPreco)).BeginInit();
+            this.menuEditarTipo.SuspendLayout();
+            this.gbPL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,19 +77,19 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn7});
             this.dgvProdutosLoja.DataSource = this.produtosBindingSource;
-            this.dgvProdutosLoja.Location = new System.Drawing.Point(12, 196);
+            this.dgvProdutosLoja.Location = new System.Drawing.Point(315, 12);
             this.dgvProdutosLoja.Name = "dgvProdutosLoja";
             this.dgvProdutosLoja.ReadOnly = true;
             this.dgvProdutosLoja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdutosLoja.Size = new System.Drawing.Size(539, 368);
+            this.dgvProdutosLoja.Size = new System.Drawing.Size(543, 269);
             this.dgvProdutosLoja.TabIndex = 1;
             this.dgvProdutosLoja.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProdutosLoja_MouseClick);
             // 
             // btInserirProduto
             // 
-            this.btInserirProduto.Location = new System.Drawing.Point(9, 28);
+            this.btInserirProduto.Location = new System.Drawing.Point(7, 134);
             this.btInserirProduto.Name = "btInserirProduto";
-            this.btInserirProduto.Size = new System.Drawing.Size(131, 23);
+            this.btInserirProduto.Size = new System.Drawing.Size(252, 23);
             this.btInserirProduto.TabIndex = 2;
             this.btInserirProduto.Text = "Inserir Novo Produto";
             this.btInserirProduto.UseVisualStyleBackColor = true;
@@ -91,9 +97,9 @@
             // 
             // btEditarProduto
             // 
-            this.btEditarProduto.Location = new System.Drawing.Point(146, 28);
+            this.btEditarProduto.Location = new System.Drawing.Point(7, 163);
             this.btEditarProduto.Name = "btEditarProduto";
-            this.btEditarProduto.Size = new System.Drawing.Size(131, 23);
+            this.btEditarProduto.Size = new System.Drawing.Size(252, 23);
             this.btEditarProduto.TabIndex = 3;
             this.btEditarProduto.Text = "Editar Produto";
             this.btEditarProduto.UseVisualStyleBackColor = true;
@@ -101,18 +107,19 @@
             // 
             // btApagarProduto
             // 
-            this.btApagarProduto.Location = new System.Drawing.Point(283, 28);
+            this.btApagarProduto.Location = new System.Drawing.Point(7, 221);
             this.btApagarProduto.Name = "btApagarProduto";
-            this.btApagarProduto.Size = new System.Drawing.Size(131, 23);
+            this.btApagarProduto.Size = new System.Drawing.Size(252, 23);
             this.btApagarProduto.TabIndex = 4;
             this.btApagarProduto.Text = "Apagar Produto";
             this.btApagarProduto.UseVisualStyleBackColor = true;
+            this.btApagarProduto.Click += new System.EventHandler(this.btApagarProduto_Click);
             // 
             // btGuardar
             // 
-            this.btGuardar.Location = new System.Drawing.Point(420, 28);
+            this.btGuardar.Location = new System.Drawing.Point(7, 192);
             this.btGuardar.Name = "btGuardar";
-            this.btGuardar.Size = new System.Drawing.Size(131, 23);
+            this.btGuardar.Size = new System.Drawing.Size(252, 23);
             this.btGuardar.TabIndex = 5;
             this.btGuardar.Text = "Guardar Alterações";
             this.btGuardar.UseVisualStyleBackColor = true;
@@ -121,7 +128,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(159, 123);
+            this.label5.Location = new System.Drawing.Point(140, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 31;
@@ -130,7 +137,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 123);
+            this.label4.Location = new System.Drawing.Point(4, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 30;
@@ -139,7 +146,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(159, 84);
+            this.label3.Location = new System.Drawing.Point(4, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 29;
@@ -148,7 +155,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 163);
+            this.label2.Location = new System.Drawing.Point(4, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 28;
@@ -157,7 +164,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 84);
+            this.label1.Location = new System.Drawing.Point(5, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 27;
@@ -165,7 +172,7 @@
             // 
             // nmStockProduto
             // 
-            this.nmStockProduto.Location = new System.Drawing.Point(71, 121);
+            this.nmStockProduto.Location = new System.Drawing.Point(48, 71);
             this.nmStockProduto.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -179,7 +186,7 @@
             // tbCodProduto
             // 
             this.tbCodProduto.Enabled = false;
-            this.tbCodProduto.Location = new System.Drawing.Point(71, 81);
+            this.tbCodProduto.Location = new System.Drawing.Point(48, 19);
             this.tbCodProduto.Name = "tbCodProduto";
             this.tbCodProduto.Size = new System.Drawing.Size(70, 20);
             this.tbCodProduto.TabIndex = 22;
@@ -193,7 +200,7 @@
             0,
             0,
             131072});
-            this.nmPreco.Location = new System.Drawing.Point(232, 121);
+            this.nmPreco.Location = new System.Drawing.Point(186, 71);
             this.nmPreco.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -205,7 +212,7 @@
             0,
             131072});
             this.nmPreco.Name = "nmPreco";
-            this.nmPreco.Size = new System.Drawing.Size(106, 20);
+            this.nmPreco.Size = new System.Drawing.Size(74, 20);
             this.nmPreco.TabIndex = 25;
             this.nmPreco.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nmPreco.Value = new decimal(new int[] {
@@ -222,27 +229,66 @@
             "Tipo1",
             "Tipo2",
             "Tipo3"});
-            this.cbTipoProduto.Location = new System.Drawing.Point(71, 160);
+            this.cbTipoProduto.Location = new System.Drawing.Point(48, 98);
             this.cbTipoProduto.Name = "cbTipoProduto";
-            this.cbTipoProduto.Size = new System.Drawing.Size(238, 21);
+            this.cbTipoProduto.Size = new System.Drawing.Size(182, 21);
             this.cbTipoProduto.TabIndex = 24;
+            this.cbTipoProduto.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cbTipoProduto_MouseUp);
             // 
             // tbDesignacao
             // 
-            this.tbDesignacao.Location = new System.Drawing.Point(232, 81);
+            this.tbDesignacao.Location = new System.Drawing.Point(77, 45);
             this.tbDesignacao.Name = "tbDesignacao";
-            this.tbDesignacao.Size = new System.Drawing.Size(319, 20);
+            this.tbDesignacao.Size = new System.Drawing.Size(183, 20);
             this.tbDesignacao.TabIndex = 23;
             // 
             // btAdicionarTipo
             // 
-            this.btAdicionarTipo.Location = new System.Drawing.Point(315, 159);
+            this.btAdicionarTipo.Location = new System.Drawing.Point(236, 98);
             this.btAdicionarTipo.Name = "btAdicionarTipo";
             this.btAdicionarTipo.Size = new System.Drawing.Size(23, 21);
             this.btAdicionarTipo.TabIndex = 32;
             this.btAdicionarTipo.Text = "+";
             this.btAdicionarTipo.UseVisualStyleBackColor = true;
             this.btAdicionarTipo.Click += new System.EventHandler(this.btAdicionarTipo_Click);
+            // 
+            // menuEditarTipo
+            // 
+            this.menuEditarTipo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarToolStripMenuItem});
+            this.menuEditarTipo.Name = "menuEditarTipo";
+            this.menuEditarTipo.Size = new System.Drawing.Size(105, 26);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
+            // gbPL
+            // 
+            this.gbPL.Controls.Add(this.tbDesignacao);
+            this.gbPL.Controls.Add(this.btInserirProduto);
+            this.gbPL.Controls.Add(this.btAdicionarTipo);
+            this.gbPL.Controls.Add(this.btEditarProduto);
+            this.gbPL.Controls.Add(this.label5);
+            this.gbPL.Controls.Add(this.btApagarProduto);
+            this.gbPL.Controls.Add(this.label4);
+            this.gbPL.Controls.Add(this.btGuardar);
+            this.gbPL.Controls.Add(this.label3);
+            this.gbPL.Controls.Add(this.cbTipoProduto);
+            this.gbPL.Controls.Add(this.label2);
+            this.gbPL.Controls.Add(this.nmPreco);
+            this.gbPL.Controls.Add(this.label1);
+            this.gbPL.Controls.Add(this.tbCodProduto);
+            this.gbPL.Controls.Add(this.nmStockProduto);
+            this.gbPL.Location = new System.Drawing.Point(12, 12);
+            this.gbPL.Name = "gbPL";
+            this.gbPL.Size = new System.Drawing.Size(271, 264);
+            this.gbPL.TabIndex = 34;
+            this.gbPL.TabStop = false;
+            this.gbPL.Text = "Dados Produto";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -261,6 +307,9 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Preco";
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = "0,00";
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn3.HeaderText = "Preco";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -287,22 +336,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 605);
-            this.Controls.Add(this.btAdicionarTipo);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.nmStockProduto);
-            this.Controls.Add(this.tbCodProduto);
-            this.Controls.Add(this.nmPreco);
-            this.Controls.Add(this.cbTipoProduto);
-            this.Controls.Add(this.tbDesignacao);
-            this.Controls.Add(this.btGuardar);
-            this.Controls.Add(this.btApagarProduto);
-            this.Controls.Add(this.btEditarProduto);
-            this.Controls.Add(this.btInserirProduto);
+            this.ClientSize = new System.Drawing.Size(885, 299);
+            this.Controls.Add(this.gbPL);
             this.Controls.Add(this.dgvProdutosLoja);
             this.Name = "FormProdutosLoja";
             this.Text = "FormProdutosLoja";
@@ -310,9 +345,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosLoja)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmStockProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmPreco)).EndInit();
+            this.menuEditarTipo.ResumeLayout(false);
+            this.gbPL.ResumeLayout(false);
+            this.gbPL.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -336,6 +373,9 @@
         private System.Windows.Forms.ComboBox cbTipoProduto;
         private System.Windows.Forms.TextBox tbDesignacao;
         private System.Windows.Forms.Button btAdicionarTipo;
+        private System.Windows.Forms.ContextMenuStrip menuEditarTipo;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
+        private System.Windows.Forms.GroupBox gbPL;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
