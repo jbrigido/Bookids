@@ -29,17 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.especialidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moradaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codPostalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telemovelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.animadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvAnimadores = new System.Windows.Forms.DataGridView();
             this.groupBoxAnimadores = new System.Windows.Forms.GroupBox();
+            this.tbEspecialidadeAnimadores = new System.Windows.Forms.TextBox();
+            this.labelEspecialidade = new System.Windows.Forms.Label();
+            this.btCancelClean = new System.Windows.Forms.Button();
+            this.labelMail = new System.Windows.Forms.Label();
+            this.tbMailAnimadores = new System.Windows.Forms.TextBox();
             this.labelTelemovel = new System.Windows.Forms.Label();
             this.labelTelefone = new System.Windows.Forms.Label();
             this.labelLocalidade = new System.Windows.Forms.Label();
@@ -48,7 +44,7 @@
             this.labelMoradaAnimadores = new System.Windows.Forms.Label();
             this.labelNomeAnimadores = new System.Windows.Forms.Label();
             this.btEditarAnimadores = new System.Windows.Forms.Button();
-            this.btAdicionarAnimaodres = new System.Windows.Forms.Button();
+            this.btAdicionarAnimadores = new System.Windows.Forms.Button();
             this.tbNomeAnimadores = new System.Windows.Forms.TextBox();
             this.btApagarAnimadores = new System.Windows.Forms.Button();
             this.btGuardarAnimadores = new System.Windows.Forms.Button();
@@ -56,97 +52,38 @@
             this.tbMoradaAnimadores = new System.Windows.Forms.TextBox();
             this.tbLocalidadeAnimadores = new System.Windows.Forms.TextBox();
             this.tbTelemovelAnimadores = new System.Windows.Forms.TextBox();
-            this.tbMailAnimadores = new System.Windows.Forms.TextBox();
-            this.labelMail = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).BeginInit();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.especialidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.animadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnimadores)).BeginInit();
             this.groupBoxAnimadores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvAnimadores
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.especialidadeDataGridViewTextBoxColumn,
+            this.dgvAnimadores.AllowUserToAddRows = false;
+            this.dgvAnimadores.AllowUserToDeleteRows = false;
+            this.dgvAnimadores.AutoGenerateColumns = false;
+            this.dgvAnimadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAnimadores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomeDataGridViewTextBoxColumn,
-            this.moradaDataGridViewTextBoxColumn,
             this.localidadeDataGridViewTextBoxColumn,
-            this.codPostalDataGridViewTextBoxColumn,
-            this.telefoneDataGridViewTextBoxColumn,
-            this.telemovelDataGridViewTextBoxColumn,
-            this.mailDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.animadoresBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(259, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(511, 332);
-            this.dataGridView1.TabIndex = 37;
-            // 
-            // especialidadeDataGridViewTextBoxColumn
-            // 
-            this.especialidadeDataGridViewTextBoxColumn.DataPropertyName = "Especialidade";
-            this.especialidadeDataGridViewTextBoxColumn.HeaderText = "Especialidade";
-            this.especialidadeDataGridViewTextBoxColumn.Name = "especialidadeDataGridViewTextBoxColumn";
-            this.especialidadeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // moradaDataGridViewTextBoxColumn
-            // 
-            this.moradaDataGridViewTextBoxColumn.DataPropertyName = "Morada";
-            this.moradaDataGridViewTextBoxColumn.HeaderText = "Morada";
-            this.moradaDataGridViewTextBoxColumn.Name = "moradaDataGridViewTextBoxColumn";
-            this.moradaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // localidadeDataGridViewTextBoxColumn
-            // 
-            this.localidadeDataGridViewTextBoxColumn.DataPropertyName = "Localidade";
-            this.localidadeDataGridViewTextBoxColumn.HeaderText = "Localidade";
-            this.localidadeDataGridViewTextBoxColumn.Name = "localidadeDataGridViewTextBoxColumn";
-            this.localidadeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codPostalDataGridViewTextBoxColumn
-            // 
-            this.codPostalDataGridViewTextBoxColumn.DataPropertyName = "CodPostal";
-            this.codPostalDataGridViewTextBoxColumn.HeaderText = "CodPostal";
-            this.codPostalDataGridViewTextBoxColumn.Name = "codPostalDataGridViewTextBoxColumn";
-            this.codPostalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telefoneDataGridViewTextBoxColumn
-            // 
-            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "Telefone";
-            this.telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
-            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
-            this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telemovelDataGridViewTextBoxColumn
-            // 
-            this.telemovelDataGridViewTextBoxColumn.DataPropertyName = "Telemovel";
-            this.telemovelDataGridViewTextBoxColumn.HeaderText = "Telemovel";
-            this.telemovelDataGridViewTextBoxColumn.Name = "telemovelDataGridViewTextBoxColumn";
-            this.telemovelDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mailDataGridViewTextBoxColumn
-            // 
-            this.mailDataGridViewTextBoxColumn.DataPropertyName = "Mail";
-            this.mailDataGridViewTextBoxColumn.HeaderText = "Mail";
-            this.mailDataGridViewTextBoxColumn.Name = "mailDataGridViewTextBoxColumn";
-            this.mailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // animadoresBindingSource
-            // 
-            this.animadoresBindingSource.DataSource = typeof(Bookids.Animadores);
+            this.especialidadeDataGridViewTextBoxColumn});
+            this.dgvAnimadores.DataSource = this.animadoresBindingSource;
+            this.dgvAnimadores.Location = new System.Drawing.Point(259, 12);
+            this.dgvAnimadores.Name = "dgvAnimadores";
+            this.dgvAnimadores.ReadOnly = true;
+            this.dgvAnimadores.Size = new System.Drawing.Size(346, 383);
+            this.dgvAnimadores.TabIndex = 37;
+            this.dgvAnimadores.Click += new System.EventHandler(this.dgvAnimadores_Click);
             // 
             // groupBoxAnimadores
             // 
+            this.groupBoxAnimadores.Controls.Add(this.tbEspecialidadeAnimadores);
+            this.groupBoxAnimadores.Controls.Add(this.labelEspecialidade);
+            this.groupBoxAnimadores.Controls.Add(this.btCancelClean);
             this.groupBoxAnimadores.Controls.Add(this.labelMail);
             this.groupBoxAnimadores.Controls.Add(this.tbMailAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.labelTelemovel);
@@ -157,7 +94,7 @@
             this.groupBoxAnimadores.Controls.Add(this.labelMoradaAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.labelNomeAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.btEditarAnimadores);
-            this.groupBoxAnimadores.Controls.Add(this.btAdicionarAnimaodres);
+            this.groupBoxAnimadores.Controls.Add(this.btAdicionarAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.tbNomeAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.btApagarAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.btGuardarAnimadores);
@@ -167,10 +104,54 @@
             this.groupBoxAnimadores.Controls.Add(this.tbTelemovelAnimadores);
             this.groupBoxAnimadores.Location = new System.Drawing.Point(12, 12);
             this.groupBoxAnimadores.Name = "groupBoxAnimadores";
-            this.groupBoxAnimadores.Size = new System.Drawing.Size(241, 332);
+            this.groupBoxAnimadores.Size = new System.Drawing.Size(241, 383);
             this.groupBoxAnimadores.TabIndex = 38;
             this.groupBoxAnimadores.TabStop = false;
             this.groupBoxAnimadores.Text = "Dados Animadores";
+            // 
+            // tbEspecialidadeAnimadores
+            // 
+            this.tbEspecialidadeAnimadores.Location = new System.Drawing.Point(87, 205);
+            this.tbEspecialidadeAnimadores.Name = "tbEspecialidadeAnimadores";
+            this.tbEspecialidadeAnimadores.Size = new System.Drawing.Size(148, 20);
+            this.tbEspecialidadeAnimadores.TabIndex = 49;
+            // 
+            // labelEspecialidade
+            // 
+            this.labelEspecialidade.AutoSize = true;
+            this.labelEspecialidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.labelEspecialidade.Location = new System.Drawing.Point(6, 212);
+            this.labelEspecialidade.Name = "labelEspecialidade";
+            this.labelEspecialidade.Size = new System.Drawing.Size(76, 13);
+            this.labelEspecialidade.TabIndex = 48;
+            this.labelEspecialidade.Text = "Especialidade:";
+            // 
+            // btCancelClean
+            // 
+            this.btCancelClean.Location = new System.Drawing.Point(6, 355);
+            this.btCancelClean.Name = "btCancelClean";
+            this.btCancelClean.Size = new System.Drawing.Size(229, 23);
+            this.btCancelClean.TabIndex = 47;
+            this.btCancelClean.Text = "Cancelar/Limpar Seleção";
+            this.btCancelClean.UseVisualStyleBackColor = true;
+            this.btCancelClean.Click += new System.EventHandler(this.btCancelClean_Click);
+            // 
+            // labelMail
+            // 
+            this.labelMail.AutoSize = true;
+            this.labelMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.labelMail.Location = new System.Drawing.Point(6, 182);
+            this.labelMail.Name = "labelMail";
+            this.labelMail.Size = new System.Drawing.Size(39, 13);
+            this.labelMail.TabIndex = 46;
+            this.labelMail.Text = "E-Mail:";
+            // 
+            // tbMailAnimadores
+            // 
+            this.tbMailAnimadores.Location = new System.Drawing.Point(74, 175);
+            this.tbMailAnimadores.Name = "tbMailAnimadores";
+            this.tbMailAnimadores.Size = new System.Drawing.Size(161, 20);
+            this.tbMailAnimadores.TabIndex = 45;
             // 
             // labelTelemovel
             // 
@@ -242,21 +223,23 @@
             // 
             // btEditarAnimadores
             // 
-            this.btEditarAnimadores.Location = new System.Drawing.Point(6, 241);
+            this.btEditarAnimadores.Location = new System.Drawing.Point(6, 268);
             this.btEditarAnimadores.Name = "btEditarAnimadores";
             this.btEditarAnimadores.Size = new System.Drawing.Size(229, 23);
             this.btEditarAnimadores.TabIndex = 36;
             this.btEditarAnimadores.Text = "Editar Animador";
             this.btEditarAnimadores.UseVisualStyleBackColor = true;
+            this.btEditarAnimadores.Click += new System.EventHandler(this.btEditarAnimadores_Click);
             // 
-            // btAdicionarAnimaodres
+            // btAdicionarAnimadores
             // 
-            this.btAdicionarAnimaodres.Location = new System.Drawing.Point(6, 212);
-            this.btAdicionarAnimaodres.Name = "btAdicionarAnimaodres";
-            this.btAdicionarAnimaodres.Size = new System.Drawing.Size(229, 23);
-            this.btAdicionarAnimaodres.TabIndex = 35;
-            this.btAdicionarAnimaodres.Text = "Adicionar Animador";
-            this.btAdicionarAnimaodres.UseVisualStyleBackColor = true;
+            this.btAdicionarAnimadores.Location = new System.Drawing.Point(6, 239);
+            this.btAdicionarAnimadores.Name = "btAdicionarAnimadores";
+            this.btAdicionarAnimadores.Size = new System.Drawing.Size(229, 23);
+            this.btAdicionarAnimadores.TabIndex = 35;
+            this.btAdicionarAnimadores.Text = "Adicionar Animador";
+            this.btAdicionarAnimadores.UseVisualStyleBackColor = true;
+            this.btAdicionarAnimadores.Click += new System.EventHandler(this.btAdicionarAnimadores_Click);
             // 
             // tbNomeAnimadores
             // 
@@ -267,21 +250,23 @@
             // 
             // btApagarAnimadores
             // 
-            this.btApagarAnimadores.Location = new System.Drawing.Point(6, 299);
+            this.btApagarAnimadores.Location = new System.Drawing.Point(6, 326);
             this.btApagarAnimadores.Name = "btApagarAnimadores";
             this.btApagarAnimadores.Size = new System.Drawing.Size(229, 23);
             this.btApagarAnimadores.TabIndex = 34;
             this.btApagarAnimadores.Text = "Apagar Animadores";
             this.btApagarAnimadores.UseVisualStyleBackColor = true;
+            this.btApagarAnimadores.Click += new System.EventHandler(this.btApagarAnimadores_Click);
             // 
             // btGuardarAnimadores
             // 
-            this.btGuardarAnimadores.Location = new System.Drawing.Point(6, 270);
+            this.btGuardarAnimadores.Location = new System.Drawing.Point(6, 297);
             this.btGuardarAnimadores.Name = "btGuardarAnimadores";
             this.btGuardarAnimadores.Size = new System.Drawing.Size(229, 23);
             this.btGuardarAnimadores.TabIndex = 32;
             this.btGuardarAnimadores.Text = "Guardar Alterações";
             this.btGuardarAnimadores.UseVisualStyleBackColor = true;
+            this.btGuardarAnimadores.Click += new System.EventHandler(this.btGuardarAnimadores_Click);
             // 
             // tbTelefoneAnimadores
             // 
@@ -311,50 +296,51 @@
             this.tbTelemovelAnimadores.Size = new System.Drawing.Size(161, 20);
             this.tbTelemovelAnimadores.TabIndex = 30;
             // 
-            // tbMailAnimadores
+            // nomeDataGridViewTextBoxColumn
             // 
-            this.tbMailAnimadores.Location = new System.Drawing.Point(74, 175);
-            this.tbMailAnimadores.Name = "tbMailAnimadores";
-            this.tbMailAnimadores.Size = new System.Drawing.Size(161, 20);
-            this.tbMailAnimadores.TabIndex = 45;
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // labelMail
+            // localidadeDataGridViewTextBoxColumn
             // 
-            this.labelMail.AutoSize = true;
-            this.labelMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelMail.Location = new System.Drawing.Point(6, 182);
-            this.labelMail.Name = "labelMail";
-            this.labelMail.Size = new System.Drawing.Size(39, 13);
-            this.labelMail.TabIndex = 46;
-            this.labelMail.Text = "E-Mail:";
+            this.localidadeDataGridViewTextBoxColumn.DataPropertyName = "Localidade";
+            this.localidadeDataGridViewTextBoxColumn.HeaderText = "Localidade";
+            this.localidadeDataGridViewTextBoxColumn.Name = "localidadeDataGridViewTextBoxColumn";
+            this.localidadeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // especialidadeDataGridViewTextBoxColumn
+            // 
+            this.especialidadeDataGridViewTextBoxColumn.DataPropertyName = "Especialidade";
+            this.especialidadeDataGridViewTextBoxColumn.HeaderText = "Especialidade";
+            this.especialidadeDataGridViewTextBoxColumn.Name = "especialidadeDataGridViewTextBoxColumn";
+            this.especialidadeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // animadoresBindingSource
+            // 
+            this.animadoresBindingSource.DataSource = typeof(Bookids.Animadores);
             // 
             // FormAnimadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 365);
+            this.ClientSize = new System.Drawing.Size(613, 403);
             this.Controls.Add(this.groupBoxAnimadores);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAnimadores);
             this.Name = "FormAnimadores";
             this.Text = "FormAnimadores";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).EndInit();
+            this.Load += new System.EventHandler(this.FormAnimadores_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnimadores)).EndInit();
             this.groupBoxAnimadores.ResumeLayout(false);
             this.groupBoxAnimadores.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn especialidadeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moradaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn localidadeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codPostalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telemovelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dgvAnimadores;
         private System.Windows.Forms.BindingSource animadoresBindingSource;
         private System.Windows.Forms.GroupBox groupBoxAnimadores;
         private System.Windows.Forms.Label labelTelemovel;
@@ -365,7 +351,7 @@
         private System.Windows.Forms.Label labelMoradaAnimadores;
         private System.Windows.Forms.Label labelNomeAnimadores;
         private System.Windows.Forms.Button btEditarAnimadores;
-        private System.Windows.Forms.Button btAdicionarAnimaodres;
+        private System.Windows.Forms.Button btAdicionarAnimadores;
         private System.Windows.Forms.TextBox tbNomeAnimadores;
         private System.Windows.Forms.Button btApagarAnimadores;
         private System.Windows.Forms.Button btGuardarAnimadores;
@@ -375,5 +361,11 @@
         private System.Windows.Forms.TextBox tbTelemovelAnimadores;
         private System.Windows.Forms.TextBox tbMailAnimadores;
         private System.Windows.Forms.Label labelMail;
+        private System.Windows.Forms.Button btCancelClean;
+        private System.Windows.Forms.TextBox tbEspecialidadeAnimadores;
+        private System.Windows.Forms.Label labelEspecialidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localidadeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn especialidadeDataGridViewTextBoxColumn;
     }
 }

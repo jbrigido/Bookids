@@ -67,6 +67,7 @@ namespace Bookids
         private void btAdicionarEscola_Click(object sender, EventArgs e)
         {
             dgvEscolas.ClearSelection();
+            btAdicionarEscola.Enabled = false;
             btGuardarEscola.Enabled = true;
             btCancelClean.Enabled = true;
             tbNomeEscolas.Enabled = true;

@@ -110,6 +110,7 @@
             this.btAnimadores.TabIndex = 4;
             this.btAnimadores.Text = "Gestão de Animadores";
             this.btAnimadores.UseVisualStyleBackColor = true;
+            this.btAnimadores.Click += new System.EventHandler(this.btAnimadores_Click);
             // 
             // btEscolas
             // 

@@ -41,5 +41,11 @@ namespace Bookids
             FormEscolas formEscolas = new FormEscolas();
             formEscolas.ShowDialog();
         }
+
+        private void btAnimadores_Click(object sender, EventArgs e)
+        {
+            FormAnimadores formAnimadores = new FormAnimadores();
+            formAnimadores.ShowDialog();
+        }
     }
 }
