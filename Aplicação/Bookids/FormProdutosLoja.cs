@@ -28,6 +28,10 @@ namespace Bookids
             nmPreco.Enabled = false;
             nmStockProduto.Enabled = false;
             cbTipoProduto.Enabled = false;
+            btEditarProduto.Enabled = false;
+            btGuardarProduto.Enabled = false;
+            btApagarProduto.Enabled = false;
+            btCancelClean.Enabled = false;
         }
 
         private void carregarProdutos()
@@ -82,8 +86,25 @@ namespace Bookids
             return true;
         }
 
-        //insere um novo produto se não tiver nenhum selecionado, se houver seleção
-        //guarda os dados do produto selecionado. bloqueia as text boxs.
+        /// <summary>
+        /// Desbloqueia as textbox relativas ao Produto
+        /// Limpa as textbox relativas ao Produto e torna-as editaveis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btAdicionarProduto_Click(object sender, EventArgs e)
+        {
+            dgvProdutosLoja.ClearSelection();
+            btAdicionarProduto.Enabled = false;
+            tbDesignacao.Enabled = true;
+            nmPreco.Enabled = true;
+            nmPreco.Value = 0.01m;
+            nmStockProduto.Enabled = true;
+            nmStockProduto.Value = 0;
+            cbTipoProduto.Enabled = true;
+        }
+
+
         /// <summary>
         /// Guardar dados do Produto.
         /// Se a textbox CodProduto estiver vazia verifica se todas as outras estão preeenchidas
@@ -93,7 +114,7 @@ namespace Bookids
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btGuardar_Click(object sender, EventArgs e)
+        private void btGuardarProduto_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Deseja guardar as alterações efetuadas?",
                 "Guardar", MessageBoxButtons.YesNo);
@@ -153,7 +174,6 @@ namespace Bookids
         {
             if (cbTipoProduto.Text != string.Empty)
             {
-                
                 TipoProduto novoTipo = new TipoProduto() { Tipo = cbTipoProduto.Text };
                 BookidsContainer.TipoProdutoSet.Add(novoTipo);
                 BookidsContainer.SaveChanges();
@@ -181,24 +201,6 @@ namespace Bookids
             }
         }
 
-        /// <summary>
-        /// Desbloqueia as textbox relativas ao Produto
-        /// Limpa as textbox relativas ao Produto e torna-as editaveis
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btInserirProduto_Click(object sender, EventArgs e)
-        {
-            dgvProdutosLoja.ClearSelection();
-            tbCodProduto.Clear();
-            tbDesignacao.Enabled = true;
-            tbDesignacao.Clear();
-            nmPreco.Enabled = true;
-            nmPreco.Value = 0.01m;        
-            nmStockProduto.Enabled = true;
-            nmStockProduto.Value = 0;
-            cbTipoProduto.Enabled = true;
-        }
 
 
         //Habilita a edição nas textboxs
@@ -215,7 +217,6 @@ namespace Bookids
             try
             {
                 Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
-
                 BookidsContainer.ProdutosSet.Remove(produto);
                 BookidsContainer.SaveChanges();
                 carregarProdutos();
@@ -226,6 +227,24 @@ namespace Bookids
             }
             
 
+        }
+
+        private void btCancelClean_Click(object sender, EventArgs e)
+        {
+            dgvProdutosLoja.ClearSelection();
+            tbCodProduto.Clear();
+            tbDesignacao.Clear();
+            nmStockProduto.ResetText();
+            nmPreco.ResetText();
+            tbDesignacao.Enabled = true;
+            nmPreco.Enabled = true;
+            nmStockProduto.Enabled = true;
+            cbTipoProduto.Enabled = true;
+            btAdicionarProduto.Enabled = true;
+            btGuardarProduto.Enabled = false;
+            btEditarProduto.Enabled = false;
+            btApagarProduto.Enabled = false;
+            btCancelClean.Enabled = false;
         }
     }
 }
