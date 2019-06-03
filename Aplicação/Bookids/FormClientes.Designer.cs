@@ -33,17 +33,24 @@
             this.btApagarClientes = new System.Windows.Forms.Button();
             this.btEditarClientes = new System.Windows.Forms.Button();
             this.gbFilhos = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.dtpDataNascFilho = new System.Windows.Forms.DateTimePicker();
             this.cbEscolaFilho = new System.Windows.Forms.ComboBox();
             this.btGuardarFilhos = new System.Windows.Forms.Button();
             this.dgvFilhos = new System.Windows.Forms.DataGridView();
-            this.btEditarFilhos = new System.Windows.Forms.Button();
-            this.btApagarFilhos = new System.Windows.Forms.Button();
-            this.btAdicionarFilhos = new System.Windows.Forms.Button();
+            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataNascicmentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filhosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbSexoFilho = new System.Windows.Forms.ComboBox();
             this.tbNomeFilho = new System.Windows.Forms.TextBox();
+            this.btEditarFilhos = new System.Windows.Forms.Button();
+            this.btAdicionarFilhos = new System.Windows.Forms.Button();
+            this.btApagarFilhos = new System.Windows.Forms.Button();
             this.gbClientes = new System.Windows.Forms.GroupBox();
-            this.btCancelClean = new System.Windows.Forms.Button();
+            this.btCancelCleanFilhos = new System.Windows.Forms.Button();
             this.btGuardarClientes = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tbTelefoneCli = new System.Windows.Forms.MaskedTextBox();
@@ -74,17 +81,15 @@
             this.telemovelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataNascicmentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.filhosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label13 = new System.Windows.Forms.Label();
+            this.btCancelCleanClientes = new System.Windows.Forms.Button();
             this.gbFilhos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilhos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).BeginInit();
             this.gbClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmValorOferta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btAdicionarClientes
@@ -114,47 +119,80 @@
             this.btEditarClientes.TabIndex = 11;
             this.btEditarClientes.Text = "Editar Cliente";
             this.btEditarClientes.UseVisualStyleBackColor = true;
+            this.btEditarClientes.Click += new System.EventHandler(this.btEditarClientes_Click);
             // 
             // gbFilhos
             // 
+            this.gbFilhos.Controls.Add(this.btCancelCleanFilhos);
+            this.gbFilhos.Controls.Add(this.label13);
+            this.gbFilhos.Controls.Add(this.label12);
+            this.gbFilhos.Controls.Add(this.label11);
+            this.gbFilhos.Controls.Add(this.label10);
             this.gbFilhos.Controls.Add(this.dtpDataNascFilho);
             this.gbFilhos.Controls.Add(this.cbEscolaFilho);
             this.gbFilhos.Controls.Add(this.btGuardarFilhos);
             this.gbFilhos.Controls.Add(this.dgvFilhos);
-            this.gbFilhos.Controls.Add(this.btEditarFilhos);
-            this.gbFilhos.Controls.Add(this.btApagarFilhos);
-            this.gbFilhos.Controls.Add(this.btAdicionarFilhos);
             this.gbFilhos.Controls.Add(this.cbSexoFilho);
             this.gbFilhos.Controls.Add(this.tbNomeFilho);
-            this.gbFilhos.Location = new System.Drawing.Point(560, 19);
+            this.gbFilhos.Controls.Add(this.btEditarFilhos);
+            this.gbFilhos.Controls.Add(this.btAdicionarFilhos);
+            this.gbFilhos.Controls.Add(this.btApagarFilhos);
+            this.gbFilhos.Location = new System.Drawing.Point(501, 19);
             this.gbFilhos.Name = "gbFilhos";
-            this.gbFilhos.Size = new System.Drawing.Size(396, 227);
+            this.gbFilhos.Size = new System.Drawing.Size(492, 215);
             this.gbFilhos.TabIndex = 12;
             this.gbFilhos.TabStop = false;
             this.gbFilhos.Text = "Filhos";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(177, 164);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(42, 13);
+            this.label12.TabIndex = 48;
+            this.label12.Text = "Escola:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(28, 164);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.TabIndex = 47;
+            this.label11.Text = "Sexo:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 138);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.TabIndex = 46;
+            this.label10.Text = "Nome:";
+            // 
             // dtpDataNascFilho
             // 
-            this.dtpDataNascFilho.Location = new System.Drawing.Point(183, 166);
+            this.dtpDataNascFilho.Location = new System.Drawing.Point(141, 187);
             this.dtpDataNascFilho.Name = "dtpDataNascFilho";
-            this.dtpDataNascFilho.Size = new System.Drawing.Size(200, 20);
+            this.dtpDataNascFilho.Size = new System.Drawing.Size(157, 20);
             this.dtpDataNascFilho.TabIndex = 45;
             // 
             // cbEscolaFilho
             // 
             this.cbEscolaFilho.FormattingEnabled = true;
-            this.cbEscolaFilho.Location = new System.Drawing.Point(7, 165);
+            this.cbEscolaFilho.Location = new System.Drawing.Point(225, 160);
             this.cbEscolaFilho.Name = "cbEscolaFilho";
-            this.cbEscolaFilho.Size = new System.Drawing.Size(172, 21);
+            this.cbEscolaFilho.Size = new System.Drawing.Size(249, 21);
             this.cbEscolaFilho.TabIndex = 20;
             // 
             // btGuardarFilhos
             // 
-            this.btGuardarFilhos.Location = new System.Drawing.Point(297, 192);
+            this.btGuardarFilhos.Location = new System.Drawing.Point(15, 102);
             this.btGuardarFilhos.Name = "btGuardarFilhos";
-            this.btGuardarFilhos.Size = new System.Drawing.Size(86, 23);
+            this.btGuardarFilhos.Size = new System.Drawing.Size(109, 23);
             this.btGuardarFilhos.TabIndex = 19;
-            this.btGuardarFilhos.Text = "Guardar ";
+            this.btGuardarFilhos.Text = "Guardar Alterações";
             this.btGuardarFilhos.UseVisualStyleBackColor = true;
             // 
             // dgvFilhos
@@ -168,7 +206,7 @@
             this.sexoDataGridViewTextBoxColumn,
             this.dataNascicmentoDataGridViewTextBoxColumn});
             this.dgvFilhos.DataSource = this.filhosBindingSource;
-            this.dgvFilhos.Location = new System.Drawing.Point(39, 20);
+            this.dgvFilhos.Location = new System.Drawing.Point(130, 15);
             this.dgvFilhos.MultiSelect = false;
             this.dgvFilhos.Name = "dgvFilhos";
             this.dgvFilhos.ReadOnly = true;
@@ -177,33 +215,30 @@
             this.dgvFilhos.TabIndex = 18;
             this.dgvFilhos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvFilhos_MouseClick);
             // 
-            // btEditarFilhos
+            // nomeDataGridViewTextBoxColumn1
             // 
-            this.btEditarFilhos.Location = new System.Drawing.Point(99, 192);
-            this.btEditarFilhos.Name = "btEditarFilhos";
-            this.btEditarFilhos.Size = new System.Drawing.Size(97, 23);
-            this.btEditarFilhos.TabIndex = 16;
-            this.btEditarFilhos.Text = "Editar Filho";
-            this.btEditarFilhos.UseVisualStyleBackColor = true;
+            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
+            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // btApagarFilhos
+            // sexoDataGridViewTextBoxColumn
             // 
-            this.btApagarFilhos.Location = new System.Drawing.Point(205, 192);
-            this.btApagarFilhos.Name = "btApagarFilhos";
-            this.btApagarFilhos.Size = new System.Drawing.Size(86, 23);
-            this.btApagarFilhos.TabIndex = 15;
-            this.btApagarFilhos.Text = "Apagar Filho";
-            this.btApagarFilhos.UseVisualStyleBackColor = true;
+            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
+            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
+            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
+            this.sexoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // btAdicionarFilhos
+            // dataNascicmentoDataGridViewTextBoxColumn
             // 
-            this.btAdicionarFilhos.Location = new System.Drawing.Point(7, 192);
-            this.btAdicionarFilhos.Name = "btAdicionarFilhos";
-            this.btAdicionarFilhos.Size = new System.Drawing.Size(86, 23);
-            this.btAdicionarFilhos.TabIndex = 14;
-            this.btAdicionarFilhos.Text = "Adicionar Filho";
-            this.btAdicionarFilhos.UseVisualStyleBackColor = true;
-            this.btAdicionarFilhos.Click += new System.EventHandler(this.btAdicionarFilho_Click);
+            this.dataNascicmentoDataGridViewTextBoxColumn.DataPropertyName = "DataNascicmento";
+            this.dataNascicmentoDataGridViewTextBoxColumn.HeaderText = "DataNascicmento";
+            this.dataNascicmentoDataGridViewTextBoxColumn.Name = "dataNascicmentoDataGridViewTextBoxColumn";
+            this.dataNascicmentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // filhosBindingSource
+            // 
+            this.filhosBindingSource.DataSource = typeof(Bookids.Filhos);
             // 
             // cbSexoFilho
             // 
@@ -211,22 +246,49 @@
             this.cbSexoFilho.Items.AddRange(new object[] {
             "Masculino",
             "Feminino"});
-            this.cbSexoFilho.Location = new System.Drawing.Point(294, 138);
+            this.cbSexoFilho.Location = new System.Drawing.Point(72, 161);
             this.cbSexoFilho.Name = "cbSexoFilho";
-            this.cbSexoFilho.Size = new System.Drawing.Size(89, 21);
+            this.cbSexoFilho.Size = new System.Drawing.Size(90, 21);
             this.cbSexoFilho.TabIndex = 9;
             // 
             // tbNomeFilho
             // 
-            this.tbNomeFilho.Location = new System.Drawing.Point(7, 138);
+            this.tbNomeFilho.Location = new System.Drawing.Point(72, 135);
             this.tbNomeFilho.Name = "tbNomeFilho";
-            this.tbNomeFilho.Size = new System.Drawing.Size(281, 20);
+            this.tbNomeFilho.Size = new System.Drawing.Size(402, 20);
             this.tbNomeFilho.TabIndex = 1;
-            this.tbNomeFilho.Text = "Nome do Fiho";
+            // 
+            // btEditarFilhos
+            // 
+            this.btEditarFilhos.Location = new System.Drawing.Point(15, 44);
+            this.btEditarFilhos.Name = "btEditarFilhos";
+            this.btEditarFilhos.Size = new System.Drawing.Size(109, 23);
+            this.btEditarFilhos.TabIndex = 16;
+            this.btEditarFilhos.Text = "Editar Filho";
+            this.btEditarFilhos.UseVisualStyleBackColor = true;
+            // 
+            // btAdicionarFilhos
+            // 
+            this.btAdicionarFilhos.Location = new System.Drawing.Point(15, 15);
+            this.btAdicionarFilhos.Name = "btAdicionarFilhos";
+            this.btAdicionarFilhos.Size = new System.Drawing.Size(109, 23);
+            this.btAdicionarFilhos.TabIndex = 14;
+            this.btAdicionarFilhos.Text = "Adicionar Filho";
+            this.btAdicionarFilhos.UseVisualStyleBackColor = true;
+            this.btAdicionarFilhos.Click += new System.EventHandler(this.btAdicionarFilho_Click);
+            // 
+            // btApagarFilhos
+            // 
+            this.btApagarFilhos.Location = new System.Drawing.Point(15, 73);
+            this.btApagarFilhos.Name = "btApagarFilhos";
+            this.btApagarFilhos.Size = new System.Drawing.Size(109, 23);
+            this.btApagarFilhos.TabIndex = 15;
+            this.btApagarFilhos.Text = "Apagar Filho";
+            this.btApagarFilhos.UseVisualStyleBackColor = true;
             // 
             // gbClientes
             // 
-            this.gbClientes.Controls.Add(this.btCancelClean);
+            this.gbClientes.Controls.Add(this.btCancelCleanClientes);
             this.gbClientes.Controls.Add(this.btGuardarClientes);
             this.gbClientes.Controls.Add(this.label9);
             this.gbClientes.Controls.Add(this.tbTelefoneCli);
@@ -253,20 +315,20 @@
             this.gbClientes.Controls.Add(this.btEditarClientes);
             this.gbClientes.Location = new System.Drawing.Point(12, 12);
             this.gbClientes.Name = "gbClientes";
-            this.gbClientes.Size = new System.Drawing.Size(972, 518);
+            this.gbClientes.Size = new System.Drawing.Size(1000, 518);
             this.gbClientes.TabIndex = 13;
             this.gbClientes.TabStop = false;
             this.gbClientes.Text = "Clientes";
             // 
-            // btCancelClean
+            // btCancelCleanFilhos
             // 
-            this.btCancelClean.Location = new System.Drawing.Point(29, 211);
-            this.btCancelClean.Name = "btCancelClean";
-            this.btCancelClean.Size = new System.Drawing.Size(167, 23);
-            this.btCancelClean.TabIndex = 45;
-            this.btCancelClean.Text = "Cancelar/Limpar Alterações";
-            this.btCancelClean.UseVisualStyleBackColor = true;
-            this.btCancelClean.Click += new System.EventHandler(this.btCancelClean_Click);
+            this.btCancelCleanFilhos.Location = new System.Drawing.Point(307, 186);
+            this.btCancelCleanFilhos.Name = "btCancelCleanFilhos";
+            this.btCancelCleanFilhos.Size = new System.Drawing.Size(167, 23);
+            this.btCancelCleanFilhos.TabIndex = 45;
+            this.btCancelCleanFilhos.Text = "Cancelar/Limpar Alterações";
+            this.btCancelCleanFilhos.UseVisualStyleBackColor = true;
+            this.btCancelCleanFilhos.Click += new System.EventHandler(this.btCancelClean_Click);
             // 
             // btGuardarClientes
             // 
@@ -453,7 +515,7 @@
             this.telemovelDataGridViewTextBoxColumn,
             this.mailDataGridViewTextBoxColumn});
             this.dgvClientes.DataSource = this.clientesBindingSource;
-            this.dgvClientes.Location = new System.Drawing.Point(12, 252);
+            this.dgvClientes.Location = new System.Drawing.Point(49, 240);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
@@ -529,36 +591,30 @@
             // 
             this.clientesBindingSource.DataSource = typeof(Bookids.Clientes);
             // 
-            // nomeDataGridViewTextBoxColumn1
+            // label13
             // 
-            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
-            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(28, 193);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(107, 13);
+            this.label13.TabIndex = 49;
+            this.label13.Text = "Data de Nascimento:";
             // 
-            // sexoDataGridViewTextBoxColumn
+            // btCancelCleanClientes
             // 
-            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
-            this.sexoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataNascicmentoDataGridViewTextBoxColumn
-            // 
-            this.dataNascicmentoDataGridViewTextBoxColumn.DataPropertyName = "DataNascicmento";
-            this.dataNascicmentoDataGridViewTextBoxColumn.HeaderText = "DataNascicmento";
-            this.dataNascicmentoDataGridViewTextBoxColumn.Name = "dataNascicmentoDataGridViewTextBoxColumn";
-            this.dataNascicmentoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // filhosBindingSource
-            // 
-            this.filhosBindingSource.DataSource = typeof(Bookids.Filhos);
+            this.btCancelCleanClientes.Location = new System.Drawing.Point(32, 207);
+            this.btCancelCleanClientes.Name = "btCancelCleanClientes";
+            this.btCancelCleanClientes.Size = new System.Drawing.Size(167, 23);
+            this.btCancelCleanClientes.TabIndex = 50;
+            this.btCancelCleanClientes.Text = "Cancelar/Limpar Alterações";
+            this.btCancelCleanClientes.UseVisualStyleBackColor = true;
+            this.btCancelCleanClientes.Click += new System.EventHandler(this.btCancelCleanClientes_Click);
             // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 537);
+            this.ClientSize = new System.Drawing.Size(1012, 537);
             this.Controls.Add(this.gbClientes);
             this.Name = "FormClientes";
             this.Text = "FormClientes";
@@ -566,12 +622,12 @@
             this.gbFilhos.ResumeLayout(false);
             this.gbFilhos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilhos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).EndInit();
             this.gbClientes.ResumeLayout(false);
             this.gbClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmValorOferta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -625,6 +681,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sexoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataNascicmentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker dtpDataNascFilho;
-        private System.Windows.Forms.Button btCancelClean;
+        private System.Windows.Forms.Button btCancelCleanFilhos;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btCancelCleanClientes;
     }
 }

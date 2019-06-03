@@ -22,7 +22,7 @@ namespace Bookids
 
         private void FormClientes_Load(object sender, EventArgs e)
         {
-            limparDados();
+            limparDadosClientes();
             carregarClientes();
             carregarComboEscola();
         }
@@ -51,6 +51,31 @@ namespace Bookids
             cbEscolaFilho.DataSource = listaEscolas.ToList<Escolas>();
         }
 
+        private void limparDadosClientes()
+        {
+            dgvClientes.ClearSelection();
+            tbNomeCli.Clear();
+            tbMoradaCli.Clear();
+            tbCodPostalCli.Clear();
+            tbLocalidadeCli.Clear();
+            tbTelefoneCli.Clear();
+            tbTelemovelCli.Clear();
+            tbMailCli.Clear();
+            tbCartaoCli.Clear();
+            nmValorOferta.ResetText();
+            tbNomeCli.Enabled = false;
+            tbMoradaCli.Enabled = false;
+            tbCodPostalCli.Enabled = false;
+            tbLocalidadeCli.Enabled = false;
+            tbTelefoneCli.Enabled = false;
+            tbTelemovelCli.Enabled = false;
+            tbMailCli.Enabled = false;
+            tbCartaoCli.Enabled = false;
+            nmValorOferta.Enabled = false;
+            btGuardarClientes.Enabled = false;
+            btEditarClientes.Enabled = false;
+            btApagarClientes.Enabled = false;
+        }
 
         /* Função para verificar o preenchimento das tb relativo aos dados dos clientes */
         private bool dadosPreenchidosClientes()
@@ -98,7 +123,7 @@ namespace Bookids
                     btAdicionarClientes.Enabled = false;
                     btEditarClientes.Enabled = true;
                     btApagarClientes.Enabled = true;
-                    btCancelClean.Enabled = true;
+                    btCancelCleanFilhos.Enabled = true;
 
                     filhosBindingSource.DataSource = cliente.Filhos.ToList<Filhos>();
                     tbNomeCli.Text = cliente.Nome;
@@ -112,7 +137,7 @@ namespace Bookids
                     tbMailCli.Text = cliente.Mail;
                 }
             }
-            catch
+            catch(ArgumentOutOfRangeException)
             {
 
             }
@@ -134,6 +159,73 @@ namespace Bookids
             tbMailCli.Enabled = true;
             nmValorOferta.Enabled = true;
             tbCartaoCli.Enabled = true;
+        }
+
+        private void btEditarClientes_Click(object sender, EventArgs e)
+        {
+            btEditarClientes.Enabled = true;
+            btGuardarClientes.Enabled = true;
+            tbNomeCli.Enabled = true;
+            tbMoradaCli.Enabled = true;
+            tbCodPostalCli.Enabled = true;
+            tbLocalidadeCli.Enabled = true;
+            tbTelefoneCli.Enabled = true;
+            tbTelemovelCli.Enabled = true;
+            tbMailCli.Enabled = true;
+            nmValorOferta.Enabled = true;
+            tbCartaoCli.Enabled = true;
+        }
+
+        private void btGuardarClientes_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Deseja guardar as alterações efectuadas?",
+                "Guardar", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                try
+                {
+                    Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
+                    if (dadosPreenchidosClientes())
+                    {
+                        btAdicionarClientes.Enabled = false;
+                        cliente.Nome = tbNomeCli.Text;
+                        cliente.Morada = tbMoradaCli.Text;
+                        cliente.CodPostal = tbCodPostalCli.Text;
+                        cliente.Localidade = tbLocalidadeCli.Text;
+                        cliente.Telefone = tbTelefoneCli.Text;
+                        cliente.Telemovel = tbTelemovelCli.Text;
+                        cliente.Mail = tbMailCli.Text;
+                        cliente.ValorOferta = (Int32)nmValorOferta.Value;
+                        cliente.NrCartao = tbCartaoCli.Text;
+                    }
+                    BookidsContainer.SaveChanges();
+                    limparDadosClientes();
+                    carregarClientes();
+                }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    if (dadosPreenchidosClientes())
+                    {
+                        Clientes novo = new Clientes()
+                        {
+                            Nome = tbNomeCli.Text,
+                            Morada = tbMoradaCli.Text,
+                            Localidade = tbLocalidadeCli.Text,
+                            CodPostal = tbCodPostalCli.Text,
+                            Telefone = tbTelefoneCli.Text,
+                            Telemovel = tbTelemovelCli.Text,
+                            Mail = tbMailCli.Text,
+                            ValorOferta = (Int32)nmValorOferta.Value,
+                            NrCartao = tbCartaoCli.Text,
+                        };
+                        BookidsContainer.ClientesSet.Add(novo);
+                        BookidsContainer.SaveChanges();
+                        limparDadosClientes();
+                        carregarClientes();
+                    }
+                }
+            }
         }
 
         private bool dadosPreenchidosFilhos()
@@ -167,7 +259,7 @@ namespace Bookids
                     btAdicionarFilhos.Enabled = false;
                     btEditarFilhos.Enabled = true;
                     btApagarFilhos.Enabled = true;
-                    btCancelClean.Enabled = true;
+                    btCancelCleanFilhos.Enabled = true;
 
                     tbNomeFilho.Text = filho.Nome;
                     dtpDataNascFilho.Value = filho.DataNascicmento;
@@ -175,14 +267,17 @@ namespace Bookids
                     cbEscolaFilho.SelectedItem = filho.IdEscola;
                 }
             }
-            catch
+            catch(ArgumentOutOfRangeException)
             {
 
             }
         }
 
+
+        //A ALTERAR 
         private void btAdicionarFilho_Click(object sender, EventArgs e)
         {
+            //Codigo do botao guardarFilho
             Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
             if (cliente != null)
             {
@@ -211,87 +306,12 @@ namespace Bookids
 
         private void btCancelClean_Click(object sender, EventArgs e)
         {
-            limparDados();
+            
         }
 
-        private void limparDados()
+        private void btCancelCleanClientes_Click(object sender, EventArgs e)
         {
-            dgvClientes.ClearSelection();
-            tbNomeCli.Clear();
-            tbMoradaCli.Clear();
-            tbCodPostalCli.Clear();
-            tbLocalidadeCli.Clear();
-            tbTelefoneCli.Clear();
-            tbTelemovelCli.Clear();
-            tbMailCli.Clear();
-            tbCartaoCli.Clear();
-            nmValorOferta.ResetText();
-            tbNomeCli.Enabled = false;
-            tbMoradaCli.Enabled = false;
-            tbCodPostalCli.Enabled = false;
-            tbLocalidadeCli.Enabled = false;
-            tbTelefoneCli.Enabled = false;
-            tbTelemovelCli.Enabled = false;
-            tbMailCli.Enabled = false;
-            tbCartaoCli.Enabled = false;
-            nmValorOferta.Enabled = false;
-            btGuardarClientes.Enabled = false;
-            btEditarClientes.Enabled = false;
-            btApagarClientes.Enabled = false;
-        }
-
-        private void btGuardarClientes_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("Deseja guardar as alterações efectuadas?",
-                "Guardar", MessageBoxButtons.YesNo);
-
-            if (dr == DialogResult.Yes)
-            {
-                try
-                {
-                    Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
-                    if (dadosPreenchidosClientes())
-                    {
-                        btAdicionarClientes.Enabled = false;
-                        cliente.Nome = tbNomeCli.Text;
-                        cliente.Morada = tbMoradaCli.Text;
-                        cliente.CodPostal = tbCodPostalCli.Text;
-                        cliente.Localidade = tbLocalidadeCli.Text;
-                        cliente.Telefone = tbTelefoneCli.Text;
-                        cliente.Telemovel = tbTelemovelCli.Text;
-                        cliente.Mail = tbMailCli.Text;
-                        cliente.ValorOferta = (Int32)nmValorOferta.Value;
-                        cliente.NrCartao = tbCartaoCli.Text;
-                    }
-                    BookidsContainer.SaveChanges();
-                    limparDados();
-                    carregarClientes();
-                }
-                catch (ArgumentOutOfRangeException ex)
-                {
-                    if (dadosPreenchidosClientes())
-                    {
-                        Clientes novo = new Clientes()
-                        {
-                            Nome = tbNomeCli.Text,
-                            Morada = tbMoradaCli.Text,
-                            Localidade = tbLocalidadeCli.Text,
-                            CodPostal = tbCodPostalCli.Text,
-                            Telefone = tbTelefoneCli.Text,
-                            Telemovel = tbTelemovelCli.Text,
-                            Mail = tbMailCli.Text,
-                            ValorOferta = (Int32)nmValorOferta.Value,
-                            NrCartao = tbCartaoCli.Text,
-                        };
-                        BookidsContainer.ClientesSet.Add(novo);
-                        BookidsContainer.SaveChanges();
-                        limparDados();
-                        carregarClientes();
-                    }
-                }
-                
-            }
-
+            limparDadosClientes();
         }
     }
 }
