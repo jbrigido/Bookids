@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvAnimadores = new System.Windows.Forms.DataGridView();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.especialidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.animadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxAnimadores = new System.Windows.Forms.GroupBox();
             this.tbEspecialidadeAnimadores = new System.Windows.Forms.TextBox();
             this.labelEspecialidade = new System.Windows.Forms.Label();
@@ -52,13 +56,9 @@
             this.tbMoradaAnimadores = new System.Windows.Forms.TextBox();
             this.tbLocalidadeAnimadores = new System.Windows.Forms.TextBox();
             this.tbTelemovelAnimadores = new System.Windows.Forms.TextBox();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.especialidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.animadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimadores)).BeginInit();
-            this.groupBoxAnimadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).BeginInit();
+            this.groupBoxAnimadores.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAnimadores
@@ -75,9 +75,35 @@
             this.dgvAnimadores.Location = new System.Drawing.Point(259, 12);
             this.dgvAnimadores.Name = "dgvAnimadores";
             this.dgvAnimadores.ReadOnly = true;
+            this.dgvAnimadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAnimadores.Size = new System.Drawing.Size(346, 383);
             this.dgvAnimadores.TabIndex = 37;
             this.dgvAnimadores.Click += new System.EventHandler(this.dgvAnimadores_Click);
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // localidadeDataGridViewTextBoxColumn
+            // 
+            this.localidadeDataGridViewTextBoxColumn.DataPropertyName = "Localidade";
+            this.localidadeDataGridViewTextBoxColumn.HeaderText = "Localidade";
+            this.localidadeDataGridViewTextBoxColumn.Name = "localidadeDataGridViewTextBoxColumn";
+            this.localidadeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // especialidadeDataGridViewTextBoxColumn
+            // 
+            this.especialidadeDataGridViewTextBoxColumn.DataPropertyName = "Especialidade";
+            this.especialidadeDataGridViewTextBoxColumn.HeaderText = "Especialidade";
+            this.especialidadeDataGridViewTextBoxColumn.Name = "especialidadeDataGridViewTextBoxColumn";
+            this.especialidadeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // animadoresBindingSource
+            // 
+            this.animadoresBindingSource.DataSource = typeof(Bookids.Animadores);
             // 
             // groupBoxAnimadores
             // 
@@ -296,31 +322,6 @@
             this.tbTelemovelAnimadores.Size = new System.Drawing.Size(161, 20);
             this.tbTelemovelAnimadores.TabIndex = 30;
             // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // localidadeDataGridViewTextBoxColumn
-            // 
-            this.localidadeDataGridViewTextBoxColumn.DataPropertyName = "Localidade";
-            this.localidadeDataGridViewTextBoxColumn.HeaderText = "Localidade";
-            this.localidadeDataGridViewTextBoxColumn.Name = "localidadeDataGridViewTextBoxColumn";
-            this.localidadeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // especialidadeDataGridViewTextBoxColumn
-            // 
-            this.especialidadeDataGridViewTextBoxColumn.DataPropertyName = "Especialidade";
-            this.especialidadeDataGridViewTextBoxColumn.HeaderText = "Especialidade";
-            this.especialidadeDataGridViewTextBoxColumn.Name = "especialidadeDataGridViewTextBoxColumn";
-            this.especialidadeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // animadoresBindingSource
-            // 
-            this.animadoresBindingSource.DataSource = typeof(Bookids.Animadores);
-            // 
             // FormAnimadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,9 +333,9 @@
             this.Text = "FormAnimadores";
             this.Load += new System.EventHandler(this.FormAnimadores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimadores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).EndInit();
             this.groupBoxAnimadores.ResumeLayout(false);
             this.groupBoxAnimadores.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
