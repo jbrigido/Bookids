@@ -17,10 +17,25 @@ namespace Bookids
         public FormClientes()
         {
             InitializeComponent();
-            BookidsContainer = new ModelBookidsContainer();
+            BookidsContainer = new ModelBookidsContainer();            
+        }
 
+        private void FormClientes_Load(object sender, EventArgs e)
+        {
             carregarClientes();
-            
+            tbNomeCli.Enabled = false;
+            tbMoradaCli.Enabled = false;
+            tbCodPostalCli.Enabled = false;
+            tbLocalidadeCli.Enabled = false;
+            tbTelefoneCli.Enabled = false;
+            tbTelemovelCli.Enabled = false;
+            tbMailCli.Enabled = false;
+            tbCartaoCli.Enabled = false;
+            nmValorOferta.ResetText();
+            btGuardarCliente.Enabled = false;
+            btEditarCliente.Enabled = false;
+            btApagarCliente.Enabled = false;
+            //btCancelClean.Enabled = false;
         }
 
         private void carregarClientes()
@@ -32,10 +47,7 @@ namespace Bookids
 
         }
 
-        private void FormClientes_Load(object sender, EventArgs e)
-        {
 
-        }
 
 
         /* Função para verificar o preenchimento das tb relativo aos dados dos clientes */
@@ -174,6 +186,38 @@ namespace Bookids
                 }
             }
             
+        }
+
+        private void btCancelClean_Click(object sender, EventArgs e)
+        {
+            limparDados();
+        }
+
+        private void limparDados()
+        {
+            dgvClientes.ClearSelection();
+            tbNomeCli.Clear();
+            tbMoradaCli.Clear();
+            tbCodPostalCli.Clear();
+            tbLocalidadeCli.Clear();
+            tbTelefoneCli.Clear();
+            tbTelemovelCli.Clear();
+            tbMailCli.Clear();
+            tbCartaoCli.Clear();
+            nmValorOferta.ResetText();
+            tbNomeCli.Enabled = false;
+            tbMoradaCli.Enabled = false;
+            tbCodPostalCli.Enabled = false;
+            tbLocalidadeCli.Enabled = false;
+            tbTelefoneCli.Enabled = false;
+            tbTelemovelCli.Enabled = false;
+            tbMailCli.Enabled = false;
+            tbCartaoCli.Enabled = false;
+            nmValorOferta.ResetText();
+            btGuardarCliente.Enabled = false;
+            btEditarCliente.Enabled = false;
+            btApagarCliente.Enabled = false;
+
         }
     }
 }

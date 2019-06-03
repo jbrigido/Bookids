@@ -47,6 +47,7 @@
             this.cbSexoFilho = new System.Windows.Forms.ComboBox();
             this.tbNomeFilho = new System.Windows.Forms.TextBox();
             this.gbClientes = new System.Windows.Forms.GroupBox();
+            this.btCancelClean = new System.Windows.Forms.Button();
             this.btGuardarCliente = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tbTelefoneCli = new System.Windows.Forms.MaskedTextBox();
@@ -92,7 +93,7 @@
             this.btCriarCliente.Name = "btCriarCliente";
             this.btCriarCliente.Size = new System.Drawing.Size(112, 23);
             this.btCriarCliente.TabIndex = 9;
-            this.btCriarCliente.Text = "Criar Novo Cliente";
+            this.btCriarCliente.Text = "Adicionar Cliente";
             this.btCriarCliente.UseVisualStyleBackColor = true;
             this.btCriarCliente.Click += new System.EventHandler(this.btCriarCliente_Click);
             // 
@@ -127,7 +128,7 @@
             this.gbFilhos.Controls.Add(this.tbNomeFilho);
             this.gbFilhos.Location = new System.Drawing.Point(560, 19);
             this.gbFilhos.Name = "gbFilhos";
-            this.gbFilhos.Size = new System.Drawing.Size(427, 227);
+            this.gbFilhos.Size = new System.Drawing.Size(396, 227);
             this.gbFilhos.TabIndex = 12;
             this.gbFilhos.TabStop = false;
             this.gbFilhos.Text = "Filhos";
@@ -149,7 +150,7 @@
             // 
             // btGuardarFilho
             // 
-            this.btGuardarFilho.Location = new System.Drawing.Point(294, 192);
+            this.btGuardarFilho.Location = new System.Drawing.Point(297, 192);
             this.btGuardarFilho.Name = "btGuardarFilho";
             this.btGuardarFilho.Size = new System.Drawing.Size(86, 23);
             this.btGuardarFilho.TabIndex = 19;
@@ -167,7 +168,7 @@
             this.sexoDataGridViewTextBoxColumn,
             this.dataNascicmentoDataGridViewTextBoxColumn});
             this.dgvFilhos.DataSource = this.filhosBindingSource;
-            this.dgvFilhos.Location = new System.Drawing.Point(7, 19);
+            this.dgvFilhos.Location = new System.Drawing.Point(39, 20);
             this.dgvFilhos.MultiSelect = false;
             this.dgvFilhos.Name = "dgvFilhos";
             this.dgvFilhos.ReadOnly = true;
@@ -212,7 +213,7 @@
             // 
             // btApagarFilho
             // 
-            this.btApagarFilho.Location = new System.Drawing.Point(202, 192);
+            this.btApagarFilho.Location = new System.Drawing.Point(205, 192);
             this.btApagarFilho.Name = "btApagarFilho";
             this.btApagarFilho.Size = new System.Drawing.Size(86, 23);
             this.btApagarFilho.TabIndex = 15;
@@ -250,6 +251,7 @@
             // 
             // gbClientes
             // 
+            this.gbClientes.Controls.Add(this.btCancelClean);
             this.gbClientes.Controls.Add(this.btGuardarCliente);
             this.gbClientes.Controls.Add(this.label9);
             this.gbClientes.Controls.Add(this.tbTelefoneCli);
@@ -276,10 +278,20 @@
             this.gbClientes.Controls.Add(this.btEditarCliente);
             this.gbClientes.Location = new System.Drawing.Point(12, 12);
             this.gbClientes.Name = "gbClientes";
-            this.gbClientes.Size = new System.Drawing.Size(993, 518);
+            this.gbClientes.Size = new System.Drawing.Size(972, 518);
             this.gbClientes.TabIndex = 13;
             this.gbClientes.TabStop = false;
             this.gbClientes.Text = "Clientes";
+            // 
+            // btCancelClean
+            // 
+            this.btCancelClean.Location = new System.Drawing.Point(352, 211);
+            this.btCancelClean.Name = "btCancelClean";
+            this.btCancelClean.Size = new System.Drawing.Size(167, 23);
+            this.btCancelClean.TabIndex = 45;
+            this.btCancelClean.Text = "Cancelar/Limpar Alterações";
+            this.btCancelClean.UseVisualStyleBackColor = true;
+            this.btCancelClean.Click += new System.EventHandler(this.btCancelClean_Click);
             // 
             // btGuardarCliente
             // 
@@ -287,7 +299,7 @@
             this.btGuardarCliente.Name = "btGuardarCliente";
             this.btGuardarCliente.Size = new System.Drawing.Size(112, 23);
             this.btGuardarCliente.TabIndex = 44;
-            this.btGuardarCliente.Text = "Guardar Cliente";
+            this.btGuardarCliente.Text = "Guardar Alterações";
             this.btGuardarCliente.UseVisualStyleBackColor = true;
             // 
             // label9
@@ -540,7 +552,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 537);
+            this.ClientSize = new System.Drawing.Size(996, 537);
             this.Controls.Add(this.gbClientes);
             this.Name = "FormClientes";
             this.Text = "FormClientes";
@@ -607,5 +619,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sexoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataNascicmentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker dtpDataNascFilho;
+        private System.Windows.Forms.Button btCancelClean;
     }
 }
