@@ -24,14 +24,7 @@ namespace Bookids
         {
             carregarProdutos();
             carregarComboTipo();
-            tbDesignacao.Enabled = false;
-            nmPreco.Enabled = false;
-            nmStockProduto.Enabled = false;
-            cbTipoProduto.Enabled = false;
-            btEditarProduto.Enabled = false;
-            btGuardarProduto.Enabled = false;
-            btApagarProduto.Enabled = false;
-            btCancelClean.Enabled = false;
+            limparDados();
         }
 
         private void carregarProdutos()
@@ -60,10 +53,49 @@ namespace Bookids
             }
         }
 
+        private void btAdicionarTipo_Click(object sender, EventArgs e)
+        {
+            if (cbTipoProduto.Text != string.Empty)
+            {
+                foreach (TipoProduto tipo in cbTipoProduto.Items)
+                {
+                    if (tipo.ToString() == cbTipoProduto.Text)
+                    {
+                        cbTipoProduto.DropDownStyle = ComboBoxStyle.DropDownList;
+                        carregarComboTipo();
+                        return;
+                    }
+                }
+                TipoProduto novoTipo = new TipoProduto() { Tipo = cbTipoProduto.Text };
+                BookidsContainer.TipoProdutoSet.Add(novoTipo);
+                BookidsContainer.SaveChanges();
+                cbTipoProduto.DropDownStyle = ComboBoxStyle.DropDownList;
+                carregarComboTipo();
+            }
+        }
+
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            btCancelClean.Enabled = true;
             cbTipoProduto.DropDownStyle = ComboBoxStyle.Simple;
             cbTipoProduto.Text = string.Empty;
+        }
+
+        private void apagarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja apagar?",
+                "Apagar", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                TipoProduto tipo = (TipoProduto)cbTipoProduto.SelectedItem;
+                BookidsContainer.TipoProdutoSet.Remove(tipo);
+                BookidsContainer.SaveChanges();
+                cbTipoProduto.DropDownStyle = ComboBoxStyle.DropDownList;
+                carregarComboTipo();
+            }
+
+
         }
 
         private bool dadosPreenchidosProduto()
@@ -96,11 +128,24 @@ namespace Bookids
         {
             dgvProdutosLoja.ClearSelection();
             btAdicionarProduto.Enabled = false;
+            btGuardarProduto.Enabled = true;
+            btCancelClean.Enabled = true;
             tbDesignacao.Enabled = true;
             nmPreco.Enabled = true;
-            nmPreco.Value = 0.01m;
             nmStockProduto.Enabled = true;
-            nmStockProduto.Value = 0;
+            cbTipoProduto.Enabled = true;
+            nmPreco.ResetText();
+            nmStockProduto.ResetText();
+        }
+
+        //Habilita a edição nas textboxs
+        private void btEditarProduto_Click(object sender, EventArgs e)
+        {
+            btGuardarProduto.Enabled = true;
+            btCancelClean.Enabled = true;
+            tbDesignacao.Enabled = true;
+            nmPreco.Enabled = true;
+            nmStockProduto.Enabled = true;
             cbTipoProduto.Enabled = true;
         }
 
@@ -153,6 +198,7 @@ namespace Bookids
 
                 }
                 carregarProdutos();
+                limparDados();
                 tbDesignacao.Enabled = false;
                 nmPreco.Enabled = false;
                 nmStockProduto.Enabled = false;
@@ -170,17 +216,7 @@ namespace Bookids
         }
 
 
-        private void btAdicionarTipo_Click(object sender, EventArgs e)
-        {
-            if (cbTipoProduto.Text != string.Empty)
-            {
-                TipoProduto novoTipo = new TipoProduto() { Tipo = cbTipoProduto.Text };
-                BookidsContainer.TipoProdutoSet.Add(novoTipo);
-                BookidsContainer.SaveChanges();
-                cbTipoProduto.DropDownStyle = ComboBoxStyle.DropDownList;
-                carregarComboTipo();
-            }
-        }
+        
 
         //Carrega a informação do produto selecionado para as text boxs
         /// <summary>
@@ -203,48 +239,54 @@ namespace Bookids
 
 
 
-        //Habilita a edição nas textboxs
-        private void btEditarProduto_Click(object sender, EventArgs e)
-        {
-            tbDesignacao.Enabled = true;
-            nmPreco.Enabled = true;
-            nmStockProduto.Enabled = true;
-            cbTipoProduto.Enabled = true;
-        }
 
         private void btApagarProduto_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja apagar?",
+                "Apagar", MessageBoxButtons.YesNo);
+
+            if(dr == DialogResult.Yes)
+            {   
+                try
             {
                 Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
                 BookidsContainer.ProdutosSet.Remove(produto);
                 BookidsContainer.SaveChanges();
                 carregarProdutos();
+                limparDados();
             }
             catch
             {
                 MessageBox.Show("Nenhum produto selecionado!");
             }
-            
 
+            }
         }
 
         private void btCancelClean_Click(object sender, EventArgs e)
+        {
+            limparDados();
+        }
+
+        public void limparDados()
         {
             dgvProdutosLoja.ClearSelection();
             tbCodProduto.Clear();
             tbDesignacao.Clear();
             nmStockProduto.ResetText();
             nmPreco.ResetText();
-            tbDesignacao.Enabled = true;
-            nmPreco.Enabled = true;
-            nmStockProduto.Enabled = true;
+            tbDesignacao.Enabled = false;
+            nmPreco.Enabled = false;
+            nmStockProduto.Enabled = false;
             cbTipoProduto.Enabled = true;
+            cbTipoProduto.DropDownStyle = ComboBoxStyle.DropDownList;
             btAdicionarProduto.Enabled = true;
             btGuardarProduto.Enabled = false;
             btEditarProduto.Enabled = false;
             btApagarProduto.Enabled = false;
             btCancelClean.Enabled = false;
         }
+
+
     }
 }
