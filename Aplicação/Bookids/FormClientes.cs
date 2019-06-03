@@ -17,7 +17,7 @@ namespace Bookids
         public FormClientes()
         {
             InitializeComponent();
-            BookidsContainer = new ModelBookidsContainer();            
+            BookidsContainer = new ModelBookidsContainer();
         }
 
         private void FormClientes_Load(object sender, EventArgs e)
@@ -44,7 +44,15 @@ namespace Bookids
                                 orderby clientes.Nome
                                 select clientes;
             clientesBindingSource.DataSource = listaClientes.ToList();
+        }
 
+
+        private void carregarComboEscola()
+        {
+            var listaEscolas = from Escolas in BookidsContainer.EscolasSet
+                             orderby Escolas.Nome
+                             select Escolas;
+            cbEscolaFilho.DataSource = listaEscolas.ToList<Escolas>();
         }
 
 
