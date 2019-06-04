@@ -52,10 +52,10 @@
             this.tbNomeAnimadores = new System.Windows.Forms.TextBox();
             this.btApagarAnimadores = new System.Windows.Forms.Button();
             this.btGuardarAnimadores = new System.Windows.Forms.Button();
-            this.tbTelefoneAnimadores = new System.Windows.Forms.TextBox();
             this.tbMoradaAnimadores = new System.Windows.Forms.TextBox();
             this.tbLocalidadeAnimadores = new System.Windows.Forms.TextBox();
-            this.tbTelemovelAnimadores = new System.Windows.Forms.TextBox();
+            this.tbTelefoneAnimadores = new System.Windows.Forms.MaskedTextBox();
+            this.tbTelemovelAnimadores = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).BeginInit();
             this.groupBoxAnimadores.SuspendLayout();
@@ -107,6 +107,8 @@
             // 
             // groupBoxAnimadores
             // 
+            this.groupBoxAnimadores.Controls.Add(this.tbTelemovelAnimadores);
+            this.groupBoxAnimadores.Controls.Add(this.tbTelefoneAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.tbEspecialidadeAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.labelEspecialidade);
             this.groupBoxAnimadores.Controls.Add(this.btCancelClean);
@@ -124,10 +126,8 @@
             this.groupBoxAnimadores.Controls.Add(this.tbNomeAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.btApagarAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.btGuardarAnimadores);
-            this.groupBoxAnimadores.Controls.Add(this.tbTelefoneAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.tbMoradaAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.tbLocalidadeAnimadores);
-            this.groupBoxAnimadores.Controls.Add(this.tbTelemovelAnimadores);
             this.groupBoxAnimadores.Location = new System.Drawing.Point(12, 12);
             this.groupBoxAnimadores.Name = "groupBoxAnimadores";
             this.groupBoxAnimadores.Size = new System.Drawing.Size(241, 383);
@@ -294,13 +294,6 @@
             this.btGuardarAnimadores.UseVisualStyleBackColor = true;
             this.btGuardarAnimadores.Click += new System.EventHandler(this.btGuardarAnimadores_Click);
             // 
-            // tbTelefoneAnimadores
-            // 
-            this.tbTelefoneAnimadores.Location = new System.Drawing.Point(74, 123);
-            this.tbTelefoneAnimadores.Name = "tbTelefoneAnimadores";
-            this.tbTelefoneAnimadores.Size = new System.Drawing.Size(161, 20);
-            this.tbTelefoneAnimadores.TabIndex = 27;
-            // 
             // tbMoradaAnimadores
             // 
             this.tbMoradaAnimadores.Location = new System.Drawing.Point(58, 45);
@@ -315,12 +308,21 @@
             this.tbLocalidadeAnimadores.Size = new System.Drawing.Size(161, 20);
             this.tbLocalidadeAnimadores.TabIndex = 29;
             // 
+            // tbTelefoneAnimadores
+            // 
+            this.tbTelefoneAnimadores.Location = new System.Drawing.Point(74, 123);
+            this.tbTelefoneAnimadores.Mask = "000 000 000";
+            this.tbTelefoneAnimadores.Name = "tbTelefoneAnimadores";
+            this.tbTelefoneAnimadores.Size = new System.Drawing.Size(69, 20);
+            this.tbTelefoneAnimadores.TabIndex = 50;
+            // 
             // tbTelemovelAnimadores
             // 
             this.tbTelemovelAnimadores.Location = new System.Drawing.Point(74, 149);
+            this.tbTelemovelAnimadores.Mask = "000 000 000";
             this.tbTelemovelAnimadores.Name = "tbTelemovelAnimadores";
-            this.tbTelemovelAnimadores.Size = new System.Drawing.Size(161, 20);
-            this.tbTelemovelAnimadores.TabIndex = 30;
+            this.tbTelemovelAnimadores.Size = new System.Drawing.Size(69, 20);
+            this.tbTelemovelAnimadores.TabIndex = 51;
             // 
             // FormAnimadores
             // 
@@ -356,10 +358,8 @@
         private System.Windows.Forms.TextBox tbNomeAnimadores;
         private System.Windows.Forms.Button btApagarAnimadores;
         private System.Windows.Forms.Button btGuardarAnimadores;
-        private System.Windows.Forms.TextBox tbTelefoneAnimadores;
         private System.Windows.Forms.TextBox tbMoradaAnimadores;
         private System.Windows.Forms.TextBox tbLocalidadeAnimadores;
-        private System.Windows.Forms.TextBox tbTelemovelAnimadores;
         private System.Windows.Forms.TextBox tbMailAnimadores;
         private System.Windows.Forms.Label labelMail;
         private System.Windows.Forms.Button btCancelClean;
@@ -368,5 +368,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn localidadeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn especialidadeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.MaskedTextBox tbTelemovelAnimadores;
+        private System.Windows.Forms.MaskedTextBox tbTelefoneAnimadores;
     }
 }

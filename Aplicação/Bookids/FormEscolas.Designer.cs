@@ -43,7 +43,6 @@
             this.tbNomeEscolas = new System.Windows.Forms.TextBox();
             this.btApagarEscola = new System.Windows.Forms.Button();
             this.btGuardarEscola = new System.Windows.Forms.Button();
-            this.tbTelefoneEscolas = new System.Windows.Forms.TextBox();
             this.tbMoradaEscolas = new System.Windows.Forms.TextBox();
             this.tbLocalidadeEscolas = new System.Windows.Forms.TextBox();
             this.tbMailEscolas = new System.Windows.Forms.TextBox();
@@ -52,6 +51,7 @@
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.escolasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbTelefoneEscolas = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxEscolas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscolas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escolasBindingSource)).BeginInit();
@@ -59,6 +59,7 @@
             // 
             // groupBoxEscolas
             // 
+            this.groupBoxEscolas.Controls.Add(this.tbTelefoneEscolas);
             this.groupBoxEscolas.Controls.Add(this.btCancelClean);
             this.groupBoxEscolas.Controls.Add(this.labelMailEscolas);
             this.groupBoxEscolas.Controls.Add(this.labelTelefone);
@@ -72,7 +73,6 @@
             this.groupBoxEscolas.Controls.Add(this.tbNomeEscolas);
             this.groupBoxEscolas.Controls.Add(this.btApagarEscola);
             this.groupBoxEscolas.Controls.Add(this.btGuardarEscola);
-            this.groupBoxEscolas.Controls.Add(this.tbTelefoneEscolas);
             this.groupBoxEscolas.Controls.Add(this.tbMoradaEscolas);
             this.groupBoxEscolas.Controls.Add(this.tbLocalidadeEscolas);
             this.groupBoxEscolas.Controls.Add(this.tbMailEscolas);
@@ -208,13 +208,6 @@
             this.btGuardarEscola.UseVisualStyleBackColor = true;
             this.btGuardarEscola.Click += new System.EventHandler(this.btGuardarEscola_Click);
             // 
-            // tbTelefoneEscolas
-            // 
-            this.tbTelefoneEscolas.Location = new System.Drawing.Point(74, 123);
-            this.tbTelefoneEscolas.Name = "tbTelefoneEscolas";
-            this.tbTelefoneEscolas.Size = new System.Drawing.Size(161, 20);
-            this.tbTelefoneEscolas.TabIndex = 27;
-            // 
             // tbMoradaEscolas
             // 
             this.tbMoradaEscolas.Location = new System.Drawing.Point(58, 45);
@@ -280,6 +273,14 @@
             // 
             this.escolasBindingSource.DataSource = typeof(Bookids.Escolas);
             // 
+            // tbTelefoneEscolas
+            // 
+            this.tbTelefoneEscolas.Location = new System.Drawing.Point(74, 123);
+            this.tbTelefoneEscolas.Mask = "000 000 000";
+            this.tbTelefoneEscolas.Name = "tbTelefoneEscolas";
+            this.tbTelefoneEscolas.Size = new System.Drawing.Size(69, 20);
+            this.tbTelefoneEscolas.TabIndex = 46;
+            // 
             // FormEscolas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,7 +305,6 @@
         private System.Windows.Forms.TextBox tbNomeEscolas;
         private System.Windows.Forms.Button btApagarEscola;
         private System.Windows.Forms.Button btGuardarEscola;
-        private System.Windows.Forms.TextBox tbTelefoneEscolas;
         private System.Windows.Forms.TextBox tbMoradaEscolas;
         private System.Windows.Forms.TextBox tbLocalidadeEscolas;
         private System.Windows.Forms.TextBox tbMailEscolas;
@@ -323,5 +323,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn localidadeDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btCancelClean;
+        private System.Windows.Forms.MaskedTextBox tbTelefoneEscolas;
     }
 }
