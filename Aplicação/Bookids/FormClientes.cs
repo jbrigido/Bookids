@@ -60,6 +60,7 @@ namespace Bookids
             tbMailCli.Enabled = false;
             tbCartaoCli.Enabled = false;
             nmValorOferta.Enabled = false;
+            btAdicionarClientes.Enabled = true;
             btGuardarClientes.Enabled = false;
             btEditarClientes.Enabled = false;
             btApagarClientes.Enabled = false;
@@ -70,30 +71,35 @@ namespace Bookids
         {
             if(tbNomeCli.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
                 tbNomeCli.Focus();
                 return false;
             }
 
             if (tbMoradaCli.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
                 tbMoradaCli.Focus();
                 return false;
             }
 
             if (tbCodPostalCli.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
                 tbCodPostalCli.Focus();
                 return false;
             }
 
             if (tbLocalidadeCli.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
                 tbLocalidadeCli.Focus();
                 return false;
             }
 
             if (tbTelemovelCli.Text.Trim() == string.Empty && tbTelefoneCli.Text.Trim() == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
                 tbTelemovelCli.Focus();
                 return false;
             }
@@ -103,6 +109,7 @@ namespace Bookids
 
         private void dgvClientes_MouseClick(object sender, MouseEventArgs e)
         {
+
             try
             {
                 Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
@@ -129,12 +136,13 @@ namespace Bookids
             {
 
             }
-            
+            dgvFilhos.ClearSelection();
         }
 
         private void btCancelCleanClientes_Click(object sender, EventArgs e)
         {
             limparDadosClientes();
+            dgvFilhos.Rows.Clear();
         }
 
         private void btAdicionarClientes_Click(object sender, EventArgs e)
@@ -251,32 +259,44 @@ namespace Bookids
 
         private void limparDadosFilhos()
         {
-            dgvFilhos.ClearSelection();
             tbNomeFilho.Clear();
             tbNomeFilho.Enabled = false;
             cbEscolaFilho.Enabled = false;
             cbSexoFilho.Enabled = false;
             dtpDataNascFilho.Enabled = false;
-            btEditarFilhos.Enabled = false;
-            btApagarFilhos.Enabled = false;
-            btGuardarFilhos.Enabled = false;
             btAdicionarFilhos.Enabled = true;
+            btEditarFilhos.Enabled = false;
+            btGuardarFilhos.Enabled = false;
+            btApagarFilhos.Enabled = false;
+            dgvFilhos.ClearSelection();
         }
 
         private bool dadosPreenchidosFilhos()
         {
             if (tbNomeFilho.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                tbNomeFilho.Focus();
                 return false;
             }
            
             if (dtpDataNascFilho.Value == null)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
                 return false;
             }
 
             if (cbSexoFilho.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                cbSexoFilho.Focus();
+                return false;
+            }
+
+            if (cbEscolaFilho.Text == string.Empty)
+            {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                cbEscolaFilho.Focus();
                 return false;
             }
 
@@ -402,12 +422,49 @@ namespace Bookids
                 if (cliente != null)
                 {
                     //COMO REMOVER OS FILHOS DO CLIENTE REMOVIDO?
+                    while (cliente.Filhos.Count > 0)
+                    {
+                        foreach (Filhos filho in filhosBindingSource)
+                        {
+                            if(cliente.IdPessoa == filho.IdProgenitor)
+                            {
+                                BookidsContainer.FilhosSet.Remove(filho);
+                            }
+                        }
+                       // BookidsContainer.SaveChanges();
+
+                    }
                     BookidsContainer.ClientesSet.Remove(cliente);
                     BookidsContainer.SaveChanges();
-                    limparDadosClientes();
+                    carregarFilhos(cliente);
                     carregarClientes();
+                    limparDadosClientes();
+                    limparDadosFilhos();
                 }
             }
+        }
+
+        private void btApagarFilhos_Click(object sender, EventArgs e)
+        {
+            Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja apagar?",
+                "Apagar", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                    Filhos filho = (Filhos)dgvFilhos.SelectedRows[0].DataBoundItem;
+                    if (filho != null)
+                    {
+                        //COMO REMOVER OS FILHOS DO CLIENTE REMOVIDO?
+                        BookidsContainer.FilhosSet.Remove(filho);
+                        BookidsContainer.SaveChanges();
+                        carregarFilhos(cliente);
+                        limparDadosFilhos();
+                        limparDadosClientes();
+
+                    }                
+            }
+
         }
     }
 }

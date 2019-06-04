@@ -42,22 +42,27 @@
             this.cbEscolaFilho = new System.Windows.Forms.ComboBox();
             this.btGuardarFilhos = new System.Windows.Forms.Button();
             this.dgvFilhos = new System.Windows.Forms.DataGridView();
+            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataNascicmentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filhosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbSexoFilho = new System.Windows.Forms.ComboBox();
             this.tbNomeFilho = new System.Windows.Forms.TextBox();
             this.btEditarFilhos = new System.Windows.Forms.Button();
             this.btAdicionarFilhos = new System.Windows.Forms.Button();
             this.btApagarFilhos = new System.Windows.Forms.Button();
             this.gbClientes = new System.Windows.Forms.GroupBox();
-            this.btCancelCleanClientes = new System.Windows.Forms.Button();
-            this.btGuardarClientes = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbTelefoneCli = new System.Windows.Forms.MaskedTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbTelemovelCli = new System.Windows.Forms.MaskedTextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.btCancelCleanClientes = new System.Windows.Forms.Button();
+            this.tbMailCli = new System.Windows.Forms.TextBox();
+            this.btGuardarClientes = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.tbTelefoneCli = new System.Windows.Forms.MaskedTextBox();
             this.tbCodPostalCli = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbTelemovelCli = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,7 +70,6 @@
             this.nmValorOferta = new System.Windows.Forms.NumericUpDown();
             this.tbNomeCli = new System.Windows.Forms.TextBox();
             this.tbLocalidadeCli = new System.Windows.Forms.TextBox();
-            this.tbMailCli = new System.Windows.Forms.TextBox();
             this.tbCartaoCli = new System.Windows.Forms.TextBox();
             this.tbMoradaCli = new System.Windows.Forms.TextBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
@@ -79,17 +83,13 @@
             this.telemovelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataNascicmentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.filhosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbFilhos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilhos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).BeginInit();
             this.gbClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmValorOferta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btAdicionarClientes
@@ -160,36 +160,36 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(28, 193);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(107, 13);
+            this.label13.Size = new System.Drawing.Size(111, 13);
             this.label13.TabIndex = 49;
-            this.label13.Text = "Data de Nascimento:";
+            this.label13.Text = "*Data de Nascimento:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(177, 164);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(42, 13);
+            this.label12.Size = new System.Drawing.Size(46, 13);
             this.label12.TabIndex = 48;
-            this.label12.Text = "Escola:";
+            this.label12.Text = "*Escola:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(28, 164);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.Size = new System.Drawing.Size(38, 13);
             this.label11.TabIndex = 47;
-            this.label11.Text = "Sexo:";
+            this.label11.Text = "*Sexo:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(28, 138);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.Size = new System.Drawing.Size(42, 13);
             this.label10.TabIndex = 46;
-            this.label10.Text = "Nome:";
+            this.label10.Text = "*Nome:";
             // 
             // dtpDataNascFilho
             // 
@@ -208,7 +208,7 @@
             // 
             // btGuardarFilhos
             // 
-            this.btGuardarFilhos.Location = new System.Drawing.Point(15, 102);
+            this.btGuardarFilhos.Location = new System.Drawing.Point(15, 72);
             this.btGuardarFilhos.Name = "btGuardarFilhos";
             this.btGuardarFilhos.Size = new System.Drawing.Size(109, 23);
             this.btGuardarFilhos.TabIndex = 19;
@@ -235,6 +235,31 @@
             this.dgvFilhos.Size = new System.Drawing.Size(344, 109);
             this.dgvFilhos.TabIndex = 18;
             this.dgvFilhos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvFilhos_MouseClick);
+            // 
+            // nomeDataGridViewTextBoxColumn1
+            // 
+            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
+            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sexoDataGridViewTextBoxColumn
+            // 
+            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
+            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
+            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
+            this.sexoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataNascicmentoDataGridViewTextBoxColumn
+            // 
+            this.dataNascicmentoDataGridViewTextBoxColumn.DataPropertyName = "DataNascicmento";
+            this.dataNascicmentoDataGridViewTextBoxColumn.HeaderText = "DataNascicmento";
+            this.dataNascicmentoDataGridViewTextBoxColumn.Name = "dataNascicmentoDataGridViewTextBoxColumn";
+            this.dataNascicmentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // filhosBindingSource
+            // 
+            this.filhosBindingSource.DataSource = typeof(Bookids.Filhos);
             // 
             // cbSexoFilho
             // 
@@ -276,25 +301,27 @@
             // 
             // btApagarFilhos
             // 
-            this.btApagarFilhos.Location = new System.Drawing.Point(15, 73);
+            this.btApagarFilhos.Location = new System.Drawing.Point(15, 101);
             this.btApagarFilhos.Name = "btApagarFilhos";
             this.btApagarFilhos.Size = new System.Drawing.Size(109, 23);
             this.btApagarFilhos.TabIndex = 15;
             this.btApagarFilhos.Text = "Apagar Filho";
             this.btApagarFilhos.UseVisualStyleBackColor = true;
+            this.btApagarFilhos.Click += new System.EventHandler(this.btApagarFilhos_Click);
             // 
             // gbClientes
             // 
-            this.gbClientes.Controls.Add(this.btCancelCleanClientes);
-            this.gbClientes.Controls.Add(this.btGuardarClientes);
             this.gbClientes.Controls.Add(this.label9);
-            this.gbClientes.Controls.Add(this.tbTelefoneCli);
-            this.gbClientes.Controls.Add(this.label8);
-            this.gbClientes.Controls.Add(this.tbTelemovelCli);
-            this.gbClientes.Controls.Add(this.label7);
+            this.gbClientes.Controls.Add(this.btCancelCleanClientes);
+            this.gbClientes.Controls.Add(this.tbMailCli);
+            this.gbClientes.Controls.Add(this.btGuardarClientes);
             this.gbClientes.Controls.Add(this.label6);
+            this.gbClientes.Controls.Add(this.tbTelefoneCli);
             this.gbClientes.Controls.Add(this.tbCodPostalCli);
+            this.gbClientes.Controls.Add(this.label7);
+            this.gbClientes.Controls.Add(this.tbTelemovelCli);
             this.gbClientes.Controls.Add(this.label5);
+            this.gbClientes.Controls.Add(this.label8);
             this.gbClientes.Controls.Add(this.label4);
             this.gbClientes.Controls.Add(this.label3);
             this.gbClientes.Controls.Add(this.label2);
@@ -302,7 +329,6 @@
             this.gbClientes.Controls.Add(this.nmValorOferta);
             this.gbClientes.Controls.Add(this.tbNomeCli);
             this.gbClientes.Controls.Add(this.tbLocalidadeCli);
-            this.gbClientes.Controls.Add(this.tbMailCli);
             this.gbClientes.Controls.Add(this.tbCartaoCli);
             this.gbClientes.Controls.Add(this.tbMoradaCli);
             this.gbClientes.Controls.Add(this.dgvClientes);
@@ -312,10 +338,19 @@
             this.gbClientes.Controls.Add(this.btEditarClientes);
             this.gbClientes.Location = new System.Drawing.Point(12, 12);
             this.gbClientes.Name = "gbClientes";
-            this.gbClientes.Size = new System.Drawing.Size(988, 503);
+            this.gbClientes.Size = new System.Drawing.Size(1003, 503);
             this.gbClientes.TabIndex = 13;
             this.gbClientes.TabStop = false;
             this.gbClientes.Text = "Clientes";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(318, 182);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 45;
+            this.label9.Text = "E-mail:";
             // 
             // btCancelCleanClientes
             // 
@@ -327,6 +362,13 @@
             this.btCancelCleanClientes.UseVisualStyleBackColor = true;
             this.btCancelCleanClientes.Click += new System.EventHandler(this.btCancelCleanClientes_Click);
             // 
+            // tbMailCli
+            // 
+            this.tbMailCli.Location = new System.Drawing.Point(362, 179);
+            this.tbMailCli.Name = "tbMailCli";
+            this.tbMailCli.Size = new System.Drawing.Size(133, 20);
+            this.tbMailCli.TabIndex = 44;
+            // 
             // btGuardarClientes
             // 
             this.btGuardarClientes.Location = new System.Drawing.Point(265, 39);
@@ -337,88 +379,79 @@
             this.btGuardarClientes.UseVisualStyleBackColor = true;
             this.btGuardarClientes.Click += new System.EventHandler(this.btGuardarClientes_Click);
             // 
-            // label9
+            // label6
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(295, 183);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "E-mail:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(229, 157);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 13);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "*Localidade:";
             // 
             // tbTelefoneCli
             // 
-            this.tbTelefoneCli.Location = new System.Drawing.Point(220, 180);
+            this.tbTelefoneCli.Location = new System.Drawing.Point(243, 179);
             this.tbTelefoneCli.Mask = "000 000 000";
             this.tbTelefoneCli.Name = "tbTelefoneCli";
             this.tbTelefoneCli.Size = new System.Drawing.Size(69, 20);
             this.tbTelefoneCli.TabIndex = 42;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(162, 183);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
-            this.label8.TabIndex = 41;
-            this.label8.Text = "Telefone:";
-            // 
-            // tbTelemovelCli
-            // 
-            this.tbTelemovelCli.Location = new System.Drawing.Point(87, 180);
-            this.tbTelemovelCli.Mask = "000 000 000";
-            this.tbTelemovelCli.Name = "tbTelemovelCli";
-            this.tbTelemovelCli.Size = new System.Drawing.Size(69, 20);
-            this.tbTelemovelCli.TabIndex = 40;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(29, 183);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 13);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Telemóvel:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(206, 157);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
-            this.label6.TabIndex = 38;
-            this.label6.Text = "Localidade:";
-            // 
             // tbCodPostalCli
             // 
-            this.tbCodPostalCli.Location = new System.Drawing.Point(110, 154);
+            this.tbCodPostalCli.Location = new System.Drawing.Point(110, 153);
             this.tbCodPostalCli.Mask = "0000 - 000";
             this.tbCodPostalCli.Name = "tbCodPostalCli";
             this.tbCodPostalCli.Size = new System.Drawing.Size(61, 20);
             this.tbCodPostalCli.TabIndex = 37;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(29, 182);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "**Telemóvel:";
+            // 
+            // tbTelemovelCli
+            // 
+            this.tbTelemovelCli.Location = new System.Drawing.Point(102, 179);
+            this.tbTelemovelCli.Mask = "000 000 000";
+            this.tbTelemovelCli.Name = "tbTelemovelCli";
+            this.tbTelemovelCli.Size = new System.Drawing.Size(69, 20);
+            this.tbTelemovelCli.TabIndex = 40;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(29, 157);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 13);
+            this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 36;
-            this.label5.Text = "Código Postal:";
+            this.label5.Text = "*Código Postal:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(177, 182);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 13);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "**Telefone:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(29, 131);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 35;
-            this.label4.Text = "Morada:";
+            this.label4.Text = "*Morada:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(280, 105);
+            this.label3.Location = new System.Drawing.Point(303, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 34;
@@ -438,9 +471,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(29, 79);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 32;
-            this.label1.Text = "Nome:";
+            this.label1.Text = "*Nome:";
             // 
             // nmValorOferta
             // 
@@ -449,7 +482,7 @@
             0,
             0,
             0});
-            this.nmValorOferta.Location = new System.Drawing.Point(352, 102);
+            this.nmValorOferta.Location = new System.Drawing.Point(375, 102);
             this.nmValorOferta.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -462,37 +495,30 @@
             // 
             // tbNomeCli
             // 
-            this.tbNomeCli.Location = new System.Drawing.Point(73, 76);
+            this.tbNomeCli.Location = new System.Drawing.Point(102, 76);
             this.tbNomeCli.Name = "tbNomeCli";
-            this.tbNomeCli.Size = new System.Drawing.Size(399, 20);
+            this.tbNomeCli.Size = new System.Drawing.Size(393, 20);
             this.tbNomeCli.TabIndex = 22;
             // 
             // tbLocalidadeCli
             // 
-            this.tbLocalidadeCli.Location = new System.Drawing.Point(274, 154);
+            this.tbLocalidadeCli.Location = new System.Drawing.Point(297, 154);
             this.tbLocalidadeCli.Name = "tbLocalidadeCli";
             this.tbLocalidadeCli.Size = new System.Drawing.Size(198, 20);
             this.tbLocalidadeCli.TabIndex = 28;
             // 
-            // tbMailCli
-            // 
-            this.tbMailCli.Location = new System.Drawing.Point(339, 180);
-            this.tbMailCli.Name = "tbMailCli";
-            this.tbMailCli.Size = new System.Drawing.Size(133, 20);
-            this.tbMailCli.TabIndex = 29;
-            // 
             // tbCartaoCli
             // 
-            this.tbCartaoCli.Location = new System.Drawing.Point(114, 102);
+            this.tbCartaoCli.Location = new System.Drawing.Point(111, 101);
             this.tbCartaoCli.Name = "tbCartaoCli";
             this.tbCartaoCli.Size = new System.Drawing.Size(73, 20);
             this.tbCartaoCli.TabIndex = 30;
             // 
             // tbMoradaCli
             // 
-            this.tbMoradaCli.Location = new System.Drawing.Point(81, 128);
+            this.tbMoradaCli.Location = new System.Drawing.Point(102, 128);
             this.tbMoradaCli.Name = "tbMoradaCli";
-            this.tbMoradaCli.Size = new System.Drawing.Size(391, 20);
+            this.tbMoradaCli.Size = new System.Drawing.Size(393, 20);
             this.tbMoradaCli.TabIndex = 24;
             // 
             // dgvClientes
@@ -512,7 +538,7 @@
             this.telemovelDataGridViewTextBoxColumn,
             this.mailDataGridViewTextBoxColumn});
             this.dgvClientes.DataSource = this.clientesBindingSource;
-            this.dgvClientes.Location = new System.Drawing.Point(32, 240);
+            this.dgvClientes.Location = new System.Drawing.Point(31, 250);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
@@ -588,36 +614,11 @@
             // 
             this.clientesBindingSource.DataSource = typeof(Bookids.Clientes);
             // 
-            // nomeDataGridViewTextBoxColumn1
-            // 
-            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
-            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // sexoDataGridViewTextBoxColumn
-            // 
-            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
-            this.sexoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataNascicmentoDataGridViewTextBoxColumn
-            // 
-            this.dataNascicmentoDataGridViewTextBoxColumn.DataPropertyName = "DataNascicmento";
-            this.dataNascicmentoDataGridViewTextBoxColumn.HeaderText = "DataNascicmento";
-            this.dataNascicmentoDataGridViewTextBoxColumn.Name = "dataNascicmentoDataGridViewTextBoxColumn";
-            this.dataNascicmentoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // filhosBindingSource
-            // 
-            this.filhosBindingSource.DataSource = typeof(Bookids.Filhos);
-            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 525);
+            this.ClientSize = new System.Drawing.Size(1020, 525);
             this.Controls.Add(this.gbClientes);
             this.Name = "FormClientes";
             this.Text = "FormClientes";
@@ -625,12 +626,12 @@
             this.gbFilhos.ResumeLayout(false);
             this.gbFilhos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilhos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).EndInit();
             this.gbClientes.ResumeLayout(false);
             this.gbClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmValorOferta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -655,12 +656,10 @@
         private System.Windows.Forms.NumericUpDown nmValorOferta;
         private System.Windows.Forms.TextBox tbNomeCli;
         private System.Windows.Forms.TextBox tbLocalidadeCli;
-        private System.Windows.Forms.TextBox tbMailCli;
         private System.Windows.Forms.TextBox tbCartaoCli;
         private System.Windows.Forms.TextBox tbMoradaCli;
         private System.Windows.Forms.Button btGuardarFilhos;
         private System.Windows.Forms.Button btGuardarClientes;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox tbTelefoneCli;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox tbTelemovelCli;
@@ -690,5 +689,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btCancelCleanClientes;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbMailCli;
     }
 }
