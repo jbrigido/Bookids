@@ -235,6 +235,7 @@ namespace Bookids
         /// <param name="e"></param>
         private void dgvProdutosLoja_MouseClick(object sender, MouseEventArgs e)
         {
+            bloquearDados();
             try
             {
                 Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
@@ -242,6 +243,7 @@ namespace Bookids
                 btEditarProduto.Enabled = true;
                 btApagarProduto.Enabled = true;
                 btCancelClean.Enabled = true;
+
                 tbCodProduto.Text = Convert.ToString(produto.CodProduto);
                 tbDesignacao.Text = produto.Designacao;
                 nmPreco.Value = produto.Preco;
@@ -289,16 +291,26 @@ namespace Bookids
             tbDesignacao.Clear();
             nmStockProduto.ResetText();
             nmPreco.ResetText();
+            cbTipoProduto.ResetText();
             tbDesignacao.Enabled = false;
             nmPreco.Enabled = false;
             nmStockProduto.Enabled = false;
-            cbTipoProduto.Enabled = true;
+            cbTipoProduto.Enabled = false;
             cbTipoProduto.DropDownStyle = ComboBoxStyle.DropDownList;
             btAdicionarProduto.Enabled = true;
             btGuardarProduto.Enabled = false;
             btEditarProduto.Enabled = false;
             btApagarProduto.Enabled = false;
             btCancelClean.Enabled = false;
+        }
+
+        public void bloquearDados()
+        {
+            tbDesignacao.Enabled = false;
+            nmPreco.Enabled = false;
+            nmStockProduto.Enabled = false;
+            cbTipoProduto.Enabled = false;
+            cbTipoProduto.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 

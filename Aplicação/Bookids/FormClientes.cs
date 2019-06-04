@@ -24,8 +24,8 @@ namespace Bookids
         {
             carregarClientes();
             carregarComboEscola();
-            limparDadosClientes();
             limparDadosFilhos();
+            limparDadosClientes();
         }
 
 
@@ -66,6 +66,10 @@ namespace Bookids
             btGuardarClientes.Enabled = false;
             btEditarClientes.Enabled = false;
             btApagarClientes.Enabled = false;
+            btAdicionarFilhos.Enabled = false;
+            btCancelCleanFilhos.Enabled = false;
+            dgvClientes.Enabled = true;
+
         }
 
         /* Função para verificar o preenchimento das tb relativo aos dados dos clientes */
@@ -115,26 +119,28 @@ namespace Bookids
             try
             {
                 Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
-                if (cliente != null)
-                {
-                    btAdicionarClientes.Enabled = false;
-                    btEditarClientes.Enabled = true;
-                    btApagarClientes.Enabled = true;
-                    btCancelCleanFilhos.Enabled = true;
-                    filhosBindingSource.DataSource = cliente.Filhos.ToList<Filhos>();
-                    tbNomeCli.Text = cliente.Nome;
-                    tbCartaoCli.Text = cliente.NrCartao;
-                    nmValorOferta.Value = (Int32)cliente.ValorOferta;
-                    tbLocalidadeCli.Text = cliente.Localidade;
-                    tbMoradaCli.Text = cliente.Morada;
-                    tbCodPostalCli.Text = cliente.CodPostal;
-                    tbTelemovelCli.Text = cliente.Telemovel;
-                    tbTelefoneCli.Text = cliente.Telefone;
-                    tbMailCli.Text = cliente.Mail;
-                }
+
+                btAdicionarClientes.Enabled = false;
+                btEditarClientes.Enabled = true;
+                btApagarClientes.Enabled = true;
+                btAdicionarFilhos.Enabled = true;
+                btCancelCleanFilhos.Enabled = true;
+                filhosBindingSource.DataSource = cliente.Filhos.ToList<Filhos>();
+                tbNomeCli.Text = cliente.Nome;
+                tbCartaoCli.Text = cliente.NrCartao;
+                nmValorOferta.Value = (Int32)cliente.ValorOferta;
+                tbLocalidadeCli.Text = cliente.Localidade;
+                tbMoradaCli.Text = cliente.Morada;
+                tbCodPostalCli.Text = cliente.CodPostal;
+                tbTelemovelCli.Text = cliente.Telemovel;
+                tbTelefoneCli.Text = cliente.Telefone;
+                tbMailCli.Text = cliente.Mail;
+
             }
             catch(ArgumentOutOfRangeException)
             {
+                btAdicionarFilhos.Enabled = false;
+                btCancelCleanFilhos.Enabled = false;
 
             }
             dgvFilhos.ClearSelection();
@@ -142,8 +148,8 @@ namespace Bookids
 
         private void btCancelCleanClientes_Click(object sender, EventArgs e)
         {
-            limparDadosClientes();
             dgvFilhos.Rows.Clear();
+            limparDadosClientes();
         }
 
         private void btAdicionarClientes_Click(object sender, EventArgs e)
@@ -161,6 +167,7 @@ namespace Bookids
             tbMailCli.Enabled = true;
             nmValorOferta.Enabled = true;
             tbCartaoCli.Enabled = true;
+            dgvClientes.Enabled = false;
         }
 
         private void btEditarClientes_Click(object sender, EventArgs e)
@@ -176,6 +183,7 @@ namespace Bookids
             tbMailCli.Enabled = true;
             nmValorOferta.Enabled = true;
             tbCartaoCli.Enabled = true;
+            dgvClientes.Enabled = false;
         }
 
         private void btGuardarClientes_Click(object sender, EventArgs e)
@@ -272,6 +280,7 @@ namespace Bookids
             btGuardarFilhos.Enabled = false;
             btApagarFilhos.Enabled = false;
             dgvFilhos.ClearSelection();
+            dgvFilhos.Enabled = true;
         }
 
         private bool dadosPreenchidosFilhos()
@@ -339,6 +348,7 @@ namespace Bookids
             cbEscolaFilho.Enabled = true;
             cbSexoFilho.Enabled = true;
             dtpDataNascFilho.Enabled = true;
+            dgvFilhos.Enabled = false;
         }
 
         private void btCancelCleanFilhos_Click(object sender, EventArgs e)
@@ -354,6 +364,7 @@ namespace Bookids
             cbEscolaFilho.Enabled = true;
             cbSexoFilho.Enabled = true;
             dtpDataNascFilho.Enabled = true;
+            dgvFilhos.Enabled = false;
         }
 
         private void btGuardarFilhos_Click(object sender, EventArgs e)

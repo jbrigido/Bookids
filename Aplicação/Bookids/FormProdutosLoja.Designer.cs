@@ -31,12 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvProdutosLoja = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btAdicionarProduto = new System.Windows.Forms.Button();
             this.btEditarProduto = new System.Windows.Forms.Button();
             this.btApagarProduto = new System.Windows.Forms.Button();
@@ -57,12 +51,18 @@
             this.apagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbPL = new System.Windows.Forms.GroupBox();
             this.btCancelClean = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosLoja)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmStockProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmPreco)).BeginInit();
             this.menuEditarTipo.SuspendLayout();
             this.gbPL.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProdutosLoja
@@ -86,48 +86,6 @@
             this.dgvProdutosLoja.Size = new System.Drawing.Size(543, 269);
             this.dgvProdutosLoja.TabIndex = 1;
             this.dgvProdutosLoja.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProdutosLoja_MouseClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CodProduto";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CodProduto";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Designacao";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Designacao";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Preco";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = "0,00";
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Preco";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "StockExistente";
-            this.dataGridViewTextBoxColumn5.HeaderText = "StockExistente";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "TipoProduto";
-            this.dataGridViewTextBoxColumn7.HeaderText = "TipoProduto";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // produtosBindingSource
-            // 
-            this.produtosBindingSource.DataSource = typeof(Bookids.Produtos);
             // 
             // btAdicionarProduto
             // 
@@ -268,11 +226,8 @@
             // cbTipoProduto
             // 
             this.cbTipoProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoProduto.Enabled = false;
             this.cbTipoProduto.FormattingEnabled = true;
-            this.cbTipoProduto.Items.AddRange(new object[] {
-            "Tipo1",
-            "Tipo2",
-            "Tipo3"});
             this.cbTipoProduto.Location = new System.Drawing.Point(48, 98);
             this.cbTipoProduto.Name = "cbTipoProduto";
             this.cbTipoProduto.Size = new System.Drawing.Size(182, 21);
@@ -353,6 +308,48 @@
             this.btCancelClean.UseVisualStyleBackColor = true;
             this.btCancelClean.Click += new System.EventHandler(this.btCancelClean_Click);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CodProduto";
+            this.dataGridViewTextBoxColumn1.HeaderText = "CodProduto";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Designacao";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Designacao";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Preco";
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = "0,00";
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Preco";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "StockExistente";
+            this.dataGridViewTextBoxColumn5.HeaderText = "StockExistente";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "TipoProduto";
+            this.dataGridViewTextBoxColumn7.HeaderText = "TipoProduto";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // produtosBindingSource
+            // 
+            this.produtosBindingSource.DataSource = typeof(Bookids.Produtos);
+            // 
             // FormProdutosLoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,12 +361,12 @@
             this.Text = "FormProdutosLoja";
             this.Load += new System.EventHandler(this.FormProdutosLoja_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosLoja)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmStockProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmPreco)).EndInit();
             this.menuEditarTipo.ResumeLayout(false);
             this.gbPL.ResumeLayout(false);
             this.gbPL.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
