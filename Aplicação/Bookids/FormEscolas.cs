@@ -24,17 +24,7 @@ namespace Bookids
         private void FormEscolas_Load(object sender, EventArgs e)
         {
             carregarEscolas();
-            dgvEscolas.ClearSelection();
-            tbNomeEscolas.Enabled = false;
-            tbMoradaEscolas.Enabled = false;
-            tbCodPostalEscolas.Enabled = false;
-            tbLocalidadeEscolas.Enabled = false;
-            tbTelefoneEscolas.Enabled = false;
-            tbMailEscolas.Enabled = false;
-            btEditarEscola.Enabled = false;
-            btGuardarEscola.Enabled = false;
-            btApagarEscola.Enabled = false;
-            btCancelClean.Enabled = false;
+            limparDados();
         }
 
         private void carregarEscolas()
@@ -61,7 +51,7 @@ namespace Bookids
                 return false;
             }
 
-            if(tbTelefoneEscolas.Text == string.Empty)
+            if(tbTelefoneEscolas.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("(*) Campos de preenchimento obrigatório !");
                 tbTelefoneEscolas.Focus();

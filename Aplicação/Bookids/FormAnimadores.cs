@@ -23,19 +23,7 @@ namespace Bookids
         private void FormAnimadores_Load(object sender, EventArgs e)
         {
             carregarAnimadores();
-            dgvAnimadores.ClearSelection();
-            tbNomeAnimadores.Enabled = false;
-            tbMoradaAnimadores.Enabled = false;
-            tbCodPostalAnimadores.Enabled = false;
-            tbLocalidadeAnimadores.Enabled = false;
-            tbTelefoneAnimadores.Enabled = false;
-            tbTelemovelAnimadores.Enabled = false;
-            tbMailAnimadores.Enabled = false;
-            tbEspecialidadeAnimadores.Enabled = false;
-            btGuardarAnimadores.Enabled = false;
-            btEditarAnimadores.Enabled = false;
-            btApagarAnimadores.Enabled = false;
-            btCancelClean.Enabled = false;
+            limparDados();
         }
 
         private void carregarAnimadores()
@@ -76,7 +64,7 @@ namespace Bookids
                 return false;
             }
 
-            if(tbTelefoneAnimadores.Text == string.Empty && tbTelemovelAnimadores.Text == string.Empty)
+            if(tbTelefoneAnimadores.Text.Trim() == string.Empty && tbTelemovelAnimadores.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
                 tbTelefoneAnimadores.Focus();
