@@ -52,5 +52,7 @@ namespace Bookids
                              select TipoProduto;
             cbTipoProduto.DataSource = listaTipos.ToList<TipoProduto>();
         }
+
+
     }
 }
