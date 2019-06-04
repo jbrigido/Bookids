@@ -35,7 +35,6 @@ namespace Bookids
                                 orderby Clientes.Nome
                                 select Clientes;
             cbClientes.DataSource = listaClientes.ToList<Clientes>();
-
         }
 
         private void carregarDadosVendas()
@@ -52,6 +51,18 @@ namespace Bookids
                              orderby TipoProduto.Tipo
                              select TipoProduto;
             cbTipoProduto.DataSource = listaTipos.ToList<TipoProduto>();
+            carregarListaProtudos();
+        }
+
+        public void carregarListaProtudos()
+        {
+            var listaProdutos = from Produtos in BookidsContainer.ProdutosSet
+                                orderby Produtos.Designacao
+                                where Produtos.TipoProduto.CodTipoProduto == 
+                            ((TipoProduto)cbTipoProduto.SelectedItem).CodTipoProduto
+                                select Produtos;
+            lbProdutos.DataSource = listaProdutos.ToList<Produtos>();
+            //lbProdutos.ClearSelected();
         }
 
         private void limparDadosVendas()
