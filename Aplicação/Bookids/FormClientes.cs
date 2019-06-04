@@ -232,6 +232,15 @@ namespace Bookids
             filhosBindingSource.DataSource = listaFilhos.ToList();
         }
 
+        private void carregarFilhos(Clientes cliente)
+        {
+            var listaFilhos = from Filhos in BookidsContainer.FilhosSet
+                              where Filhos.IdProgenitor == cliente.IdPessoa
+                              orderby Filhos.Nome
+                              select Filhos;
+            filhosBindingSource.DataSource = listaFilhos.ToList();
+        }
+
         private void carregarComboEscola()
         {
             var listaEscolas = from Escolas in BookidsContainer.EscolasSet
@@ -366,7 +375,7 @@ namespace Bookids
                             };
                             BookidsContainer.FilhosSet.Add(novo);
                             BookidsContainer.SaveChanges();
-                            carregarFilhos();
+                            carregarFilhos(cliente);
                         }
                     }
                 }
