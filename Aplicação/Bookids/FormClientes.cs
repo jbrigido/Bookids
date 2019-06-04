@@ -28,28 +28,15 @@ namespace Bookids
             carregarComboEscola();
         }
 
+
+        //GESTÃO DOS CLIENTES
+
         private void carregarClientes()
         {
             var listaClientes = from clientes in BookidsContainer.ClientesSet
                                 orderby clientes.Nome
                                 select clientes;
             clientesBindingSource.DataSource = listaClientes.ToList();
-        }
-
-        private void carregarFilhos()
-        {
-            var listaFilhos = from Filhos in BookidsContainer.FilhosSet
-                              orderby Filhos.Nome
-                              select Filhos;
-            filhosBindingSource.DataSource = listaFilhos.ToList();
-        }
-
-        private void carregarComboEscola()
-        {
-            var listaEscolas = from Escolas in BookidsContainer.EscolasSet
-                             orderby Escolas.Nome
-                             select Escolas;
-            cbEscolaFilho.DataSource = listaEscolas.ToList<Escolas>();
         }
 
         private void limparDadosClientes()
@@ -145,6 +132,11 @@ namespace Bookids
             
         }
 
+        private void btCancelCleanClientes_Click(object sender, EventArgs e)
+        {
+            limparDadosClientes();
+        }
+
         private void btAdicionarClientes_Click(object sender, EventArgs e)
         {
             dgvClientes.ClearSelection();
@@ -164,7 +156,7 @@ namespace Bookids
 
         private void btEditarClientes_Click(object sender, EventArgs e)
         {
-            btEditarClientes.Enabled = true;
+            btEditarClientes.Enabled = false;
             btGuardarClientes.Enabled = true;
             tbNomeCli.Enabled = true;
             tbMoradaCli.Enabled = true;
@@ -229,6 +221,25 @@ namespace Bookids
             }
         }
 
+
+        //GESTÃO DOS FILHOS
+
+        private void carregarFilhos()
+        {
+            var listaFilhos = from Filhos in BookidsContainer.FilhosSet
+                              orderby Filhos.Nome
+                              select Filhos;
+            filhosBindingSource.DataSource = listaFilhos.ToList();
+        }
+
+        private void carregarComboEscola()
+        {
+            var listaEscolas = from Escolas in BookidsContainer.EscolasSet
+                               orderby Escolas.Nome
+                               select Escolas;
+            cbEscolaFilho.DataSource = listaEscolas.ToList<Escolas>();
+        }
+
         private void limparDadosFilhos()
         {
             dgvFilhos.ClearSelection();
@@ -240,7 +251,7 @@ namespace Bookids
             btEditarFilhos.Enabled = false;
             btApagarFilhos.Enabled = false;
             btGuardarFilhos.Enabled = false;
-
+            btAdicionarFilhos.Enabled = true;
         }
 
         private bool dadosPreenchidosFilhos()
@@ -261,7 +272,6 @@ namespace Bookids
             }
 
             return true;
-            
         }
 
         private void dgvFilhos_MouseClick(object sender, MouseEventArgs e)
@@ -275,7 +285,6 @@ namespace Bookids
                     btEditarFilhos.Enabled = true;
                     btApagarFilhos.Enabled = true;
                     btCancelCleanFilhos.Enabled = true;
-
                     tbNomeFilho.Text = filho.Nome;
                     dtpDataNascFilho.Value = filho.DataNascicmento;
                     cbSexoFilho.Text = filho.Sexo;
@@ -288,45 +297,95 @@ namespace Bookids
             }
         }
 
-
-        //A ALTERAR 
         private void btAdicionarFilho_Click(object sender, EventArgs e)
         {
-            //Codigo do botao guardarFilho
-            Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
-            if (cliente != null)
-            {
-                if (dadosPreenchidosFilhos())
-                {
-                    Filhos novo = new Filhos()
-                    {
-                        Nome = tbNomeFilho.Text,
-                        DataNascicmento = dtpDataNascFilho.Value,
-                        Sexo = cbSexoFilho.Text,
-                        IdProgenitor = cliente.IdPessoa,
-                        IdEscola = ((Escolas)cbEscolaFilho.SelectedItem).IdEscola,
-                        Morada = cliente.Morada,
-                        Localidade = cliente.Localidade,
-                        CodPostal = cliente.CodPostal,
-                        Telefone = cliente.Telefone,
-                        Telemovel = cliente.Telemovel,
-                        Mail = cliente.Mail
-                    };
-                    BookidsContainer.FilhosSet.Add(novo);
-                    BookidsContainer.SaveChanges();
-                    carregarFilhos();
-                }
-            }
-        }
-
-        private void btCancelCleanClientes_Click(object sender, EventArgs e)
-        {
-            limparDadosClientes();
+            dgvFilhos.ClearSelection();
+            btAdicionarFilhos.Enabled = false;
+            btEditarFilhos.Enabled = true;
+            btGuardarFilhos.Enabled = true;
+            tbNomeFilho.Enabled = true;
+            cbEscolaFilho.Enabled = true;
+            cbSexoFilho.Enabled = true;
+            dtpDataNascFilho.Enabled = true;
         }
 
         private void btCancelCleanFilhos_Click(object sender, EventArgs e)
         {
             limparDadosFilhos();
         }
+
+        private void btEditarFilhos_Click(object sender, EventArgs e)
+        {
+            btEditarFilhos.Enabled = false;
+            btGuardarFilhos.Enabled = true;
+            tbNomeFilho.Enabled = true;
+            cbEscolaFilho.Enabled = true;
+            cbSexoFilho.Enabled = true;
+            dtpDataNascFilho.Enabled = true;
+        }
+
+        private void btGuardarFilhos_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Deseja guardar as alterações efectuadas?",
+                "Guardar", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                try
+                {
+                    Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
+                    try
+                    {
+                        Filhos filho = (Filhos)dgvFilhos.SelectedRows[0].DataBoundItem;
+                        if (dadosPreenchidosFilhos())
+                        {
+                            filho.Nome = tbNomeFilho.Text;
+                            filho.DataNascicmento = dtpDataNascFilho.Value;
+                            filho.Sexo = cbSexoFilho.Text;
+                            filho.IdEscola = ((Escolas)cbEscolaFilho.SelectedItem).IdEscola;
+                        }
+
+                    }
+                    catch (ArgumentOutOfRangeException ex)
+                    {
+                        if (dadosPreenchidosFilhos())
+                        {
+                            Filhos novo = new Filhos()
+                            {
+                                Nome = tbNomeFilho.Text,
+                                DataNascicmento = dtpDataNascFilho.Value,
+                                Sexo = cbSexoFilho.Text,
+                                IdProgenitor = cliente.IdPessoa,
+                                IdEscola = ((Escolas)cbEscolaFilho.SelectedItem).IdEscola,
+                                Morada = cliente.Morada,
+                                Localidade = cliente.Localidade,
+                                CodPostal = cliente.CodPostal,
+                                Telefone = cliente.Telefone,
+                                Telemovel = cliente.Telemovel,
+                                Mail = cliente.Mail
+                            };
+                            BookidsContainer.FilhosSet.Add(novo);
+                            BookidsContainer.SaveChanges();
+                            carregarFilhos();
+                        }
+                    }
+                }
+                catch
+                {
+
+                }
+
+                
+            }
+        }
     }
 }
+
+
+
+//Codigo do botao guardarFilho
+/*Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
+            if (cliente != null)
+            {
+                
+            }*/
