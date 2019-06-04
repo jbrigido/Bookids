@@ -39,7 +39,10 @@ namespace Bookids
 
         private void carregarDadosVendas()
         {
-            
+            var listaVendas = from Compras in BookidsContainer.ComprasSet
+                              orderby Compras.Data
+                              select Compras;
+            comprasBindingSource.DataSource = listaVendas.ToList();
         }
 
         private void carregarComboTipo()
