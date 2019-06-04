@@ -51,7 +51,6 @@ namespace Bookids
                              orderby TipoProduto.Tipo
                              select TipoProduto;
             cbTipoProduto.DataSource = listaTipos.ToList<TipoProduto>();
-            carregarListaProtudos();
         }
 
         public void carregarListaProtudos()
@@ -62,7 +61,6 @@ namespace Bookids
                             ((TipoProduto)cbTipoProduto.SelectedItem).CodTipoProduto
                                 select Produtos;
             lbProdutos.DataSource = listaProdutos.ToList<Produtos>();
-            //lbProdutos.ClearSelected();
         }
 
         private void limparDadosVendas()
@@ -93,6 +91,12 @@ namespace Bookids
             {
 
             }
+        }
+
+        private void cbTipoProduto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregarListaProtudos();
+            lbProdutos.ClearSelected();
         }
     }
 }
