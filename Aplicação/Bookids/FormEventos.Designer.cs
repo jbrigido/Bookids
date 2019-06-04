@@ -30,6 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxEventos = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.limiteParticipacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btCancelClean = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nmIdadeMax = new System.Windows.Forms.NumericUpDown();
+            this.labelTipoEvento = new System.Windows.Forms.Label();
+            this.labelIdadeMinMax = new System.Windows.Forms.Label();
+            this.dtpDataHoraEventos = new System.Windows.Forms.DateTimePicker();
+            this.nmIdadeMin = new System.Windows.Forms.NumericUpDown();
             this.labelDataEvento = new System.Windows.Forms.Label();
             this.labelLocalEvento = new System.Windows.Forms.Label();
             this.labelNomeEvento = new System.Windows.Forms.Label();
@@ -44,36 +57,23 @@
             this.tbNumeroEvento = new System.Windows.Forms.TextBox();
             this.tbLocalEvento = new System.Windows.Forms.TextBox();
             this.nmLimiteParticip = new System.Windows.Forms.NumericUpDown();
-            this.nmIdadeMax = new System.Windows.Forms.NumericUpDown();
-            this.nmIdadeMin = new System.Windows.Forms.NumericUpDown();
-            this.labelIdadeMinMax = new System.Windows.Forms.Label();
             this.groupBoxColaboracoes = new System.Windows.Forms.GroupBox();
             this.btRemoverColaboracao = new System.Windows.Forms.Button();
             this.btAdicionarColaboracao = new System.Windows.Forms.Button();
             this.cbAnimadores = new System.Windows.Forms.ComboBox();
             this.lbColaboracoes = new System.Windows.Forms.ListBox();
-            this.dtpDataHoraEventos = new System.Windows.Forms.DateTimePicker();
-            this.labelTipoEvento = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btCancelClean = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.limiteParticipacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxParticipacoes = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbEscolas = new System.Windows.Forms.ComboBox();
             this.lbParticipacoes = new System.Windows.Forms.ListBox();
             this.groupBoxEventos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticip)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).BeginInit();
-            this.groupBoxColaboracoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticip)).BeginInit();
+            this.groupBoxColaboracoes.SuspendLayout();
             this.groupBoxParticipacoes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,6 +107,113 @@
             this.groupBoxEventos.TabIndex = 0;
             this.groupBoxEventos.TabStop = false;
             this.groupBoxEventos.Text = "Dados Evento";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nrEventoDataGridViewTextBoxColumn,
+            this.localDataGridViewTextBoxColumn,
+            this.dataHoraDataGridViewTextBoxColumn,
+            this.limiteParticipacoesDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.eventosBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(308, 20);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(447, 299);
+            this.dataGridView1.TabIndex = 56;
+            // 
+            // nrEventoDataGridViewTextBoxColumn
+            // 
+            this.nrEventoDataGridViewTextBoxColumn.DataPropertyName = "NrEvento";
+            this.nrEventoDataGridViewTextBoxColumn.HeaderText = "NrEvento";
+            this.nrEventoDataGridViewTextBoxColumn.Name = "nrEventoDataGridViewTextBoxColumn";
+            this.nrEventoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // localDataGridViewTextBoxColumn
+            // 
+            this.localDataGridViewTextBoxColumn.DataPropertyName = "Local";
+            this.localDataGridViewTextBoxColumn.HeaderText = "Local";
+            this.localDataGridViewTextBoxColumn.Name = "localDataGridViewTextBoxColumn";
+            this.localDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataHoraDataGridViewTextBoxColumn
+            // 
+            this.dataHoraDataGridViewTextBoxColumn.DataPropertyName = "DataHora";
+            this.dataHoraDataGridViewTextBoxColumn.HeaderText = "DataHora";
+            this.dataHoraDataGridViewTextBoxColumn.Name = "dataHoraDataGridViewTextBoxColumn";
+            this.dataHoraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // limiteParticipacoesDataGridViewTextBoxColumn
+            // 
+            this.limiteParticipacoesDataGridViewTextBoxColumn.DataPropertyName = "LimiteParticipacoes";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.HeaderText = "LimiteParticipacoes";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.Name = "limiteParticipacoesDataGridViewTextBoxColumn";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eventosBindingSource
+            // 
+            this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
+            // 
+            // btCancelClean
+            // 
+            this.btCancelClean.Location = new System.Drawing.Point(6, 297);
+            this.btCancelClean.Name = "btCancelClean";
+            this.btCancelClean.Size = new System.Drawing.Size(285, 23);
+            this.btCancelClean.TabIndex = 55;
+            this.btCancelClean.Text = "Cancelar/Limpar Seleção";
+            this.btCancelClean.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(167, 157);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 13);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "/";
+            // 
+            // nmIdadeMax
+            // 
+            this.nmIdadeMax.Location = new System.Drawing.Point(182, 150);
+            this.nmIdadeMax.Name = "nmIdadeMax";
+            this.nmIdadeMax.Size = new System.Drawing.Size(36, 20);
+            this.nmIdadeMax.TabIndex = 46;
+            // 
+            // labelTipoEvento
+            // 
+            this.labelTipoEvento.AutoSize = true;
+            this.labelTipoEvento.Location = new System.Drawing.Point(4, 127);
+            this.labelTipoEvento.Name = "labelTipoEvento";
+            this.labelTipoEvento.Size = new System.Drawing.Size(31, 13);
+            this.labelTipoEvento.TabIndex = 53;
+            this.labelTipoEvento.Text = "Tipo:";
+            // 
+            // labelIdadeMinMax
+            // 
+            this.labelIdadeMinMax.AutoSize = true;
+            this.labelIdadeMinMax.Location = new System.Drawing.Point(4, 152);
+            this.labelIdadeMinMax.Name = "labelIdadeMinMax";
+            this.labelIdadeMinMax.Size = new System.Drawing.Size(116, 13);
+            this.labelIdadeMinMax.TabIndex = 43;
+            this.labelIdadeMinMax.Text = "Idade Mínima/Máxima:";
+            // 
+            // dtpDataHoraEventos
+            // 
+            this.dtpDataHoraEventos.Location = new System.Drawing.Point(72, 97);
+            this.dtpDataHoraEventos.Name = "dtpDataHoraEventos";
+            this.dtpDataHoraEventos.Size = new System.Drawing.Size(219, 20);
+            this.dtpDataHoraEventos.TabIndex = 47;
+            // 
+            // nmIdadeMin
+            // 
+            this.nmIdadeMin.Location = new System.Drawing.Point(125, 150);
+            this.nmIdadeMin.Name = "nmIdadeMin";
+            this.nmIdadeMin.Size = new System.Drawing.Size(36, 20);
+            this.nmIdadeMin.TabIndex = 45;
             // 
             // labelDataEvento
             // 
@@ -225,29 +332,6 @@
             this.nmLimiteParticip.Size = new System.Drawing.Size(41, 20);
             this.nmLimiteParticip.TabIndex = 42;
             // 
-            // nmIdadeMax
-            // 
-            this.nmIdadeMax.Location = new System.Drawing.Point(182, 150);
-            this.nmIdadeMax.Name = "nmIdadeMax";
-            this.nmIdadeMax.Size = new System.Drawing.Size(36, 20);
-            this.nmIdadeMax.TabIndex = 46;
-            // 
-            // nmIdadeMin
-            // 
-            this.nmIdadeMin.Location = new System.Drawing.Point(125, 150);
-            this.nmIdadeMin.Name = "nmIdadeMin";
-            this.nmIdadeMin.Size = new System.Drawing.Size(36, 20);
-            this.nmIdadeMin.TabIndex = 45;
-            // 
-            // labelIdadeMinMax
-            // 
-            this.labelIdadeMinMax.AutoSize = true;
-            this.labelIdadeMinMax.Location = new System.Drawing.Point(4, 152);
-            this.labelIdadeMinMax.Name = "labelIdadeMinMax";
-            this.labelIdadeMinMax.Size = new System.Drawing.Size(116, 13);
-            this.labelIdadeMinMax.TabIndex = 43;
-            this.labelIdadeMinMax.Text = "Idade Mínima/Máxima:";
-            // 
             // groupBoxColaboracoes
             // 
             this.groupBoxColaboracoes.Controls.Add(this.btRemoverColaboracao);
@@ -296,95 +380,11 @@
             this.lbColaboracoes.Size = new System.Drawing.Size(245, 121);
             this.lbColaboracoes.TabIndex = 0;
             // 
-            // dtpDataHoraEventos
-            // 
-            this.dtpDataHoraEventos.Location = new System.Drawing.Point(72, 97);
-            this.dtpDataHoraEventos.Name = "dtpDataHoraEventos";
-            this.dtpDataHoraEventos.Size = new System.Drawing.Size(219, 20);
-            this.dtpDataHoraEventos.TabIndex = 47;
-            // 
-            // labelTipoEvento
-            // 
-            this.labelTipoEvento.AutoSize = true;
-            this.labelTipoEvento.Location = new System.Drawing.Point(4, 127);
-            this.labelTipoEvento.Name = "labelTipoEvento";
-            this.labelTipoEvento.Size = new System.Drawing.Size(31, 13);
-            this.labelTipoEvento.TabIndex = 53;
-            this.labelTipoEvento.Text = "Tipo:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(167, 157);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(12, 13);
-            this.label1.TabIndex = 54;
-            this.label1.Text = "/";
-            // 
-            // btCancelClean
-            // 
-            this.btCancelClean.Location = new System.Drawing.Point(6, 297);
-            this.btCancelClean.Name = "btCancelClean";
-            this.btCancelClean.Size = new System.Drawing.Size(285, 23);
-            this.btCancelClean.TabIndex = 55;
-            this.btCancelClean.Text = "Cancelar/Limpar Seleção";
-            this.btCancelClean.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nrEventoDataGridViewTextBoxColumn,
-            this.localDataGridViewTextBoxColumn,
-            this.dataHoraDataGridViewTextBoxColumn,
-            this.limiteParticipacoesDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.eventosBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(308, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(447, 299);
-            this.dataGridView1.TabIndex = 56;
-            // 
-            // eventosBindingSource
-            // 
-            this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
-            // 
-            // nrEventoDataGridViewTextBoxColumn
-            // 
-            this.nrEventoDataGridViewTextBoxColumn.DataPropertyName = "NrEvento";
-            this.nrEventoDataGridViewTextBoxColumn.HeaderText = "NrEvento";
-            this.nrEventoDataGridViewTextBoxColumn.Name = "nrEventoDataGridViewTextBoxColumn";
-            this.nrEventoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // localDataGridViewTextBoxColumn
-            // 
-            this.localDataGridViewTextBoxColumn.DataPropertyName = "Local";
-            this.localDataGridViewTextBoxColumn.HeaderText = "Local";
-            this.localDataGridViewTextBoxColumn.Name = "localDataGridViewTextBoxColumn";
-            this.localDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataHoraDataGridViewTextBoxColumn
-            // 
-            this.dataHoraDataGridViewTextBoxColumn.DataPropertyName = "DataHora";
-            this.dataHoraDataGridViewTextBoxColumn.HeaderText = "DataHora";
-            this.dataHoraDataGridViewTextBoxColumn.Name = "dataHoraDataGridViewTextBoxColumn";
-            this.dataHoraDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // limiteParticipacoesDataGridViewTextBoxColumn
-            // 
-            this.limiteParticipacoesDataGridViewTextBoxColumn.DataPropertyName = "LimiteParticipacoes";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.HeaderText = "LimiteParticipacoes";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.Name = "limiteParticipacoesDataGridViewTextBoxColumn";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // groupBoxParticipacoes
             // 
             this.groupBoxParticipacoes.Controls.Add(this.button1);
             this.groupBoxParticipacoes.Controls.Add(this.button2);
-            this.groupBoxParticipacoes.Controls.Add(this.comboBox1);
+            this.groupBoxParticipacoes.Controls.Add(this.cbEscolas);
             this.groupBoxParticipacoes.Controls.Add(this.lbParticipacoes);
             this.groupBoxParticipacoes.Location = new System.Drawing.Point(276, 350);
             this.groupBoxParticipacoes.Name = "groupBoxParticipacoes";
@@ -411,14 +411,14 @@
             this.button2.Text = "Adicionar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbEscolas
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(7, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(245, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cbEscolas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEscolas.FormattingEnabled = true;
+            this.cbEscolas.Location = new System.Drawing.Point(7, 19);
+            this.cbEscolas.Name = "cbEscolas";
+            this.cbEscolas.Size = new System.Drawing.Size(245, 21);
+            this.cbEscolas.TabIndex = 1;
             // 
             // lbParticipacoes
             // 
@@ -439,14 +439,15 @@
             this.Name = "FormEventos";
             this.ShowIcon = false;
             this.Text = "Bookids - Gestão de Eventos";
+            this.Load += new System.EventHandler(this.FormEventos_Load);
             this.groupBoxEventos.ResumeLayout(false);
             this.groupBoxEventos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticip)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).EndInit();
-            this.groupBoxColaboracoes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticip)).EndInit();
+            this.groupBoxColaboracoes.ResumeLayout(false);
             this.groupBoxParticipacoes.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -490,7 +491,7 @@
         private System.Windows.Forms.GroupBox groupBoxParticipacoes;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbEscolas;
         private System.Windows.Forms.ListBox lbParticipacoes;
     }
 }

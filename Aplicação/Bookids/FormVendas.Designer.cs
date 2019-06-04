@@ -34,7 +34,12 @@
             this.btEditarVenda = new System.Windows.Forms.Button();
             this.btRegistarVenda = new System.Windows.Forms.Button();
             this.gbCliente = new System.Windows.Forms.GroupBox();
+            this.tbValorOferta = new System.Windows.Forms.TextBox();
             this.dgvVendas = new System.Windows.Forms.DataGridView();
+            this.nrCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utilizouCartaoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.comprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btCancelCleanVenda = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,25 +49,20 @@
             this.checkCartaoCliente = new System.Windows.Forms.CheckBox();
             this.lbDetalhesVenda = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btRemoverProduto = new System.Windows.Forms.Button();
+            this.btAdicionarProduto = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbProdutos = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbTipoProduto = new System.Windows.Forms.ComboBox();
             this.dtpDataVenda = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbValorOferta = new System.Windows.Forms.TextBox();
-            this.cbTipoProduto = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lbProdutos = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.btAdicionarProduto = new System.Windows.Forms.Button();
-            this.btRemoverProduto = new System.Windows.Forms.Button();
-            this.nrCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utilizouCartaoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.comprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btGuardarVenda
@@ -122,6 +122,13 @@
             this.gbCliente.TabStop = false;
             this.gbCliente.Text = "Dados Cliente";
             // 
+            // tbValorOferta
+            // 
+            this.tbValorOferta.Location = new System.Drawing.Point(456, 50);
+            this.tbValorOferta.Name = "tbValorOferta";
+            this.tbValorOferta.Size = new System.Drawing.Size(64, 20);
+            this.tbValorOferta.TabIndex = 17;
+            // 
             // dgvVendas
             // 
             this.dgvVendas.AllowUserToAddRows = false;
@@ -139,6 +146,31 @@
             this.dgvVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVendas.Size = new System.Drawing.Size(344, 81);
             this.dgvVendas.TabIndex = 16;
+            // 
+            // nrCompraDataGridViewTextBoxColumn
+            // 
+            this.nrCompraDataGridViewTextBoxColumn.DataPropertyName = "NrCompra";
+            this.nrCompraDataGridViewTextBoxColumn.HeaderText = "NrCompra";
+            this.nrCompraDataGridViewTextBoxColumn.Name = "nrCompraDataGridViewTextBoxColumn";
+            this.nrCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // utilizouCartaoDataGridViewCheckBoxColumn
+            // 
+            this.utilizouCartaoDataGridViewCheckBoxColumn.DataPropertyName = "UtilizouCartao";
+            this.utilizouCartaoDataGridViewCheckBoxColumn.HeaderText = "UtilizouCartao";
+            this.utilizouCartaoDataGridViewCheckBoxColumn.Name = "utilizouCartaoDataGridViewCheckBoxColumn";
+            this.utilizouCartaoDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // comprasBindingSource
+            // 
+            this.comprasBindingSource.DataSource = typeof(Bookids.Compras);
             // 
             // btCancelCleanVenda
             // 
@@ -229,6 +261,65 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalhes de Venda";
             // 
+            // btRemoverProduto
+            // 
+            this.btRemoverProduto.Location = new System.Drawing.Point(196, 148);
+            this.btRemoverProduto.Name = "btRemoverProduto";
+            this.btRemoverProduto.Size = new System.Drawing.Size(141, 23);
+            this.btRemoverProduto.TabIndex = 23;
+            this.btRemoverProduto.Text = "Remover da Lista";
+            this.btRemoverProduto.UseVisualStyleBackColor = true;
+            // 
+            // btAdicionarProduto
+            // 
+            this.btAdicionarProduto.Location = new System.Drawing.Point(196, 119);
+            this.btAdicionarProduto.Name = "btAdicionarProduto";
+            this.btAdicionarProduto.Size = new System.Drawing.Size(141, 23);
+            this.btAdicionarProduto.TabIndex = 22;
+            this.btAdicionarProduto.Text = "Adicionar à Lista";
+            this.btAdicionarProduto.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(265, 81);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(72, 20);
+            this.numericUpDown1.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(193, 83);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Quantidade:";
+            // 
+            // lbProdutos
+            // 
+            this.lbProdutos.FormattingEnabled = true;
+            this.lbProdutos.Location = new System.Drawing.Point(343, 70);
+            this.lbProdutos.Name = "lbProdutos";
+            this.lbProdutos.Size = new System.Drawing.Size(158, 134);
+            this.lbProdutos.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(193, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(144, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Selecionar o tipo de Produto:";
+            // 
+            // cbTipoProduto
+            // 
+            this.cbTipoProduto.FormattingEnabled = true;
+            this.cbTipoProduto.Location = new System.Drawing.Point(343, 43);
+            this.cbTipoProduto.Name = "cbTipoProduto";
+            this.cbTipoProduto.Size = new System.Drawing.Size(158, 21);
+            this.cbTipoProduto.TabIndex = 18;
+            // 
             // dtpDataVenda
             // 
             this.dtpDataVenda.CustomFormat = "dd:MM:yyyy hh:mm:ss";
@@ -247,97 +338,6 @@
             this.label4.TabIndex = 16;
             this.label4.Text = "Data da Venda:";
             // 
-            // tbValorOferta
-            // 
-            this.tbValorOferta.Location = new System.Drawing.Point(456, 50);
-            this.tbValorOferta.Name = "tbValorOferta";
-            this.tbValorOferta.Size = new System.Drawing.Size(64, 20);
-            this.tbValorOferta.TabIndex = 17;
-            // 
-            // cbTipoProduto
-            // 
-            this.cbTipoProduto.FormattingEnabled = true;
-            this.cbTipoProduto.Location = new System.Drawing.Point(343, 43);
-            this.cbTipoProduto.Name = "cbTipoProduto";
-            this.cbTipoProduto.Size = new System.Drawing.Size(158, 21);
-            this.cbTipoProduto.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(193, 46);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Selecionar o tipo de Produto:";
-            // 
-            // lbProdutos
-            // 
-            this.lbProdutos.FormattingEnabled = true;
-            this.lbProdutos.Location = new System.Drawing.Point(343, 70);
-            this.lbProdutos.Name = "lbProdutos";
-            this.lbProdutos.Size = new System.Drawing.Size(158, 134);
-            this.lbProdutos.TabIndex = 20;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(193, 83);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Quantidade:";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(265, 81);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(72, 20);
-            this.numericUpDown1.TabIndex = 21;
-            // 
-            // btAdicionarProduto
-            // 
-            this.btAdicionarProduto.Location = new System.Drawing.Point(196, 119);
-            this.btAdicionarProduto.Name = "btAdicionarProduto";
-            this.btAdicionarProduto.Size = new System.Drawing.Size(141, 23);
-            this.btAdicionarProduto.TabIndex = 22;
-            this.btAdicionarProduto.Text = "Adicionar à Lista";
-            this.btAdicionarProduto.UseVisualStyleBackColor = true;
-            // 
-            // btRemoverProduto
-            // 
-            this.btRemoverProduto.Location = new System.Drawing.Point(196, 148);
-            this.btRemoverProduto.Name = "btRemoverProduto";
-            this.btRemoverProduto.Size = new System.Drawing.Size(141, 23);
-            this.btRemoverProduto.TabIndex = 23;
-            this.btRemoverProduto.Text = "Remover da Lista";
-            this.btRemoverProduto.UseVisualStyleBackColor = true;
-            // 
-            // nrCompraDataGridViewTextBoxColumn
-            // 
-            this.nrCompraDataGridViewTextBoxColumn.DataPropertyName = "NrCompra";
-            this.nrCompraDataGridViewTextBoxColumn.HeaderText = "NrCompra";
-            this.nrCompraDataGridViewTextBoxColumn.Name = "nrCompraDataGridViewTextBoxColumn";
-            this.nrCompraDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utilizouCartaoDataGridViewCheckBoxColumn
-            // 
-            this.utilizouCartaoDataGridViewCheckBoxColumn.DataPropertyName = "UtilizouCartao";
-            this.utilizouCartaoDataGridViewCheckBoxColumn.HeaderText = "UtilizouCartao";
-            this.utilizouCartaoDataGridViewCheckBoxColumn.Name = "utilizouCartaoDataGridViewCheckBoxColumn";
-            this.utilizouCartaoDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // comprasBindingSource
-            // 
-            this.comprasBindingSource.DataSource = typeof(Bookids.Compras);
-            // 
             // FormVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,10 +351,10 @@
             this.gbCliente.ResumeLayout(false);
             this.gbCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
