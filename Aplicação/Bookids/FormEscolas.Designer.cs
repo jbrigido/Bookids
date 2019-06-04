@@ -89,7 +89,8 @@
             this.tbTelefoneEscolas.Mask = "000 000 000";
             this.tbTelefoneEscolas.Name = "tbTelefoneEscolas";
             this.tbTelefoneEscolas.Size = new System.Drawing.Size(69, 20);
-            this.tbTelefoneEscolas.TabIndex = 46;            // 
+            this.tbTelefoneEscolas.TabIndex = 46;
+            // 
             // btCancelClean
             // 
             this.btCancelClean.Location = new System.Drawing.Point(6, 301);
@@ -288,7 +289,8 @@
             this.Controls.Add(this.dgvEscolas);
             this.Controls.Add(this.groupBoxEscolas);
             this.Name = "FormEscolas";
-            this.Text = "FormEscolas";
+            this.ShowIcon = false;
+            this.Text = "Bookids - Gestão de Escolas";
             this.Load += new System.EventHandler(this.FormEscolas_Load);
             this.groupBoxEscolas.ResumeLayout(false);
             this.groupBoxEscolas.PerformLayout();
