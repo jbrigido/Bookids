@@ -61,6 +61,7 @@ namespace Bookids
             return true;
         }
 
+        //Botão para permitir que os dados relativos a uma escola sejam preenchidos
         private void btAdicionarEscola_Click(object sender, EventArgs e)
         {
             dgvEscolas.ClearSelection();
@@ -73,9 +74,10 @@ namespace Bookids
             tbLocalidadeEscolas.Enabled = true;
             tbTelefoneEscolas.Enabled = true;
             tbMailEscolas.Enabled = true;
-
+            dgvEscolas.Enabled = false;
         }
 
+        //Botão que permite editar uma escola selecionada
         private void btEditarEscola_Click(object sender, EventArgs e)
         {
             btEditarEscola.Enabled = false;
@@ -87,8 +89,17 @@ namespace Bookids
             tbLocalidadeEscolas.Enabled = true;
             tbTelefoneEscolas.Enabled = true;
             tbMailEscolas.Enabled = true;
+            dgvEscolas.Enabled = false;
         }
 
+        /// <summary>
+        /// Botão Guardar.
+        /// Este botão permite que sejam guardados dados da escola, caso esteja alguma linha(escola) selecionada na
+        /// na dgv o botão permite guardar dados da edição.
+        /// Se não houver nenhuma selecção cria uma nova escola com os dados recolhidos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btGuardarEscola_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Deseja guardar as alterações efectuadas ?",
@@ -137,6 +148,7 @@ namespace Bookids
             }                      
         }
 
+        //Permite selecionar e carregar dados das escolas através da dgv
         private void dgvEscolas_MouseClick(object sender, MouseEventArgs e)
         {
             try
@@ -163,6 +175,7 @@ namespace Bookids
             }
         }
 
+        //método "refresh/reset"
         private void limparDados()
         {
             dgvEscolas.ClearSelection();
@@ -183,6 +196,7 @@ namespace Bookids
             btEditarEscola.Enabled = false;
             btApagarEscola.Enabled = false;
             btCancelClean.Enabled = false;
+            dgvEscolas.Enabled = true;
         }
 
         private void btCancelClean_Click(object sender, EventArgs e)

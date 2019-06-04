@@ -70,7 +70,7 @@
             this.gbEventos.Controls.Add(this.btApagarEvento);
             this.gbEventos.Controls.Add(this.btEditarEvento);
             this.gbEventos.Controls.Add(this.btCriarEvento);
-            this.gbEventos.Location = new System.Drawing.Point(38, 28);
+            this.gbEventos.Location = new System.Drawing.Point(12, 88);
             this.gbEventos.Name = "gbEventos";
             this.gbEventos.Size = new System.Drawing.Size(258, 386);
             this.gbEventos.TabIndex = 0;
@@ -178,12 +178,13 @@
             this.dtpDataEve.CustomFormat = "";
             this.dtpDataEve.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDataEve.Location = new System.Drawing.Point(127, 91);
-            this.dtpDataEve.MinDate = new System.DateTime(2019, 4, 23, 0, 0, 0, 0);
+            this.dtpDataEve.MinDate = new System.DateTime(2019, 6, 4, 15, 0, 55, 0);
             this.dtpDataEve.Name = "dtpDataEve";
             this.dtpDataEve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtpDataEve.ShowUpDown = true;
             this.dtpDataEve.Size = new System.Drawing.Size(100, 20);
             this.dtpDataEve.TabIndex = 41;
+            this.dtpDataEve.Value = new System.DateTime(2019, 6, 4, 15, 0, 55, 0);
             // 
             // tbLocalEve
             // 
@@ -253,7 +254,7 @@
             this.gbColaboracoes.Controls.Add(this.btAdicionarColaboracao);
             this.gbColaboracoes.Controls.Add(this.cbAnimadores);
             this.gbColaboracoes.Controls.Add(this.lbColaboracoes);
-            this.gbColaboracoes.Location = new System.Drawing.Point(302, 280);
+            this.gbColaboracoes.Location = new System.Drawing.Point(346, 340);
             this.gbColaboracoes.Name = "gbColaboracoes";
             this.gbColaboracoes.Size = new System.Drawing.Size(360, 134);
             this.gbColaboracoes.TabIndex = 1;
@@ -298,7 +299,7 @@
             // gbEscolasInscritas
             // 
             this.gbEscolasInscritas.Controls.Add(this.clbEscolas);
-            this.gbEscolasInscritas.Location = new System.Drawing.Point(309, 28);
+            this.gbEscolasInscritas.Location = new System.Drawing.Point(346, 88);
             this.gbEscolasInscritas.Name = "gbEscolasInscritas";
             this.gbEscolasInscritas.Size = new System.Drawing.Size(237, 123);
             this.gbEscolasInscritas.TabIndex = 2;
@@ -317,7 +318,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 450);
+            this.ClientSize = new System.Drawing.Size(967, 486);
             this.Controls.Add(this.gbEscolasInscritas);
             this.Controls.Add(this.gbColaboracoes);
             this.Controls.Add(this.gbEventos);

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxEscolas = new System.Windows.Forms.GroupBox();
+            this.tbTelefoneEscolas = new System.Windows.Forms.MaskedTextBox();
             this.btCancelClean = new System.Windows.Forms.Button();
             this.labelMailEscolas = new System.Windows.Forms.Label();
             this.labelTelefone = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.escolasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbTelefoneEscolas = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxEscolas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscolas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escolasBindingSource)).BeginInit();
@@ -83,6 +83,13 @@
             this.groupBoxEscolas.TabStop = false;
             this.groupBoxEscolas.Text = "Dados Escolas";
             // 
+            // tbTelefoneEscolas
+            // 
+            this.tbTelefoneEscolas.Location = new System.Drawing.Point(74, 123);
+            this.tbTelefoneEscolas.Mask = "000 000 000";
+            this.tbTelefoneEscolas.Name = "tbTelefoneEscolas";
+            this.tbTelefoneEscolas.Size = new System.Drawing.Size(69, 20);
+            this.tbTelefoneEscolas.TabIndex = 46;            // 
             // btCancelClean
             // 
             this.btCancelClean.Location = new System.Drawing.Point(6, 301);
@@ -272,14 +279,6 @@
             // escolasBindingSource
             // 
             this.escolasBindingSource.DataSource = typeof(Bookids.Escolas);
-            // 
-            // tbTelefoneEscolas
-            // 
-            this.tbTelefoneEscolas.Location = new System.Drawing.Point(74, 123);
-            this.tbTelefoneEscolas.Mask = "000 000 000";
-            this.tbTelefoneEscolas.Name = "tbTelefoneEscolas";
-            this.tbTelefoneEscolas.Size = new System.Drawing.Size(69, 20);
-            this.tbTelefoneEscolas.TabIndex = 46;
             // 
             // FormEscolas
             // 
