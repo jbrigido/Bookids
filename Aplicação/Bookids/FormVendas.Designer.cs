@@ -41,6 +41,7 @@
             this.tbNrCompra = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.lbDetalhesDaCompra = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbCliente.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             this.btAlterarVenda.Name = "btAlterarVenda";
             this.btAlterarVenda.Size = new System.Drawing.Size(131, 23);
             this.btAlterarVenda.TabIndex = 7;
-            this.btAlterarVenda.Text = "Alterar Venda";
+            this.btAlterarVenda.Text = "Editar Venda";
             this.btAlterarVenda.UseVisualStyleBackColor = true;
             // 
             // btRegistarVenda
@@ -158,11 +159,21 @@
             this.lbDetalhesDaCompra.Size = new System.Drawing.Size(164, 160);
             this.lbDetalhesDaCompra.TabIndex = 15;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(649, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(148, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Cancelar/Limpar Alterações";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 558);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbDetalhesDaCompra);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.tbNrCompra);
@@ -197,5 +208,6 @@
         private System.Windows.Forms.TextBox tbNrCompra;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ListBox lbDetalhesDaCompra;
+        private System.Windows.Forms.Button button1;
     }
 }

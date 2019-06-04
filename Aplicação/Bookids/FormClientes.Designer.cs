@@ -151,7 +151,7 @@
             this.btCancelCleanFilhos.Name = "btCancelCleanFilhos";
             this.btCancelCleanFilhos.Size = new System.Drawing.Size(167, 23);
             this.btCancelCleanFilhos.TabIndex = 45;
-            this.btCancelCleanFilhos.Text = "Cancelar/Limpar Alterações";
+            this.btCancelCleanFilhos.Text = "Cancelar/Limpar Seleção";
             this.btCancelCleanFilhos.UseVisualStyleBackColor = true;
             this.btCancelCleanFilhos.Click += new System.EventHandler(this.btCancelCleanFilhos_Click);
             // 
@@ -358,7 +358,7 @@
             this.btCancelCleanClientes.Name = "btCancelCleanClientes";
             this.btCancelCleanClientes.Size = new System.Drawing.Size(167, 23);
             this.btCancelCleanClientes.TabIndex = 50;
-            this.btCancelCleanClientes.Text = "Cancelar/Limpar Alterações";
+            this.btCancelCleanClientes.Text = "Cancelar/Limpar Seleção";
             this.btCancelCleanClientes.UseVisualStyleBackColor = true;
             this.btCancelCleanClientes.Click += new System.EventHandler(this.btCancelCleanClientes_Click);
             // 
