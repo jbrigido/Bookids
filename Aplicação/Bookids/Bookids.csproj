@@ -194,6 +194,7 @@
     <None Include="Properties\DataSources\Bookids.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\Bookids.Properties.Settings.datasource" />
     <None Include="Properties\DataSources\Clientes.datasource" />
+    <None Include="Properties\DataSources\Compras1.datasource" />
     <None Include="Properties\DataSources\Eventos.datasource" />
     <None Include="Properties\DataSources\Filhos.datasource" />
     <None Include="Properties\DataSources\Produtos.datasource" />

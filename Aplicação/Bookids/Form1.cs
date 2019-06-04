@@ -52,5 +52,11 @@ namespace Bookids
         {
             lbInfo.Focus();
         }
+
+        private void btVendas_Click(object sender, EventArgs e)
+        {
+            FormVendas formVendas = new FormVendas();
+            formVendas.ShowDialog();
+        }
     }
 }

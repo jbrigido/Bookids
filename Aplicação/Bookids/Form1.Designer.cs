@@ -38,6 +38,7 @@
             this.btAnimadores = new System.Windows.Forms.Button();
             this.btEscolas = new System.Windows.Forms.Button();
             this.lbInfo = new System.Windows.Forms.Label();
+            this.btVendas = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,15 +129,26 @@
             this.lbInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbInfo.Location = new System.Drawing.Point(12, 40);
             this.lbInfo.Name = "lbInfo";
-            this.lbInfo.Size = new System.Drawing.Size(285, 143);
+            this.lbInfo.Size = new System.Drawing.Size(285, 172);
             this.lbInfo.TabIndex = 6;
             this.lbInfo.Text = "Bem-vindo ao Bookids";
+            // 
+            // btVendas
+            // 
+            this.btVendas.Location = new System.Drawing.Point(315, 189);
+            this.btVendas.Name = "btVendas";
+            this.btVendas.Size = new System.Drawing.Size(172, 23);
+            this.btVendas.TabIndex = 7;
+            this.btVendas.Text = "Gestão de Vendas";
+            this.btVendas.UseVisualStyleBackColor = true;
+            this.btVendas.Click += new System.EventHandler(this.btVendas_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 200);
+            this.ClientSize = new System.Drawing.Size(499, 224);
+            this.Controls.Add(this.btVendas);
             this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.btEscolas);
             this.Controls.Add(this.btAnimadores);
@@ -146,7 +158,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Bookids - Menu Principal";
             this.Activated += new System.EventHandler(this.Form1_Activated);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -167,6 +179,7 @@
         private System.Windows.Forms.Button btAnimadores;
         private System.Windows.Forms.Button btEscolas;
         private System.Windows.Forms.Label lbInfo;
+        private System.Windows.Forms.Button btVendas;
     }
 }
 
