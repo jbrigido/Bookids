@@ -110,6 +110,7 @@
             this.btApagarClientes.TabIndex = 10;
             this.btApagarClientes.Text = "Apagar Cliente";
             this.btApagarClientes.UseVisualStyleBackColor = true;
+            this.btApagarClientes.Click += new System.EventHandler(this.btApagarClientes_Click);
             // 
             // btEditarClientes
             // 

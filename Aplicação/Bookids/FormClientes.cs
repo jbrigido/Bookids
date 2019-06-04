@@ -22,10 +22,10 @@ namespace Bookids
 
         private void FormClientes_Load(object sender, EventArgs e)
         {
-            limparDadosClientes();
-            limparDadosFilhos();
             carregarClientes();
             carregarComboEscola();
+            limparDadosClientes();
+            limparDadosFilhos();
         }
 
 
@@ -193,8 +193,8 @@ namespace Bookids
                         cliente.NrCartao = tbCartaoCli.Text;
                     }
                     BookidsContainer.SaveChanges();
-                    limparDadosClientes();
                     carregarClientes();
+                    limparDadosClientes();
                 }
                 catch (ArgumentOutOfRangeException ex)
                 {
@@ -214,8 +214,8 @@ namespace Bookids
                         };
                         BookidsContainer.ClientesSet.Add(novo);
                         BookidsContainer.SaveChanges();
-                        limparDadosClientes();
                         carregarClientes();
+                        limparDadosClientes();
                     }
                 }
             }
@@ -353,7 +353,9 @@ namespace Bookids
                             filho.Sexo = cbSexoFilho.Text;
                             filho.IdEscola = ((Escolas)cbEscolaFilho.SelectedItem).IdEscola;
                         }
-
+                        BookidsContainer.SaveChanges();
+                        carregarFilhos(cliente);
+                        limparDadosFilhos();
                     }
                     catch (ArgumentOutOfRangeException ex)
                     {
@@ -376,6 +378,7 @@ namespace Bookids
                             BookidsContainer.FilhosSet.Add(novo);
                             BookidsContainer.SaveChanges();
                             carregarFilhos(cliente);
+                            limparDadosFilhos();
                         }
                     }
                 }
@@ -387,14 +390,24 @@ namespace Bookids
                 
             }
         }
+
+        private void btApagarClientes_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja apagar?",
+                "Apagar", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
+                if (cliente != null)
+                {
+                    //COMO REMOVER OS FILHOS DO CLIENTE REMOVIDO?
+                    BookidsContainer.ClientesSet.Remove(cliente);
+                    BookidsContainer.SaveChanges();
+                    limparDadosClientes();
+                    carregarClientes();
+                }
+            }
+        }
     }
 }
-
-
-
-//Codigo do botao guardarFilho
-/*Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
-            if (cliente != null)
-            {
-                
-            }*/
