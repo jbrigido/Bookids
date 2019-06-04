@@ -47,5 +47,10 @@ namespace Bookids
             FormAnimadores formAnimadores = new FormAnimadores();
             formAnimadores.ShowDialog();
         }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            lbInfo.Focus();
+        }
     }
 }
