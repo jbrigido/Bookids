@@ -26,6 +26,7 @@ namespace Bookids
             carregarDadosVendas();
             carregarComboTipo();
             carregarComboClientes();
+            limparDadosVendas();
         }
 
         public void carregarComboClientes()
@@ -33,7 +34,7 @@ namespace Bookids
             var listaClientes = from Clientes in BookidsContainer.ClientesSet
                                 orderby Clientes.Nome
                                 select Clientes;
-            cbNomeCli.DataSource = listaClientes.ToList<Clientes>();
+            cbClientes.DataSource = listaClientes.ToList<Clientes>();
 
         }
 
@@ -53,6 +54,34 @@ namespace Bookids
             cbTipoProduto.DataSource = listaTipos.ToList<TipoProduto>();
         }
 
+        private void limparDadosVendas()
+        {
+            dgvVendas.ClearSelection();
+            tbNrCartao.Clear();
+            tbValorOferta.Clear();
+            btRegistarVenda.Enabled = true;
+            btGuardarVenda.Enabled = false;
+            btEditarVenda.Enabled = false;
+            btApagarVenda.Enabled = false;
+            btCancelCleanVenda.Enabled = false;
+            gbDetalhesVenda.Enabled = false;
+        }
 
+        private void btRegistarVenda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clientes cliente = (Clientes)cbClientes.SelectedItem;
+                dgvVendas.ClearSelection();
+                btRegistarVenda.Enabled = false;
+                btGuardarVenda.Enabled = true;
+                btCancelCleanVenda.Enabled = true;
+                gbDetalhesVenda.Enabled = true;
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
