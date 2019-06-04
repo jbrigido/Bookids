@@ -29,7 +29,9 @@ namespace Bookids
         }
 
 
-        //GESTÃO DOS CLIENTES
+        /// <summary>
+        /// FUNCIONALIDADES DO FORMULÁRIO RELATIVA À GESTÃO DOS CLIENTES
+        /// </summary>
 
         private void carregarClientes()
         {
@@ -119,7 +121,6 @@ namespace Bookids
                     btEditarClientes.Enabled = true;
                     btApagarClientes.Enabled = true;
                     btCancelCleanFilhos.Enabled = true;
-
                     filhosBindingSource.DataSource = cliente.Filhos.ToList<Filhos>();
                     tbNomeCli.Text = cliente.Nome;
                     tbCartaoCli.Text = cliente.NrCartao;
@@ -230,7 +231,9 @@ namespace Bookids
         }
 
 
-        //GESTÃO DOS FILHOS
+     /// <summary>
+     /// FUNCIONALIDADES DO FORMULÁRIO RELATIVA À GESTÃO DOS FILHOS DOS CLIENTES
+     /// </summary>
 
         private void carregarFilhos()
         {
@@ -431,8 +434,6 @@ namespace Bookids
                                 BookidsContainer.FilhosSet.Remove(filho);
                             }
                         }
-                       // BookidsContainer.SaveChanges();
-
                     }
                     BookidsContainer.ClientesSet.Remove(cliente);
                     BookidsContainer.SaveChanges();

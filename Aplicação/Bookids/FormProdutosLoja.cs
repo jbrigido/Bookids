@@ -102,16 +102,29 @@ namespace Bookids
         {
             if (tbDesignacao.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                tbDesignacao.Focus();
                 return false;
             }
 
             if (nmPreco.Value <= 0)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                nmPreco.Focus();
                 return false;
             }
 
             if (nmStockProduto.Value < 0)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                nmPreco.Focus();
+                return false;
+            }
+
+            if (cbTipoProduto.Text == string.Empty)
+            {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                cbTipoProduto.Focus();
                 return false;
             }
 
@@ -166,8 +179,21 @@ namespace Bookids
 
             if (dr == DialogResult.Yes)
             {
-                //tbCodProduto não é editavel, se estiver vazia, não existe produto selecionado
-                if (tbCodProduto.Text == string.Empty)
+                try 
+                {
+                    Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
+                    if (dadosPreenchidosProduto())
+                    {
+                        produto.Designacao = tbDesignacao.Text;
+                        produto.Preco = nmPreco.Value;
+                        produto.StockExistente = (Int32)nmStockProduto.Value;
+                        produto.CodTipoProduto = ((TipoProduto)cbTipoProduto.SelectedItem).CodTipoProduto;
+                    }
+                    BookidsContainer.SaveChanges();
+                    carregarProdutos();
+                    limparDados();
+                }
+                catch(ArgumentOutOfRangeException)
                 {
                     if (dadosPreenchidosProduto())
                     {
@@ -181,28 +207,11 @@ namespace Bookids
                         BookidsContainer.ProdutosSet.Add(novo);
                         BookidsContainer.SaveChanges();
                         carregarProdutos();
+                        limparDados();
                     }
-                }
-                else
-                {
-                    Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
-                    if (dadosPreenchidosProduto())
-                    {
-                        produto.Designacao = tbDesignacao.Text;
-                        produto.Preco = nmPreco.Value;
-                        produto.StockExistente = (Int32)nmStockProduto.Value;
-                        //produto.CodTipoProduto = (Int32)cbTipoProduto.SelectedValue;
-                        produto.CodTipoProduto = ((TipoProduto)cbTipoProduto.SelectedItem).CodTipoProduto;
-                        BookidsContainer.SaveChanges();
-                    }
-
                 }
                 carregarProdutos();
                 limparDados();
-                tbDesignacao.Enabled = false;
-                nmPreco.Enabled = false;
-                nmStockProduto.Enabled = false;
-                cbTipoProduto.Enabled = false;
             }
 
             if (dr == DialogResult.No)
@@ -226,18 +235,24 @@ namespace Bookids
         /// <param name="e"></param>
         private void dgvProdutosLoja_MouseClick(object sender, MouseEventArgs e)
         {
-            Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
-            if (produto != null)
+            try
             {
+                Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
+                btAdicionarProduto.Enabled = false;
+                btEditarProduto.Enabled = true;
+                btApagarProduto.Enabled = true;
+                btCancelClean.Enabled = true;
                 tbCodProduto.Text = Convert.ToString(produto.CodProduto);
                 tbDesignacao.Text = produto.Designacao;
                 nmPreco.Value = produto.Preco;
                 nmStockProduto.Value = produto.StockExistente;
                 cbTipoProduto.Text = produto.TipoProduto.Tipo;
             }
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }
         }
-
-
 
 
         private void btApagarProduto_Click(object sender, EventArgs e)
@@ -248,18 +263,17 @@ namespace Bookids
             if(dr == DialogResult.Yes)
             {   
                 try
-            {
-                Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
-                BookidsContainer.ProdutosSet.Remove(produto);
-                BookidsContainer.SaveChanges();
-                carregarProdutos();
-                limparDados();
-            }
-            catch
-            {
-                MessageBox.Show("Nenhum produto selecionado!");
-            }
-
+                {
+                    Produtos produto = (Produtos)dgvProdutosLoja.SelectedRows[0].DataBoundItem;
+                    BookidsContainer.ProdutosSet.Remove(produto);
+                    BookidsContainer.SaveChanges();
+                    carregarProdutos();
+                    limparDados();
+                }
+                catch
+                {
+                    
+                }
             }
         }
 

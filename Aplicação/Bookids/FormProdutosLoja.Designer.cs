@@ -54,9 +54,9 @@
             this.btAdicionarTipo = new System.Windows.Forms.Button();
             this.menuEditarTipo = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.apagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbPL = new System.Windows.Forms.GroupBox();
             this.btCancelClean = new System.Windows.Forms.Button();
-            this.apagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosLoja)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmStockProduto)).BeginInit();
@@ -174,36 +174,36 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(140, 73);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 31;
-            this.label5.Text = "Preço:";
+            this.label5.Text = "*Preço:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(4, 73);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 30;
-            this.label4.Text = "Stock:";
+            this.label4.Text = "*Stock:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(4, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 29;
-            this.label3.Text = "Designação:";
+            this.label3.Text = "*Designação:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(4, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 28;
-            this.label2.Text = "Tipo:";
+            this.label2.Text = "*Tipo:";
             // 
             // label1
             // 
@@ -302,14 +302,21 @@
             this.editarToolStripMenuItem,
             this.apagarToolStripMenuItem});
             this.menuEditarTipo.Name = "menuEditarTipo";
-            this.menuEditarTipo.Size = new System.Drawing.Size(181, 70);
+            this.menuEditarTipo.Size = new System.Drawing.Size(113, 48);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
+            // apagarToolStripMenuItem
+            // 
+            this.apagarToolStripMenuItem.Name = "apagarToolStripMenuItem";
+            this.apagarToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.apagarToolStripMenuItem.Text = "Apagar";
+            this.apagarToolStripMenuItem.Click += new System.EventHandler(this.apagarToolStripMenuItem_Click);
             // 
             // gbPL
             // 
@@ -345,13 +352,6 @@
             this.btCancelClean.Text = "Cancelar/Limpar Selecção";
             this.btCancelClean.UseVisualStyleBackColor = true;
             this.btCancelClean.Click += new System.EventHandler(this.btCancelClean_Click);
-            // 
-            // apagarToolStripMenuItem
-            // 
-            this.apagarToolStripMenuItem.Name = "apagarToolStripMenuItem";
-            this.apagarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.apagarToolStripMenuItem.Text = "Apagar";
-            this.apagarToolStripMenuItem.Click += new System.EventHandler(this.apagarToolStripMenuItem_Click);
             // 
             // FormProdutosLoja
             // 
