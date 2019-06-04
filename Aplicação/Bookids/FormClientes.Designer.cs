@@ -42,10 +42,6 @@
             this.cbEscolaFilho = new System.Windows.Forms.ComboBox();
             this.btGuardarFilhos = new System.Windows.Forms.Button();
             this.dgvFilhos = new System.Windows.Forms.DataGridView();
-            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataNascicmentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.filhosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbSexoFilho = new System.Windows.Forms.ComboBox();
             this.tbNomeFilho = new System.Windows.Forms.TextBox();
             this.btEditarFilhos = new System.Windows.Forms.Button();
@@ -83,13 +79,17 @@
             this.telemovelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataNascicmentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filhosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbFilhos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilhos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).BeginInit();
             this.gbClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmValorOferta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btAdicionarClientes
@@ -236,31 +236,6 @@
             this.dgvFilhos.TabIndex = 18;
             this.dgvFilhos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvFilhos_MouseClick);
             // 
-            // nomeDataGridViewTextBoxColumn1
-            // 
-            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
-            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // sexoDataGridViewTextBoxColumn
-            // 
-            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
-            this.sexoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataNascicmentoDataGridViewTextBoxColumn
-            // 
-            this.dataNascicmentoDataGridViewTextBoxColumn.DataPropertyName = "DataNascicmento";
-            this.dataNascicmentoDataGridViewTextBoxColumn.HeaderText = "DataNascicmento";
-            this.dataNascicmentoDataGridViewTextBoxColumn.Name = "dataNascicmentoDataGridViewTextBoxColumn";
-            this.dataNascicmentoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // filhosBindingSource
-            // 
-            this.filhosBindingSource.DataSource = typeof(Bookids.Filhos);
-            // 
             // cbSexoFilho
             // 
             this.cbSexoFilho.FormattingEnabled = true;
@@ -346,7 +321,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(318, 182);
+            this.label9.Location = new System.Drawing.Point(326, 182);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 13);
             this.label9.TabIndex = 45;
@@ -364,9 +339,9 @@
             // 
             // tbMailCli
             // 
-            this.tbMailCli.Location = new System.Drawing.Point(362, 179);
+            this.tbMailCli.Location = new System.Drawing.Point(370, 179);
             this.tbMailCli.Name = "tbMailCli";
-            this.tbMailCli.Size = new System.Drawing.Size(133, 20);
+            this.tbMailCli.Size = new System.Drawing.Size(125, 20);
             this.tbMailCli.TabIndex = 44;
             // 
             // btGuardarClientes
@@ -390,7 +365,7 @@
             // 
             // tbTelefoneCli
             // 
-            this.tbTelefoneCli.Location = new System.Drawing.Point(243, 179);
+            this.tbTelefoneCli.Location = new System.Drawing.Point(251, 179);
             this.tbTelefoneCli.Mask = "000 000 000";
             this.tbTelefoneCli.Name = "tbTelefoneCli";
             this.tbTelefoneCli.Size = new System.Drawing.Size(69, 20);
@@ -415,7 +390,7 @@
             // 
             // tbTelemovelCli
             // 
-            this.tbTelemovelCli.Location = new System.Drawing.Point(102, 179);
+            this.tbTelemovelCli.Location = new System.Drawing.Point(110, 179);
             this.tbTelemovelCli.Mask = "000 000 000";
             this.tbTelemovelCli.Name = "tbTelemovelCli";
             this.tbTelemovelCli.Size = new System.Drawing.Size(69, 20);
@@ -433,7 +408,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(177, 182);
+            this.label8.Location = new System.Drawing.Point(185, 182);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 41;
@@ -495,9 +470,9 @@
             // 
             // tbNomeCli
             // 
-            this.tbNomeCli.Location = new System.Drawing.Point(102, 76);
+            this.tbNomeCli.Location = new System.Drawing.Point(110, 76);
             this.tbNomeCli.Name = "tbNomeCli";
-            this.tbNomeCli.Size = new System.Drawing.Size(393, 20);
+            this.tbNomeCli.Size = new System.Drawing.Size(385, 20);
             this.tbNomeCli.TabIndex = 22;
             // 
             // tbLocalidadeCli
@@ -516,9 +491,9 @@
             // 
             // tbMoradaCli
             // 
-            this.tbMoradaCli.Location = new System.Drawing.Point(102, 128);
+            this.tbMoradaCli.Location = new System.Drawing.Point(110, 128);
             this.tbMoradaCli.Name = "tbMoradaCli";
-            this.tbMoradaCli.Size = new System.Drawing.Size(393, 20);
+            this.tbMoradaCli.Size = new System.Drawing.Size(385, 20);
             this.tbMoradaCli.TabIndex = 24;
             // 
             // dgvClientes
@@ -614,6 +589,31 @@
             // 
             this.clientesBindingSource.DataSource = typeof(Bookids.Clientes);
             // 
+            // nomeDataGridViewTextBoxColumn1
+            // 
+            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
+            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sexoDataGridViewTextBoxColumn
+            // 
+            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
+            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
+            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
+            this.sexoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataNascicmentoDataGridViewTextBoxColumn
+            // 
+            this.dataNascicmentoDataGridViewTextBoxColumn.DataPropertyName = "DataNascicmento";
+            this.dataNascicmentoDataGridViewTextBoxColumn.HeaderText = "DataNascicmento";
+            this.dataNascicmentoDataGridViewTextBoxColumn.Name = "dataNascicmentoDataGridViewTextBoxColumn";
+            this.dataNascicmentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // filhosBindingSource
+            // 
+            this.filhosBindingSource.DataSource = typeof(Bookids.Filhos);
+            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,17 +621,17 @@
             this.ClientSize = new System.Drawing.Size(1020, 525);
             this.Controls.Add(this.gbClientes);
             this.Name = "FormClientes";
-            this.Text = "FormClientes";
+            this.Text = "Bookids - Gestão de Clientes";
             this.Load += new System.EventHandler(this.FormClientes_Load);
             this.gbFilhos.ResumeLayout(false);
             this.gbFilhos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilhos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).EndInit();
             this.gbClientes.ResumeLayout(false);
             this.gbClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmValorOferta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

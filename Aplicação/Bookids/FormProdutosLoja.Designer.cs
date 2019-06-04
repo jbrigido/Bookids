@@ -83,7 +83,7 @@
             this.dgvProdutosLoja.Name = "dgvProdutosLoja";
             this.dgvProdutosLoja.ReadOnly = true;
             this.dgvProdutosLoja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdutosLoja.Size = new System.Drawing.Size(543, 269);
+            this.dgvProdutosLoja.Size = new System.Drawing.Size(543, 285);
             this.dgvProdutosLoja.TabIndex = 1;
             this.dgvProdutosLoja.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProdutosLoja_MouseClick);
             // 
@@ -293,7 +293,7 @@
             this.gbPL.Controls.Add(this.nmStockProduto);
             this.gbPL.Location = new System.Drawing.Point(12, 12);
             this.gbPL.Name = "gbPL";
-            this.gbPL.Size = new System.Drawing.Size(271, 288);
+            this.gbPL.Size = new System.Drawing.Size(271, 285);
             this.gbPL.TabIndex = 34;
             this.gbPL.TabStop = false;
             this.gbPL.Text = "Dados Produto";
@@ -354,11 +354,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 299);
+            this.ClientSize = new System.Drawing.Size(870, 308);
             this.Controls.Add(this.gbPL);
             this.Controls.Add(this.dgvProdutosLoja);
             this.Name = "FormProdutosLoja";
-            this.Text = "FormProdutosLoja";
+            this.Text = "Bookids - Gestão de Produtos";
             this.Load += new System.EventHandler(this.FormProdutosLoja_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosLoja)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmStockProduto)).EndInit();
