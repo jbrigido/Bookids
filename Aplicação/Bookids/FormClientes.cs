@@ -23,6 +23,7 @@ namespace Bookids
         private void FormClientes_Load(object sender, EventArgs e)
         {
             limparDadosClientes();
+            limparDadosFilhos();
             carregarClientes();
             carregarComboEscola();
         }
@@ -228,6 +229,20 @@ namespace Bookids
             }
         }
 
+        private void limparDadosFilhos()
+        {
+            dgvFilhos.ClearSelection();
+            tbNomeFilho.Clear();
+            tbNomeFilho.Enabled = false;
+            cbEscolaFilho.Enabled = false;
+            cbSexoFilho.Enabled = false;
+            dtpDataNascFilho.Enabled = false;
+            btEditarFilhos.Enabled = false;
+            btApagarFilhos.Enabled = false;
+            btGuardarFilhos.Enabled = false;
+
+        }
+
         private bool dadosPreenchidosFilhos()
         {
             if (tbNomeFilho.Text == string.Empty)
@@ -304,14 +319,14 @@ namespace Bookids
             }
         }
 
-        private void btCancelClean_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btCancelCleanClientes_Click(object sender, EventArgs e)
         {
             limparDadosClientes();
+        }
+
+        private void btCancelCleanFilhos_Click(object sender, EventArgs e)
+        {
+            limparDadosFilhos();
         }
     }
 }
