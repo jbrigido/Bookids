@@ -185,9 +185,9 @@
             this.labelTelemovel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelTelemovel.Location = new System.Drawing.Point(6, 156);
             this.labelTelemovel.Name = "labelTelemovel";
-            this.labelTelemovel.Size = new System.Drawing.Size(59, 13);
+            this.labelTelemovel.Size = new System.Drawing.Size(67, 13);
             this.labelTelemovel.TabIndex = 44;
-            this.labelTelemovel.Text = "Telemóvel:";
+            this.labelTelemovel.Text = "**Telemóvel:";
             // 
             // labelTelefone
             // 
@@ -195,9 +195,9 @@
             this.labelTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelTelefone.Location = new System.Drawing.Point(6, 130);
             this.labelTelefone.Name = "labelTelefone";
-            this.labelTelefone.Size = new System.Drawing.Size(52, 13);
+            this.labelTelefone.Size = new System.Drawing.Size(60, 13);
             this.labelTelefone.TabIndex = 43;
-            this.labelTelefone.Text = "Telefone:";
+            this.labelTelefone.Text = "**Telefone:";
             // 
             // labelLocalidade
             // 
@@ -205,9 +205,9 @@
             this.labelLocalidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelLocalidade.Location = new System.Drawing.Point(6, 104);
             this.labelLocalidade.Name = "labelLocalidade";
-            this.labelLocalidade.Size = new System.Drawing.Size(62, 13);
+            this.labelLocalidade.Size = new System.Drawing.Size(66, 13);
             this.labelLocalidade.TabIndex = 42;
-            this.labelLocalidade.Text = "Localidade:";
+            this.labelLocalidade.Text = "*Localidade:";
             // 
             // tbCodPostalAnimadores
             // 
@@ -223,9 +223,9 @@
             this.labelCodPostal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelCodPostal.Location = new System.Drawing.Point(6, 78);
             this.labelCodPostal.Name = "labelCodPostal";
-            this.labelCodPostal.Size = new System.Drawing.Size(75, 13);
+            this.labelCodPostal.Size = new System.Drawing.Size(79, 13);
             this.labelCodPostal.TabIndex = 41;
-            this.labelCodPostal.Text = "Código Postal:";
+            this.labelCodPostal.Text = "*Código Postal:";
             // 
             // labelMoradaAnimadores
             // 
@@ -233,9 +233,9 @@
             this.labelMoradaAnimadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelMoradaAnimadores.Location = new System.Drawing.Point(6, 52);
             this.labelMoradaAnimadores.Name = "labelMoradaAnimadores";
-            this.labelMoradaAnimadores.Size = new System.Drawing.Size(46, 13);
+            this.labelMoradaAnimadores.Size = new System.Drawing.Size(50, 13);
             this.labelMoradaAnimadores.TabIndex = 40;
-            this.labelMoradaAnimadores.Text = "Morada:";
+            this.labelMoradaAnimadores.Text = "*Morada:";
             // 
             // labelNomeAnimadores
             // 
@@ -243,9 +243,9 @@
             this.labelNomeAnimadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelNomeAnimadores.Location = new System.Drawing.Point(6, 26);
             this.labelNomeAnimadores.Name = "labelNomeAnimadores";
-            this.labelNomeAnimadores.Size = new System.Drawing.Size(38, 13);
+            this.labelNomeAnimadores.Size = new System.Drawing.Size(42, 13);
             this.labelNomeAnimadores.TabIndex = 39;
-            this.labelNomeAnimadores.Text = "Nome:";
+            this.labelNomeAnimadores.Text = "*Nome:";
             // 
             // btEditarAnimadores
             // 

@@ -118,7 +118,7 @@ CREATE TABLE [dbo].[PessoasSet] (
     [Morada] nvarchar(max)  NOT NULL,
     [Localidade] nvarchar(max)  NOT NULL,
     [CodPostal] nvarchar(max)  NOT NULL,
-    [Telefone] nchar(4000)  NULL,
+    [Telefone] nvarchar(max)  NULL,
     [Telemovel] nvarchar(max)  NULL,
     [Mail] nvarchar(max)  NULL
 );

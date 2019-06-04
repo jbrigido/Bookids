@@ -49,16 +49,22 @@ namespace Bookids
         {
             if(tbNomeEscolas.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !");
+                tbNomeEscolas.Focus();
                 return false;
             }
 
             if(tbLocalidadeEscolas.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !");
+                tbLocalidadeEscolas.Focus();
                 return false;
             }
 
             if(tbTelefoneEscolas.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !");
+                tbTelefoneEscolas.Focus();
                 return false;
             }
 
@@ -82,6 +88,7 @@ namespace Bookids
 
         private void btEditarEscola_Click(object sender, EventArgs e)
         {
+            btEditarEscola.Enabled = false;
             btGuardarEscola.Enabled = true;
             btCancelClean.Enabled = true;
             tbNomeEscolas.Enabled = true;

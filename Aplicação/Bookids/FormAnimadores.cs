@@ -50,26 +50,36 @@ namespace Bookids
         {
             if(tbNomeAnimadores.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                tbNomeAnimadores.Focus();
                 return false;
             }
 
             if(tbMoradaAnimadores.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                tbMoradaAnimadores.Focus();
                 return false;
             }
 
             if(tbCodPostalAnimadores.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                tbCodPostalAnimadores.Focus();
                 return false;
             }
 
             if(tbLocalidadeAnimadores.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                tbLocalidadeAnimadores.Focus();
                 return false;
             }
 
             if(tbTelefoneAnimadores.Text == string.Empty && tbTelemovelAnimadores.Text == string.Empty)
             {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !\n(**) Preencher um dos campos !");
+                tbTelefoneAnimadores.Focus();
                 return false;
             }
 
@@ -94,6 +104,7 @@ namespace Bookids
 
         private void btEditarAnimadores_Click(object sender, EventArgs e)
         {
+            btEditarAnimadores.Enabled = false;
             btGuardarAnimadores.Enabled = true;
             btCancelClean.Enabled = true;
             tbNomeAnimadores.Enabled = true;

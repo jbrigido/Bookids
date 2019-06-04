@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxEscolas = new System.Windows.Forms.GroupBox();
+            this.btCancelClean = new System.Windows.Forms.Button();
             this.labelMailEscolas = new System.Windows.Forms.Label();
             this.labelTelefone = new System.Windows.Forms.Label();
             this.labelLocalidade = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.tbLocalidadeEscolas = new System.Windows.Forms.TextBox();
             this.tbMailEscolas = new System.Windows.Forms.TextBox();
             this.dgvEscolas = new System.Windows.Forms.DataGridView();
-            this.btCancelClean = new System.Windows.Forms.Button();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +83,16 @@
             this.groupBoxEscolas.TabStop = false;
             this.groupBoxEscolas.Text = "Dados Escolas";
             // 
+            // btCancelClean
+            // 
+            this.btCancelClean.Location = new System.Drawing.Point(6, 301);
+            this.btCancelClean.Name = "btCancelClean";
+            this.btCancelClean.Size = new System.Drawing.Size(229, 23);
+            this.btCancelClean.TabIndex = 45;
+            this.btCancelClean.Text = "Cancelar/Limpar Selecção";
+            this.btCancelClean.UseVisualStyleBackColor = true;
+            this.btCancelClean.Click += new System.EventHandler(this.btCancelClean_Click);
+            // 
             // labelMailEscolas
             // 
             this.labelMailEscolas.AutoSize = true;
@@ -99,9 +109,9 @@
             this.labelTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelTelefone.Location = new System.Drawing.Point(6, 130);
             this.labelTelefone.Name = "labelTelefone";
-            this.labelTelefone.Size = new System.Drawing.Size(52, 13);
+            this.labelTelefone.Size = new System.Drawing.Size(56, 13);
             this.labelTelefone.TabIndex = 43;
-            this.labelTelefone.Text = "Telefone:";
+            this.labelTelefone.Text = "*Telefone:";
             // 
             // labelLocalidade
             // 
@@ -109,9 +119,9 @@
             this.labelLocalidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelLocalidade.Location = new System.Drawing.Point(6, 104);
             this.labelLocalidade.Name = "labelLocalidade";
-            this.labelLocalidade.Size = new System.Drawing.Size(62, 13);
+            this.labelLocalidade.Size = new System.Drawing.Size(66, 13);
             this.labelLocalidade.TabIndex = 42;
-            this.labelLocalidade.Text = "Localidade:";
+            this.labelLocalidade.Text = "*Localidade:";
             // 
             // tbCodPostalEscolas
             // 
@@ -147,9 +157,9 @@
             this.labelNomeEscola.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelNomeEscola.Location = new System.Drawing.Point(6, 26);
             this.labelNomeEscola.Name = "labelNomeEscola";
-            this.labelNomeEscola.Size = new System.Drawing.Size(38, 13);
+            this.labelNomeEscola.Size = new System.Drawing.Size(42, 13);
             this.labelNomeEscola.TabIndex = 39;
-            this.labelNomeEscola.Text = "Nome:";
+            this.labelNomeEscola.Text = "*Nome:";
             // 
             // btEditarEscola
             // 
@@ -244,16 +254,6 @@
             this.dgvEscolas.Size = new System.Drawing.Size(347, 332);
             this.dgvEscolas.TabIndex = 38;
             this.dgvEscolas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEscolas_MouseClick);
-            // 
-            // btCancelClean
-            // 
-            this.btCancelClean.Location = new System.Drawing.Point(6, 301);
-            this.btCancelClean.Name = "btCancelClean";
-            this.btCancelClean.Size = new System.Drawing.Size(229, 23);
-            this.btCancelClean.TabIndex = 45;
-            this.btCancelClean.Text = "Cancelar/Limpar Selecção";
-            this.btCancelClean.UseVisualStyleBackColor = true;
-            this.btCancelClean.Click += new System.EventHandler(this.btCancelClean_Click);
             // 
             // nomeDataGridViewTextBoxColumn
             // 

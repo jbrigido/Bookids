@@ -462,7 +462,7 @@
           <Property Name="Morada" Type="String" Nullable="false" />
           <Property Name="Localidade" Type="String" Nullable="false" />
           <Property Name="CodPostal" Type="String" Nullable="false" />
-          <Property Name="Telefone" Type="String" Nullable="true" FixedLength="true" />
+          <Property Name="Telefone" Type="String" Nullable="true" />
           <Property Name="Telemovel" Type="String" Nullable="true" />
           <Property Name="Mail" Type="String" Nullable="true" />
         </EntityType>
