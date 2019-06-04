@@ -12,9 +12,12 @@ namespace Bookids
 {
     public partial class FormEventos : Form
     {
+        private ModelBookidsContainer BookidsContainer;
+
         public FormEventos()
         {
             InitializeComponent();
+            BookidsContainer = new ModelBookidsContainer();
         }
     }
 }
