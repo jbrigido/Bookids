@@ -24,6 +24,7 @@ namespace Bookids
         private void FormEscolas_Load(object sender, EventArgs e)
         {
             carregarEscolas();
+            dgvEscolas.ClearSelection();
             tbNomeEscolas.Enabled = false;
             tbMoradaEscolas.Enabled = false;
             tbCodPostalEscolas.Enabled = false;
@@ -112,9 +113,9 @@ namespace Bookids
                         escola.Telefone = tbTelefoneEscolas.Text;
                         escola.Mail = tbMailEscolas.Text;
                     }
-                    BookidsContainer.SaveChanges();
+                    BookidsContainer.SaveChanges();                   
+                    carregarEscolas();
                     limparDados();
-                    carregarEscolas();           
                 }
                 catch(ArgumentOutOfRangeException ex)
                 {            
@@ -131,9 +132,9 @@ namespace Bookids
                             Mail = tbMailEscolas.Text
                         };
                         BookidsContainer.EscolasSet.Add(nova);
-                        BookidsContainer.SaveChanges();
-                        limparDados();
+                        BookidsContainer.SaveChanges();                       
                         carregarEscolas();
+                        limparDados();
                     }
                 }
             }                      

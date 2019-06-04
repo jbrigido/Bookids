@@ -23,6 +23,7 @@ namespace Bookids
         private void FormAnimadores_Load(object sender, EventArgs e)
         {
             carregarAnimadores();
+            dgvAnimadores.ClearSelection();
             tbNomeAnimadores.Enabled = false;
             tbMoradaAnimadores.Enabled = false;
             tbCodPostalAnimadores.Enabled = false;
@@ -127,9 +128,9 @@ namespace Bookids
                         animador.Mail = tbMailAnimadores.Text;
                         animador.Especialidade = tbEspecialidadeAnimadores.Text;
                     }
-                    BookidsContainer.SaveChanges();
-                    limparDados();
+                    BookidsContainer.SaveChanges();                   
                     carregarAnimadores();
+                    limparDados();
                 }
                 catch(ArgumentOutOfRangeException ex)
                 {
@@ -147,9 +148,9 @@ namespace Bookids
                             Especialidade = tbEspecialidadeAnimadores.Text
                         };
                         BookidsContainer.AnimadoresSet.Add(novo);
-                        BookidsContainer.SaveChanges();
-                        limparDados();
+                        BookidsContainer.SaveChanges();                       
                         carregarAnimadores();
+                        limparDados();
                     }
                 }
             }

@@ -37,7 +37,7 @@
             this.btEventos = new System.Windows.Forms.Button();
             this.btAnimadores = new System.Windows.Forms.Button();
             this.btEscolas = new System.Windows.Forms.Button();
-            this.tbInfo = new System.Windows.Forms.TextBox();
+            this.lbInfo = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,22 +122,22 @@
             this.btEscolas.UseVisualStyleBackColor = true;
             this.btEscolas.Click += new System.EventHandler(this.btEscolas_Click);
             // 
-            // tbInfo
+            // lbInfo
             // 
-            this.tbInfo.Location = new System.Drawing.Point(13, 40);
-            this.tbInfo.Multiline = true;
-            this.tbInfo.Name = "tbInfo";
-            this.tbInfo.ReadOnly = true;
-            this.tbInfo.Size = new System.Drawing.Size(270, 143);
-            this.tbInfo.TabIndex = 6;
-            this.tbInfo.Text = "Bem Vindo ao Bookids.  + Info";
+            this.lbInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.lbInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbInfo.Location = new System.Drawing.Point(12, 40);
+            this.lbInfo.Name = "lbInfo";
+            this.lbInfo.Size = new System.Drawing.Size(285, 143);
+            this.lbInfo.TabIndex = 6;
+            this.lbInfo.Text = "Bem-vindo ao Bookids";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 200);
-            this.Controls.Add(this.tbInfo);
+            this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.btEscolas);
             this.Controls.Add(this.btAnimadores);
             this.Controls.Add(this.btEventos);
@@ -147,6 +147,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -165,7 +166,7 @@
         private System.Windows.Forms.Button btEventos;
         private System.Windows.Forms.Button btAnimadores;
         private System.Windows.Forms.Button btEscolas;
-        private System.Windows.Forms.TextBox tbInfo;
+        private System.Windows.Forms.Label lbInfo;
     }
 }
 
