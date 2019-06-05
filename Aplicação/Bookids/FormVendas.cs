@@ -17,7 +17,6 @@ namespace Bookids
         public FormVendas()
         {
             InitializeComponent();
-            dgvVendas.Columns[0].HeaderText = "Nº Cartão";
             BookidsContainer = new ModelBookidsContainer();
         }
 
@@ -43,6 +42,8 @@ namespace Bookids
                               orderby Compras.Data
                               select Compras;
             comprasBindingSource.DataSource = listaVendas.ToList();
+            tbNrCartao.Text = cliente.NrCartao;
+            tbValorOferta.Text = Convert.ToString(cliente.ValorOferta);
         }
 
         private void carregarComboTipo()
@@ -86,8 +87,19 @@ namespace Bookids
                 btGuardarVenda.Enabled = true;
                 btCancelCleanVenda.Enabled = true;
                 gbDetalhesVenda.Enabled = true;
+                //codigo teste para criar compra
+                /*
+                Compras compra = new Compras()
+                {
+                    Data = DateTime.Now,
+                    IdCliente = cliente.IdPessoa,
+                    UtilizouCartao = true
+                };
+                BookidsContainer.ComprasSet.Add(compra);
+                BookidsContainer.SaveChanges();
+                carregarDadosVendas(cliente);*/
             }
-            catch
+            catch(ArgumentOutOfRangeException)
             {
 
             }
