@@ -23,7 +23,6 @@ namespace Bookids
 
         private void FormVendas_Load(object sender, EventArgs e)
         {
-            carregarDadosVendas();
             carregarComboTipo();
             carregarComboClientes();
             limparDadosVendas();
@@ -37,9 +36,10 @@ namespace Bookids
             cbClientes.DataSource = listaClientes.ToList<Clientes>();
         }
 
-        private void carregarDadosVendas()
+        private void carregarDadosVendas(Clientes cliente)
         {
             var listaVendas = from Compras in BookidsContainer.ComprasSet
+                              where Compras.IdCliente == cliente.IdPessoa
                               orderby Compras.Data
                               select Compras;
             comprasBindingSource.DataSource = listaVendas.ToList();
@@ -93,10 +93,17 @@ namespace Bookids
             }
         }
 
+        private void cbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregarDadosVendas((Clientes)cbClientes.SelectedItem);
+        }
+
         private void cbTipoProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
             carregarListaProtudos();
             lbProdutos.ClearSelected();
         }
+
+        
     }
 }
