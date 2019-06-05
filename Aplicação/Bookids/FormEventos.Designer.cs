@@ -31,11 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.groupBoxEventos = new System.Windows.Forms.GroupBox();
             this.dgvEventos = new System.Windows.Forms.DataGridView();
-            this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.limiteParticipacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btCancelClean = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nmIdadeMax = new System.Windows.Forms.NumericUpDown();
@@ -58,23 +53,28 @@
             this.tbLocalEvento = new System.Windows.Forms.TextBox();
             this.nmLimiteParticipantes = new System.Windows.Forms.NumericUpDown();
             this.groupBoxColaboracoes = new System.Windows.Forms.GroupBox();
-            this.btRemoverColaboracao = new System.Windows.Forms.Button();
-            this.btAdicionarColaboracao = new System.Windows.Forms.Button();
+            this.btRemoverAnimador = new System.Windows.Forms.Button();
+            this.btAdicionarAnimador = new System.Windows.Forms.Button();
             this.cbAnimadores = new System.Windows.Forms.ComboBox();
             this.lbColaboracoes = new System.Windows.Forms.ListBox();
             this.groupBoxParticipacoes = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btRemoverEscola = new System.Windows.Forms.Button();
+            this.btAdicionarEscola = new System.Windows.Forms.Button();
             this.cbEscolas = new System.Windows.Forms.ComboBox();
             this.lbParticipacoes = new System.Windows.Forms.ListBox();
+            this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.limiteParticipacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxEventos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticipantes)).BeginInit();
             this.groupBoxColaboracoes.SuspendLayout();
             this.groupBoxParticipacoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxEventos
@@ -103,7 +103,7 @@
             this.groupBoxEventos.Controls.Add(this.nmLimiteParticipantes);
             this.groupBoxEventos.Location = new System.Drawing.Point(12, 12);
             this.groupBoxEventos.Name = "groupBoxEventos";
-            this.groupBoxEventos.Size = new System.Drawing.Size(768, 332);
+            this.groupBoxEventos.Size = new System.Drawing.Size(769, 332);
             this.groupBoxEventos.TabIndex = 0;
             this.groupBoxEventos.TabStop = false;
             this.groupBoxEventos.Text = "Dados Evento";
@@ -120,49 +120,17 @@
             this.dataHoraDataGridViewTextBoxColumn,
             this.limiteParticipacoesDataGridViewTextBoxColumn});
             this.dgvEventos.DataSource = this.eventosBindingSource;
-            this.dgvEventos.Location = new System.Drawing.Point(308, 20);
+            this.dgvEventos.Location = new System.Drawing.Point(305, 19);
             this.dgvEventos.Name = "dgvEventos";
             this.dgvEventos.ReadOnly = true;
             this.dgvEventos.Size = new System.Drawing.Size(447, 299);
             this.dgvEventos.TabIndex = 56;
             // 
-            // nrEventoDataGridViewTextBoxColumn
-            // 
-            this.nrEventoDataGridViewTextBoxColumn.DataPropertyName = "NrEvento";
-            this.nrEventoDataGridViewTextBoxColumn.HeaderText = "NrEvento";
-            this.nrEventoDataGridViewTextBoxColumn.Name = "nrEventoDataGridViewTextBoxColumn";
-            this.nrEventoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // localDataGridViewTextBoxColumn
-            // 
-            this.localDataGridViewTextBoxColumn.DataPropertyName = "Local";
-            this.localDataGridViewTextBoxColumn.HeaderText = "Local";
-            this.localDataGridViewTextBoxColumn.Name = "localDataGridViewTextBoxColumn";
-            this.localDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataHoraDataGridViewTextBoxColumn
-            // 
-            this.dataHoraDataGridViewTextBoxColumn.DataPropertyName = "DataHora";
-            this.dataHoraDataGridViewTextBoxColumn.HeaderText = "DataHora";
-            this.dataHoraDataGridViewTextBoxColumn.Name = "dataHoraDataGridViewTextBoxColumn";
-            this.dataHoraDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // limiteParticipacoesDataGridViewTextBoxColumn
-            // 
-            this.limiteParticipacoesDataGridViewTextBoxColumn.DataPropertyName = "LimiteParticipacoes";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.HeaderText = "LimiteParticipacoes";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.Name = "limiteParticipacoesDataGridViewTextBoxColumn";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eventosBindingSource
-            // 
-            this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
-            // 
             // btCancelClean
             // 
             this.btCancelClean.Location = new System.Drawing.Point(6, 297);
             this.btCancelClean.Name = "btCancelClean";
-            this.btCancelClean.Size = new System.Drawing.Size(285, 23);
+            this.btCancelClean.Size = new System.Drawing.Size(293, 23);
             this.btCancelClean.TabIndex = 55;
             this.btCancelClean.Text = "Cancelar/Limpar Seleção";
             this.btCancelClean.UseVisualStyleBackColor = true;
@@ -203,7 +171,7 @@
             // 
             // dtpDataHoraEventos
             // 
-            this.dtpDataHoraEventos.Location = new System.Drawing.Point(72, 97);
+            this.dtpDataHoraEventos.Location = new System.Drawing.Point(80, 98);
             this.dtpDataHoraEventos.Name = "dtpDataHoraEventos";
             this.dtpDataHoraEventos.Size = new System.Drawing.Size(219, 20);
             this.dtpDataHoraEventos.TabIndex = 47;
@@ -220,31 +188,31 @@
             this.labelDataEvento.AutoSize = true;
             this.labelDataEvento.Location = new System.Drawing.Point(4, 103);
             this.labelDataEvento.Name = "labelDataEvento";
-            this.labelDataEvento.Size = new System.Drawing.Size(66, 13);
+            this.labelDataEvento.Size = new System.Drawing.Size(70, 13);
             this.labelDataEvento.TabIndex = 52;
-            this.labelDataEvento.Text = "Data e hora:";
+            this.labelDataEvento.Text = "*Data e hora:";
             // 
             // labelLocalEvento
             // 
             this.labelLocalEvento.AutoSize = true;
             this.labelLocalEvento.Location = new System.Drawing.Point(4, 75);
             this.labelLocalEvento.Name = "labelLocalEvento";
-            this.labelLocalEvento.Size = new System.Drawing.Size(36, 13);
+            this.labelLocalEvento.Size = new System.Drawing.Size(40, 13);
             this.labelLocalEvento.TabIndex = 51;
-            this.labelLocalEvento.Text = "Local:";
+            this.labelLocalEvento.Text = "*Local:";
             // 
             // labelNomeEvento
             // 
             this.labelNomeEvento.AutoSize = true;
             this.labelNomeEvento.Location = new System.Drawing.Point(4, 22);
             this.labelNomeEvento.Name = "labelNomeEvento";
-            this.labelNomeEvento.Size = new System.Drawing.Size(44, 13);
+            this.labelNomeEvento.Size = new System.Drawing.Size(48, 13);
             this.labelNomeEvento.TabIndex = 50;
-            this.labelNomeEvento.Text = "Evento:";
+            this.labelNomeEvento.Text = "*Evento:";
             // 
             // tbTipoEvento
             // 
-            this.tbTipoEvento.Location = new System.Drawing.Point(72, 124);
+            this.tbTipoEvento.Location = new System.Drawing.Point(80, 124);
             this.tbTipoEvento.Name = "tbTipoEvento";
             this.tbTipoEvento.Size = new System.Drawing.Size(219, 20);
             this.tbTipoEvento.TabIndex = 48;
@@ -262,7 +230,7 @@
             // 
             this.btGuardarEvento.Location = new System.Drawing.Point(6, 239);
             this.btGuardarEvento.Name = "btGuardarEvento";
-            this.btGuardarEvento.Size = new System.Drawing.Size(285, 23);
+            this.btGuardarEvento.Size = new System.Drawing.Size(293, 23);
             this.btGuardarEvento.TabIndex = 16;
             this.btGuardarEvento.Text = "Guardar Alterações";
             this.btGuardarEvento.UseVisualStyleBackColor = true;
@@ -271,7 +239,7 @@
             // 
             this.btCriarEvento.Location = new System.Drawing.Point(6, 180);
             this.btCriarEvento.Name = "btCriarEvento";
-            this.btCriarEvento.Size = new System.Drawing.Size(285, 23);
+            this.btCriarEvento.Size = new System.Drawing.Size(293, 23);
             this.btCriarEvento.TabIndex = 12;
             this.btCriarEvento.Text = "Criar Evento";
             this.btCriarEvento.UseVisualStyleBackColor = true;
@@ -281,7 +249,7 @@
             // 
             this.btApagarEvento.Location = new System.Drawing.Point(6, 268);
             this.btApagarEvento.Name = "btApagarEvento";
-            this.btApagarEvento.Size = new System.Drawing.Size(285, 23);
+            this.btApagarEvento.Size = new System.Drawing.Size(293, 23);
             this.btApagarEvento.TabIndex = 13;
             this.btApagarEvento.Text = "Apagar Evento";
             this.btApagarEvento.UseVisualStyleBackColor = true;
@@ -290,7 +258,7 @@
             // 
             this.btEditarEvento.Location = new System.Drawing.Point(6, 209);
             this.btEditarEvento.Name = "btEditarEvento";
-            this.btEditarEvento.Size = new System.Drawing.Size(285, 23);
+            this.btEditarEvento.Size = new System.Drawing.Size(293, 23);
             this.btEditarEvento.TabIndex = 14;
             this.btEditarEvento.Text = "Editar Evento";
             this.btEditarEvento.UseVisualStyleBackColor = true;
@@ -298,22 +266,22 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(143, 48);
+            this.label3.Location = new System.Drawing.Point(147, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 13);
+            this.label3.Size = new System.Drawing.Size(105, 13);
             this.label3.TabIndex = 47;
-            this.label3.Text = "Limite Participantes:";
+            this.label3.Text = "*Limite Participantes:";
             // 
             // tbDescricaoEvento
             // 
-            this.tbDescricaoEvento.Location = new System.Drawing.Point(72, 19);
+            this.tbDescricaoEvento.Location = new System.Drawing.Point(80, 19);
             this.tbDescricaoEvento.Name = "tbDescricaoEvento";
             this.tbDescricaoEvento.Size = new System.Drawing.Size(219, 20);
             this.tbDescricaoEvento.TabIndex = 39;
             // 
             // tbNumeroEvento
             // 
-            this.tbNumeroEvento.Location = new System.Drawing.Point(72, 46);
+            this.tbNumeroEvento.Location = new System.Drawing.Point(80, 45);
             this.tbNumeroEvento.Name = "tbNumeroEvento";
             this.tbNumeroEvento.ReadOnly = true;
             this.tbNumeroEvento.Size = new System.Drawing.Size(47, 20);
@@ -321,22 +289,22 @@
             // 
             // tbLocalEvento
             // 
-            this.tbLocalEvento.Location = new System.Drawing.Point(72, 72);
+            this.tbLocalEvento.Location = new System.Drawing.Point(80, 72);
             this.tbLocalEvento.Name = "tbLocalEvento";
             this.tbLocalEvento.Size = new System.Drawing.Size(219, 20);
             this.tbLocalEvento.TabIndex = 40;
             // 
             // nmLimiteParticipantes
             // 
-            this.nmLimiteParticipantes.Location = new System.Drawing.Point(250, 46);
+            this.nmLimiteParticipantes.Location = new System.Drawing.Point(258, 46);
             this.nmLimiteParticipantes.Name = "nmLimiteParticipantes";
             this.nmLimiteParticipantes.Size = new System.Drawing.Size(41, 20);
             this.nmLimiteParticipantes.TabIndex = 42;
             // 
             // groupBoxColaboracoes
             // 
-            this.groupBoxColaboracoes.Controls.Add(this.btRemoverColaboracao);
-            this.groupBoxColaboracoes.Controls.Add(this.btAdicionarColaboracao);
+            this.groupBoxColaboracoes.Controls.Add(this.btRemoverAnimador);
+            this.groupBoxColaboracoes.Controls.Add(this.btAdicionarAnimador);
             this.groupBoxColaboracoes.Controls.Add(this.cbAnimadores);
             this.groupBoxColaboracoes.Controls.Add(this.lbColaboracoes);
             this.groupBoxColaboracoes.Location = new System.Drawing.Point(12, 350);
@@ -346,23 +314,23 @@
             this.groupBoxColaboracoes.TabStop = false;
             this.groupBoxColaboracoes.Text = "Colaborações Animadores";
             // 
-            // btRemoverColaboracao
+            // btRemoverAnimador
             // 
-            this.btRemoverColaboracao.Location = new System.Drawing.Point(7, 202);
-            this.btRemoverColaboracao.Name = "btRemoverColaboracao";
-            this.btRemoverColaboracao.Size = new System.Drawing.Size(245, 23);
-            this.btRemoverColaboracao.TabIndex = 3;
-            this.btRemoverColaboracao.Text = "Remover";
-            this.btRemoverColaboracao.UseVisualStyleBackColor = true;
+            this.btRemoverAnimador.Location = new System.Drawing.Point(7, 202);
+            this.btRemoverAnimador.Name = "btRemoverAnimador";
+            this.btRemoverAnimador.Size = new System.Drawing.Size(245, 23);
+            this.btRemoverAnimador.TabIndex = 3;
+            this.btRemoverAnimador.Text = "Remover";
+            this.btRemoverAnimador.UseVisualStyleBackColor = true;
             // 
-            // btAdicionarColaboracao
+            // btAdicionarAnimador
             // 
-            this.btAdicionarColaboracao.Location = new System.Drawing.Point(6, 173);
-            this.btAdicionarColaboracao.Name = "btAdicionarColaboracao";
-            this.btAdicionarColaboracao.Size = new System.Drawing.Size(246, 23);
-            this.btAdicionarColaboracao.TabIndex = 2;
-            this.btAdicionarColaboracao.Text = "Adicionar";
-            this.btAdicionarColaboracao.UseVisualStyleBackColor = true;
+            this.btAdicionarAnimador.Location = new System.Drawing.Point(6, 173);
+            this.btAdicionarAnimador.Name = "btAdicionarAnimador";
+            this.btAdicionarAnimador.Size = new System.Drawing.Size(246, 23);
+            this.btAdicionarAnimador.TabIndex = 2;
+            this.btAdicionarAnimador.Text = "Adicionar";
+            this.btAdicionarAnimador.UseVisualStyleBackColor = true;
             // 
             // cbAnimadores
             // 
@@ -383,8 +351,8 @@
             // 
             // groupBoxParticipacoes
             // 
-            this.groupBoxParticipacoes.Controls.Add(this.button1);
-            this.groupBoxParticipacoes.Controls.Add(this.button2);
+            this.groupBoxParticipacoes.Controls.Add(this.btRemoverEscola);
+            this.groupBoxParticipacoes.Controls.Add(this.btAdicionarEscola);
             this.groupBoxParticipacoes.Controls.Add(this.cbEscolas);
             this.groupBoxParticipacoes.Controls.Add(this.lbParticipacoes);
             this.groupBoxParticipacoes.Location = new System.Drawing.Point(276, 350);
@@ -394,23 +362,23 @@
             this.groupBoxParticipacoes.TabStop = false;
             this.groupBoxParticipacoes.Text = "Participações Escolas";
             // 
-            // button1
+            // btRemoverEscola
             // 
-            this.button1.Location = new System.Drawing.Point(7, 202);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(245, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Remover";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btRemoverEscola.Location = new System.Drawing.Point(7, 202);
+            this.btRemoverEscola.Name = "btRemoverEscola";
+            this.btRemoverEscola.Size = new System.Drawing.Size(245, 23);
+            this.btRemoverEscola.TabIndex = 3;
+            this.btRemoverEscola.Text = "Remover";
+            this.btRemoverEscola.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btAdicionarEscola
             // 
-            this.button2.Location = new System.Drawing.Point(6, 173);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(246, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Adicionar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btAdicionarEscola.Location = new System.Drawing.Point(6, 173);
+            this.btAdicionarEscola.Name = "btAdicionarEscola";
+            this.btAdicionarEscola.Size = new System.Drawing.Size(246, 23);
+            this.btAdicionarEscola.TabIndex = 2;
+            this.btAdicionarEscola.Text = "Adicionar";
+            this.btAdicionarEscola.UseVisualStyleBackColor = true;
             // 
             // cbEscolas
             // 
@@ -429,11 +397,43 @@
             this.lbParticipacoes.Size = new System.Drawing.Size(245, 121);
             this.lbParticipacoes.TabIndex = 0;
             // 
+            // nrEventoDataGridViewTextBoxColumn
+            // 
+            this.nrEventoDataGridViewTextBoxColumn.DataPropertyName = "NrEvento";
+            this.nrEventoDataGridViewTextBoxColumn.HeaderText = "NrEvento";
+            this.nrEventoDataGridViewTextBoxColumn.Name = "nrEventoDataGridViewTextBoxColumn";
+            this.nrEventoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // localDataGridViewTextBoxColumn
+            // 
+            this.localDataGridViewTextBoxColumn.DataPropertyName = "Local";
+            this.localDataGridViewTextBoxColumn.HeaderText = "Local";
+            this.localDataGridViewTextBoxColumn.Name = "localDataGridViewTextBoxColumn";
+            this.localDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataHoraDataGridViewTextBoxColumn
+            // 
+            this.dataHoraDataGridViewTextBoxColumn.DataPropertyName = "DataHora";
+            this.dataHoraDataGridViewTextBoxColumn.HeaderText = "DataHora";
+            this.dataHoraDataGridViewTextBoxColumn.Name = "dataHoraDataGridViewTextBoxColumn";
+            this.dataHoraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // limiteParticipacoesDataGridViewTextBoxColumn
+            // 
+            this.limiteParticipacoesDataGridViewTextBoxColumn.DataPropertyName = "LimiteParticipacoes";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.HeaderText = "LimiteParticipacoes";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.Name = "limiteParticipacoesDataGridViewTextBoxColumn";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eventosBindingSource
+            // 
+            this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
+            // 
             // FormEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 603);
+            this.ClientSize = new System.Drawing.Size(793, 603);
             this.Controls.Add(this.groupBoxParticipacoes);
             this.Controls.Add(this.groupBoxColaboracoes);
             this.Controls.Add(this.groupBoxEventos);
@@ -444,12 +444,12 @@
             this.groupBoxEventos.ResumeLayout(false);
             this.groupBoxEventos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticipantes)).EndInit();
             this.groupBoxColaboracoes.ResumeLayout(false);
             this.groupBoxParticipacoes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -458,8 +458,8 @@
 
         private System.Windows.Forms.GroupBox groupBoxEventos;
         private System.Windows.Forms.GroupBox groupBoxColaboracoes;
-        private System.Windows.Forms.Button btRemoverColaboracao;
-        private System.Windows.Forms.Button btAdicionarColaboracao;
+        private System.Windows.Forms.Button btRemoverAnimador;
+        private System.Windows.Forms.Button btAdicionarAnimador;
         private System.Windows.Forms.ComboBox cbAnimadores;
         private System.Windows.Forms.ListBox lbColaboracoes;
         private System.Windows.Forms.Button btEditarEvento;
@@ -490,8 +490,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataHoraDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn limiteParticipacoesDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBoxParticipacoes;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btRemoverEscola;
+        private System.Windows.Forms.Button btAdicionarEscola;
         private System.Windows.Forms.ComboBox cbEscolas;
         private System.Windows.Forms.ListBox lbParticipacoes;
     }

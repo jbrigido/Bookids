@@ -25,6 +25,7 @@ namespace Bookids
             carregarEventos();
             carregarComboAnimadores();
             carregarComboEscolas();
+            limparDadosEventos();
         }
 
         private void carregarEventos()
@@ -81,6 +82,37 @@ namespace Bookids
             }
 
             return true;
+        }
+
+        private void limparDadosEventos()
+        {
+            dgvEventos.ClearSelection();
+            tbDescricaoEvento.Clear();
+            nmLimiteParticipantes.ResetText();
+            tbLocalEvento.Clear();
+            dtpDataHoraEventos.ResetText();
+            tbTipoEvento.Clear();
+            nmIdadeMin.ResetText();
+            nmIdadeMax.ResetText();
+            tbDescricaoEvento.Enabled = false;
+            nmLimiteParticipantes.Enabled = false;
+            tbLocalEvento.Enabled = false;
+            dtpDataHoraEventos.Enabled = false;
+            tbTipoEvento.Enabled = false;
+            nmIdadeMin.Enabled = false;
+            nmIdadeMax.Enabled = false;
+            btCriarEvento.Enabled = true;
+            btEditarEvento.Enabled = false;
+            btGuardarEvento.Enabled = false;
+            btApagarEvento.Enabled = false;
+            btCancelClean.Enabled = false;
+            cbAnimadores.Enabled = false;
+            btAdicionarAnimador.Enabled = false;
+            btRemoverAnimador.Enabled = false;
+            cbEscolas.Enabled = false;
+            btAdicionarEscola.Enabled = false;
+            btRemoverEscola.Enabled = false;
+            dgvEventos.Enabled = true;
         }
 
         private void btCriarEvento_Click(object sender, EventArgs e)
