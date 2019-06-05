@@ -22,7 +22,25 @@ namespace Bookids
 
         private void FormEventos_Load(object sender, EventArgs e)
         {
+            carregarEventos();
+            carregarComboAnimadores();
             carregarComboEscolas();
+        }
+
+        private void carregarEventos()
+        {
+            var listaEventos = from Eventos in BookidsContainer.EventosSet
+                               orderby Eventos.NrEvento
+                               select Eventos;
+            eventosBindingSource.DataSource = listaEventos.ToList();
+        }
+
+        private void carregarComboAnimadores()
+        {
+            var listaAnimadores = from Animadores in BookidsContainer.AnimadoresSet
+                                  orderby Animadores.Nome
+                                  select Animadores;
+            cbAnimadores.DataSource = listaAnimadores.ToList<Animadores>();
         }
 
         private void carregarComboEscolas()
