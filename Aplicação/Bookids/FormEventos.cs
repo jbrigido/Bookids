@@ -25,6 +25,7 @@ namespace Bookids
             carregarEventos();
             carregarComboAnimadores();
             carregarComboEscolas();
+            carregarComboFilhos();
             tbNumeroEvento.Enabled = false;
             limparDadosEventos();
         }
@@ -51,6 +52,14 @@ namespace Bookids
                                orderby Escolas.Nome
                                select Escolas;
             cbEscolas.DataSource = listaEscolas.ToList<Escolas>();
+        }
+
+        private void carregarComboFilhos()
+        {
+            var listaFilhos = from Filhos in BookidsContainer.FilhosSet
+                              orderby Filhos.Nome
+                              select Filhos;
+            cbFilhos.DataSource = listaFilhos.ToList<Filhos>();
         }
 
         private bool dadosPreenchidosEventos()
