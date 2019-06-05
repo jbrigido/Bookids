@@ -82,5 +82,21 @@ namespace Bookids
 
             return true;
         }
+
+        private void btCriarEvento_Click(object sender, EventArgs e)
+        {
+            dgvEventos.ClearSelection();
+            btCriarEvento.Enabled = false;
+            btGuardarEvento.Enabled = true;
+            btCancelClean.Enabled = true;
+            tbDescricaoEvento.Enabled = true;
+            nmLimiteParticipantes.Enabled = true;
+            tbLocalEvento.Enabled = true;
+            dtpDataHoraEventos.Enabled = true;
+            tbTipoEvento.Enabled = true;
+            nmIdadeMin.Enabled = true;
+            nmIdadeMax.Enabled = true;
+            dgvEventos.Enabled = false;
+        }
     }
 }

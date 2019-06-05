@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxEventos = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvEventos = new System.Windows.Forms.DataGridView();
             this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +68,7 @@
             this.cbEscolas = new System.Windows.Forms.ComboBox();
             this.lbParticipacoes = new System.Windows.Forms.ListBox();
             this.groupBoxEventos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).BeginInit();
@@ -79,7 +79,7 @@
             // 
             // groupBoxEventos
             // 
-            this.groupBoxEventos.Controls.Add(this.dataGridView1);
+            this.groupBoxEventos.Controls.Add(this.dgvEventos);
             this.groupBoxEventos.Controls.Add(this.btCancelClean);
             this.groupBoxEventos.Controls.Add(this.label1);
             this.groupBoxEventos.Controls.Add(this.nmIdadeMax);
@@ -108,23 +108,23 @@
             this.groupBoxEventos.TabStop = false;
             this.groupBoxEventos.Text = "Dados Evento";
             // 
-            // dataGridView1
+            // dgvEventos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEventos.AllowUserToAddRows = false;
+            this.dgvEventos.AllowUserToDeleteRows = false;
+            this.dgvEventos.AutoGenerateColumns = false;
+            this.dgvEventos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEventos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nrEventoDataGridViewTextBoxColumn,
             this.localDataGridViewTextBoxColumn,
             this.dataHoraDataGridViewTextBoxColumn,
             this.limiteParticipacoesDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.eventosBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(308, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(447, 299);
-            this.dataGridView1.TabIndex = 56;
+            this.dgvEventos.DataSource = this.eventosBindingSource;
+            this.dgvEventos.Location = new System.Drawing.Point(308, 20);
+            this.dgvEventos.Name = "dgvEventos";
+            this.dgvEventos.ReadOnly = true;
+            this.dgvEventos.Size = new System.Drawing.Size(447, 299);
+            this.dgvEventos.TabIndex = 56;
             // 
             // nrEventoDataGridViewTextBoxColumn
             // 
@@ -275,6 +275,7 @@
             this.btCriarEvento.TabIndex = 12;
             this.btCriarEvento.Text = "Criar Evento";
             this.btCriarEvento.UseVisualStyleBackColor = true;
+            this.btCriarEvento.Click += new System.EventHandler(this.btCriarEvento_Click);
             // 
             // btApagarEvento
             // 
@@ -442,7 +443,7 @@
             this.Load += new System.EventHandler(this.FormEventos_Load);
             this.groupBoxEventos.ResumeLayout(false);
             this.groupBoxEventos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).EndInit();
@@ -482,7 +483,7 @@
         private System.Windows.Forms.DateTimePicker dtpDataHoraEventos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btCancelClean;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvEventos;
         private System.Windows.Forms.BindingSource eventosBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nrEventoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn localDataGridViewTextBoxColumn;
