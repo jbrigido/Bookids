@@ -56,7 +56,7 @@
             this.tbDescricaoEvento = new System.Windows.Forms.TextBox();
             this.tbNumeroEvento = new System.Windows.Forms.TextBox();
             this.tbLocalEvento = new System.Windows.Forms.TextBox();
-            this.nmLimiteParticip = new System.Windows.Forms.NumericUpDown();
+            this.nmLimiteParticipantes = new System.Windows.Forms.NumericUpDown();
             this.groupBoxColaboracoes = new System.Windows.Forms.GroupBox();
             this.btRemoverColaboracao = new System.Windows.Forms.Button();
             this.btAdicionarColaboracao = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticipantes)).BeginInit();
             this.groupBoxColaboracoes.SuspendLayout();
             this.groupBoxParticipacoes.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +100,7 @@
             this.groupBoxEventos.Controls.Add(this.tbDescricaoEvento);
             this.groupBoxEventos.Controls.Add(this.tbNumeroEvento);
             this.groupBoxEventos.Controls.Add(this.tbLocalEvento);
-            this.groupBoxEventos.Controls.Add(this.nmLimiteParticip);
+            this.groupBoxEventos.Controls.Add(this.nmLimiteParticipantes);
             this.groupBoxEventos.Location = new System.Drawing.Point(12, 12);
             this.groupBoxEventos.Name = "groupBoxEventos";
             this.groupBoxEventos.Size = new System.Drawing.Size(768, 332);
@@ -325,12 +325,12 @@
             this.tbLocalEvento.Size = new System.Drawing.Size(219, 20);
             this.tbLocalEvento.TabIndex = 40;
             // 
-            // nmLimiteParticip
+            // nmLimiteParticipantes
             // 
-            this.nmLimiteParticip.Location = new System.Drawing.Point(250, 46);
-            this.nmLimiteParticip.Name = "nmLimiteParticip";
-            this.nmLimiteParticip.Size = new System.Drawing.Size(41, 20);
-            this.nmLimiteParticip.TabIndex = 42;
+            this.nmLimiteParticipantes.Location = new System.Drawing.Point(250, 46);
+            this.nmLimiteParticipantes.Name = "nmLimiteParticipantes";
+            this.nmLimiteParticipantes.Size = new System.Drawing.Size(41, 20);
+            this.nmLimiteParticipantes.TabIndex = 42;
             // 
             // groupBoxColaboracoes
             // 
@@ -446,7 +446,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticipantes)).EndInit();
             this.groupBoxColaboracoes.ResumeLayout(false);
             this.groupBoxParticipacoes.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -469,7 +469,7 @@
         private System.Windows.Forms.NumericUpDown nmIdadeMax;
         private System.Windows.Forms.NumericUpDown nmIdadeMin;
         private System.Windows.Forms.Label labelIdadeMinMax;
-        private System.Windows.Forms.NumericUpDown nmLimiteParticip;
+        private System.Windows.Forms.NumericUpDown nmLimiteParticipantes;
         private System.Windows.Forms.TextBox tbLocalEvento;
         private System.Windows.Forms.TextBox tbDescricaoEvento;
         private System.Windows.Forms.TextBox tbNumeroEvento;

@@ -50,5 +50,37 @@ namespace Bookids
                                select Escolas;
             cbEscolas.DataSource = listaEscolas.ToList<Escolas>();
         }
+
+        private bool dadosPreenchidosEventos()
+        {
+            if(tbDescricaoEvento.Text == string.Empty)
+            {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !");
+                tbDescricaoEvento.Focus();
+                return false;
+            }
+
+            if(tbLocalEvento.Text == string.Empty)
+            {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !");
+                tbLocalEvento.Focus();
+                return false;
+            }
+
+            if (dtpDataHoraEventos.Value == null)
+            {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !");
+                return false;
+            }
+
+            if (nmLimiteParticipantes.Value == 0)
+            {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !");
+                nmLimiteParticipantes.Focus();
+                return false;
+            }
+
+            return true;
+        }
     }
 }
