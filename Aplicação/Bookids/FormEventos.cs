@@ -146,5 +146,53 @@ namespace Bookids
             nmIdadeMax.Enabled = true;
             dgvEventos.Enabled = false;
         }
+
+        private void btGuardarEvento_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Deseja guardar as alterações efectuadas ?",
+                "Guardar", MessageBoxButtons.YesNo);
+
+            if(dr == DialogResult.Yes)
+            {
+                try
+                {
+                    Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+                    if (dadosPreenchidosEventos())
+                    {
+                        btCriarEvento.Enabled = false;
+                        evento.Descricao = tbDescricaoEvento.Text;
+                        evento.LimiteParticipacoes = (Int32)nmLimiteParticipantes.Value;
+                        evento.Local = tbLocalEvento.Text;
+                        evento.DataHora = dtpDataHoraEventos.Value;
+                        evento.TipoEvento = tbTipoEvento.Text;
+                        evento.IdadeInferior = (Int32)nmIdadeMin.Value;
+                        evento.IdadeSuperior = (Int32)nmIdadeMax.Value;
+                    }
+                    BookidsContainer.SaveChanges();
+                    carregarEventos();
+                    limparDadosEventos();
+                }
+                catch(ArgumentOutOfRangeException ex)
+                {
+                    if (dadosPreenchidosEventos())
+                    {
+                        Eventos novo = new Eventos()
+                        {
+                            Descricao = tbDescricaoEvento.Text,
+                            LimiteParticipacoes = (Int32)nmLimiteParticipantes.Value,
+                            Local = tbLocalEvento.Text,
+                            DataHora = dtpDataHoraEventos.Value,
+                            TipoEvento = tbTipoEvento.Text,
+                            IdadeInferior = (Int32)nmIdadeMin.Value,
+                            IdadeSuperior = (Int32)nmIdadeMax.Value
+                        };
+                        BookidsContainer.EventosSet.Add(novo);
+                        BookidsContainer.SaveChanges();
+                        carregarEventos();
+                        limparDadosEventos();
+                    }
+                }
+            }
+        }
     }
 }

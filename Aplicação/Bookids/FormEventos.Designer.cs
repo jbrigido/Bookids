@@ -103,7 +103,7 @@
             this.groupBoxEventos.Controls.Add(this.nmLimiteParticipantes);
             this.groupBoxEventos.Location = new System.Drawing.Point(12, 12);
             this.groupBoxEventos.Name = "groupBoxEventos";
-            this.groupBoxEventos.Size = new System.Drawing.Size(769, 332);
+            this.groupBoxEventos.Size = new System.Drawing.Size(759, 332);
             this.groupBoxEventos.TabIndex = 0;
             this.groupBoxEventos.TabStop = false;
             this.groupBoxEventos.Text = "Dados Evento";
@@ -234,6 +234,7 @@
             this.btGuardarEvento.TabIndex = 16;
             this.btGuardarEvento.Text = "Guardar Alterações";
             this.btGuardarEvento.UseVisualStyleBackColor = true;
+            this.btGuardarEvento.Click += new System.EventHandler(this.btGuardarEvento_Click);
             // 
             // btCriarEvento
             // 
@@ -434,7 +435,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 603);
+            this.ClientSize = new System.Drawing.Size(780, 603);
             this.Controls.Add(this.groupBoxParticipacoes);
             this.Controls.Add(this.groupBoxColaboracoes);
             this.Controls.Add(this.groupBoxEventos);
