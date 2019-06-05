@@ -125,6 +125,7 @@
             this.dgvEventos.ReadOnly = true;
             this.dgvEventos.Size = new System.Drawing.Size(447, 299);
             this.dgvEventos.TabIndex = 56;
+            this.dgvEventos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEventos_MouseClick);
             // 
             // btCancelClean
             // 

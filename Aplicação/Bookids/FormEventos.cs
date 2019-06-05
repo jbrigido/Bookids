@@ -25,6 +25,7 @@ namespace Bookids
             carregarEventos();
             carregarComboAnimadores();
             carregarComboEscolas();
+            tbNumeroEvento.Enabled = false;
             limparDadosEventos();
         }
 
@@ -192,6 +193,34 @@ namespace Bookids
                         limparDadosEventos();
                     }
                 }
+            }
+        }
+
+        private void dgvEventos_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+                if(evento != null)
+                {
+                    btCriarEvento.Enabled = false;
+                    btEditarEvento.Enabled = true;
+                    btApagarEvento.Enabled = true;
+                    btCancelClean.Enabled = true;
+
+                    tbDescricaoEvento.Text = evento.Descricao;
+                    tbNumeroEvento.Text = Convert.ToString(evento.NrEvento);
+                    nmLimiteParticipantes.Value = evento.LimiteParticipacoes;
+                    tbLocalEvento.Text = evento.Local;
+                    dtpDataHoraEventos.Value = evento.DataHora;
+                    tbTipoEvento.Text = evento.TipoEvento;
+                    nmIdadeMin.Value = (int)evento.IdadeInferior;
+                    nmIdadeMax.Value = (int)evento.IdadeSuperior;
+                }
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+
             }
         }
     }
