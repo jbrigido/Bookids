@@ -113,6 +113,10 @@ namespace Bookids
             cbEscolas.Enabled = false;
             btAdicionarEscola.Enabled = false;
             btRemoverEscola.Enabled = false;
+            cbFilhos.Enabled = false;
+            checkBoxFilhoConfirmado.Enabled = false;
+            btAdicionarFilho.Enabled = false;
+            btRemoverFilho.Enabled = false;
             dgvEventos.Enabled = true;
         }
 
