@@ -67,6 +67,12 @@
             this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.limiteParticipacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBoxInscricoes = new System.Windows.Forms.GroupBox();
+            this.btRemoverFilho = new System.Windows.Forms.Button();
+            this.btAdicionarFilho = new System.Windows.Forms.Button();
+            this.cbFilhos = new System.Windows.Forms.ComboBox();
+            this.lbInscricoes = new System.Windows.Forms.ListBox();
+            this.checkBoxFilhoConfirmado = new System.Windows.Forms.CheckBox();
             this.groupBoxEventos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).BeginInit();
@@ -75,6 +81,7 @@
             this.groupBoxColaboracoes.SuspendLayout();
             this.groupBoxParticipacoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
+            this.groupBoxInscricoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxEventos
@@ -103,7 +110,7 @@
             this.groupBoxEventos.Controls.Add(this.nmLimiteParticipantes);
             this.groupBoxEventos.Location = new System.Drawing.Point(12, 12);
             this.groupBoxEventos.Name = "groupBoxEventos";
-            this.groupBoxEventos.Size = new System.Drawing.Size(759, 332);
+            this.groupBoxEventos.Size = new System.Drawing.Size(786, 332);
             this.groupBoxEventos.TabIndex = 0;
             this.groupBoxEventos.TabStop = false;
             this.groupBoxEventos.Text = "Dados Evento";
@@ -123,7 +130,7 @@
             this.dgvEventos.Location = new System.Drawing.Point(305, 19);
             this.dgvEventos.Name = "dgvEventos";
             this.dgvEventos.ReadOnly = true;
-            this.dgvEventos.Size = new System.Drawing.Size(447, 299);
+            this.dgvEventos.Size = new System.Drawing.Size(475, 299);
             this.dgvEventos.TabIndex = 56;
             this.dgvEventos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEventos_MouseClick);
             // 
@@ -432,11 +439,71 @@
             // 
             this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
             // 
+            // groupBoxInscricoes
+            // 
+            this.groupBoxInscricoes.Controls.Add(this.checkBoxFilhoConfirmado);
+            this.groupBoxInscricoes.Controls.Add(this.btRemoverFilho);
+            this.groupBoxInscricoes.Controls.Add(this.btAdicionarFilho);
+            this.groupBoxInscricoes.Controls.Add(this.cbFilhos);
+            this.groupBoxInscricoes.Controls.Add(this.lbInscricoes);
+            this.groupBoxInscricoes.Location = new System.Drawing.Point(540, 350);
+            this.groupBoxInscricoes.Name = "groupBoxInscricoes";
+            this.groupBoxInscricoes.Size = new System.Drawing.Size(258, 241);
+            this.groupBoxInscricoes.TabIndex = 5;
+            this.groupBoxInscricoes.TabStop = false;
+            this.groupBoxInscricoes.Text = "Filhos Inscritos";
+            // 
+            // btRemoverFilho
+            // 
+            this.btRemoverFilho.Location = new System.Drawing.Point(7, 202);
+            this.btRemoverFilho.Name = "btRemoverFilho";
+            this.btRemoverFilho.Size = new System.Drawing.Size(245, 23);
+            this.btRemoverFilho.TabIndex = 3;
+            this.btRemoverFilho.Text = "Remover";
+            this.btRemoverFilho.UseVisualStyleBackColor = true;
+            // 
+            // btAdicionarFilho
+            // 
+            this.btAdicionarFilho.Location = new System.Drawing.Point(6, 173);
+            this.btAdicionarFilho.Name = "btAdicionarFilho";
+            this.btAdicionarFilho.Size = new System.Drawing.Size(246, 23);
+            this.btAdicionarFilho.TabIndex = 2;
+            this.btAdicionarFilho.Text = "Adicionar";
+            this.btAdicionarFilho.UseVisualStyleBackColor = true;
+            // 
+            // cbFilhos
+            // 
+            this.cbFilhos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilhos.FormattingEnabled = true;
+            this.cbFilhos.Location = new System.Drawing.Point(7, 19);
+            this.cbFilhos.Name = "cbFilhos";
+            this.cbFilhos.Size = new System.Drawing.Size(245, 21);
+            this.cbFilhos.TabIndex = 1;
+            // 
+            // lbInscricoes
+            // 
+            this.lbInscricoes.FormattingEnabled = true;
+            this.lbInscricoes.Location = new System.Drawing.Point(7, 46);
+            this.lbInscricoes.Name = "lbInscricoes";
+            this.lbInscricoes.Size = new System.Drawing.Size(245, 95);
+            this.lbInscricoes.TabIndex = 0;
+            // 
+            // checkBoxFilhoConfirmado
+            // 
+            this.checkBoxFilhoConfirmado.AutoSize = true;
+            this.checkBoxFilhoConfirmado.Location = new System.Drawing.Point(7, 150);
+            this.checkBoxFilhoConfirmado.Name = "checkBoxFilhoConfirmado";
+            this.checkBoxFilhoConfirmado.Size = new System.Drawing.Size(79, 17);
+            this.checkBoxFilhoConfirmado.TabIndex = 4;
+            this.checkBoxFilhoConfirmado.Text = "Confirmado";
+            this.checkBoxFilhoConfirmado.UseVisualStyleBackColor = true;
+            // 
             // FormEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 603);
+            this.ClientSize = new System.Drawing.Size(808, 603);
+            this.Controls.Add(this.groupBoxInscricoes);
             this.Controls.Add(this.groupBoxParticipacoes);
             this.Controls.Add(this.groupBoxColaboracoes);
             this.Controls.Add(this.groupBoxEventos);
@@ -453,6 +520,8 @@
             this.groupBoxColaboracoes.ResumeLayout(false);
             this.groupBoxParticipacoes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
+            this.groupBoxInscricoes.ResumeLayout(false);
+            this.groupBoxInscricoes.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -497,5 +566,11 @@
         private System.Windows.Forms.Button btAdicionarEscola;
         private System.Windows.Forms.ComboBox cbEscolas;
         private System.Windows.Forms.ListBox lbParticipacoes;
+        private System.Windows.Forms.GroupBox groupBoxInscricoes;
+        private System.Windows.Forms.Button btRemoverFilho;
+        private System.Windows.Forms.Button btAdicionarFilho;
+        private System.Windows.Forms.ComboBox cbFilhos;
+        private System.Windows.Forms.ListBox lbInscricoes;
+        private System.Windows.Forms.CheckBox checkBoxFilhoConfirmado;
     }
 }
