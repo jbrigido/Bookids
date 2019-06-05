@@ -130,5 +130,21 @@ namespace Bookids
             nmIdadeMax.Enabled = true;
             dgvEventos.Enabled = false;
         }
+
+        private void btEditarEvento_Click(object sender, EventArgs e)
+        {
+            btCriarEvento.Enabled = false;
+            btGuardarEvento.Enabled = true;
+            btApagarEvento.Enabled = true;
+            btCancelClean.Enabled = true;
+            tbDescricaoEvento.Enabled = true;
+            nmLimiteParticipantes.Enabled = true;
+            tbLocalEvento.Enabled = true;
+            dtpDataHoraEventos.Enabled = true;
+            tbTipoEvento.Enabled = true;
+            nmIdadeMin.Enabled = true;
+            nmIdadeMax.Enabled = true;
+            dgvEventos.Enabled = false;
+        }
     }
 }

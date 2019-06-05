@@ -262,6 +262,7 @@
             this.btEditarEvento.TabIndex = 14;
             this.btEditarEvento.Text = "Editar Evento";
             this.btEditarEvento.UseVisualStyleBackColor = true;
+            this.btEditarEvento.Click += new System.EventHandler(this.btEditarEvento_Click);
             // 
             // label3
             // 
