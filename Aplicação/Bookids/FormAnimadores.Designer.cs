@@ -35,6 +35,8 @@
             this.especialidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.animadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxAnimadores = new System.Windows.Forms.GroupBox();
+            this.tbTelemovelAnimadores = new System.Windows.Forms.MaskedTextBox();
+            this.tbTelefoneAnimadores = new System.Windows.Forms.MaskedTextBox();
             this.tbEspecialidadeAnimadores = new System.Windows.Forms.TextBox();
             this.labelEspecialidade = new System.Windows.Forms.Label();
             this.btCancelClean = new System.Windows.Forms.Button();
@@ -54,8 +56,6 @@
             this.btGuardarAnimadores = new System.Windows.Forms.Button();
             this.tbMoradaAnimadores = new System.Windows.Forms.TextBox();
             this.tbLocalidadeAnimadores = new System.Windows.Forms.TextBox();
-            this.tbTelefoneAnimadores = new System.Windows.Forms.MaskedTextBox();
-            this.tbTelemovelAnimadores = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).BeginInit();
             this.groupBoxAnimadores.SuspendLayout();
@@ -72,7 +72,7 @@
             this.localidadeDataGridViewTextBoxColumn,
             this.especialidadeDataGridViewTextBoxColumn});
             this.dgvAnimadores.DataSource = this.animadoresBindingSource;
-            this.dgvAnimadores.Location = new System.Drawing.Point(259, 12);
+            this.dgvAnimadores.Location = new System.Drawing.Point(289, 12);
             this.dgvAnimadores.Name = "dgvAnimadores";
             this.dgvAnimadores.ReadOnly = true;
             this.dgvAnimadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -130,16 +130,32 @@
             this.groupBoxAnimadores.Controls.Add(this.tbLocalidadeAnimadores);
             this.groupBoxAnimadores.Location = new System.Drawing.Point(12, 12);
             this.groupBoxAnimadores.Name = "groupBoxAnimadores";
-            this.groupBoxAnimadores.Size = new System.Drawing.Size(241, 383);
+            this.groupBoxAnimadores.Size = new System.Drawing.Size(271, 383);
             this.groupBoxAnimadores.TabIndex = 38;
             this.groupBoxAnimadores.TabStop = false;
             this.groupBoxAnimadores.Text = "Dados Animadores";
             // 
+            // tbTelemovelAnimadores
+            // 
+            this.tbTelemovelAnimadores.Location = new System.Drawing.Point(87, 153);
+            this.tbTelemovelAnimadores.Mask = "000 000 000";
+            this.tbTelemovelAnimadores.Name = "tbTelemovelAnimadores";
+            this.tbTelemovelAnimadores.Size = new System.Drawing.Size(69, 20);
+            this.tbTelemovelAnimadores.TabIndex = 51;
+            // 
+            // tbTelefoneAnimadores
+            // 
+            this.tbTelefoneAnimadores.Location = new System.Drawing.Point(87, 127);
+            this.tbTelefoneAnimadores.Mask = "000 000 000";
+            this.tbTelefoneAnimadores.Name = "tbTelefoneAnimadores";
+            this.tbTelefoneAnimadores.Size = new System.Drawing.Size(69, 20);
+            this.tbTelefoneAnimadores.TabIndex = 50;
+            // 
             // tbEspecialidadeAnimadores
             // 
-            this.tbEspecialidadeAnimadores.Location = new System.Drawing.Point(87, 205);
+            this.tbEspecialidadeAnimadores.Location = new System.Drawing.Point(87, 209);
             this.tbEspecialidadeAnimadores.Name = "tbEspecialidadeAnimadores";
-            this.tbEspecialidadeAnimadores.Size = new System.Drawing.Size(148, 20);
+            this.tbEspecialidadeAnimadores.Size = new System.Drawing.Size(177, 20);
             this.tbEspecialidadeAnimadores.TabIndex = 49;
             // 
             // labelEspecialidade
@@ -156,7 +172,7 @@
             // 
             this.btCancelClean.Location = new System.Drawing.Point(6, 355);
             this.btCancelClean.Name = "btCancelClean";
-            this.btCancelClean.Size = new System.Drawing.Size(229, 23);
+            this.btCancelClean.Size = new System.Drawing.Size(258, 23);
             this.btCancelClean.TabIndex = 47;
             this.btCancelClean.Text = "Cancelar/Limpar Seleção";
             this.btCancelClean.UseVisualStyleBackColor = true;
@@ -174,9 +190,9 @@
             // 
             // tbMailAnimadores
             // 
-            this.tbMailAnimadores.Location = new System.Drawing.Point(74, 175);
+            this.tbMailAnimadores.Location = new System.Drawing.Point(87, 179);
             this.tbMailAnimadores.Name = "tbMailAnimadores";
-            this.tbMailAnimadores.Size = new System.Drawing.Size(161, 20);
+            this.tbMailAnimadores.Size = new System.Drawing.Size(177, 20);
             this.tbMailAnimadores.TabIndex = 45;
             // 
             // labelTelemovel
@@ -211,7 +227,7 @@
             // 
             // tbCodPostalAnimadores
             // 
-            this.tbCodPostalAnimadores.Location = new System.Drawing.Point(87, 71);
+            this.tbCodPostalAnimadores.Location = new System.Drawing.Point(87, 75);
             this.tbCodPostalAnimadores.Mask = "0000-000";
             this.tbCodPostalAnimadores.Name = "tbCodPostalAnimadores";
             this.tbCodPostalAnimadores.Size = new System.Drawing.Size(54, 20);
@@ -241,7 +257,7 @@
             // 
             this.labelNomeAnimadores.AutoSize = true;
             this.labelNomeAnimadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelNomeAnimadores.Location = new System.Drawing.Point(6, 26);
+            this.labelNomeAnimadores.Location = new System.Drawing.Point(6, 22);
             this.labelNomeAnimadores.Name = "labelNomeAnimadores";
             this.labelNomeAnimadores.Size = new System.Drawing.Size(42, 13);
             this.labelNomeAnimadores.TabIndex = 39;
@@ -251,7 +267,7 @@
             // 
             this.btEditarAnimadores.Location = new System.Drawing.Point(6, 268);
             this.btEditarAnimadores.Name = "btEditarAnimadores";
-            this.btEditarAnimadores.Size = new System.Drawing.Size(229, 23);
+            this.btEditarAnimadores.Size = new System.Drawing.Size(258, 23);
             this.btEditarAnimadores.TabIndex = 36;
             this.btEditarAnimadores.Text = "Editar Animador";
             this.btEditarAnimadores.UseVisualStyleBackColor = true;
@@ -261,7 +277,7 @@
             // 
             this.btAdicionarAnimadores.Location = new System.Drawing.Point(6, 239);
             this.btAdicionarAnimadores.Name = "btAdicionarAnimadores";
-            this.btAdicionarAnimadores.Size = new System.Drawing.Size(229, 23);
+            this.btAdicionarAnimadores.Size = new System.Drawing.Size(258, 23);
             this.btAdicionarAnimadores.TabIndex = 35;
             this.btAdicionarAnimadores.Text = "Adicionar Animador";
             this.btAdicionarAnimadores.UseVisualStyleBackColor = true;
@@ -269,7 +285,7 @@
             // 
             // tbNomeAnimadores
             // 
-            this.tbNomeAnimadores.Location = new System.Drawing.Point(58, 19);
+            this.tbNomeAnimadores.Location = new System.Drawing.Point(87, 19);
             this.tbNomeAnimadores.Name = "tbNomeAnimadores";
             this.tbNomeAnimadores.Size = new System.Drawing.Size(177, 20);
             this.tbNomeAnimadores.TabIndex = 23;
@@ -278,7 +294,7 @@
             // 
             this.btApagarAnimadores.Location = new System.Drawing.Point(6, 326);
             this.btApagarAnimadores.Name = "btApagarAnimadores";
-            this.btApagarAnimadores.Size = new System.Drawing.Size(229, 23);
+            this.btApagarAnimadores.Size = new System.Drawing.Size(258, 23);
             this.btApagarAnimadores.TabIndex = 34;
             this.btApagarAnimadores.Text = "Apagar Animadores";
             this.btApagarAnimadores.UseVisualStyleBackColor = true;
@@ -288,7 +304,7 @@
             // 
             this.btGuardarAnimadores.Location = new System.Drawing.Point(6, 297);
             this.btGuardarAnimadores.Name = "btGuardarAnimadores";
-            this.btGuardarAnimadores.Size = new System.Drawing.Size(229, 23);
+            this.btGuardarAnimadores.Size = new System.Drawing.Size(258, 23);
             this.btGuardarAnimadores.TabIndex = 32;
             this.btGuardarAnimadores.Text = "Guardar Alterações";
             this.btGuardarAnimadores.UseVisualStyleBackColor = true;
@@ -296,39 +312,23 @@
             // 
             // tbMoradaAnimadores
             // 
-            this.tbMoradaAnimadores.Location = new System.Drawing.Point(58, 45);
+            this.tbMoradaAnimadores.Location = new System.Drawing.Point(87, 49);
             this.tbMoradaAnimadores.Name = "tbMoradaAnimadores";
             this.tbMoradaAnimadores.Size = new System.Drawing.Size(177, 20);
             this.tbMoradaAnimadores.TabIndex = 25;
             // 
             // tbLocalidadeAnimadores
             // 
-            this.tbLocalidadeAnimadores.Location = new System.Drawing.Point(74, 97);
+            this.tbLocalidadeAnimadores.Location = new System.Drawing.Point(87, 101);
             this.tbLocalidadeAnimadores.Name = "tbLocalidadeAnimadores";
-            this.tbLocalidadeAnimadores.Size = new System.Drawing.Size(161, 20);
+            this.tbLocalidadeAnimadores.Size = new System.Drawing.Size(177, 20);
             this.tbLocalidadeAnimadores.TabIndex = 29;
-            // 
-            // tbTelefoneAnimadores
-            // 
-            this.tbTelefoneAnimadores.Location = new System.Drawing.Point(74, 123);
-            this.tbTelefoneAnimadores.Mask = "000 000 000";
-            this.tbTelefoneAnimadores.Name = "tbTelefoneAnimadores";
-            this.tbTelefoneAnimadores.Size = new System.Drawing.Size(69, 20);
-            this.tbTelefoneAnimadores.TabIndex = 50;
-            // 
-            // tbTelemovelAnimadores
-            // 
-            this.tbTelemovelAnimadores.Location = new System.Drawing.Point(74, 149);
-            this.tbTelemovelAnimadores.Mask = "000 000 000";
-            this.tbTelemovelAnimadores.Name = "tbTelemovelAnimadores";
-            this.tbTelemovelAnimadores.Size = new System.Drawing.Size(69, 20);
-            this.tbTelemovelAnimadores.TabIndex = 51;
             // 
             // FormAnimadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 403);
+            this.ClientSize = new System.Drawing.Size(644, 403);
             this.Controls.Add(this.groupBoxAnimadores);
             this.Controls.Add(this.dgvAnimadores);
             this.Name = "FormAnimadores";

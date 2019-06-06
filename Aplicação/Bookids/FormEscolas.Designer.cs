@@ -78,14 +78,14 @@
             this.groupBoxEscolas.Controls.Add(this.tbMailEscolas);
             this.groupBoxEscolas.Location = new System.Drawing.Point(12, 12);
             this.groupBoxEscolas.Name = "groupBoxEscolas";
-            this.groupBoxEscolas.Size = new System.Drawing.Size(241, 332);
+            this.groupBoxEscolas.Size = new System.Drawing.Size(268, 332);
             this.groupBoxEscolas.TabIndex = 37;
             this.groupBoxEscolas.TabStop = false;
             this.groupBoxEscolas.Text = "Dados Escolas";
             // 
             // tbTelefoneEscolas
             // 
-            this.tbTelefoneEscolas.Location = new System.Drawing.Point(74, 123);
+            this.tbTelefoneEscolas.Location = new System.Drawing.Point(87, 123);
             this.tbTelefoneEscolas.Mask = "000 000 000";
             this.tbTelefoneEscolas.Name = "tbTelefoneEscolas";
             this.tbTelefoneEscolas.Size = new System.Drawing.Size(69, 20);
@@ -95,7 +95,7 @@
             // 
             this.btCancelClean.Location = new System.Drawing.Point(6, 301);
             this.btCancelClean.Name = "btCancelClean";
-            this.btCancelClean.Size = new System.Drawing.Size(229, 23);
+            this.btCancelClean.Size = new System.Drawing.Size(256, 23);
             this.btCancelClean.TabIndex = 45;
             this.btCancelClean.Text = "Cancelar/Limpar Selecção";
             this.btCancelClean.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             // 
             this.labelMailEscolas.AutoSize = true;
             this.labelMailEscolas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelMailEscolas.Location = new System.Drawing.Point(6, 156);
+            this.labelMailEscolas.Location = new System.Drawing.Point(6, 152);
             this.labelMailEscolas.Name = "labelMailEscolas";
             this.labelMailEscolas.Size = new System.Drawing.Size(39, 13);
             this.labelMailEscolas.TabIndex = 44;
@@ -115,7 +115,7 @@
             // 
             this.labelTelefone.AutoSize = true;
             this.labelTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelTelefone.Location = new System.Drawing.Point(6, 130);
+            this.labelTelefone.Location = new System.Drawing.Point(6, 126);
             this.labelTelefone.Name = "labelTelefone";
             this.labelTelefone.Size = new System.Drawing.Size(56, 13);
             this.labelTelefone.TabIndex = 43;
@@ -125,7 +125,7 @@
             // 
             this.labelLocalidade.AutoSize = true;
             this.labelLocalidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelLocalidade.Location = new System.Drawing.Point(6, 104);
+            this.labelLocalidade.Location = new System.Drawing.Point(6, 100);
             this.labelLocalidade.Name = "labelLocalidade";
             this.labelLocalidade.Size = new System.Drawing.Size(66, 13);
             this.labelLocalidade.TabIndex = 42;
@@ -143,7 +143,7 @@
             // 
             this.labelCodPostal.AutoSize = true;
             this.labelCodPostal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelCodPostal.Location = new System.Drawing.Point(6, 78);
+            this.labelCodPostal.Location = new System.Drawing.Point(6, 74);
             this.labelCodPostal.Name = "labelCodPostal";
             this.labelCodPostal.Size = new System.Drawing.Size(75, 13);
             this.labelCodPostal.TabIndex = 41;
@@ -153,7 +153,7 @@
             // 
             this.labelMoradaEscola.AutoSize = true;
             this.labelMoradaEscola.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelMoradaEscola.Location = new System.Drawing.Point(6, 52);
+            this.labelMoradaEscola.Location = new System.Drawing.Point(6, 48);
             this.labelMoradaEscola.Name = "labelMoradaEscola";
             this.labelMoradaEscola.Size = new System.Drawing.Size(46, 13);
             this.labelMoradaEscola.TabIndex = 40;
@@ -163,7 +163,7 @@
             // 
             this.labelNomeEscola.AutoSize = true;
             this.labelNomeEscola.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelNomeEscola.Location = new System.Drawing.Point(6, 26);
+            this.labelNomeEscola.Location = new System.Drawing.Point(6, 22);
             this.labelNomeEscola.Name = "labelNomeEscola";
             this.labelNomeEscola.Size = new System.Drawing.Size(42, 13);
             this.labelNomeEscola.TabIndex = 39;
@@ -173,7 +173,7 @@
             // 
             this.btEditarEscola.Location = new System.Drawing.Point(6, 214);
             this.btEditarEscola.Name = "btEditarEscola";
-            this.btEditarEscola.Size = new System.Drawing.Size(229, 23);
+            this.btEditarEscola.Size = new System.Drawing.Size(256, 23);
             this.btEditarEscola.TabIndex = 36;
             this.btEditarEscola.Text = "Editar Escola";
             this.btEditarEscola.UseVisualStyleBackColor = true;
@@ -183,7 +183,7 @@
             // 
             this.btAdicionarEscola.Location = new System.Drawing.Point(6, 185);
             this.btAdicionarEscola.Name = "btAdicionarEscola";
-            this.btAdicionarEscola.Size = new System.Drawing.Size(229, 23);
+            this.btAdicionarEscola.Size = new System.Drawing.Size(256, 23);
             this.btAdicionarEscola.TabIndex = 35;
             this.btAdicionarEscola.Text = "Adicionar Escola";
             this.btAdicionarEscola.UseVisualStyleBackColor = true;
@@ -191,16 +191,16 @@
             // 
             // tbNomeEscolas
             // 
-            this.tbNomeEscolas.Location = new System.Drawing.Point(58, 19);
+            this.tbNomeEscolas.Location = new System.Drawing.Point(87, 19);
             this.tbNomeEscolas.Name = "tbNomeEscolas";
-            this.tbNomeEscolas.Size = new System.Drawing.Size(177, 20);
+            this.tbNomeEscolas.Size = new System.Drawing.Size(175, 20);
             this.tbNomeEscolas.TabIndex = 23;
             // 
             // btApagarEscola
             // 
             this.btApagarEscola.Location = new System.Drawing.Point(6, 272);
             this.btApagarEscola.Name = "btApagarEscola";
-            this.btApagarEscola.Size = new System.Drawing.Size(229, 23);
+            this.btApagarEscola.Size = new System.Drawing.Size(256, 23);
             this.btApagarEscola.TabIndex = 34;
             this.btApagarEscola.Text = "Apagar Escola";
             this.btApagarEscola.UseVisualStyleBackColor = true;
@@ -210,7 +210,7 @@
             // 
             this.btGuardarEscola.Location = new System.Drawing.Point(6, 243);
             this.btGuardarEscola.Name = "btGuardarEscola";
-            this.btGuardarEscola.Size = new System.Drawing.Size(229, 23);
+            this.btGuardarEscola.Size = new System.Drawing.Size(256, 23);
             this.btGuardarEscola.TabIndex = 32;
             this.btGuardarEscola.Text = "Guardar Alterações";
             this.btGuardarEscola.UseVisualStyleBackColor = true;
@@ -218,23 +218,23 @@
             // 
             // tbMoradaEscolas
             // 
-            this.tbMoradaEscolas.Location = new System.Drawing.Point(58, 45);
+            this.tbMoradaEscolas.Location = new System.Drawing.Point(87, 45);
             this.tbMoradaEscolas.Name = "tbMoradaEscolas";
-            this.tbMoradaEscolas.Size = new System.Drawing.Size(177, 20);
+            this.tbMoradaEscolas.Size = new System.Drawing.Size(175, 20);
             this.tbMoradaEscolas.TabIndex = 25;
             // 
             // tbLocalidadeEscolas
             // 
-            this.tbLocalidadeEscolas.Location = new System.Drawing.Point(74, 97);
+            this.tbLocalidadeEscolas.Location = new System.Drawing.Point(87, 97);
             this.tbLocalidadeEscolas.Name = "tbLocalidadeEscolas";
-            this.tbLocalidadeEscolas.Size = new System.Drawing.Size(161, 20);
+            this.tbLocalidadeEscolas.Size = new System.Drawing.Size(175, 20);
             this.tbLocalidadeEscolas.TabIndex = 29;
             // 
             // tbMailEscolas
             // 
-            this.tbMailEscolas.Location = new System.Drawing.Point(74, 149);
+            this.tbMailEscolas.Location = new System.Drawing.Point(87, 149);
             this.tbMailEscolas.Name = "tbMailEscolas";
-            this.tbMailEscolas.Size = new System.Drawing.Size(161, 20);
+            this.tbMailEscolas.Size = new System.Drawing.Size(175, 20);
             this.tbMailEscolas.TabIndex = 30;
             // 
             // dgvEscolas
@@ -248,7 +248,7 @@
             this.telefoneDataGridViewTextBoxColumn,
             this.localidadeDataGridViewTextBoxColumn});
             this.dgvEscolas.DataSource = this.escolasBindingSource;
-            this.dgvEscolas.Location = new System.Drawing.Point(259, 12);
+            this.dgvEscolas.Location = new System.Drawing.Point(286, 12);
             this.dgvEscolas.Name = "dgvEscolas";
             this.dgvEscolas.ReadOnly = true;
             this.dgvEscolas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -285,7 +285,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 356);
+            this.ClientSize = new System.Drawing.Size(642, 356);
             this.Controls.Add(this.dgvEscolas);
             this.Controls.Add(this.groupBoxEscolas);
             this.Name = "FormEscolas";

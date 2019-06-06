@@ -106,8 +106,7 @@ namespace Bookids
                 "Guardar", MessageBoxButtons.YesNo);
 
             if(dr == DialogResult.Yes)
-            {
-             
+            {            
                 try
                 {
                     Escolas escola = (Escolas)dgvEscolas.SelectedRows[0].DataBoundItem;
