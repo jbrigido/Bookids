@@ -60,26 +60,17 @@ namespace Bookids
 
         private void btRegistarVenda_Click(object sender, EventArgs e)
         {
-            Compras nova = new Compras()
-            {
-                IdCliente = ((Clientes)cbClientes.SelectedItem).IdPessoa,
-                Data = DateTime.Now,
-                UtilizouCartao = true
-            };
-            BookidsContainer.ComprasSet.Add(nova);
-            BookidsContainer.SaveChanges();
-            carregarDadosVendas((Clientes)cbClientes.SelectedItem);
-            /*
+            Compras nova = new Compras();
             try
             {
-                FormDetalhesVenda formDetalhesVenda = new FormDetalhesVenda();
+                FormDetalhesVenda formDetalhesVenda = new FormDetalhesVenda(nova);
                 formDetalhesVenda.ShowDialog();
             }
             catch
             {
 
             }
-            */
+            
         }
 
         private void btEditarVenda_Click(object sender, EventArgs e)

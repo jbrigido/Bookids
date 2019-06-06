@@ -21,8 +21,8 @@ namespace Bookids
             InitializeComponent();
             BookidsContainer = new ModelBookidsContainer();
             compraAtiva = null;
-            ArrayList listboxProdutos = new ArrayList();
         }
+
 
         private void FormDetalhesVenda_Load(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace Bookids
             lbProdutos.DataSource = listaProdutos.ToList<Produtos>();
         }
 
-        private void carregarDadosVenda(Compras compra)
+        public void carregarDadosVenda(Compras compra)
         {
             try
             {
@@ -109,7 +109,6 @@ namespace Bookids
                     BookidsContainer.DetalheComprasSet.Add(detalhes);
                     BookidsContainer.SaveChanges();
 
-                    // PARA GRAVAR NO FIM ADICIONA-SE OS ITEMS A LISTBOX E NO FIM GUARDA AS ALTERAÇOES NA BD
                     // PARA ALTERAR PODE APAGAR OS DADOS DO DETALHE PARA GUARDAR DE NOVO OS ITEMS DA LIST BOX
 
                 }
