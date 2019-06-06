@@ -28,7 +28,6 @@ namespace Bookids
         {
             carregarDadosVenda(compraAtiva);
             carregarComboTipo();
-            carregarListaCompras();
         }
 
         public FormDetalhesVenda(Compras compra)
@@ -58,26 +57,31 @@ namespace Bookids
 
         private void carregarDadosVenda(Compras compra)
         {
-            dtpDataVenda.Value = compra.Data;
-            if (compra.UtilizouCartao == true)
+            try
             {
-                checkCartaoCliente.Checked = true;
+                dtpDataVenda.Value = compra.Data;
+                if (compra.UtilizouCartao == true)
+                {
+                    checkCartaoCliente.Checked = true;
+                }
+                else
+                {
+                    checkCartaoCliente.Checked = false;
+                }
             }
-            else
+            catch
             {
-                checkCartaoCliente.Checked = false;
-            }
 
-            
+            }
         }
 
         public void carregarListaCompras()
         {
-            var listaDetalhesCompra = from DetalheCompras in BookidsContainer.DetalheComprasSet
-                                      orderby DetalheCompras.CodProduto
-                                      where DetalheCompras.NrCompra == compraAtiva.NrCompra
-                                      select DetalheCompras;
-            lbDetalhesVenda.DataSource = listaDetalhesCompra.ToList<DetalheCompras>();
+                var listaDetalhesCompra = from DetalheCompras in BookidsContainer.DetalheComprasSet
+                                          orderby DetalheCompras.CodProduto
+                                          where DetalheCompras.NrCompra == compraAtiva.NrCompra
+                                          select DetalheCompras;
+                lbDetalhesVenda.DataSource = listaDetalhesCompra.ToList<DetalheCompras>();
         }
 
 
@@ -93,26 +97,46 @@ namespace Bookids
             try
             {
                 DetalheCompras detalhes = (DetalheCompras)compraAtiva.DetalheCompras;
-
-                Produtos produto = (Produtos)lbProdutos.SelectedItem;
-                if (produto != null && nmQuantidade.Value > 0)
+                try
                 {
-                    detalhes.CodProduto = produto.CodProduto;
-                    detalhes.NrCompra = compraAtiva.NrCompra;
-                    detalhes.Quantidade = (int)nmQuantidade.Value;
-                }
-                BookidsContainer.SaveChanges();
+                    Produtos produto = (Produtos)lbProdutos.SelectedItem;
+                    if (produto != null && nmQuantidade.Value > 0)
+                    {
+                        detalhes.CodProduto = produto.CodProduto;
+                        detalhes.NrCompra = compraAtiva.NrCompra;
+                        detalhes.Quantidade = (int)nmQuantidade.Value;
+                    }
+                    BookidsContainer.DetalheComprasSet.Add(detalhes);
+                    BookidsContainer.SaveChanges();
 
-                // PARA GRAVAR NO FIM ADICIONA-SE OS ITEMS A LISTBOX E NO FIM GUARDA AS ALTERAÇOES NA BD
-                // PARA ALTERAR PODE APAGAR OS DADOS DO DETALHE PARA GUARDAR DE NOVO OS ITEMS DA LIST BOX
+                    // PARA GRAVAR NO FIM ADICIONA-SE OS ITEMS A LISTBOX E NO FIM GUARDA AS ALTERAÇOES NA BD
+                    // PARA ALTERAR PODE APAGAR OS DADOS DO DETALHE PARA GUARDAR DE NOVO OS ITEMS DA LIST BOX
 
                 }
                 catch
                 {
+                    
+                }
+            }
+            catch
+            {
+                DetalheCompras novoDetalhe = new DetalheCompras();
+                Produtos produto = (Produtos)lbProdutos.SelectedItem;
+                if (produto != null && nmQuantidade.Value > 0)
+                {
+                    novoDetalhe.CodProduto = produto.CodProduto;
+                    novoDetalhe.NrCompra = compraAtiva.NrCompra;
+                    novoDetalhe.Quantidade = (int)nmQuantidade.Value;
+                }
+                BookidsContainer.DetalheComprasSet.Add(novoDetalhe);
+                BookidsContainer.SaveChanges();
 
-                }               
-           
-        }
+                        // PARA GRAVAR NO FIM ADICIONA-SE OS ITEMS A LISTBOX E NO FIM GUARDA AS ALTERAÇOES NA BD
+                        // PARA ALTERAR PODE APAGAR OS DADOS DO DETALHE PARA GUARDAR DE NOVO OS ITEMS DA LIST BOX
+
+            }
+        }   
+        
 
         private void btRemoverProduto_Click(object sender, EventArgs e)
         {

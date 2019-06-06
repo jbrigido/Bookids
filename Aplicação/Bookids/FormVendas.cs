@@ -60,9 +60,18 @@ namespace Bookids
 
         private void btRegistarVenda_Click(object sender, EventArgs e)
         {
+            Compras nova = new Compras()
+            {
+                IdCliente = ((Clientes)cbClientes.SelectedItem).IdPessoa,
+                Data = DateTime.Now,
+                UtilizouCartao = true
+            };
+            BookidsContainer.ComprasSet.Add(nova);
+            BookidsContainer.SaveChanges();
+            carregarDadosVendas((Clientes)cbClientes.SelectedItem);
+            /*
             try
             {
-                Clientes cliente = (Clientes)cbClientes.SelectedItem;
                 FormDetalhesVenda formDetalhesVenda = new FormDetalhesVenda();
                 formDetalhesVenda.ShowDialog();
             }
@@ -70,13 +79,13 @@ namespace Bookids
             {
 
             }
+            */
         }
 
         private void btEditarVenda_Click(object sender, EventArgs e)
         {
             try
             {
-                Clientes cliente = (Clientes)cbClientes.SelectedItem;
                 Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
                 FormDetalhesVenda formDetalhesVenda = new FormDetalhesVenda(compra);
                 formDetalhesVenda.ShowDialog();
@@ -106,6 +115,39 @@ namespace Bookids
             {
 
             }
+        }
+
+        private void btApagarVenda_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja apagar?",
+                "Apagar", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                try
+                {
+                    Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+                    BookidsContainer.ComprasSet.Remove(compra);
+                    BookidsContainer.SaveChanges();
+                    carregarDadosVendas((Clientes)cbClientes.SelectedItem);
+                    limparDadosVendas();
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        private void btCancelCleanVenda_Click(object sender, EventArgs e)
+        {
+            dgvVendas.ClearSelection();
+            dgvDetalhesCompra.ClearSelection();
+            btRegistarVenda.Enabled = true;
+            btEditarVenda.Enabled = false;
+            btGuardarVenda.Enabled = false;
+            btApagarVenda.Enabled = false;
+            btCancelCleanVenda.Enabled = false;
         }
     }
 }

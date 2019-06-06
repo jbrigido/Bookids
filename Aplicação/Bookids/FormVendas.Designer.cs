@@ -42,21 +42,21 @@
             this.tbNrCartao = new System.Windows.Forms.TextBox();
             this.cbClientes = new System.Windows.Forms.ComboBox();
             this.btGuardarVenda = new System.Windows.Forms.Button();
+            this.dgvDetalhesCompra = new System.Windows.Forms.DataGridView();
+            this.precoUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalheComprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nrCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utilizouCartaoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.comprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.detalheComprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.codProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precoUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalhesCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalheComprasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btApagarVenda
@@ -67,6 +67,7 @@
             this.btApagarVenda.TabIndex = 8;
             this.btApagarVenda.Text = "Apagar Venda";
             this.btApagarVenda.UseVisualStyleBackColor = true;
+            this.btApagarVenda.Click += new System.EventHandler(this.btApagarVenda_Click);
             // 
             // btEditarVenda
             // 
@@ -144,6 +145,7 @@
             this.btCancelCleanVenda.TabIndex = 16;
             this.btCancelCleanVenda.Text = "Cancelar/Limpar Alterações";
             this.btCancelCleanVenda.UseVisualStyleBackColor = true;
+            this.btCancelCleanVenda.Click += new System.EventHandler(this.btCancelCleanVenda_Click);
             // 
             // label3
             // 
@@ -199,6 +201,50 @@
             this.btGuardarVenda.Text = "Guardar Alterações";
             this.btGuardarVenda.UseVisualStyleBackColor = true;
             // 
+            // dgvDetalhesCompra
+            // 
+            this.dgvDetalhesCompra.AutoGenerateColumns = false;
+            this.dgvDetalhesCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalhesCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codProdutoDataGridViewTextBoxColumn,
+            this.quantidadeDataGridViewTextBoxColumn,
+            this.precoUnitario,
+            this.subtotal});
+            this.dgvDetalhesCompra.DataSource = this.detalheComprasBindingSource;
+            this.dgvDetalhesCompra.Location = new System.Drawing.Point(39, 203);
+            this.dgvDetalhesCompra.Name = "dgvDetalhesCompra";
+            this.dgvDetalhesCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalhesCompra.Size = new System.Drawing.Size(450, 119);
+            this.dgvDetalhesCompra.TabIndex = 11;
+            // 
+            // precoUnitario
+            // 
+            this.precoUnitario.HeaderText = "Preço Unitário";
+            this.precoUnitario.Name = "precoUnitario";
+            this.precoUnitario.ReadOnly = true;
+            // 
+            // subtotal
+            // 
+            this.subtotal.HeaderText = "Total";
+            this.subtotal.Name = "subtotal";
+            this.subtotal.ReadOnly = true;
+            // 
+            // codProdutoDataGridViewTextBoxColumn
+            // 
+            this.codProdutoDataGridViewTextBoxColumn.DataPropertyName = "CodProduto";
+            this.codProdutoDataGridViewTextBoxColumn.HeaderText = "CodProduto";
+            this.codProdutoDataGridViewTextBoxColumn.Name = "codProdutoDataGridViewTextBoxColumn";
+            // 
+            // quantidadeDataGridViewTextBoxColumn
+            // 
+            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "Quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
+            // 
+            // detalheComprasBindingSource
+            // 
+            this.detalheComprasBindingSource.DataSource = typeof(Bookids.DetalheCompras);
+            // 
             // nrCompraDataGridViewTextBoxColumn
             // 
             this.nrCompraDataGridViewTextBoxColumn.DataPropertyName = "NrCompra";
@@ -224,56 +270,12 @@
             // 
             this.comprasBindingSource.DataSource = typeof(Bookids.Compras);
             // 
-            // detalheComprasBindingSource
-            // 
-            this.detalheComprasBindingSource.DataSource = typeof(Bookids.DetalheCompras);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codProdutoDataGridViewTextBoxColumn,
-            this.quantidadeDataGridViewTextBoxColumn,
-            this.precoUnitario,
-            this.subtotal});
-            this.dataGridView1.DataSource = this.detalheComprasBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(39, 203);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(450, 119);
-            this.dataGridView1.TabIndex = 11;
-            // 
-            // codProdutoDataGridViewTextBoxColumn
-            // 
-            this.codProdutoDataGridViewTextBoxColumn.DataPropertyName = "CodProduto";
-            this.codProdutoDataGridViewTextBoxColumn.HeaderText = "CodProduto";
-            this.codProdutoDataGridViewTextBoxColumn.Name = "codProdutoDataGridViewTextBoxColumn";
-            // 
-            // quantidadeDataGridViewTextBoxColumn
-            // 
-            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "Quantidade";
-            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Quantidade";
-            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
-            // 
-            // precoUnitario
-            // 
-            this.precoUnitario.HeaderText = "Preço Unitário";
-            this.precoUnitario.Name = "precoUnitario";
-            this.precoUnitario.ReadOnly = true;
-            // 
-            // subtotal
-            // 
-            this.subtotal.HeaderText = "Total";
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
-            // 
             // FormVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 407);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvDetalhesCompra);
             this.Controls.Add(this.gbCliente);
             this.Name = "FormVendas";
             this.Text = "FormVendas";
@@ -281,9 +283,9 @@
             this.gbCliente.ResumeLayout(false);
             this.gbCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalhesCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalheComprasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -307,7 +309,7 @@
         private System.Windows.Forms.TextBox tbValorOferta;
         private System.Windows.Forms.BindingSource detalheComprasBindingSource;
         private System.Windows.Forms.Button btGuardarVenda;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDetalhesCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn codProdutoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidadeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precoUnitario;

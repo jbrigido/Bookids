@@ -90,9 +90,24 @@
             // nmQuantidade
             // 
             this.nmQuantidade.Location = new System.Drawing.Point(265, 81);
+            this.nmQuantidade.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nmQuantidade.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nmQuantidade.Name = "nmQuantidade";
             this.nmQuantidade.Size = new System.Drawing.Size(72, 20);
             this.nmQuantidade.TabIndex = 21;
+            this.nmQuantidade.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label6
             // 
