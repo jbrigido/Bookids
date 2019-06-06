@@ -22,7 +22,6 @@ namespace Bookids
 
         private void FormVendas_Load(object sender, EventArgs e)
         {
-            carregarComboTipo();
             carregarComboClientes();
             limparDadosVendas();
         }
@@ -46,23 +45,6 @@ namespace Bookids
             tbValorOferta.Text = Convert.ToString(cliente.ValorOferta);
         }
 
-        private void carregarComboTipo()
-        {
-            var listaTipos = from TipoProduto in BookidsContainer.TipoProdutoSet
-                             orderby TipoProduto.Tipo
-                             select TipoProduto;
-            cbTipoProduto.DataSource = listaTipos.ToList<TipoProduto>();
-        }
-
-        public void carregarListaProtudos()
-        {
-            var listaProdutos = from Produtos in BookidsContainer.ProdutosSet
-                                orderby Produtos.Designacao
-                                where Produtos.TipoProduto.CodTipoProduto == 
-                            ((TipoProduto)cbTipoProduto.SelectedItem).CodTipoProduto
-                                select Produtos;
-            lbProdutos.DataSource = listaProdutos.ToList<Produtos>();
-        }
 
         private void limparDadosVendas()
         {
@@ -74,7 +56,6 @@ namespace Bookids
             btEditarVenda.Enabled = false;
             btApagarVenda.Enabled = false;
             btCancelCleanVenda.Enabled = false;
-            gbDetalhesVenda.Enabled = false;
         }
 
         private void btRegistarVenda_Click(object sender, EventArgs e)
@@ -82,24 +63,25 @@ namespace Bookids
             try
             {
                 Clientes cliente = (Clientes)cbClientes.SelectedItem;
-                dgvVendas.ClearSelection();
-                btRegistarVenda.Enabled = false;
-                btGuardarVenda.Enabled = true;
-                btCancelCleanVenda.Enabled = true;
-                gbDetalhesVenda.Enabled = true;
-                //codigo teste para criar compra
-                /*
-                Compras compra = new Compras()
-                {
-                    Data = DateTime.Now,
-                    IdCliente = cliente.IdPessoa,
-                    UtilizouCartao = true
-                };
-                BookidsContainer.ComprasSet.Add(compra);
-                BookidsContainer.SaveChanges();
-                carregarDadosVendas(cliente);*/
+                FormDetalhesVenda formDetalhesVenda = new FormDetalhesVenda();
+                formDetalhesVenda.ShowDialog();
             }
-            catch(ArgumentOutOfRangeException)
+            catch
+            {
+
+            }
+        }
+
+        private void btEditarVenda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clientes cliente = (Clientes)cbClientes.SelectedItem;
+                Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+                FormDetalhesVenda formDetalhesVenda = new FormDetalhesVenda(compra);
+                formDetalhesVenda.ShowDialog();
+            }
+            catch
             {
 
             }
@@ -110,12 +92,20 @@ namespace Bookids
             carregarDadosVendas((Clientes)cbClientes.SelectedItem);
         }
 
-        private void cbTipoProduto_SelectedIndexChanged(object sender, EventArgs e)
+        private void dgvVendas_MouseClick(object sender, MouseEventArgs e)
         {
-            carregarListaProtudos();
-            lbProdutos.ClearSelected();
-        }
+            try
+            {
+                Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+                btRegistarVenda.Enabled = false;
+                btEditarVenda.Enabled = true;
+                btApagarVenda.Enabled = true;
+                btCancelCleanVenda.Enabled = true;
+            }
+            catch
+            {
 
-        
+            }
+        }
     }
 }
