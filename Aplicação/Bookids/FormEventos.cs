@@ -27,6 +27,7 @@ namespace Bookids
             carregarComboEscolas();
             carregarComboFilhos();
             tbNumeroEvento.Enabled = false;
+            dtpDataEventos.MinDate = DateTime.Now;
             limparDadosEventos();
         }
 
@@ -78,7 +79,7 @@ namespace Bookids
                 return false;
             }
 
-            if (dtpDataHoraEventos.Value == null)
+            if (dtpDataEventos.Value == null)
             {
                 MessageBox.Show("(*) Campos de preenchimento obrigatório !");
                 return false;
@@ -100,14 +101,15 @@ namespace Bookids
             tbDescricaoEvento.Clear();
             nmLimiteParticipantes.ResetText();
             tbLocalEvento.Clear();
-            dtpDataHoraEventos.ResetText();
+            dtpDataEventos.ResetText();
             tbTipoEvento.Clear();
             nmIdadeMin.ResetText();
             nmIdadeMax.ResetText();
             tbDescricaoEvento.Enabled = false;
             nmLimiteParticipantes.Enabled = false;
             tbLocalEvento.Enabled = false;
-            dtpDataHoraEventos.Enabled = false;
+            dtpDataEventos.Enabled = false;
+            tbHorasEvento.Enabled = false;
             tbTipoEvento.Enabled = false;
             nmIdadeMin.Enabled = false;
             nmIdadeMax.Enabled = false;
@@ -138,7 +140,7 @@ namespace Bookids
             tbDescricaoEvento.Enabled = true;
             nmLimiteParticipantes.Enabled = true;
             tbLocalEvento.Enabled = true;
-            dtpDataHoraEventos.Enabled = true;
+            dtpDataEventos.Enabled = true;
             tbTipoEvento.Enabled = true;
             nmIdadeMin.Enabled = true;
             nmIdadeMax.Enabled = true;
@@ -154,7 +156,7 @@ namespace Bookids
             tbDescricaoEvento.Enabled = true;
             nmLimiteParticipantes.Enabled = true;
             tbLocalEvento.Enabled = true;
-            dtpDataHoraEventos.Enabled = true;
+            dtpDataEventos.Enabled = true;
             tbTipoEvento.Enabled = true;
             nmIdadeMin.Enabled = true;
             nmIdadeMax.Enabled = true;
@@ -177,7 +179,7 @@ namespace Bookids
                         evento.Descricao = tbDescricaoEvento.Text;
                         evento.LimiteParticipacoes = (Int32)nmLimiteParticipantes.Value;
                         evento.Local = tbLocalEvento.Text;
-                        evento.DataHora = dtpDataHoraEventos.Value;
+                        evento.DataHora = dtpDataEventos.Value;
                         evento.TipoEvento = tbTipoEvento.Text;
                         evento.IdadeInferior = (Int32)nmIdadeMin.Value;
                         evento.IdadeSuperior = (Int32)nmIdadeMax.Value;
@@ -195,7 +197,7 @@ namespace Bookids
                             Descricao = tbDescricaoEvento.Text,
                             LimiteParticipacoes = (Int32)nmLimiteParticipantes.Value,
                             Local = tbLocalEvento.Text,
-                            DataHora = dtpDataHoraEventos.Value,
+                            DataHora = dtpDataEventos.Value,
                             TipoEvento = tbTipoEvento.Text,
                             IdadeInferior = (Int32)nmIdadeMin.Value,
                             IdadeSuperior = (Int32)nmIdadeMax.Value
@@ -225,7 +227,7 @@ namespace Bookids
                     tbNumeroEvento.Text = Convert.ToString(evento.NrEvento);
                     nmLimiteParticipantes.Value = evento.LimiteParticipacoes;
                     tbLocalEvento.Text = evento.Local;
-                    dtpDataHoraEventos.Value = evento.DataHora;
+                    dtpDataEventos.Value = evento.DataHora;
                     tbTipoEvento.Text = evento.TipoEvento;
                     nmIdadeMin.Value = (int)evento.IdadeInferior;
                     nmIdadeMax.Value = (int)evento.IdadeSuperior;
@@ -240,6 +242,24 @@ namespace Bookids
         private void btCancelClean_Click(object sender, EventArgs e)
         {
             limparDadosEventos();
+        }
+
+        private void btApagarEvento_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja apagar esta escola ?",
+                "Apagar", MessageBoxButtons.YesNo);
+
+            if(dr == DialogResult.Yes)
+            {
+                Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+                if(evento != null)
+                {
+                    BookidsContainer.EventosSet.Remove(evento);
+                    BookidsContainer.SaveChanges();
+                    limparDadosEventos();
+                    carregarEventos();
+                }
+            }
         }
     }
 }

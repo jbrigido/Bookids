@@ -41,7 +41,7 @@
             this.nmIdadeMax = new System.Windows.Forms.NumericUpDown();
             this.labelTipoEvento = new System.Windows.Forms.Label();
             this.labelIdadeMinMax = new System.Windows.Forms.Label();
-            this.dtpDataHoraEventos = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataEventos = new System.Windows.Forms.DateTimePicker();
             this.nmIdadeMin = new System.Windows.Forms.NumericUpDown();
             this.labelDataEvento = new System.Windows.Forms.Label();
             this.labelLocalEvento = new System.Windows.Forms.Label();
@@ -73,6 +73,7 @@
             this.btAdicionarFilho = new System.Windows.Forms.Button();
             this.cbFilhos = new System.Windows.Forms.ComboBox();
             this.lbInscricoes = new System.Windows.Forms.ListBox();
+            this.tbHorasEvento = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxEventos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
@@ -86,13 +87,14 @@
             // 
             // groupBoxEventos
             // 
+            this.groupBoxEventos.Controls.Add(this.tbHorasEvento);
             this.groupBoxEventos.Controls.Add(this.dgvEventos);
             this.groupBoxEventos.Controls.Add(this.btCancelClean);
             this.groupBoxEventos.Controls.Add(this.label1);
             this.groupBoxEventos.Controls.Add(this.nmIdadeMax);
             this.groupBoxEventos.Controls.Add(this.labelTipoEvento);
             this.groupBoxEventos.Controls.Add(this.labelIdadeMinMax);
-            this.groupBoxEventos.Controls.Add(this.dtpDataHoraEventos);
+            this.groupBoxEventos.Controls.Add(this.dtpDataEventos);
             this.groupBoxEventos.Controls.Add(this.nmIdadeMin);
             this.groupBoxEventos.Controls.Add(this.labelDataEvento);
             this.groupBoxEventos.Controls.Add(this.labelLocalEvento);
@@ -210,12 +212,13 @@
             this.labelIdadeMinMax.TabIndex = 43;
             this.labelIdadeMinMax.Text = "Idade Mínima/Máxima:";
             // 
-            // dtpDataHoraEventos
+            // dtpDataEventos
             // 
-            this.dtpDataHoraEventos.Location = new System.Drawing.Point(80, 98);
-            this.dtpDataHoraEventos.Name = "dtpDataHoraEventos";
-            this.dtpDataHoraEventos.Size = new System.Drawing.Size(219, 20);
-            this.dtpDataHoraEventos.TabIndex = 47;
+            this.dtpDataEventos.Location = new System.Drawing.Point(80, 98);
+            this.dtpDataEventos.MinDate = new System.DateTime(2019, 6, 6, 0, 0, 0, 0);
+            this.dtpDataEventos.Name = "dtpDataEventos";
+            this.dtpDataEventos.Size = new System.Drawing.Size(172, 20);
+            this.dtpDataEventos.TabIndex = 47;
             // 
             // nmIdadeMin
             // 
@@ -295,6 +298,7 @@
             this.btApagarEvento.TabIndex = 13;
             this.btApagarEvento.Text = "Apagar Evento";
             this.btApagarEvento.UseVisualStyleBackColor = true;
+            this.btApagarEvento.Click += new System.EventHandler(this.btApagarEvento_Click);
             // 
             // btEditarEvento
             // 
@@ -499,6 +503,14 @@
             this.lbInscricoes.Size = new System.Drawing.Size(245, 95);
             this.lbInscricoes.TabIndex = 0;
             // 
+            // tbHorasEvento
+            // 
+            this.tbHorasEvento.Location = new System.Drawing.Point(258, 98);
+            this.tbHorasEvento.Mask = "00 : 00";
+            this.tbHorasEvento.Name = "tbHorasEvento";
+            this.tbHorasEvento.Size = new System.Drawing.Size(41, 20);
+            this.tbHorasEvento.TabIndex = 57;
+            // 
             // FormEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,7 +565,7 @@
         private System.Windows.Forms.Label labelLocalEvento;
         private System.Windows.Forms.Label labelDataEvento;
         private System.Windows.Forms.Label labelTipoEvento;
-        private System.Windows.Forms.DateTimePicker dtpDataHoraEventos;
+        private System.Windows.Forms.DateTimePicker dtpDataEventos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btCancelClean;
         private System.Windows.Forms.DataGridView dgvEventos;
@@ -573,5 +585,6 @@
         private System.Windows.Forms.ComboBox cbFilhos;
         private System.Windows.Forms.ListBox lbInscricoes;
         private System.Windows.Forms.CheckBox checkBoxFilhoConfirmado;
+        private System.Windows.Forms.MaskedTextBox tbHorasEvento;
     }
 }
