@@ -85,6 +85,13 @@ namespace Bookids
                 return false;
             }
 
+            if(tbHorasEvento.Text == string.Empty)
+            {
+                MessageBox.Show("(*) Campos de preenchimento obrigatório !");
+                tbHorasEvento.Focus();
+                return false;
+            }
+
             if (nmLimiteParticipantes.Value == 0)
             {
                 MessageBox.Show("(*) Campos de preenchimento obrigatório !");
