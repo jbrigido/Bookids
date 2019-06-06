@@ -192,7 +192,7 @@ GO
 CREATE TABLE [dbo].[ProdutosSet] (
     [CodProduto] int IDENTITY(1,1) NOT NULL,
     [Designacao] nvarchar(max)  NOT NULL,
-    [Preco] decimal(18,0)  NOT NULL,
+    [Preco] decimal(18,2)  NOT NULL,
     [CodTipoProduto] int  NOT NULL,
     [StockExistente] int  NOT NULL
 );

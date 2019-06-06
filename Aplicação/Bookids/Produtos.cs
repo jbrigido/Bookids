@@ -32,7 +32,7 @@ namespace Bookids
 
         public override string ToString()
         {
-            return Designacao + " - " + StockExistente;
+            return Designacao + " (" + StockExistente + ") - " + Preco + "€";
         }
     }
 }

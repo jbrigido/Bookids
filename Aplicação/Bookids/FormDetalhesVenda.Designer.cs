@@ -31,7 +31,7 @@
             this.gbDetalhesVenda = new System.Windows.Forms.GroupBox();
             this.btRemoverProduto = new System.Windows.Forms.Button();
             this.btAdicionarProduto = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nmQuantidade = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.lbProdutos = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,14 +44,14 @@
             this.btGuardar = new System.Windows.Forms.Button();
             this.btSair = new System.Windows.Forms.Button();
             this.gbDetalhesVenda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDetalhesVenda
             // 
             this.gbDetalhesVenda.Controls.Add(this.btRemoverProduto);
             this.gbDetalhesVenda.Controls.Add(this.btAdicionarProduto);
-            this.gbDetalhesVenda.Controls.Add(this.numericUpDown1);
+            this.gbDetalhesVenda.Controls.Add(this.nmQuantidade);
             this.gbDetalhesVenda.Controls.Add(this.label6);
             this.gbDetalhesVenda.Controls.Add(this.lbProdutos);
             this.gbDetalhesVenda.Controls.Add(this.label5);
@@ -75,6 +75,7 @@
             this.btRemoverProduto.TabIndex = 23;
             this.btRemoverProduto.Text = "Remover da Lista";
             this.btRemoverProduto.UseVisualStyleBackColor = true;
+            this.btRemoverProduto.Click += new System.EventHandler(this.btRemoverProduto_Click);
             // 
             // btAdicionarProduto
             // 
@@ -84,13 +85,14 @@
             this.btAdicionarProduto.TabIndex = 22;
             this.btAdicionarProduto.Text = "Adicionar à Lista";
             this.btAdicionarProduto.UseVisualStyleBackColor = true;
+            this.btAdicionarProduto.Click += new System.EventHandler(this.btAdicionarProduto_Click);
             // 
-            // numericUpDown1
+            // nmQuantidade
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(265, 81);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(72, 20);
-            this.numericUpDown1.TabIndex = 21;
+            this.nmQuantidade.Location = new System.Drawing.Point(265, 81);
+            this.nmQuantidade.Name = "nmQuantidade";
+            this.nmQuantidade.Size = new System.Drawing.Size(72, 20);
+            this.nmQuantidade.TabIndex = 21;
             // 
             // label6
             // 
@@ -108,6 +110,7 @@
             this.lbProdutos.Name = "lbProdutos";
             this.lbProdutos.Size = new System.Drawing.Size(158, 134);
             this.lbProdutos.TabIndex = 20;
+            this.lbProdutos.SelectedIndexChanged += new System.EventHandler(this.lbProdutos_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -126,6 +129,7 @@
             this.cbTipoProduto.Name = "cbTipoProduto";
             this.cbTipoProduto.Size = new System.Drawing.Size(158, 21);
             this.cbTipoProduto.TabIndex = 18;
+            this.cbTipoProduto.SelectedIndexChanged += new System.EventHandler(this.cbTipoProduto_SelectedIndexChanged);
             // 
             // dtpDataVenda
             // 
@@ -205,7 +209,7 @@
             this.Load += new System.EventHandler(this.FormDetalhesVenda_Load);
             this.gbDetalhesVenda.ResumeLayout(false);
             this.gbDetalhesVenda.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmQuantidade)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,7 +219,7 @@
         private System.Windows.Forms.GroupBox gbDetalhesVenda;
         private System.Windows.Forms.Button btRemoverProduto;
         private System.Windows.Forms.Button btAdicionarProduto;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nmQuantidade;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox lbProdutos;
         private System.Windows.Forms.Label label5;
