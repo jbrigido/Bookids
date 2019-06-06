@@ -28,6 +28,5 @@ namespace Bookids
         public virtual Clientes Clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalheCompras> DetalheCompras { get; set; }
-
     }
 }

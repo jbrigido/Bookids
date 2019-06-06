@@ -29,10 +29,5 @@ namespace Bookids
         public virtual ICollection<Inscricoes> Inscricoes { get; set; }
         public virtual Escolas Escolas { get; set; }
         public virtual Clientes Clientes { get; set; }
-
-        public override string ToString()
-        {
-            return Nome;
-        }
     }
 }

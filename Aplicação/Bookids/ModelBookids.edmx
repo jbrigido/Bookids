@@ -452,10 +452,6 @@
             <End Role="Produtos" EntitySet="ProdutosSet" />
             <End Role="TipoProduto" EntitySet="TipoProdutoSet" />
           </AssociationSet>
-          <AssociationSet Name="ColaboracoesSet1" Association="ModelBookids.ColaboracoesSet">
-            <End Role="Animadores" EntitySet="PessoasSet" />
-            <End Role="Eventos" EntitySet="EventosSet" />
-          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Pessoas">
           <Key>
@@ -479,7 +475,6 @@
         <EntityType Name="Animadores" BaseType="ModelBookids.Pessoas" >
           <Property Name="Especialidade" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Colaboracoes" Relationship="ModelBookids.AnimadoresColaboracoes" FromRole="Animadores" ToRole="Colaboracoes" />
-          <NavigationProperty Name="EventosSet" Relationship="ModelBookids.ColaboracoesSet" FromRole="Animadores" ToRole="Eventos" />
         </EntityType>
         <EntityType Name="Filhos" BaseType="ModelBookids.Pessoas" >
           <Property Name="Sexo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -505,7 +500,6 @@
           <NavigationProperty Name="Inscricoes" Relationship="ModelBookids.EventosInscricoes" FromRole="Eventos" ToRole="Inscricoes" />
           <NavigationProperty Name="Participacoes" Relationship="ModelBookids.EventosParticipacoes" FromRole="Eventos" ToRole="Participacoes" />
           <NavigationProperty Name="Colaboracoes" Relationship="ModelBookids.ColaboracoesEventos" FromRole="Eventos" ToRole="Colaboracoes" />
-          <NavigationProperty Name="PessoasSet_Animadores" Relationship="ModelBookids.ColaboracoesSet" FromRole="Eventos" ToRole="Animadores" />
         </EntityType>
         <EntityType Name="Inscricoes" >
           <Key>
@@ -738,10 +732,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ColaboracoesSet">
-          <End Type="ModelBookids.Animadores" Role="Animadores" Multiplicity="*" />
-          <End Type="ModelBookids.Eventos" Role="Eventos" Multiplicity="*" />
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -874,14 +864,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-          <AssociationSetMapping Name="ColaboracoesSet1" TypeName="ModelBookids.ColaboracoesSet" StoreEntitySet="ColaboracoesSet">
-            <EndProperty Name="Eventos">
-              <ScalarProperty Name="NrEvento" ColumnName="NrEventos" />
-            </EndProperty>
-            <EndProperty Name="Animadores">
-              <ScalarProperty Name="IdPessoa" ColumnName="IdAnimador" />
-            </EndProperty>
-          </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

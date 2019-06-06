@@ -33,10 +33,5 @@ namespace Bookids
         public virtual ICollection<Filhos> Filhos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Participacoes> Participacoes { get; set; }
-
-        public override string ToString()
-        {
-            return Nome + " (" + Localidade + ")";
-        }
     }
 }

@@ -33,7 +33,6 @@
         <AssociationConnector Association="ModelBookids.DetalheComprasProdutos" />
         <EntityTypeShape EntityType="ModelBookids.TipoProduto" Width="1.5" PointX="11.625" PointY="7.125" />
         <AssociationConnector Association="ModelBookids.ProdutosTipoProduto" />
-        <AssociationConnector Association="ModelBookids.ColaboracoesSet" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
