@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.groupBoxEventos = new System.Windows.Forms.GroupBox();
             this.dgvEventos = new System.Windows.Forms.DataGridView();
+            this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.limiteParticipacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btCancelClean = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nmIdadeMax = new System.Windows.Forms.NumericUpDown();
@@ -62,25 +67,20 @@
             this.btAdicionarEscola = new System.Windows.Forms.Button();
             this.cbEscolas = new System.Windows.Forms.ComboBox();
             this.lbParticipacoes = new System.Windows.Forms.ListBox();
-            this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.limiteParticipacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxInscricoes = new System.Windows.Forms.GroupBox();
+            this.checkBoxFilhoConfirmado = new System.Windows.Forms.CheckBox();
             this.btRemoverFilho = new System.Windows.Forms.Button();
             this.btAdicionarFilho = new System.Windows.Forms.Button();
             this.cbFilhos = new System.Windows.Forms.ComboBox();
             this.lbInscricoes = new System.Windows.Forms.ListBox();
-            this.checkBoxFilhoConfirmado = new System.Windows.Forms.CheckBox();
             this.groupBoxEventos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticipantes)).BeginInit();
             this.groupBoxColaboracoes.SuspendLayout();
             this.groupBoxParticipacoes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
             this.groupBoxInscricoes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,6 +134,38 @@
             this.dgvEventos.TabIndex = 56;
             this.dgvEventos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEventos_MouseClick);
             // 
+            // nrEventoDataGridViewTextBoxColumn
+            // 
+            this.nrEventoDataGridViewTextBoxColumn.DataPropertyName = "NrEvento";
+            this.nrEventoDataGridViewTextBoxColumn.HeaderText = "NrEvento";
+            this.nrEventoDataGridViewTextBoxColumn.Name = "nrEventoDataGridViewTextBoxColumn";
+            this.nrEventoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // localDataGridViewTextBoxColumn
+            // 
+            this.localDataGridViewTextBoxColumn.DataPropertyName = "Local";
+            this.localDataGridViewTextBoxColumn.HeaderText = "Local";
+            this.localDataGridViewTextBoxColumn.Name = "localDataGridViewTextBoxColumn";
+            this.localDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataHoraDataGridViewTextBoxColumn
+            // 
+            this.dataHoraDataGridViewTextBoxColumn.DataPropertyName = "DataHora";
+            this.dataHoraDataGridViewTextBoxColumn.HeaderText = "DataHora";
+            this.dataHoraDataGridViewTextBoxColumn.Name = "dataHoraDataGridViewTextBoxColumn";
+            this.dataHoraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // limiteParticipacoesDataGridViewTextBoxColumn
+            // 
+            this.limiteParticipacoesDataGridViewTextBoxColumn.DataPropertyName = "LimiteParticipacoes";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.HeaderText = "LimiteParticipacoes";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.Name = "limiteParticipacoesDataGridViewTextBoxColumn";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eventosBindingSource
+            // 
+            this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
+            // 
             // btCancelClean
             // 
             this.btCancelClean.Location = new System.Drawing.Point(6, 297);
@@ -142,6 +174,7 @@
             this.btCancelClean.TabIndex = 55;
             this.btCancelClean.Text = "Cancelar/Limpar Seleção";
             this.btCancelClean.UseVisualStyleBackColor = true;
+            this.btCancelClean.Click += new System.EventHandler(this.btCancelClean_Click);
             // 
             // label1
             // 
@@ -407,38 +440,6 @@
             this.lbParticipacoes.Size = new System.Drawing.Size(245, 121);
             this.lbParticipacoes.TabIndex = 0;
             // 
-            // nrEventoDataGridViewTextBoxColumn
-            // 
-            this.nrEventoDataGridViewTextBoxColumn.DataPropertyName = "NrEvento";
-            this.nrEventoDataGridViewTextBoxColumn.HeaderText = "NrEvento";
-            this.nrEventoDataGridViewTextBoxColumn.Name = "nrEventoDataGridViewTextBoxColumn";
-            this.nrEventoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // localDataGridViewTextBoxColumn
-            // 
-            this.localDataGridViewTextBoxColumn.DataPropertyName = "Local";
-            this.localDataGridViewTextBoxColumn.HeaderText = "Local";
-            this.localDataGridViewTextBoxColumn.Name = "localDataGridViewTextBoxColumn";
-            this.localDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataHoraDataGridViewTextBoxColumn
-            // 
-            this.dataHoraDataGridViewTextBoxColumn.DataPropertyName = "DataHora";
-            this.dataHoraDataGridViewTextBoxColumn.HeaderText = "DataHora";
-            this.dataHoraDataGridViewTextBoxColumn.Name = "dataHoraDataGridViewTextBoxColumn";
-            this.dataHoraDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // limiteParticipacoesDataGridViewTextBoxColumn
-            // 
-            this.limiteParticipacoesDataGridViewTextBoxColumn.DataPropertyName = "LimiteParticipacoes";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.HeaderText = "LimiteParticipacoes";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.Name = "limiteParticipacoesDataGridViewTextBoxColumn";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eventosBindingSource
-            // 
-            this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
-            // 
             // groupBoxInscricoes
             // 
             this.groupBoxInscricoes.Controls.Add(this.checkBoxFilhoConfirmado);
@@ -452,6 +453,16 @@
             this.groupBoxInscricoes.TabIndex = 5;
             this.groupBoxInscricoes.TabStop = false;
             this.groupBoxInscricoes.Text = "Filhos Inscritos";
+            // 
+            // checkBoxFilhoConfirmado
+            // 
+            this.checkBoxFilhoConfirmado.AutoSize = true;
+            this.checkBoxFilhoConfirmado.Location = new System.Drawing.Point(7, 150);
+            this.checkBoxFilhoConfirmado.Name = "checkBoxFilhoConfirmado";
+            this.checkBoxFilhoConfirmado.Size = new System.Drawing.Size(79, 17);
+            this.checkBoxFilhoConfirmado.TabIndex = 4;
+            this.checkBoxFilhoConfirmado.Text = "Confirmado";
+            this.checkBoxFilhoConfirmado.UseVisualStyleBackColor = true;
             // 
             // btRemoverFilho
             // 
@@ -488,16 +499,6 @@
             this.lbInscricoes.Size = new System.Drawing.Size(245, 95);
             this.lbInscricoes.TabIndex = 0;
             // 
-            // checkBoxFilhoConfirmado
-            // 
-            this.checkBoxFilhoConfirmado.AutoSize = true;
-            this.checkBoxFilhoConfirmado.Location = new System.Drawing.Point(7, 150);
-            this.checkBoxFilhoConfirmado.Name = "checkBoxFilhoConfirmado";
-            this.checkBoxFilhoConfirmado.Size = new System.Drawing.Size(79, 17);
-            this.checkBoxFilhoConfirmado.TabIndex = 4;
-            this.checkBoxFilhoConfirmado.Text = "Confirmado";
-            this.checkBoxFilhoConfirmado.UseVisualStyleBackColor = true;
-            // 
             // FormEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -514,12 +515,12 @@
             this.groupBoxEventos.ResumeLayout(false);
             this.groupBoxEventos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticipantes)).EndInit();
             this.groupBoxColaboracoes.ResumeLayout(false);
             this.groupBoxParticipacoes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
             this.groupBoxInscricoes.ResumeLayout(false);
             this.groupBoxInscricoes.PerformLayout();
             this.ResumeLayout(false);

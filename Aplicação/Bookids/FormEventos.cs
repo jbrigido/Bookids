@@ -236,5 +236,10 @@ namespace Bookids
 
             }
         }
+
+        private void btCancelClean_Click(object sender, EventArgs e)
+        {
+            limparDadosEventos();
+        }
     }
 }
