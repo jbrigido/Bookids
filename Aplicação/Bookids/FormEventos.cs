@@ -99,9 +99,11 @@ namespace Bookids
         {
             dgvEventos.ClearSelection();
             tbDescricaoEvento.Clear();
+            tbNumeroEvento.Clear();
             nmLimiteParticipantes.ResetText();
             tbLocalEvento.Clear();
             dtpDataEventos.ResetText();
+            tbHorasEvento.Clear();
             tbTipoEvento.Clear();
             nmIdadeMin.ResetText();
             nmIdadeMax.ResetText();
@@ -141,6 +143,7 @@ namespace Bookids
             nmLimiteParticipantes.Enabled = true;
             tbLocalEvento.Enabled = true;
             dtpDataEventos.Enabled = true;
+            tbHorasEvento.Enabled = true;
             tbTipoEvento.Enabled = true;
             nmIdadeMin.Enabled = true;
             nmIdadeMax.Enabled = true;
@@ -157,6 +160,7 @@ namespace Bookids
             nmLimiteParticipantes.Enabled = true;
             tbLocalEvento.Enabled = true;
             dtpDataEventos.Enabled = true;
+            tbHorasEvento.Enabled = true;
             tbTipoEvento.Enabled = true;
             nmIdadeMin.Enabled = true;
             nmIdadeMax.Enabled = true;
@@ -175,11 +179,13 @@ namespace Bookids
                     Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
                     if (dadosPreenchidosEventos())
                     {
+                        DateTime dtDataHora = getDataHora(dtpDataEventos.Value, tbHorasEvento.Text);
+
                         btCriarEvento.Enabled = false;
                         evento.Descricao = tbDescricaoEvento.Text;
                         evento.LimiteParticipacoes = (Int32)nmLimiteParticipantes.Value;
                         evento.Local = tbLocalEvento.Text;
-                        evento.DataHora = dtpDataEventos.Value;
+                        evento.DataHora = dtDataHora;
                         evento.TipoEvento = tbTipoEvento.Text;
                         evento.IdadeInferior = (Int32)nmIdadeMin.Value;
                         evento.IdadeSuperior = (Int32)nmIdadeMax.Value;
@@ -192,12 +198,13 @@ namespace Bookids
                 {
                     if (dadosPreenchidosEventos())
                     {
+                        DateTime dtDataHora = getDataHora(dtpDataEventos.Value, tbHorasEvento.Text);
                         Eventos novo = new Eventos()
                         {
                             Descricao = tbDescricaoEvento.Text,
                             LimiteParticipacoes = (Int32)nmLimiteParticipantes.Value,
                             Local = tbLocalEvento.Text,
-                            DataHora = dtpDataEventos.Value,
+                            DataHora = dtDataHora,
                             TipoEvento = tbTipoEvento.Text,
                             IdadeInferior = (Int32)nmIdadeMin.Value,
                             IdadeSuperior = (Int32)nmIdadeMax.Value
@@ -228,6 +235,7 @@ namespace Bookids
                     nmLimiteParticipantes.Value = evento.LimiteParticipacoes;
                     tbLocalEvento.Text = evento.Local;
                     dtpDataEventos.Value = evento.DataHora;
+                    tbHorasEvento.Text = getHora(evento.DataHora);
                     tbTipoEvento.Text = evento.TipoEvento;
                     nmIdadeMin.Value = (int)evento.IdadeInferior;
                     nmIdadeMax.Value = (int)evento.IdadeSuperior;
@@ -260,6 +268,20 @@ namespace Bookids
                     carregarEventos();
                 }
             }
+        }
+
+        private DateTime getDataHora(DateTime data, string hora)
+        {
+            int ihora = Convert.ToInt32(hora.Substring(0, 2));
+            int imin = Convert.ToInt32(hora.Substring(5, 2));
+            DateTime dt = new DateTime(data.Year, data.Month, data.Day, ihora, imin, 0);
+            return dt;
+        }
+
+        private string getHora(DateTime data)
+        {
+            string hora = string.Format("{0:0#} : {1:0#}", data.Hour, data.Minute);
+            return hora;
         }
     }
 }
