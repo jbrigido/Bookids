@@ -4,392 +4,392 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ModelBookids.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ColaboracoesSet">
-          <Key>
-            <PropertyRef Name="IdAnimador" />
-            <PropertyRef Name="NrEventos" />
-          </Key>
-          <Property Name="IdAnimador" Type="int" Nullable="false" />
-          <Property Name="NrEventos" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ComprasSet">
-          <Key>
-            <PropertyRef Name="NrCompra" />
-          </Key>
-          <Property Name="NrCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdCliente" Type="int" Nullable="false" />
-          <Property Name="Data" Type="datetime" Nullable="false" />
-          <Property Name="UtilizouCartao" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="DetalheComprasSet">
-          <Key>
-            <PropertyRef Name="NrCompra" />
-            <PropertyRef Name="CodProduto" />
-          </Key>
-          <Property Name="Quantidade" Type="int" Nullable="false" />
-          <Property Name="NrCompra" Type="int" Nullable="false" />
-          <Property Name="CodProduto" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="EscolasSet">
-          <Key>
-            <PropertyRef Name="IdEscola" />
-          </Key>
-          <Property Name="IdEscola" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Morada" Type="nvarchar(max)" />
-          <Property Name="Telefone" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Mail" Type="nvarchar(max)" />
-          <Property Name="CodPostal" Type="nvarchar(max)" />
-          <Property Name="Localidade" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="EventosSet">
-          <Key>
-            <PropertyRef Name="NrEvento" />
-          </Key>
-          <Property Name="NrEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Local" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="DataHora" Type="datetime" Nullable="false" />
-          <Property Name="LimiteParticipacoes" Type="int" Nullable="false" />
-          <Property Name="IdadeInferior" Type="int" />
-          <Property Name="IdadeSuperior" Type="int" />
-          <Property Name="TipoEvento" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="InscricoesSet">
-          <Key>
-            <PropertyRef Name="IdFilho" />
-            <PropertyRef Name="NrEvento" />
-          </Key>
-          <Property Name="Confirmada" Type="bit" Nullable="false" />
-          <Property Name="IdFilho" Type="int" Nullable="false" />
-          <Property Name="NrEvento" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ParticipacoesSet">
-          <Key>
-            <PropertyRef Name="IdEscola" />
-            <PropertyRef Name="NrEvento" />
-          </Key>
-          <Property Name="IdEscola" Type="int" Nullable="false" />
-          <Property Name="NrEvento" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PessoasSet">
-          <Key>
-            <PropertyRef Name="IdPessoa" />
-          </Key>
-          <Property Name="IdPessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Morada" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Localidade" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CodPostal" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Telefone" Type="nvarchar(max)" />
-          <Property Name="Telemovel" Type="nvarchar(max)" />
-          <Property Name="Mail" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="PessoasSet_Animadores">
-          <Key>
-            <PropertyRef Name="IdPessoa" />
-          </Key>
-          <Property Name="Especialidade" Type="nvarchar(max)" />
-          <Property Name="IdPessoa" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PessoasSet_Clientes">
-          <Key>
-            <PropertyRef Name="IdPessoa" />
-          </Key>
-          <Property Name="NrCartao" Type="nvarchar(max)" />
-          <Property Name="ValorOferta" Type="int" />
-          <Property Name="IdPessoa" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PessoasSet_Filhos">
-          <Key>
-            <PropertyRef Name="IdPessoa" />
-          </Key>
-          <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="DataNascicmento" Type="datetime" Nullable="false" />
-          <Property Name="IdEscola" Type="int" Nullable="false" />
-          <Property Name="IdProgenitor" Type="int" Nullable="false" />
-          <Property Name="IdPessoa" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProdutosSet">
-          <Key>
-            <PropertyRef Name="CodProduto" />
-          </Key>
-          <Property Name="CodProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Designacao" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Preco" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="CodTipoProduto" Type="int" Nullable="false" />
-          <Property Name="StockExistente" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TipoProdutoSet">
-          <Key>
-            <PropertyRef Name="CodTipoProduto" />
-          </Key>
-          <Property Name="CodTipoProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_Animadores_inherits_Pessoas">
-          <End Role="PessoasSet" Type="Self.PessoasSet" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="PessoasSet_Animadores" Type="Self.PessoasSet_Animadores" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="PessoasSet">
-              <PropertyRef Name="IdPessoa" />
-            </Principal>
-            <Dependent Role="PessoasSet_Animadores">
-              <PropertyRef Name="IdPessoa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AnimadoresColaboracoes">
-          <End Role="PessoasSet_Animadores" Type="Self.PessoasSet_Animadores" Multiplicity="1" />
-          <End Role="ColaboracoesSet" Type="Self.ColaboracoesSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PessoasSet_Animadores">
-              <PropertyRef Name="IdPessoa" />
-            </Principal>
-            <Dependent Role="ColaboracoesSet">
-              <PropertyRef Name="IdAnimador" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Clientes_inherits_Pessoas">
-          <End Role="PessoasSet" Type="Self.PessoasSet" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="PessoasSet_Clientes" Type="Self.PessoasSet_Clientes" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="PessoasSet">
-              <PropertyRef Name="IdPessoa" />
-            </Principal>
-            <Dependent Role="PessoasSet_Clientes">
-              <PropertyRef Name="IdPessoa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ClientesFilhos">
-          <End Role="PessoasSet_Clientes" Type="Self.PessoasSet_Clientes" Multiplicity="1" />
-          <End Role="PessoasSet_Filhos" Type="Self.PessoasSet_Filhos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PessoasSet_Clientes">
-              <PropertyRef Name="IdPessoa" />
-            </Principal>
-            <Dependent Role="PessoasSet_Filhos">
-              <PropertyRef Name="IdProgenitor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ColaboracoesEventos">
-          <End Role="EventosSet" Type="Self.EventosSet" Multiplicity="1" />
-          <End Role="ColaboracoesSet" Type="Self.ColaboracoesSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EventosSet">
-              <PropertyRef Name="NrEvento" />
-            </Principal>
-            <Dependent Role="ColaboracoesSet">
-              <PropertyRef Name="NrEventos" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ComprasClientes">
-          <End Role="PessoasSet_Clientes" Type="Self.PessoasSet_Clientes" Multiplicity="1" />
-          <End Role="ComprasSet" Type="Self.ComprasSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PessoasSet_Clientes">
-              <PropertyRef Name="IdPessoa" />
-            </Principal>
-            <Dependent Role="ComprasSet">
-              <PropertyRef Name="IdCliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ComprasDetalheCompras">
-          <End Role="ComprasSet" Type="Self.ComprasSet" Multiplicity="1" />
-          <End Role="DetalheComprasSet" Type="Self.DetalheComprasSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ComprasSet">
-              <PropertyRef Name="NrCompra" />
-            </Principal>
-            <Dependent Role="DetalheComprasSet">
-              <PropertyRef Name="NrCompra" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DetalheComprasProdutos">
-          <End Role="ProdutosSet" Type="Self.ProdutosSet" Multiplicity="1" />
-          <End Role="DetalheComprasSet" Type="Self.DetalheComprasSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProdutosSet">
-              <PropertyRef Name="CodProduto" />
-            </Principal>
-            <Dependent Role="DetalheComprasSet">
-              <PropertyRef Name="CodProduto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EscolasFilhos">
-          <End Role="EscolasSet" Type="Self.EscolasSet" Multiplicity="1" />
-          <End Role="PessoasSet_Filhos" Type="Self.PessoasSet_Filhos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EscolasSet">
-              <PropertyRef Name="IdEscola" />
-            </Principal>
-            <Dependent Role="PessoasSet_Filhos">
-              <PropertyRef Name="IdEscola" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EventosInscricoes">
-          <End Role="EventosSet" Type="Self.EventosSet" Multiplicity="1" />
-          <End Role="InscricoesSet" Type="Self.InscricoesSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EventosSet">
-              <PropertyRef Name="NrEvento" />
-            </Principal>
-            <Dependent Role="InscricoesSet">
-              <PropertyRef Name="NrEvento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EventosParticipacoes">
-          <End Role="EventosSet" Type="Self.EventosSet" Multiplicity="1" />
-          <End Role="ParticipacoesSet" Type="Self.ParticipacoesSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EventosSet">
-              <PropertyRef Name="NrEvento" />
-            </Principal>
-            <Dependent Role="ParticipacoesSet">
-              <PropertyRef Name="NrEvento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Filhos_inherits_Pessoas">
-          <End Role="PessoasSet" Type="Self.PessoasSet" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="PessoasSet_Filhos" Type="Self.PessoasSet_Filhos" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="PessoasSet">
-              <PropertyRef Name="IdPessoa" />
-            </Principal>
-            <Dependent Role="PessoasSet_Filhos">
-              <PropertyRef Name="IdPessoa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FilhosInscricoes">
-          <End Role="PessoasSet_Filhos" Type="Self.PessoasSet_Filhos" Multiplicity="1" />
-          <End Role="InscricoesSet" Type="Self.InscricoesSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PessoasSet_Filhos">
-              <PropertyRef Name="IdPessoa" />
-            </Principal>
-            <Dependent Role="InscricoesSet">
-              <PropertyRef Name="IdFilho" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ParticipacoesEscolas">
-          <End Role="EscolasSet" Type="Self.EscolasSet" Multiplicity="1" />
-          <End Role="ParticipacoesSet" Type="Self.ParticipacoesSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EscolasSet">
-              <PropertyRef Name="IdEscola" />
-            </Principal>
-            <Dependent Role="ParticipacoesSet">
-              <PropertyRef Name="IdEscola" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProdutosTipoProduto">
-          <End Role="TipoProdutoSet" Type="Self.TipoProdutoSet" Multiplicity="1" />
-          <End Role="ProdutosSet" Type="Self.ProdutosSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoProdutoSet">
-              <PropertyRef Name="CodTipoProduto" />
-            </Principal>
-            <Dependent Role="ProdutosSet">
-              <PropertyRef Name="CodTipoProduto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="ModelBookidsStoreContainer">
-          <EntitySet Name="ColaboracoesSet" EntityType="Self.ColaboracoesSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ComprasSet" EntityType="Self.ComprasSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DetalheComprasSet" EntityType="Self.DetalheComprasSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EscolasSet" EntityType="Self.EscolasSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EventosSet" EntityType="Self.EventosSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="InscricoesSet" EntityType="Self.InscricoesSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ParticipacoesSet" EntityType="Self.ParticipacoesSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PessoasSet" EntityType="Self.PessoasSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PessoasSet_Animadores" EntityType="Self.PessoasSet_Animadores" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PessoasSet_Clientes" EntityType="Self.PessoasSet_Clientes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PessoasSet_Filhos" EntityType="Self.PessoasSet_Filhos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProdutosSet" EntityType="Self.ProdutosSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TipoProdutoSet" EntityType="Self.TipoProdutoSet" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Animadores_inherits_Pessoas" Association="Self.FK_Animadores_inherits_Pessoas">
-            <End Role="PessoasSet" EntitySet="PessoasSet" />
-            <End Role="PessoasSet_Animadores" EntitySet="PessoasSet_Animadores" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AnimadoresColaboracoes" Association="Self.FK_AnimadoresColaboracoes">
-            <End Role="PessoasSet_Animadores" EntitySet="PessoasSet_Animadores" />
-            <End Role="ColaboracoesSet" EntitySet="ColaboracoesSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Clientes_inherits_Pessoas" Association="Self.FK_Clientes_inherits_Pessoas">
-            <End Role="PessoasSet" EntitySet="PessoasSet" />
-            <End Role="PessoasSet_Clientes" EntitySet="PessoasSet_Clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ClientesFilhos" Association="Self.FK_ClientesFilhos">
-            <End Role="PessoasSet_Clientes" EntitySet="PessoasSet_Clientes" />
-            <End Role="PessoasSet_Filhos" EntitySet="PessoasSet_Filhos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ColaboracoesEventos" Association="Self.FK_ColaboracoesEventos">
-            <End Role="EventosSet" EntitySet="EventosSet" />
-            <End Role="ColaboracoesSet" EntitySet="ColaboracoesSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ComprasClientes" Association="Self.FK_ComprasClientes">
-            <End Role="PessoasSet_Clientes" EntitySet="PessoasSet_Clientes" />
-            <End Role="ComprasSet" EntitySet="ComprasSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ComprasDetalheCompras" Association="Self.FK_ComprasDetalheCompras">
-            <End Role="ComprasSet" EntitySet="ComprasSet" />
-            <End Role="DetalheComprasSet" EntitySet="DetalheComprasSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DetalheComprasProdutos" Association="Self.FK_DetalheComprasProdutos">
-            <End Role="ProdutosSet" EntitySet="ProdutosSet" />
-            <End Role="DetalheComprasSet" EntitySet="DetalheComprasSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EscolasFilhos" Association="Self.FK_EscolasFilhos">
-            <End Role="EscolasSet" EntitySet="EscolasSet" />
-            <End Role="PessoasSet_Filhos" EntitySet="PessoasSet_Filhos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EventosInscricoes" Association="Self.FK_EventosInscricoes">
-            <End Role="EventosSet" EntitySet="EventosSet" />
-            <End Role="InscricoesSet" EntitySet="InscricoesSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EventosParticipacoes" Association="Self.FK_EventosParticipacoes">
-            <End Role="EventosSet" EntitySet="EventosSet" />
-            <End Role="ParticipacoesSet" EntitySet="ParticipacoesSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Filhos_inherits_Pessoas" Association="Self.FK_Filhos_inherits_Pessoas">
-            <End Role="PessoasSet" EntitySet="PessoasSet" />
-            <End Role="PessoasSet_Filhos" EntitySet="PessoasSet_Filhos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FilhosInscricoes" Association="Self.FK_FilhosInscricoes">
-            <End Role="PessoasSet_Filhos" EntitySet="PessoasSet_Filhos" />
-            <End Role="InscricoesSet" EntitySet="InscricoesSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ParticipacoesEscolas" Association="Self.FK_ParticipacoesEscolas">
-            <End Role="EscolasSet" EntitySet="EscolasSet" />
-            <End Role="ParticipacoesSet" EntitySet="ParticipacoesSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProdutosTipoProduto" Association="Self.FK_ProdutosTipoProduto">
-            <End Role="TipoProdutoSet" EntitySet="TipoProdutoSet" />
-            <End Role="ProdutosSet" EntitySet="ProdutosSet" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="ModelBookids.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelBookidsStoreContainer">
+    <EntitySet Name="PessoasSet" EntityType="ModelBookids.Store.PessoasSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventosSet" EntityType="ModelBookids.Store.EventosSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InscricoesSet" EntityType="ModelBookids.Store.InscricoesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EscolasSet" EntityType="ModelBookids.Store.EscolasSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ParticipacoesSet" EntityType="ModelBookids.Store.ParticipacoesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ColaboracoesSet" EntityType="ModelBookids.Store.ColaboracoesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ComprasSet" EntityType="ModelBookids.Store.ComprasSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DetalheComprasSet" EntityType="ModelBookids.Store.DetalheComprasSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProdutosSet" EntityType="ModelBookids.Store.ProdutosSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipoProdutoSet" EntityType="ModelBookids.Store.TipoProdutoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PessoasSet_Filhos" EntityType="ModelBookids.Store.PessoasSet_Filhos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PessoasSet_Clientes" EntityType="ModelBookids.Store.PessoasSet_Clientes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PessoasSet_Animadores" EntityType="ModelBookids.Store.PessoasSet_Animadores" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FilhosInscricoes" Association="ModelBookids.Store.FilhosInscricoes">
+      <End Role="Filhos" EntitySet="PessoasSet_Filhos" />
+      <End Role="Inscricoes" EntitySet="InscricoesSet" />
+    </AssociationSet>
+    <AssociationSet Name="EventosInscricoes" Association="ModelBookids.Store.EventosInscricoes">
+      <End Role="Eventos" EntitySet="EventosSet" />
+      <End Role="Inscricoes" EntitySet="InscricoesSet" />
+    </AssociationSet>
+    <AssociationSet Name="EscolasFilhos" Association="ModelBookids.Store.EscolasFilhos">
+      <End Role="Escolas" EntitySet="EscolasSet" />
+      <End Role="Filhos" EntitySet="PessoasSet_Filhos" />
+    </AssociationSet>
+    <AssociationSet Name="ClientesFilhos" Association="ModelBookids.Store.ClientesFilhos">
+      <End Role="Clientes" EntitySet="PessoasSet_Clientes" />
+      <End Role="Filhos" EntitySet="PessoasSet_Filhos" />
+    </AssociationSet>
+    <AssociationSet Name="ParticipacoesEscolas" Association="ModelBookids.Store.ParticipacoesEscolas">
+      <End Role="Escolas" EntitySet="EscolasSet" />
+      <End Role="Participacoes" EntitySet="ParticipacoesSet" />
+    </AssociationSet>
+    <AssociationSet Name="EventosParticipacoes" Association="ModelBookids.Store.EventosParticipacoes">
+      <End Role="Eventos" EntitySet="EventosSet" />
+      <End Role="Participacoes" EntitySet="ParticipacoesSet" />
+    </AssociationSet>
+    <AssociationSet Name="AnimadoresColaboracoes" Association="ModelBookids.Store.AnimadoresColaboracoes">
+      <End Role="Animadores" EntitySet="PessoasSet_Animadores" />
+      <End Role="Colaboracoes" EntitySet="ColaboracoesSet" />
+    </AssociationSet>
+    <AssociationSet Name="ColaboracoesEventos" Association="ModelBookids.Store.ColaboracoesEventos">
+      <End Role="Colaboracoes" EntitySet="ColaboracoesSet" />
+      <End Role="Eventos" EntitySet="EventosSet" />
+    </AssociationSet>
+    <AssociationSet Name="ComprasClientes" Association="ModelBookids.Store.ComprasClientes">
+      <End Role="Compras" EntitySet="ComprasSet" />
+      <End Role="Clientes" EntitySet="PessoasSet_Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="ComprasDetalheCompras" Association="ModelBookids.Store.ComprasDetalheCompras">
+      <End Role="Compras" EntitySet="ComprasSet" />
+      <End Role="DetalheCompras" EntitySet="DetalheComprasSet" />
+    </AssociationSet>
+    <AssociationSet Name="DetalheComprasProdutos" Association="ModelBookids.Store.DetalheComprasProdutos">
+      <End Role="DetalheCompras" EntitySet="DetalheComprasSet" />
+      <End Role="Produtos" EntitySet="ProdutosSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProdutosTipoProduto" Association="ModelBookids.Store.ProdutosTipoProduto">
+      <End Role="Produtos" EntitySet="ProdutosSet" />
+      <End Role="TipoProduto" EntitySet="TipoProdutoSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Filhos_inherits_Pessoas" Association="ModelBookids.Store.FK_Filhos_inherits_Pessoas">
+      <End Role="Pessoas" EntitySet="PessoasSet" />
+      <End Role="Filhos" EntitySet="PessoasSet_Filhos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_inherits_Pessoas" Association="ModelBookids.Store.FK_Clientes_inherits_Pessoas">
+      <End Role="Pessoas" EntitySet="PessoasSet" />
+      <End Role="Clientes" EntitySet="PessoasSet_Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Animadores_inherits_Pessoas" Association="ModelBookids.Store.FK_Animadores_inherits_Pessoas">
+      <End Role="Pessoas" EntitySet="PessoasSet" />
+      <End Role="Animadores" EntitySet="PessoasSet_Animadores" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PessoasSet">
+    <Key>
+      <PropertyRef Name="IdPessoa" />
+    </Key>
+    <Property Name="IdPessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Morada" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Localidade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CodPostal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telemovel" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Mail" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="EventosSet">
+    <Key>
+      <PropertyRef Name="NrEvento" />
+    </Key>
+    <Property Name="NrEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Local" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataHora" Type="datetime" Nullable="false" />
+    <Property Name="LimiteParticipacoes" Type="int" Nullable="false" />
+    <Property Name="IdadeInferior" Type="int" Nullable="true" />
+    <Property Name="IdadeSuperior" Type="int" Nullable="true" />
+    <Property Name="TipoEvento" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="InscricoesSet">
+    <Key>
+      <PropertyRef Name="IdFilho" />
+      <PropertyRef Name="NrEvento" />
+    </Key>
+    <Property Name="Confirmada" Type="bit" Nullable="false" />
+    <Property Name="IdFilho" Type="int" Nullable="false" />
+    <Property Name="NrEvento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EscolasSet">
+    <Key>
+      <PropertyRef Name="IdEscola" />
+    </Key>
+    <Property Name="IdEscola" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Morada" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telefone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CodPostal" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Localidade" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ParticipacoesSet">
+    <Key>
+      <PropertyRef Name="IdEscola" />
+      <PropertyRef Name="NrEvento" />
+    </Key>
+    <Property Name="IdEscola" Type="int" Nullable="false" />
+    <Property Name="NrEvento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ColaboracoesSet">
+    <Key>
+      <PropertyRef Name="IdAnimador" />
+      <PropertyRef Name="NrEventos" />
+    </Key>
+    <Property Name="IdAnimador" Type="int" Nullable="false" />
+    <Property Name="NrEventos" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComprasSet">
+    <Key>
+      <PropertyRef Name="NrCompra" />
+    </Key>
+    <Property Name="NrCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCliente" Type="int" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="UtilizouCartao" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetalheComprasSet">
+    <Key>
+      <PropertyRef Name="NrCompra" />
+      <PropertyRef Name="CodProduto" />
+    </Key>
+    <Property Name="Quantidade" Type="int" Nullable="false" />
+    <Property Name="NrCompra" Type="int" Nullable="false" />
+    <Property Name="CodProduto" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProdutosSet">
+    <Key>
+      <PropertyRef Name="CodProduto" />
+    </Key>
+    <Property Name="CodProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designacao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Preco" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CodTipoProduto" Type="int" Nullable="false" />
+    <Property Name="StockExistente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoProdutoSet">
+    <Key>
+      <PropertyRef Name="CodTipoProduto" />
+    </Key>
+    <Property Name="CodTipoProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PessoasSet_Filhos">
+    <Key>
+      <PropertyRef Name="IdPessoa" />
+    </Key>
+    <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataNascicmento" Type="datetime" Nullable="false" />
+    <Property Name="IdEscola" Type="int" Nullable="false" />
+    <Property Name="IdProgenitor" Type="int" Nullable="false" />
+    <Property Name="IdPessoa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PessoasSet_Clientes">
+    <Key>
+      <PropertyRef Name="IdPessoa" />
+    </Key>
+    <Property Name="NrCartao" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ValorOferta" Type="int" Nullable="true" />
+    <Property Name="IdPessoa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PessoasSet_Animadores">
+    <Key>
+      <PropertyRef Name="IdPessoa" />
+    </Key>
+    <Property Name="Especialidade" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IdPessoa" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FilhosInscricoes">
+    <End Role="Filhos" Type="ModelBookids.Store.PessoasSet_Filhos" Multiplicity="1" />
+    <End Role="Inscricoes" Type="ModelBookids.Store.InscricoesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filhos">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Inscricoes">
+        <PropertyRef Name="IdFilho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventosInscricoes">
+    <End Role="Eventos" Type="ModelBookids.Store.EventosSet" Multiplicity="1" />
+    <End Role="Inscricoes" Type="ModelBookids.Store.InscricoesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Eventos">
+        <PropertyRef Name="NrEvento" />
+      </Principal>
+      <Dependent Role="Inscricoes">
+        <PropertyRef Name="NrEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EscolasFilhos">
+    <End Role="Escolas" Type="ModelBookids.Store.EscolasSet" Multiplicity="1" />
+    <End Role="Filhos" Type="ModelBookids.Store.PessoasSet_Filhos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Escolas">
+        <PropertyRef Name="IdEscola" />
+      </Principal>
+      <Dependent Role="Filhos">
+        <PropertyRef Name="IdEscola" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClientesFilhos">
+    <End Role="Clientes" Type="ModelBookids.Store.PessoasSet_Clientes" Multiplicity="1" />
+    <End Role="Filhos" Type="ModelBookids.Store.PessoasSet_Filhos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Filhos">
+        <PropertyRef Name="IdProgenitor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ParticipacoesEscolas">
+    <End Role="Escolas" Type="ModelBookids.Store.EscolasSet" Multiplicity="1" />
+    <End Role="Participacoes" Type="ModelBookids.Store.ParticipacoesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Escolas">
+        <PropertyRef Name="IdEscola" />
+      </Principal>
+      <Dependent Role="Participacoes">
+        <PropertyRef Name="IdEscola" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventosParticipacoes">
+    <End Role="Eventos" Type="ModelBookids.Store.EventosSet" Multiplicity="1" />
+    <End Role="Participacoes" Type="ModelBookids.Store.ParticipacoesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Eventos">
+        <PropertyRef Name="NrEvento" />
+      </Principal>
+      <Dependent Role="Participacoes">
+        <PropertyRef Name="NrEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AnimadoresColaboracoes">
+    <End Role="Animadores" Type="ModelBookids.Store.PessoasSet_Animadores" Multiplicity="1" />
+    <End Role="Colaboracoes" Type="ModelBookids.Store.ColaboracoesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animadores">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Colaboracoes">
+        <PropertyRef Name="IdAnimador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ColaboracoesEventos">
+    <End Role="Colaboracoes" Type="ModelBookids.Store.ColaboracoesSet" Multiplicity="*" />
+    <End Role="Eventos" Type="ModelBookids.Store.EventosSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Eventos">
+        <PropertyRef Name="NrEvento" />
+      </Principal>
+      <Dependent Role="Colaboracoes">
+        <PropertyRef Name="NrEventos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ComprasClientes">
+    <End Role="Compras" Type="ModelBookids.Store.ComprasSet" Multiplicity="*" />
+    <End Role="Clientes" Type="ModelBookids.Store.PessoasSet_Clientes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Compras">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ComprasDetalheCompras">
+    <End Role="Compras" Type="ModelBookids.Store.ComprasSet" Multiplicity="1" />
+    <End Role="DetalheCompras" Type="ModelBookids.Store.DetalheComprasSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Compras">
+        <PropertyRef Name="NrCompra" />
+      </Principal>
+      <Dependent Role="DetalheCompras">
+        <PropertyRef Name="NrCompra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DetalheComprasProdutos">
+    <End Role="DetalheCompras" Type="ModelBookids.Store.DetalheComprasSet" Multiplicity="*" />
+    <End Role="Produtos" Type="ModelBookids.Store.ProdutosSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Produtos">
+        <PropertyRef Name="CodProduto" />
+      </Principal>
+      <Dependent Role="DetalheCompras">
+        <PropertyRef Name="CodProduto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProdutosTipoProduto">
+    <End Role="Produtos" Type="ModelBookids.Store.ProdutosSet" Multiplicity="*" />
+    <End Role="TipoProduto" Type="ModelBookids.Store.TipoProdutoSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProduto">
+        <PropertyRef Name="CodTipoProduto" />
+      </Principal>
+      <Dependent Role="Produtos">
+        <PropertyRef Name="CodTipoProduto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Filhos_inherits_Pessoas">
+    <End Role="Pessoas" Type="ModelBookids.Store.PessoasSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Filhos" Type="ModelBookids.Store.PessoasSet_Filhos" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoas">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Filhos">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_inherits_Pessoas">
+    <End Role="Pessoas" Type="ModelBookids.Store.PessoasSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Clientes" Type="ModelBookids.Store.PessoasSet_Clientes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoas">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Animadores_inherits_Pessoas">
+    <End Role="Pessoas" Type="ModelBookids.Store.PessoasSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Animadores" Type="ModelBookids.Store.PessoasSet_Animadores" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoas">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Animadores">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelBookids" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
