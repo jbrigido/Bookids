@@ -437,6 +437,7 @@
             this.btAdicionarEscola.TabIndex = 2;
             this.btAdicionarEscola.Text = "Adicionar";
             this.btAdicionarEscola.UseVisualStyleBackColor = true;
+            this.btAdicionarEscola.Click += new System.EventHandler(this.btAdicionarEscola_Click);
             // 
             // cbEscolas
             // 

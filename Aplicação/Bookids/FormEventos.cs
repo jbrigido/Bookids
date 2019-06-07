@@ -150,6 +150,7 @@ namespace Bookids
             btAdicionarAnimador.Enabled = false;
             btRemoverAnimador.Enabled = false;
             lbColaboracoes.DataSource = null;
+            lbParticipacoes.DataSource = null;
             cbEscolas.Enabled = false;
             btAdicionarEscola.Enabled = false;
             btRemoverEscola.Enabled = false;
@@ -174,6 +175,10 @@ namespace Bookids
             tbTipoEvento.Enabled = true;
             nmIdadeMin.Enabled = true;
             nmIdadeMax.Enabled = true;
+            cbAnimadores.Enabled = true;
+            btAdicionarAnimador.Enabled = true;
+            cbEscolas.Enabled = true;
+            btAdicionarEscola.Enabled = true;
             dgvEventos.Enabled = false;
         }
 
@@ -194,6 +199,9 @@ namespace Bookids
             cbAnimadores.Enabled = true;
             btAdicionarAnimador.Enabled = true;
             btRemoverAnimador.Enabled = true;
+            cbEscolas.Enabled = true;
+            btAdicionarEscola.Enabled = true;
+            btRemoverEscola.Enabled = true;
             dgvEventos.Enabled = false;
         }
 
@@ -256,6 +264,7 @@ namespace Bookids
                 if(evento != null)
                 {
                     carregarListaColaboracoes(evento);
+                    carregarListaParticipacoes(evento);
                     btCriarEvento.Enabled = false;
                     btEditarEvento.Enabled = true;
                     btApagarEvento.Enabled = true;
@@ -359,6 +368,32 @@ namespace Bookids
                     carregarListaColaboracoes(evento);
                 }
             }           
+        }
+
+        private void btAdicionarEscola_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja adicionar esta participação ?",
+                "Adicionar", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+                if (evento != null)
+                {
+                    Escolas escola = (Escolas)cbEscolas.SelectedItem;
+                    if (escola != null)
+                    {
+                        Participacoes nova = new Participacoes()
+                        {
+                            IdEscola = escola.IdEscola,
+                            NrEvento = evento.NrEvento
+                        };
+                        BookidsContainer.ParticipacoesSet.Add(nova);
+                        BookidsContainer.SaveChanges();
+                        limparDadosEventos();
+                    }
+                }
+            }
         }
     }
 }
