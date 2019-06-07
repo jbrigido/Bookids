@@ -94,30 +94,22 @@ namespace Bookids
 
         private void btAdicionarProduto_Click(object sender, EventArgs e)
         {
-            try
+            DetalheCompras detalhes = (DetalheCompras)compraAtiva.DetalheCompras;
+            if (detalhes != null)
             {
-                DetalheCompras detalhes = (DetalheCompras)compraAtiva.DetalheCompras;
-                try
+                Produtos produto = (Produtos)lbProdutos.SelectedItem;
+                if (produto != null && nmQuantidade.Value > 0)
                 {
-                    Produtos produto = (Produtos)lbProdutos.SelectedItem;
-                    if (produto != null && nmQuantidade.Value > 0)
-                    {
-                        detalhes.CodProduto = produto.CodProduto;
-                        detalhes.NrCompra = compraAtiva.NrCompra;
-                        detalhes.Quantidade = (int)nmQuantidade.Value;
-                    }
-                    BookidsContainer.DetalheComprasSet.Add(detalhes);
-                    BookidsContainer.SaveChanges();
-
-                    // PARA ALTERAR PODE APAGAR OS DADOS DO DETALHE PARA GUARDAR DE NOVO OS ITEMS DA LIST BOX
-
+                    detalhes.CodProduto = produto.CodProduto;
+                    detalhes.NrCompra = compraAtiva.NrCompra;
+                    detalhes.Quantidade = (int)nmQuantidade.Value;
                 }
-                catch
-                {
-                    
-                }
+                BookidsContainer.DetalheComprasSet.Add(detalhes);
+                BookidsContainer.SaveChanges();
+
+            // PARA ALTERAR PODE APAGAR OS DADOS DO DETALHE PARA GUARDAR DE NOVO OS ITEMS DA LIST BOX
             }
-            catch
+            else
             {
                 DetalheCompras novoDetalhe = new DetalheCompras();
                 Produtos produto = (Produtos)lbProdutos.SelectedItem;
@@ -129,11 +121,13 @@ namespace Bookids
                 }
                 BookidsContainer.DetalheComprasSet.Add(novoDetalhe);
                 BookidsContainer.SaveChanges();
+            }
+                
 
                         // PARA GRAVAR NO FIM ADICIONA-SE OS ITEMS A LISTBOX E NO FIM GUARDA AS ALTERAÇOES NA BD
                         // PARA ALTERAR PODE APAGAR OS DADOS DO DETALHE PARA GUARDAR DE NOVO OS ITEMS DA LIST BOX
 
-            }
+            
         }   
         
 

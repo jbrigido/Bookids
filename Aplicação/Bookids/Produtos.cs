@@ -29,5 +29,10 @@ namespace Bookids
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalheCompras> DetalheCompras { get; set; }
         public virtual TipoProduto TipoProduto { get; set; }
+
+        public override string ToString()
+        {
+            return Designacao + " (" + StockExistente + ") - " + Preco + "€";
+        }
     }
 }
