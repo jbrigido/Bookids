@@ -315,38 +315,50 @@ namespace Bookids
             return hora;
         }
 
-        //Adicionar animadores selecionados a partir da combo box  que contêm a respetiva de animadores
+        //Adicionar animadores selecionados a partir da combo box  que contêm a respetiva lista de animadores
         private void btAdicionarAnimador_Click(object sender, EventArgs e)
         {
-            Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
-            if(evento != null)
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja adicionar esta colaboração ?",
+                "Adicionar", MessageBoxButtons.YesNo);
+
+            if(dr == DialogResult.Yes)
             {
-                Animadores animador = (Animadores)cbAnimadores.SelectedItem;
-                if(animador != null)
+                Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+                if (evento != null)
                 {
-                    Colaboracoes nova = new Colaboracoes()
+                    Animadores animador = (Animadores)cbAnimadores.SelectedItem;
+                    if (animador != null)
                     {
-                        IdAnimador = animador.IdPessoa,
-                        NrEventos = evento.NrEvento
-                    };
-                    BookidsContainer.ColaboracoesSet.Add(nova);
-                    BookidsContainer.SaveChanges();
-                    limparDadosEventos();
+                        Colaboracoes nova = new Colaboracoes()
+                        {
+                            IdAnimador = animador.IdPessoa,
+                            NrEventos = evento.NrEvento
+                        };
+                        BookidsContainer.ColaboracoesSet.Add(nova);
+                        BookidsContainer.SaveChanges();
+                        limparDadosEventos();
+                    }
                 }
             }
         }
 
         private void btRemoverAnimador_Click(object sender, EventArgs e)
         {
-            Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
-            Colaboracoes colaboracao = (Colaboracoes)lbColaboracoes.SelectedItem;
-            if(colaboracao != null)
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja remover esta colaboração ?",
+                "Remover", MessageBoxButtons.YesNo);
+
+            if(dr == DialogResult.Yes)
             {
-                BookidsContainer.ColaboracoesSet.Remove(colaboracao);
-                BookidsContainer.SaveChanges();
-                limparDadosEventos();
-                carregarListaColaboracoes(evento);
-            }
+                Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+                Colaboracoes colaboracao = (Colaboracoes)lbColaboracoes.SelectedItem;
+                if (colaboracao != null)
+                {
+                    BookidsContainer.ColaboracoesSet.Remove(colaboracao);
+                    BookidsContainer.SaveChanges();
+                    limparDadosEventos();
+                    carregarListaColaboracoes(evento);
+                }
+            }           
         }
     }
 }
