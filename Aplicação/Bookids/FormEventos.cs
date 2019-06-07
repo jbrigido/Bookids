@@ -132,6 +132,7 @@ namespace Bookids
             tbTipoEvento.Clear();
             nmIdadeMin.ResetText();
             nmIdadeMax.ResetText();
+            lbColaboracoes.ClearSelected();
             tbDescricaoEvento.Enabled = false;
             nmLimiteParticipantes.Enabled = false;
             tbLocalEvento.Enabled = false;
@@ -148,6 +149,7 @@ namespace Bookids
             cbAnimadores.Enabled = false;
             btAdicionarAnimador.Enabled = false;
             btRemoverAnimador.Enabled = false;
+            lbColaboracoes.DataSource = null;
             cbEscolas.Enabled = false;
             btAdicionarEscola.Enabled = false;
             btRemoverEscola.Enabled = false;
@@ -191,6 +193,7 @@ namespace Bookids
             nmIdadeMax.Enabled = true;
             cbAnimadores.Enabled = true;
             btAdicionarAnimador.Enabled = true;
+            btRemoverAnimador.Enabled = true;
             dgvEventos.Enabled = false;
         }
 
@@ -330,6 +333,19 @@ namespace Bookids
                     BookidsContainer.SaveChanges();
                     limparDadosEventos();
                 }
+            }
+        }
+
+        private void btRemoverAnimador_Click(object sender, EventArgs e)
+        {
+            Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+            Colaboracoes colaboracao = (Colaboracoes)lbColaboracoes.SelectedItem;
+            if(colaboracao != null)
+            {
+                BookidsContainer.ColaboracoesSet.Remove(colaboracao);
+                BookidsContainer.SaveChanges();
+                limparDadosEventos();
+                carregarListaColaboracoes(evento);
             }
         }
     }

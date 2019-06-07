@@ -378,6 +378,7 @@
             this.btRemoverAnimador.TabIndex = 3;
             this.btRemoverAnimador.Text = "Remover";
             this.btRemoverAnimador.UseVisualStyleBackColor = true;
+            this.btRemoverAnimador.Click += new System.EventHandler(this.btRemoverAnimador_Click);
             // 
             // btAdicionarAnimador
             // 
