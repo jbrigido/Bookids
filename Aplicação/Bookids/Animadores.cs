@@ -24,5 +24,10 @@ namespace Bookids
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Colaboracoes> Colaboracoes { get; set; }
+
+        public override string ToString()
+        {
+            return Nome + " (" + Localidade + ")";
+        }
     }
 }

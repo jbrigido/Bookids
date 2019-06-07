@@ -19,5 +19,10 @@ namespace Bookids
     
         public virtual Animadores Animadores { get; set; }
         public virtual Eventos Eventos { get; set; }
+
+        public override string ToString()
+        {
+            return "ID: " + Animadores.IdPessoa + " - Nome: " + Animadores.Nome; 
+        }
     }
 }

@@ -63,6 +63,15 @@ namespace Bookids
             cbFilhos.DataSource = listaFilhos.ToList<Filhos>();
         }
 
+        private void carregarListaColaboracoes(Eventos evento)
+        {
+            var listaColaboracoes = from Colaboracoes in BookidsContainer.ColaboracoesSet
+                                    orderby Colaboracoes.IdAnimador
+                                    where Colaboracoes.NrEventos == evento.NrEvento
+                                    select Colaboracoes;
+            lbColaboracoes.DataSource = listaColaboracoes.ToList<Colaboracoes>();
+        }
+
         private bool dadosPreenchidosEventos()
         {
             if(tbDescricaoEvento.Text == string.Empty)
@@ -171,6 +180,8 @@ namespace Bookids
             tbTipoEvento.Enabled = true;
             nmIdadeMin.Enabled = true;
             nmIdadeMax.Enabled = true;
+            cbAnimadores.Enabled = true;
+            btAdicionarAnimador.Enabled = true;
             dgvEventos.Enabled = false;
         }
 
@@ -232,6 +243,7 @@ namespace Bookids
                 Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
                 if(evento != null)
                 {
+                    carregarListaColaboracoes(evento);
                     btCriarEvento.Enabled = false;
                     btEditarEvento.Enabled = true;
                     btApagarEvento.Enabled = true;
@@ -289,6 +301,27 @@ namespace Bookids
         {
             string hora = string.Format("{0:0#} : {1:0#}", data.Hour, data.Minute);
             return hora;
+        }
+
+        //Adicionar animadores selecionados a partir da combo box  que contêm a respetiva de animadores
+        private void btAdicionarAnimador_Click(object sender, EventArgs e)
+        {
+            Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+            if(evento != null)
+            {
+                Animadores animador = (Animadores)cbAnimadores.SelectedItem;
+                if(animador != null)
+                {
+                    Colaboracoes nova = new Colaboracoes()
+                    {
+                        IdAnimador = animador.IdPessoa,
+                        NrEventos = evento.NrEvento
+                    };
+                    BookidsContainer.ColaboracoesSet.Add(nova);
+                    BookidsContainer.SaveChanges();
+                    limparDadosEventos();
+                }
+            }
         }
     }
 }
