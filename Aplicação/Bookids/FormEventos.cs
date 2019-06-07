@@ -27,7 +27,7 @@ namespace Bookids
             carregarComboEscolas();
             carregarComboFilhos();
             tbNumeroEvento.Enabled = false;
-            dtpDataEventos.MinDate = DateTime.Now;
+            dtpDataEventos.MinDate = DateTime.Now.AddDays(1);
             limparDadosEventos();
         }
 
