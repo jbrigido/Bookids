@@ -72,6 +72,15 @@ namespace Bookids
             lbColaboracoes.DataSource = listaColaboracoes.ToList<Colaboracoes>();
         }
 
+        private void carregarListaParticipacoes(Eventos evento)
+        {
+            var listaParticipacoes = from Participacoes in BookidsContainer.ParticipacoesSet
+                                     orderby Participacoes.IdEscola
+                                     where Participacoes.NrEvento == evento.NrEvento
+                                     select Participacoes;
+            lbParticipacoes.DataSource = listaParticipacoes.ToList<Participacoes>();
+        }
+
         private bool dadosPreenchidosEventos()
         {
             if(tbDescricaoEvento.Text == string.Empty)
