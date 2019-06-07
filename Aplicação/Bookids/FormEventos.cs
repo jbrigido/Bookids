@@ -395,5 +395,24 @@ namespace Bookids
                 }
             }
         }
+
+        private void btRemoverEscola_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja remover esta participação ?",
+                "Remover", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+                Participacoes participacao = (Participacoes)lbParticipacoes.SelectedItem;
+                if (participacao != null)
+                {
+                    BookidsContainer.ParticipacoesSet.Remove(participacao);
+                    BookidsContainer.SaveChanges();
+                    limparDadosEventos();
+                    carregarListaParticipacoes(evento);
+                }
+            }
+        }
     }
 }
