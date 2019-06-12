@@ -35,17 +35,12 @@
             this.gbCliente = new System.Windows.Forms.GroupBox();
             this.tbValorOferta = new System.Windows.Forms.TextBox();
             this.dgvVendas = new System.Windows.Forms.DataGridView();
-            this.nrCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utilizouCartaoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.comprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btCancelCleanVenda = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbNrCartao = new System.Windows.Forms.TextBox();
             this.cbClientes = new System.Windows.Forms.ComboBox();
-            this.btGuardarVenda = new System.Windows.Forms.Button();
             this.btImprimir = new System.Windows.Forms.Button();
             this.gbProdutos = new System.Windows.Forms.GroupBox();
             this.btAdicionarProduto = new System.Windows.Forms.Button();
@@ -54,26 +49,30 @@
             this.lbProdutos = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbTipoProduto = new System.Windows.Forms.ComboBox();
-            this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.detalheComprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbDetalhes = new System.Windows.Forms.GroupBox();
             this.btRemoverDetalhe = new System.Windows.Forms.Button();
             this.lbListaDetalhes = new System.Windows.Forms.ListBox();
+            this.comprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.detalheComprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nrCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
             this.gbProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmQuantidade)).BeginInit();
+            this.gbDetalhes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalheComprasBindingSource)).BeginInit();
-            this.gbDetalhes.SuspendLayout();
             this.SuspendLayout();
             // 
             // btApagarVenda
             // 
-            this.btApagarVenda.Location = new System.Drawing.Point(33, 106);
+            this.btApagarVenda.Location = new System.Drawing.Point(12, 158);
             this.btApagarVenda.Name = "btApagarVenda";
-            this.btApagarVenda.Size = new System.Drawing.Size(182, 23);
+            this.btApagarVenda.Size = new System.Drawing.Size(154, 23);
             this.btApagarVenda.TabIndex = 8;
             this.btApagarVenda.Text = "Apagar Venda";
             this.btApagarVenda.UseVisualStyleBackColor = true;
@@ -81,9 +80,9 @@
             // 
             // btEditarVenda
             // 
-            this.btEditarVenda.Location = new System.Drawing.Point(33, 48);
+            this.btEditarVenda.Location = new System.Drawing.Point(12, 129);
             this.btEditarVenda.Name = "btEditarVenda";
-            this.btEditarVenda.Size = new System.Drawing.Size(182, 23);
+            this.btEditarVenda.Size = new System.Drawing.Size(154, 23);
             this.btEditarVenda.TabIndex = 7;
             this.btEditarVenda.Text = "Editar Venda";
             this.btEditarVenda.UseVisualStyleBackColor = true;
@@ -91,9 +90,9 @@
             // 
             // btRegistarVenda
             // 
-            this.btRegistarVenda.Location = new System.Drawing.Point(33, 19);
+            this.btRegistarVenda.Location = new System.Drawing.Point(12, 100);
             this.btRegistarVenda.Name = "btRegistarVenda";
-            this.btRegistarVenda.Size = new System.Drawing.Size(182, 23);
+            this.btRegistarVenda.Size = new System.Drawing.Size(154, 23);
             this.btRegistarVenda.TabIndex = 6;
             this.btRegistarVenda.Text = "Registar Venda";
             this.btRegistarVenda.UseVisualStyleBackColor = true;
@@ -110,12 +109,11 @@
             this.gbCliente.Controls.Add(this.tbNrCartao);
             this.gbCliente.Controls.Add(this.cbClientes);
             this.gbCliente.Controls.Add(this.btRegistarVenda);
-            this.gbCliente.Controls.Add(this.btGuardarVenda);
             this.gbCliente.Controls.Add(this.btEditarVenda);
             this.gbCliente.Controls.Add(this.btApagarVenda);
             this.gbCliente.Location = new System.Drawing.Point(12, 12);
             this.gbCliente.Name = "gbCliente";
-            this.gbCliente.Size = new System.Drawing.Size(641, 168);
+            this.gbCliente.Size = new System.Drawing.Size(563, 232);
             this.gbCliente.TabIndex = 10;
             this.gbCliente.TabStop = false;
             this.gbCliente.Text = "Dados Cliente";
@@ -123,7 +121,7 @@
             // tbValorOferta
             // 
             this.tbValorOferta.Enabled = false;
-            this.tbValorOferta.Location = new System.Drawing.Point(527, 47);
+            this.tbValorOferta.Location = new System.Drawing.Point(81, 41);
             this.tbValorOferta.Name = "tbValorOferta";
             this.tbValorOferta.Size = new System.Drawing.Size(73, 20);
             this.tbValorOferta.TabIndex = 17;
@@ -137,46 +135,21 @@
             this.dgvVendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nrCompraDataGridViewTextBoxColumn,
             this.dataDataGridViewTextBoxColumn,
-            this.utilizouCartaoDataGridViewCheckBoxColumn});
+            this.Total});
             this.dgvVendas.DataSource = this.comprasBindingSource;
-            this.dgvVendas.Location = new System.Drawing.Point(255, 74);
+            this.dgvVendas.Location = new System.Drawing.Point(176, 47);
             this.dgvVendas.Name = "dgvVendas";
             this.dgvVendas.ReadOnly = true;
             this.dgvVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVendas.Size = new System.Drawing.Size(345, 81);
+            this.dgvVendas.Size = new System.Drawing.Size(352, 163);
             this.dgvVendas.TabIndex = 16;
             this.dgvVendas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVendas_MouseClick);
             // 
-            // nrCompraDataGridViewTextBoxColumn
-            // 
-            this.nrCompraDataGridViewTextBoxColumn.DataPropertyName = "NrCompra";
-            this.nrCompraDataGridViewTextBoxColumn.HeaderText = "NrCompra";
-            this.nrCompraDataGridViewTextBoxColumn.Name = "nrCompraDataGridViewTextBoxColumn";
-            this.nrCompraDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utilizouCartaoDataGridViewCheckBoxColumn
-            // 
-            this.utilizouCartaoDataGridViewCheckBoxColumn.DataPropertyName = "UtilizouCartao";
-            this.utilizouCartaoDataGridViewCheckBoxColumn.HeaderText = "UtilizouCartao";
-            this.utilizouCartaoDataGridViewCheckBoxColumn.Name = "utilizouCartaoDataGridViewCheckBoxColumn";
-            this.utilizouCartaoDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // comprasBindingSource
-            // 
-            this.comprasBindingSource.DataSource = typeof(Bookids.Compras);
-            // 
             // btCancelCleanVenda
             // 
-            this.btCancelCleanVenda.Location = new System.Drawing.Point(33, 135);
+            this.btCancelCleanVenda.Location = new System.Drawing.Point(12, 187);
             this.btCancelCleanVenda.Name = "btCancelCleanVenda";
-            this.btCancelCleanVenda.Size = new System.Drawing.Size(182, 23);
+            this.btCancelCleanVenda.Size = new System.Drawing.Size(154, 23);
             this.btCancelCleanVenda.TabIndex = 16;
             this.btCancelCleanVenda.Text = "Cancelar/Limpar Alterações";
             this.btCancelCleanVenda.UseVisualStyleBackColor = true;
@@ -185,7 +158,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(455, 51);
+            this.label3.Location = new System.Drawing.Point(9, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 6;
@@ -194,53 +167,44 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(252, 50);
+            this.label2.Location = new System.Drawing.Point(382, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Cartão Cliente:";
+            this.label2.Text = "Nº Cartão:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(252, 19);
+            this.label1.Location = new System.Drawing.Point(9, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Nome Cliente:";
+            this.label1.Text = "Cliente:";
             // 
             // tbNrCartao
             // 
             this.tbNrCartao.Enabled = false;
-            this.tbNrCartao.Location = new System.Drawing.Point(334, 47);
+            this.tbNrCartao.Location = new System.Drawing.Point(444, 14);
             this.tbNrCartao.Name = "tbNrCartao";
-            this.tbNrCartao.Size = new System.Drawing.Size(64, 20);
+            this.tbNrCartao.Size = new System.Drawing.Size(84, 20);
             this.tbNrCartao.TabIndex = 3;
             // 
             // cbClientes
             // 
             this.cbClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbClientes.FormattingEnabled = true;
-            this.cbClientes.Location = new System.Drawing.Point(334, 16);
+            this.cbClientes.Location = new System.Drawing.Point(57, 13);
             this.cbClientes.Name = "cbClientes";
-            this.cbClientes.Size = new System.Drawing.Size(266, 21);
+            this.cbClientes.Size = new System.Drawing.Size(310, 21);
             this.cbClientes.TabIndex = 0;
             this.cbClientes.SelectedIndexChanged += new System.EventHandler(this.cbClientes_SelectedIndexChanged);
             // 
-            // btGuardarVenda
-            // 
-            this.btGuardarVenda.Location = new System.Drawing.Point(33, 77);
-            this.btGuardarVenda.Name = "btGuardarVenda";
-            this.btGuardarVenda.Size = new System.Drawing.Size(182, 23);
-            this.btGuardarVenda.TabIndex = 9;
-            this.btGuardarVenda.Text = "Guardar Alterações";
-            this.btGuardarVenda.UseVisualStyleBackColor = true;
-            // 
             // btImprimir
             // 
-            this.btImprimir.Location = new System.Drawing.Point(7, 231);
+            this.btImprimir.Location = new System.Drawing.Point(6, 205);
             this.btImprimir.Name = "btImprimir";
-            this.btImprimir.Size = new System.Drawing.Size(245, 23);
+            this.btImprimir.Size = new System.Drawing.Size(232, 23);
             this.btImprimir.TabIndex = 12;
             this.btImprimir.Text = "Imprimir Fatura";
             this.btImprimir.UseVisualStyleBackColor = true;
@@ -253,9 +217,9 @@
             this.gbProdutos.Controls.Add(this.lbProdutos);
             this.gbProdutos.Controls.Add(this.label5);
             this.gbProdutos.Controls.Add(this.cbTipoProduto);
-            this.gbProdutos.Location = new System.Drawing.Point(354, 205);
+            this.gbProdutos.Location = new System.Drawing.Point(317, 250);
             this.gbProdutos.Name = "gbProdutos";
-            this.gbProdutos.Size = new System.Drawing.Size(258, 235);
+            this.gbProdutos.Size = new System.Drawing.Size(258, 240);
             this.gbProdutos.TabIndex = 13;
             this.gbProdutos.TabStop = false;
             this.gbProdutos.Text = "Produtos";
@@ -328,30 +292,23 @@
             this.cbTipoProduto.TabIndex = 25;
             this.cbTipoProduto.SelectedIndexChanged += new System.EventHandler(this.cbTipoProduto_SelectedIndexChanged);
             // 
-            // produtosBindingSource
-            // 
-            this.produtosBindingSource.DataSource = typeof(Bookids.Produtos);
-            // 
-            // detalheComprasBindingSource
-            // 
-            this.detalheComprasBindingSource.DataSource = typeof(Bookids.DetalheCompras);
-            // 
             // gbDetalhes
             // 
             this.gbDetalhes.Controls.Add(this.btRemoverDetalhe);
             this.gbDetalhes.Controls.Add(this.btImprimir);
             this.gbDetalhes.Controls.Add(this.lbListaDetalhes);
-            this.gbDetalhes.Location = new System.Drawing.Point(12, 186);
+            this.gbDetalhes.Location = new System.Drawing.Point(12, 250);
             this.gbDetalhes.Name = "gbDetalhes";
-            this.gbDetalhes.Size = new System.Drawing.Size(258, 259);
+            this.gbDetalhes.Size = new System.Drawing.Size(258, 263);
             this.gbDetalhes.TabIndex = 30;
             this.gbDetalhes.TabStop = false;
+            this.gbDetalhes.Text = "Lista de Compras";
             // 
             // btRemoverDetalhe
             // 
-            this.btRemoverDetalhe.Location = new System.Drawing.Point(7, 202);
+            this.btRemoverDetalhe.Location = new System.Drawing.Point(6, 234);
             this.btRemoverDetalhe.Name = "btRemoverDetalhe";
-            this.btRemoverDetalhe.Size = new System.Drawing.Size(245, 23);
+            this.btRemoverDetalhe.Size = new System.Drawing.Size(232, 23);
             this.btRemoverDetalhe.TabIndex = 3;
             this.btRemoverDetalhe.Text = "Remover";
             this.btRemoverDetalhe.UseVisualStyleBackColor = true;
@@ -360,16 +317,48 @@
             // lbListaDetalhes
             // 
             this.lbListaDetalhes.FormattingEnabled = true;
-            this.lbListaDetalhes.Location = new System.Drawing.Point(7, 33);
+            this.lbListaDetalhes.Location = new System.Drawing.Point(6, 20);
             this.lbListaDetalhes.Name = "lbListaDetalhes";
-            this.lbListaDetalhes.Size = new System.Drawing.Size(232, 160);
+            this.lbListaDetalhes.Size = new System.Drawing.Size(232, 121);
             this.lbListaDetalhes.TabIndex = 0;
+            // 
+            // comprasBindingSource
+            // 
+            this.comprasBindingSource.DataSource = typeof(Bookids.Compras);
+            // 
+            // produtosBindingSource
+            // 
+            this.produtosBindingSource.DataSource = typeof(Bookids.Produtos);
+            // 
+            // detalheComprasBindingSource
+            // 
+            this.detalheComprasBindingSource.DataSource = typeof(Bookids.DetalheCompras);
+            // 
+            // nrCompraDataGridViewTextBoxColumn
+            // 
+            this.nrCompraDataGridViewTextBoxColumn.DataPropertyName = "NrCompra";
+            this.nrCompraDataGridViewTextBoxColumn.HeaderText = "NrCompra";
+            this.nrCompraDataGridViewTextBoxColumn.Name = "nrCompraDataGridViewTextBoxColumn";
+            this.nrCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // FormVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 457);
+            this.ClientSize = new System.Drawing.Size(932, 557);
             this.Controls.Add(this.gbProdutos);
             this.Controls.Add(this.gbDetalhes);
             this.Controls.Add(this.gbCliente);
@@ -379,13 +368,13 @@
             this.gbCliente.ResumeLayout(false);
             this.gbCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).EndInit();
             this.gbProdutos.ResumeLayout(false);
             this.gbProdutos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmQuantidade)).EndInit();
+            this.gbDetalhes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalheComprasBindingSource)).EndInit();
-            this.gbDetalhes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -402,12 +391,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvVendas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nrCompraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn utilizouCartaoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource comprasBindingSource;
         private System.Windows.Forms.TextBox tbValorOferta;
-        private System.Windows.Forms.Button btGuardarVenda;
         private System.Windows.Forms.Button btImprimir;
         private System.Windows.Forms.GroupBox gbProdutos;
         private System.Windows.Forms.Button btAdicionarProduto;
@@ -421,5 +406,8 @@
         private System.Windows.Forms.GroupBox gbDetalhes;
         private System.Windows.Forms.Button btRemoverDetalhe;
         private System.Windows.Forms.ListBox lbListaDetalhes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nrCompraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

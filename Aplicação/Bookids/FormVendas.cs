@@ -79,7 +79,6 @@ namespace Bookids
             tbNrCartao.Clear();
             tbValorOferta.Clear();
             btRegistarVenda.Enabled = true;
-            btGuardarVenda.Enabled = false;
             btEditarVenda.Enabled = false;
             btApagarVenda.Enabled = false;
             btCancelCleanVenda.Enabled = false;
@@ -94,7 +93,6 @@ namespace Bookids
             dgvVendas.ClearSelection();
             dgvVendas.Enabled = false;
             btRegistarVenda.Enabled = false;
-            btGuardarVenda.Enabled = true;
             btCancelCleanVenda.Enabled = true;
             Compras nova = new Compras()
             {
@@ -115,7 +113,6 @@ namespace Bookids
                 Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
                 dgvVendas.Enabled = false;
                 btRegistarVenda.Enabled = false;
-                btGuardarVenda.Enabled = true;
                 btCancelCleanVenda.Enabled = true;
                 
                 gbProdutos.Enabled = true;
