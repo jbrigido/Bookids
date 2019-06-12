@@ -64,11 +64,10 @@ namespace Bookids
             lbProdutos.DataSource = listaProdutos.ToList<Produtos>();
         }
 
-        public void carregarListaCompras(Compras compraAtiva)
+        public void carregarListaCompras(Compras compra)
         {
             var listaDetalhesCompra = from DetalheCompras in BookidsContainer.DetalheComprasSet
-                                      orderby DetalheCompras.CodProduto
-                                      where DetalheCompras.NrCompra == compraAtiva.NrCompra
+                                      where DetalheCompras.NrCompra == compra.NrCompra
                                       select DetalheCompras;
             detalheComprasBindingSource.DataSource = listaDetalhesCompra.ToList();
         }
@@ -106,6 +105,7 @@ namespace Bookids
             };
             BookidsContainer.ComprasSet.Add(nova);
             BookidsContainer.SaveChanges();
+            carregarListaCompras(nova);
             dgvDetalhesCompra.Enabled = true;
             gbProdutos.Enabled = true;
         }
@@ -138,11 +138,13 @@ namespace Bookids
         private void dgvVendas_MouseClick(object sender, MouseEventArgs e)
         {
             Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+
             if (compra != null) { 
                 btRegistarVenda.Enabled = false;
                 btEditarVenda.Enabled = true;
                 btApagarVenda.Enabled = true;
                 btCancelCleanVenda.Enabled = true;
+                carregarListaCompras(compra);
             } 
         }
 
@@ -182,38 +184,60 @@ namespace Bookids
         private void dgvDetalhesCompra_MouseClick(object sender, MouseEventArgs e)
         {
             btRemoverProduto.Enabled = true;
+            try
+            {
+                Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+                if (compra != null)
+                {
+                    DetalheCompras detalhe = (DetalheCompras)dgvDetalhesCompra.SelectedRows[0].DataBoundItem;
+                    if (detalhe != null)
+                    {
+                        btRegistarVenda.Enabled = false;
+                        btCancelCleanVenda.Enabled = true;
+                        btRemoverProduto.Enabled = true;
+                    }
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void btAdicionarProduto_Click(object sender, EventArgs e)
         {
-            Produtos produto = (Produtos)lbProdutos.SelectedItem;
-            /*foreach (Produtos prod in lbProdutos.Items)
+            Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+            if (compra != null)
             {
-                if (prod.CodProduto == ((Produtos)lbProdutos.SelectedItem).CodProduto)
+                DetalheCompras detalhe = (DetalheCompras)dgvDetalhesCompra.SelectedRows[0].DataBoundItem;
+                if (detalhe != null)
                 {
-                    cbTipoProduto.DropDownStyle = ComboBoxStyle.DropDownList;
-                    carregarComboTipo();
-                    return;
+                    Produtos produto = (Produtos)lbProdutos.SelectedItem;
+                    if (produto != null && nmQuantidade.Value > 0)
+                    {
+                        detalhe.CodProduto = produto.CodProduto;
+                        detalhe.NrCompra = compra.NrCompra;
+                        detalhe.Quantidade = (int)nmQuantidade.Value;
+                    }
+                    BookidsContainer.SaveChanges();
+                    carregarListaCompras(compra);
                 }
-            }*/
-            if (produto != null && nmQuantidade.Value <= produto.StockExistente)
-            {
-                DetalheCompras novo = new DetalheCompras()
+                else
                 {
-                    Quantidade = (Int32)nmQuantidade.Value,
-                    NrCompra = ((Compras)dgvVendas.SelectedRows[0].DataBoundItem).NrCompra,
-                    CodProduto = produto.CodProduto
-                };
-                BookidsContainer.DetalheComprasSet.Add(novo);
-                produto.StockExistente -= novo.Quantidade;
-                BookidsContainer.SaveChanges();
-                carregarListaCompras((Compras)dgvVendas.SelectedRows[0].DataBoundItem);
-                carregarListaProdutos();
+                    DetalheCompras novoDetalhe = new DetalheCompras();
+                    Produtos produto = (Produtos)lbProdutos.SelectedItem;
+                    if (produto != null && nmQuantidade.Value > 0)
+                    {
+                        novoDetalhe.CodProduto = produto.CodProduto;
+                        novoDetalhe.NrCompra = compra.NrCompra;
+                        novoDetalhe.Quantidade = (int)nmQuantidade.Value;
+                    }
+                    BookidsContainer.DetalheComprasSet.Add(novoDetalhe);
+                    BookidsContainer.SaveChanges();
+                    carregarListaCompras(compra);
+                }
             }
-            else
-            {
-                MessageBox.Show("Stock insuficiente!");
-            }
+           
         }
     }
 }

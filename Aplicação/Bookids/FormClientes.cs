@@ -243,14 +243,6 @@ namespace Bookids
      /// FUNCIONALIDADES DO FORMULÁRIO RELATIVA À GESTÃO DOS FILHOS DOS CLIENTES
      /// </summary>
 
-        private void carregarFilhos()
-        {
-            var listaFilhos = from Filhos in BookidsContainer.FilhosSet
-                              orderby Filhos.Nome
-                              select Filhos;
-            filhosBindingSource.DataSource = listaFilhos.ToList();
-        }
-
         private void carregarFilhos(Clientes cliente)
         {
             var listaFilhos = from Filhos in BookidsContainer.FilhosSet
@@ -435,7 +427,7 @@ namespace Bookids
                 Clientes cliente = (Clientes)dgvClientes.SelectedRows[0].DataBoundItem;
                 if (cliente != null)
                 {
-                    //COMO REMOVER OS FILHOS DO CLIENTE REMOVIDO?
+                    //COMO REMOVER OS FILHOS DO CLIENTE REMOVIDO
                     while (cliente.Filhos.Count > 0)
                     {
                         foreach (Filhos filho in filhosBindingSource)
