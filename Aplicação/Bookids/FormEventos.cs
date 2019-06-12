@@ -27,7 +27,7 @@ namespace Bookids
             carregarComboEscolas();
             carregarComboFilhos();
             tbNumeroEvento.Enabled = false;
-            dtpDataEventos.MinDate = DateTime.Now.AddDays(1);
+            dtpDataEventos.MinDate = DateTime.Now.AddDays(1);          
             limparDadosEventos();
         }
 
@@ -112,7 +112,7 @@ namespace Bookids
                 return false;
             }
 
-            if(tbHorasEvento.Text == string.Empty)
+            if(tbHorasEvento.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("(*) Campos de preenchimento obrigatório !");
                 tbHorasEvento.Focus();
@@ -137,7 +137,7 @@ namespace Bookids
             nmLimiteParticipantes.ResetText();
             tbLocalEvento.Clear();
             dtpDataEventos.ResetText();
-            tbHorasEvento.Clear();
+            tbHorasEvento.Text = DateTime.Now.ToShortTimeString();
             tbTipoEvento.Clear();
             nmIdadeMin.ResetText();
             nmIdadeMax.ResetText();
