@@ -143,6 +143,7 @@ namespace Bookids
             nmIdadeMax.ResetText();
             lbColaboracoes.ClearSelected();
             lbParticipacoes.ClearSelected();
+            lbInscricoes.ClearSelected();
             tbDescricaoEvento.Enabled = false;
             nmLimiteParticipantes.Enabled = false;
             tbLocalEvento.Enabled = false;

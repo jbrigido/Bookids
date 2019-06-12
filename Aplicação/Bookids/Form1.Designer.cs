@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ficheiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +40,7 @@
             this.btEscolas = new System.Windows.Forms.Button();
             this.lbInfo = new System.Windows.Forms.Label();
             this.btVendas = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +50,7 @@
             this.ficheiroToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(499, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(502, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -64,18 +66,18 @@
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             // 
             // btClientes
             // 
-            this.btClientes.Location = new System.Drawing.Point(315, 40);
+            this.btClientes.Location = new System.Drawing.Point(315, 51);
             this.btClientes.Name = "btClientes";
             this.btClientes.Size = new System.Drawing.Size(172, 24);
             this.btClientes.TabIndex = 1;
@@ -85,7 +87,7 @@
             // 
             // btProdutos
             // 
-            this.btProdutos.Location = new System.Drawing.Point(315, 70);
+            this.btProdutos.Location = new System.Drawing.Point(315, 81);
             this.btProdutos.Name = "btProdutos";
             this.btProdutos.Size = new System.Drawing.Size(172, 23);
             this.btProdutos.TabIndex = 2;
@@ -95,7 +97,7 @@
             // 
             // btEventos
             // 
-            this.btEventos.Location = new System.Drawing.Point(315, 99);
+            this.btEventos.Location = new System.Drawing.Point(315, 110);
             this.btEventos.Name = "btEventos";
             this.btEventos.Size = new System.Drawing.Size(172, 24);
             this.btEventos.TabIndex = 3;
@@ -105,7 +107,7 @@
             // 
             // btAnimadores
             // 
-            this.btAnimadores.Location = new System.Drawing.Point(315, 129);
+            this.btAnimadores.Location = new System.Drawing.Point(315, 140);
             this.btAnimadores.Name = "btAnimadores";
             this.btAnimadores.Size = new System.Drawing.Size(172, 24);
             this.btAnimadores.TabIndex = 4;
@@ -115,7 +117,7 @@
             // 
             // btEscolas
             // 
-            this.btEscolas.Location = new System.Drawing.Point(315, 160);
+            this.btEscolas.Location = new System.Drawing.Point(315, 170);
             this.btEscolas.Name = "btEscolas";
             this.btEscolas.Size = new System.Drawing.Size(172, 23);
             this.btEscolas.TabIndex = 5;
@@ -127,15 +129,16 @@
             // 
             this.lbInfo.BackColor = System.Drawing.SystemColors.Info;
             this.lbInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbInfo.Location = new System.Drawing.Point(12, 40);
+            this.lbInfo.Location = new System.Drawing.Point(12, 110);
             this.lbInfo.Name = "lbInfo";
-            this.lbInfo.Size = new System.Drawing.Size(285, 172);
+            this.lbInfo.Size = new System.Drawing.Size(285, 112);
             this.lbInfo.TabIndex = 6;
-            this.lbInfo.Text = "Bem-vindo ao Bookids";
+            this.lbInfo.Text = resources.GetString("lbInfo.Text");
+            this.lbInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btVendas
             // 
-            this.btVendas.Location = new System.Drawing.Point(315, 189);
+            this.btVendas.Location = new System.Drawing.Point(315, 199);
             this.btVendas.Name = "btVendas";
             this.btVendas.Size = new System.Drawing.Size(172, 23);
             this.btVendas.TabIndex = 7;
@@ -143,11 +146,22 @@
             this.btVendas.UseVisualStyleBackColor = true;
             this.btVendas.Click += new System.EventHandler(this.btVendas_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F);
+            this.label1.Location = new System.Drawing.Point(12, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(258, 59);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "BOOKIDS";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 224);
+            this.ClientSize = new System.Drawing.Size(502, 242);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btVendas);
             this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.btEscolas);
@@ -158,6 +172,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "Bookids - Menu Principal";
             this.Activated += new System.EventHandler(this.Form1_Activated);
             this.menuStrip1.ResumeLayout(false);
@@ -180,6 +195,7 @@
         private System.Windows.Forms.Button btEscolas;
         private System.Windows.Forms.Label lbInfo;
         private System.Windows.Forms.Button btVendas;
+        private System.Windows.Forms.Label label1;
     }
 }
 

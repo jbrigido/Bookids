@@ -120,4 +120,10 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="lbInfo.Text" xml:space="preserve">
+    <value>Bem-vindo ao Bookids, uma aplicação auxiliar para gestão de lojas, cujo foco de merdacado passa por comércio de brinquedos e organização de eventos.
+
+Autoria de João Brigido e João Duarte.
+Alunos do primeiro ano do TESP Programação de Sistemas de Informação do núcleo de formação de Torres Vedras.</value>
+  </data>
 </root>
