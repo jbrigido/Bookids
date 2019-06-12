@@ -24,9 +24,19 @@ namespace Bookids
         public int IdCliente { get; set; }
         public System.DateTime Data { get; set; }
         public bool UtilizouCartao { get; set; }
-    
+
         public virtual Clientes Clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalheCompras> DetalheCompras { get; set; }
+
+        public decimal getTotalCompra()
+        {
+            decimal total = 0;
+            foreach(DetalheCompras dc in DetalheCompras)
+            {
+                total += dc.getTotalDetalhe();
+            }
+            return total;
+        }
     }
 }
