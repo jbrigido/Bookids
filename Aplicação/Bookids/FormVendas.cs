@@ -23,6 +23,7 @@ namespace Bookids
         private void FormVendas_Load(object sender, EventArgs e)
         {
             carregarComboClientes();
+            carregarComboTipo();
             limparDadosVendas();
         }
 
@@ -32,6 +33,14 @@ namespace Bookids
                                 orderby Clientes.Nome
                                 select Clientes;
             cbClientes.DataSource = listaClientes.ToList<Clientes>();
+        }
+
+        private void carregarComboTipo()
+        {
+            var listaTipos = from TipoProduto in BookidsContainer.TipoProdutoSet
+                             orderby TipoProduto.Tipo
+                             select TipoProduto;
+            cbTipoProduto.DataSource = listaTipos.ToList<TipoProduto>();
         }
 
         private void carregarDadosVendas(Clientes cliente)
@@ -45,10 +54,30 @@ namespace Bookids
             tbValorOferta.Text = Convert.ToString(cliente.ValorOferta);
         }
 
+        public void carregarListaProdutos()
+        {
+            var listaProdutos = from Produtos in BookidsContainer.ProdutosSet
+                                orderby Produtos.Designacao
+                                where Produtos.TipoProduto.CodTipoProduto ==
+                            ((TipoProduto)cbTipoProduto.SelectedItem).CodTipoProduto
+                                select Produtos;
+            lbProdutos.DataSource = listaProdutos.ToList<Produtos>();
+        }
+
+        public void carregarListaCompras(Compras compraAtiva)
+        {
+            var listaDetalhesCompra = from DetalheCompras in BookidsContainer.DetalheComprasSet
+                                      orderby DetalheCompras.CodProduto
+                                      where DetalheCompras.NrCompra == compraAtiva.NrCompra
+                                      select DetalheCompras;
+            detalheComprasBindingSource.DataSource = listaDetalhesCompra.ToList();
+        }
 
         private void limparDadosVendas()
         {
             dgvVendas.ClearSelection();
+            dgvVendas.Enabled = true;
+            dgvDetalhesCompra.DataSource = null;
             tbNrCartao.Clear();
             tbValorOferta.Clear();
             btRegistarVenda.Enabled = true;
@@ -56,21 +85,29 @@ namespace Bookids
             btEditarVenda.Enabled = false;
             btApagarVenda.Enabled = false;
             btCancelCleanVenda.Enabled = false;
+            dgvDetalhesCompra.Enabled = false;
+            btRemoverProduto.Enabled = false;
+            btImprimir.Enabled = false;
+            gbProdutos.Enabled = false;
         }
 
         private void btRegistarVenda_Click(object sender, EventArgs e)
         {
-            Compras nova = new Compras();
-            try
+            dgvVendas.ClearSelection();
+            dgvVendas.Enabled = false;
+            btRegistarVenda.Enabled = false;
+            btGuardarVenda.Enabled = true;
+            btCancelCleanVenda.Enabled = true;
+            Compras nova = new Compras()
             {
-                FormDetalhesVenda formDetalhesVenda = new FormDetalhesVenda(nova);
-                formDetalhesVenda.ShowDialog();
-            }
-            catch
-            {
-
-            }
-            
+                IdCliente = ((Clientes)cbClientes.SelectedItem).IdPessoa,
+                Data = DateTime.Now,
+                UtilizouCartao = false
+            };
+            BookidsContainer.ComprasSet.Add(nova);
+            BookidsContainer.SaveChanges();
+            dgvDetalhesCompra.Enabled = true;
+            gbProdutos.Enabled = true;
         }
 
         private void btEditarVenda_Click(object sender, EventArgs e)
@@ -78,8 +115,13 @@ namespace Bookids
             try
             {
                 Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
-                FormDetalhesVenda formDetalhesVenda = new FormDetalhesVenda(compra);
-                formDetalhesVenda.ShowDialog();
+                dgvVendas.Enabled = false;
+                btRegistarVenda.Enabled = false;
+                btGuardarVenda.Enabled = true;
+                btCancelCleanVenda.Enabled = true;
+                dgvDetalhesCompra.Enabled = true;
+                gbProdutos.Enabled = true;
+                carregarListaCompras(compra);
             }
             catch
             {
@@ -89,23 +131,19 @@ namespace Bookids
 
         private void cbClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btRegistarVenda.Enabled = true;
             carregarDadosVendas((Clientes)cbClientes.SelectedItem);
         }
 
         private void dgvVendas_MouseClick(object sender, MouseEventArgs e)
         {
-            try
-            {
-                Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+            Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+            if (compra != null) { 
                 btRegistarVenda.Enabled = false;
                 btEditarVenda.Enabled = true;
                 btApagarVenda.Enabled = true;
                 btCancelCleanVenda.Enabled = true;
-            }
-            catch
-            {
-
-            }
+            } 
         }
 
         private void btApagarVenda_Click(object sender, EventArgs e)
@@ -123,7 +161,7 @@ namespace Bookids
                     carregarDadosVendas((Clientes)cbClientes.SelectedItem);
                     limparDadosVendas();
                 }
-                catch
+                catch(ArgumentOutOfRangeException)
                 {
 
                 }
@@ -132,13 +170,50 @@ namespace Bookids
 
         private void btCancelCleanVenda_Click(object sender, EventArgs e)
         {
-            dgvVendas.ClearSelection();
-            dgvDetalhesCompra.ClearSelection();
-            btRegistarVenda.Enabled = true;
-            btEditarVenda.Enabled = false;
-            btGuardarVenda.Enabled = false;
-            btApagarVenda.Enabled = false;
-            btCancelCleanVenda.Enabled = false;
+            limparDadosVendas();
+        }
+
+        private void cbTipoProduto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregarListaProdutos();
+            lbProdutos.ClearSelected();
+        }
+
+        private void dgvDetalhesCompra_MouseClick(object sender, MouseEventArgs e)
+        {
+            btRemoverProduto.Enabled = true;
+        }
+
+        private void btAdicionarProduto_Click(object sender, EventArgs e)
+        {
+            Produtos produto = (Produtos)lbProdutos.SelectedItem;
+            /*foreach (Produtos prod in lbProdutos.Items)
+            {
+                if (prod.CodProduto == ((Produtos)lbProdutos.SelectedItem).CodProduto)
+                {
+                    cbTipoProduto.DropDownStyle = ComboBoxStyle.DropDownList;
+                    carregarComboTipo();
+                    return;
+                }
+            }*/
+            if (produto != null && nmQuantidade.Value <= produto.StockExistente)
+            {
+                DetalheCompras novo = new DetalheCompras()
+                {
+                    Quantidade = (Int32)nmQuantidade.Value,
+                    NrCompra = ((Compras)dgvVendas.SelectedRows[0].DataBoundItem).NrCompra,
+                    CodProduto = produto.CodProduto
+                };
+                BookidsContainer.DetalheComprasSet.Add(novo);
+                produto.StockExistente -= novo.Quantidade;
+                BookidsContainer.SaveChanges();
+                carregarListaCompras((Compras)dgvVendas.SelectedRows[0].DataBoundItem);
+                carregarListaProdutos();
+            }
+            else
+            {
+                MessageBox.Show("Stock insuficiente!");
+            }
         }
     }
 }

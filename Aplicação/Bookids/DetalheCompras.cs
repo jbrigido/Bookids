@@ -20,5 +20,11 @@ namespace Bookids
     
         public virtual Compras Compras { get; set; }
         public virtual Produtos Produtos { get; set; }
+
+        public override string ToString()
+        {
+            return Produtos.Designacao + ": " + Quantidade;
+        }
     }
+
 }
