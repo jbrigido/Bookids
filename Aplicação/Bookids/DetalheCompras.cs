@@ -23,7 +23,7 @@ namespace Bookids
 
         public override string ToString()
         {
-            return Produtos.Designacao + ": " + Quantidade;
+            return Produtos.Designacao + " (" + Quantidade + ") -  " + Produtos.Preco + "€/uni";
         }
 
         public decimal getTotalDetalhe()

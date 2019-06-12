@@ -69,14 +69,13 @@ namespace Bookids
             var listaDetalhesCompra = from DetalheCompras in BookidsContainer.DetalheComprasSet
                                       where DetalheCompras.NrCompra == compra.NrCompra
                                       select DetalheCompras;
-            detalheComprasBindingSource.DataSource = listaDetalhesCompra.ToList();
+            lbListaDetalhes.DataSource = listaDetalhesCompra.ToList<DetalheCompras>();
         }
 
         private void limparDadosVendas()
         {
             dgvVendas.ClearSelection();
             dgvVendas.Enabled = true;
-            dgvDetalhesCompra.DataSource = null;
             tbNrCartao.Clear();
             tbValorOferta.Clear();
             btRegistarVenda.Enabled = true;
@@ -84,10 +83,10 @@ namespace Bookids
             btEditarVenda.Enabled = false;
             btApagarVenda.Enabled = false;
             btCancelCleanVenda.Enabled = false;
-            dgvDetalhesCompra.Enabled = false;
-            btRemoverProduto.Enabled = false;
+            btRemoverDetalhe.Enabled = false;
             btImprimir.Enabled = false;
             gbProdutos.Enabled = false;
+            gbDetalhes.Enabled = false;
         }
 
         private void btRegistarVenda_Click(object sender, EventArgs e)
@@ -105,9 +104,8 @@ namespace Bookids
             };
             BookidsContainer.ComprasSet.Add(nova);
             BookidsContainer.SaveChanges();
+            carregarDadosVendas((Clientes)cbClientes.SelectedItem);
             carregarListaCompras(nova);
-            dgvDetalhesCompra.Enabled = true;
-            gbProdutos.Enabled = true;
         }
 
         private void btEditarVenda_Click(object sender, EventArgs e)
@@ -119,8 +117,9 @@ namespace Bookids
                 btRegistarVenda.Enabled = false;
                 btGuardarVenda.Enabled = true;
                 btCancelCleanVenda.Enabled = true;
-                dgvDetalhesCompra.Enabled = true;
+                
                 gbProdutos.Enabled = true;
+                gbDetalhes.Enabled = true;
                 carregarListaCompras(compra);
             }
             catch
@@ -137,15 +136,25 @@ namespace Bookids
 
         private void dgvVendas_MouseClick(object sender, MouseEventArgs e)
         {
-            Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+            try
+            {
+                Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
 
-            if (compra != null) { 
-                btRegistarVenda.Enabled = false;
-                btEditarVenda.Enabled = true;
-                btApagarVenda.Enabled = true;
-                btCancelCleanVenda.Enabled = true;
-                carregarListaCompras(compra);
-            } 
+                if (compra != null)
+                {
+                    btRegistarVenda.Enabled = false;
+                    btEditarVenda.Enabled = true;
+                    btApagarVenda.Enabled = true;
+                    btCancelCleanVenda.Enabled = true;
+                    carregarListaCompras(compra);
+                    lbListaDetalhes.ClearSelected();
+                }
+            }
+            catch
+            {
+
+            }
+                 
         }
 
         private void btApagarVenda_Click(object sender, EventArgs e)
@@ -183,18 +192,18 @@ namespace Bookids
 
         private void dgvDetalhesCompra_MouseClick(object sender, MouseEventArgs e)
         {
-            btRemoverProduto.Enabled = true;
+            btRemoverDetalhe.Enabled = true;
             try
             {
                 Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
                 if (compra != null)
                 {
-                    DetalheCompras detalhe = (DetalheCompras)dgvDetalhesCompra.SelectedRows[0].DataBoundItem;
+                    DetalheCompras detalhe = (DetalheCompras)lbListaDetalhes.SelectedItem;
                     if (detalhe != null)
                     {
                         btRegistarVenda.Enabled = false;
                         btCancelCleanVenda.Enabled = true;
-                        btRemoverProduto.Enabled = true;
+                        btRemoverDetalhe.Enabled = true;
                     }
                 }
             }
@@ -204,40 +213,52 @@ namespace Bookids
             }
         }
 
-        private void btAdicionarProduto_Click(object sender, EventArgs e)
+
+        private void btRemoverDetalhe_Click(object sender, EventArgs e)
         {
-            Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
-            if (compra != null)
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja remover o Produto?",
+                "Remover", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
             {
-                DetalheCompras detalhe = (DetalheCompras)dgvDetalhesCompra.SelectedRows[0].DataBoundItem;
+                Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+                DetalheCompras detalhe = (DetalheCompras)lbListaDetalhes.SelectedItem;
                 if (detalhe != null)
                 {
-                    Produtos produto = (Produtos)lbProdutos.SelectedItem;
-                    if (produto != null && nmQuantidade.Value > 0)
-                    {
-                        detalhe.CodProduto = produto.CodProduto;
-                        detalhe.NrCompra = compra.NrCompra;
-                        detalhe.Quantidade = (int)nmQuantidade.Value;
-                    }
+                    BookidsContainer.DetalheComprasSet.Remove(detalhe);
                     BookidsContainer.SaveChanges();
-                    carregarListaCompras(compra);
-                }
-                else
-                {
-                    DetalheCompras novoDetalhe = new DetalheCompras();
-                    Produtos produto = (Produtos)lbProdutos.SelectedItem;
-                    if (produto != null && nmQuantidade.Value > 0)
-                    {
-                        novoDetalhe.CodProduto = produto.CodProduto;
-                        novoDetalhe.NrCompra = compra.NrCompra;
-                        novoDetalhe.Quantidade = (int)nmQuantidade.Value;
-                    }
-                    BookidsContainer.DetalheComprasSet.Add(novoDetalhe);
-                    BookidsContainer.SaveChanges();
+                    limparDadosVendas();
                     carregarListaCompras(compra);
                 }
             }
-           
+        }
+
+        private void btAdicionarProduto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+                if (compra != null)
+                {
+                    Produtos produto = (Produtos)lbProdutos.SelectedItem;
+                    if (produto != null && nmQuantidade.Value > 0)
+                    {
+                        DetalheCompras detalhe = new DetalheCompras()
+                        {
+                            CodProduto = produto.CodProduto,
+                            NrCompra = compra.NrCompra,
+                            Quantidade = (int)nmQuantidade.Value
+                        };
+                        BookidsContainer.DetalheComprasSet.Add(detalhe);
+                        BookidsContainer.SaveChanges();
+                    }
+                    carregarListaCompras(compra);
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

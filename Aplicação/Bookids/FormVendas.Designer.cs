@@ -268,6 +268,7 @@
             this.btAdicionarProduto.TabIndex = 29;
             this.btAdicionarProduto.Text = "Adicionar à Lista";
             this.btAdicionarProduto.UseVisualStyleBackColor = true;
+            this.btAdicionarProduto.Click += new System.EventHandler(this.btAdicionarProduto_Click);
             // 
             // nmQuantidade
             // 
@@ -354,13 +355,14 @@
             this.btRemoverDetalhe.TabIndex = 3;
             this.btRemoverDetalhe.Text = "Remover";
             this.btRemoverDetalhe.UseVisualStyleBackColor = true;
+            this.btRemoverDetalhe.Click += new System.EventHandler(this.btRemoverDetalhe_Click);
             // 
             // lbListaDetalhes
             // 
             this.lbListaDetalhes.FormattingEnabled = true;
             this.lbListaDetalhes.Location = new System.Drawing.Point(7, 33);
             this.lbListaDetalhes.Name = "lbListaDetalhes";
-            this.lbListaDetalhes.Size = new System.Drawing.Size(245, 160);
+            this.lbListaDetalhes.Size = new System.Drawing.Size(232, 160);
             this.lbListaDetalhes.TabIndex = 0;
             // 
             // FormVendas
