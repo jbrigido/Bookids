@@ -52,6 +52,7 @@
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.escolasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelNomeForm = new System.Windows.Forms.Label();
             this.groupBoxEscolas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscolas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escolasBindingSource)).BeginInit();
@@ -76,7 +77,7 @@
             this.groupBoxEscolas.Controls.Add(this.tbMoradaEscolas);
             this.groupBoxEscolas.Controls.Add(this.tbLocalidadeEscolas);
             this.groupBoxEscolas.Controls.Add(this.tbMailEscolas);
-            this.groupBoxEscolas.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxEscolas.Location = new System.Drawing.Point(12, 71);
             this.groupBoxEscolas.Name = "groupBoxEscolas";
             this.groupBoxEscolas.Size = new System.Drawing.Size(268, 332);
             this.groupBoxEscolas.TabIndex = 37;
@@ -248,7 +249,7 @@
             this.telefoneDataGridViewTextBoxColumn,
             this.localidadeDataGridViewTextBoxColumn});
             this.dgvEscolas.DataSource = this.escolasBindingSource;
-            this.dgvEscolas.Location = new System.Drawing.Point(286, 12);
+            this.dgvEscolas.Location = new System.Drawing.Point(286, 71);
             this.dgvEscolas.Name = "dgvEscolas";
             this.dgvEscolas.ReadOnly = true;
             this.dgvEscolas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -281,11 +282,22 @@
             // 
             this.escolasBindingSource.DataSource = typeof(Bookids.Escolas);
             // 
+            // labelNomeForm
+            // 
+            this.labelNomeForm.AutoSize = true;
+            this.labelNomeForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F);
+            this.labelNomeForm.Location = new System.Drawing.Point(9, 9);
+            this.labelNomeForm.Name = "labelNomeForm";
+            this.labelNomeForm.Size = new System.Drawing.Size(204, 59);
+            this.labelNomeForm.TabIndex = 39;
+            this.labelNomeForm.Text = "Escolas";
+            // 
             // FormEscolas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 356);
+            this.ClientSize = new System.Drawing.Size(642, 414);
+            this.Controls.Add(this.labelNomeForm);
             this.Controls.Add(this.dgvEscolas);
             this.Controls.Add(this.groupBoxEscolas);
             this.Name = "FormEscolas";
@@ -297,6 +309,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEscolas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.escolasBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -325,5 +338,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn localidadeDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btCancelClean;
         private System.Windows.Forms.MaskedTextBox tbTelefoneEscolas;
+        private System.Windows.Forms.Label labelNomeForm;
     }
 }
