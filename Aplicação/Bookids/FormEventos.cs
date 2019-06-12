@@ -477,5 +477,24 @@ namespace Bookids
             BookidsContainer.SaveChanges();
             carregarListaInscricoes(evento);
         }
+
+        private void btRemoverFilho_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja remover esta inscrição ?",
+                "Remover", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+                Inscricoes inscricao  = (Inscricoes)lbInscricoes.SelectedItem;
+                if (inscricao != null)
+                {
+                    BookidsContainer.InscricoesSet.Remove(inscricao);
+                    BookidsContainer.SaveChanges();
+                    limparDadosEventos();
+                    carregarListaParticipacoes(evento);
+                }
+            }
+        }
     }
 }

@@ -499,6 +499,7 @@
             this.btRemoverFilho.TabIndex = 3;
             this.btRemoverFilho.Text = "Remover";
             this.btRemoverFilho.UseVisualStyleBackColor = true;
+            this.btRemoverFilho.Click += new System.EventHandler(this.btRemoverFilho_Click);
             // 
             // btAdicionarFilho
             // 
