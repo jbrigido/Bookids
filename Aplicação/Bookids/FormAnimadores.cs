@@ -214,16 +214,23 @@ namespace Bookids
             DialogResult dr = MessageBox.Show("Tem a certeza que deseja apagar este animador ?",
                 "Apagar", MessageBoxButtons.YesNo);
 
-            if(dr == DialogResult.Yes)
+            try
             {
-                Animadores animador = (Animadores)dgvAnimadores.SelectedRows[0].DataBoundItem;
-                if(animador != null)
+                if (dr == DialogResult.Yes)
                 {
-                    BookidsContainer.AnimadoresSet.Remove(animador);
-                    BookidsContainer.SaveChanges();
-                    limparDados();
-                    carregarAnimadores();
+                    Animadores animador = (Animadores)dgvAnimadores.SelectedRows[0].DataBoundItem;
+                    if (animador != null)
+                    {
+                        BookidsContainer.AnimadoresSet.Remove(animador);
+                        BookidsContainer.SaveChanges();
+                        limparDados();
+                        carregarAnimadores();
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Este animador não pode ser eliminado enquanto constar noutros registos !");
             }
         }
 

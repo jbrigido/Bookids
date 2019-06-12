@@ -362,7 +362,7 @@ namespace Bookids
                         };
                         BookidsContainer.ColaboracoesSet.Add(nova);
                         BookidsContainer.SaveChanges();
-                        limparDadosEventos();
+                        carregarListaColaboracoes(evento);
                     }
                 }
             }
@@ -381,7 +381,6 @@ namespace Bookids
                 {
                     BookidsContainer.ColaboracoesSet.Remove(colaboracao);
                     BookidsContainer.SaveChanges();
-                    limparDadosEventos();
                     carregarListaColaboracoes(evento);
                 }
             }           
@@ -407,7 +406,7 @@ namespace Bookids
                         };
                         BookidsContainer.ParticipacoesSet.Add(nova);
                         BookidsContainer.SaveChanges();
-                        limparDadosEventos();
+                        carregarListaParticipacoes(evento);
                     }
                 }
             }
@@ -426,7 +425,6 @@ namespace Bookids
                 {
                     BookidsContainer.ParticipacoesSet.Remove(participacao);
                     BookidsContainer.SaveChanges();
-                    limparDadosEventos();
                     carregarListaParticipacoes(evento);
                 }
             }
@@ -453,7 +451,7 @@ namespace Bookids
                         };
                         BookidsContainer.InscricoesSet.Add(nova);
                         BookidsContainer.SaveChanges();
-                        limparDadosEventos();
+                        carregarListaInscricoes(evento);
                     }
                 }
             }
@@ -491,8 +489,7 @@ namespace Bookids
                 {
                     BookidsContainer.InscricoesSet.Remove(inscricao);
                     BookidsContainer.SaveChanges();
-                    limparDadosEventos();
-                    carregarListaParticipacoes(evento);
+                    carregarListaInscricoes(evento);
                 }
             }
         }
