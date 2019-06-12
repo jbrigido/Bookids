@@ -73,7 +73,7 @@
             this.localidadeDataGridViewTextBoxColumn,
             this.especialidadeDataGridViewTextBoxColumn});
             this.dgvAnimadores.DataSource = this.animadoresBindingSource;
-            this.dgvAnimadores.Location = new System.Drawing.Point(289, 85);
+            this.dgvAnimadores.Location = new System.Drawing.Point(289, 71);
             this.dgvAnimadores.Name = "dgvAnimadores";
             this.dgvAnimadores.ReadOnly = true;
             this.dgvAnimadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -129,7 +129,7 @@
             this.groupBoxAnimadores.Controls.Add(this.btGuardarAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.tbMoradaAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.tbLocalidadeAnimadores);
-            this.groupBoxAnimadores.Location = new System.Drawing.Point(12, 85);
+            this.groupBoxAnimadores.Location = new System.Drawing.Point(12, 71);
             this.groupBoxAnimadores.Name = "groupBoxAnimadores";
             this.groupBoxAnimadores.Size = new System.Drawing.Size(271, 383);
             this.groupBoxAnimadores.TabIndex = 38;
@@ -339,7 +339,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 480);
+            this.ClientSize = new System.Drawing.Size(644, 463);
             this.Controls.Add(this.labelNomeForm);
             this.Controls.Add(this.groupBoxAnimadores);
             this.Controls.Add(this.dgvAnimadores);
