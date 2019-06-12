@@ -56,6 +56,7 @@
             this.btGuardarAnimadores = new System.Windows.Forms.Button();
             this.tbMoradaAnimadores = new System.Windows.Forms.TextBox();
             this.tbLocalidadeAnimadores = new System.Windows.Forms.TextBox();
+            this.labelNomeForm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).BeginInit();
             this.groupBoxAnimadores.SuspendLayout();
@@ -72,7 +73,7 @@
             this.localidadeDataGridViewTextBoxColumn,
             this.especialidadeDataGridViewTextBoxColumn});
             this.dgvAnimadores.DataSource = this.animadoresBindingSource;
-            this.dgvAnimadores.Location = new System.Drawing.Point(289, 12);
+            this.dgvAnimadores.Location = new System.Drawing.Point(289, 85);
             this.dgvAnimadores.Name = "dgvAnimadores";
             this.dgvAnimadores.ReadOnly = true;
             this.dgvAnimadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -128,7 +129,7 @@
             this.groupBoxAnimadores.Controls.Add(this.btGuardarAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.tbMoradaAnimadores);
             this.groupBoxAnimadores.Controls.Add(this.tbLocalidadeAnimadores);
-            this.groupBoxAnimadores.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxAnimadores.Location = new System.Drawing.Point(12, 85);
             this.groupBoxAnimadores.Name = "groupBoxAnimadores";
             this.groupBoxAnimadores.Size = new System.Drawing.Size(271, 383);
             this.groupBoxAnimadores.TabIndex = 38;
@@ -324,21 +325,34 @@
             this.tbLocalidadeAnimadores.Size = new System.Drawing.Size(177, 20);
             this.tbLocalidadeAnimadores.TabIndex = 29;
             // 
+            // labelNomeForm
+            // 
+            this.labelNomeForm.AutoSize = true;
+            this.labelNomeForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 38.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNomeForm.Location = new System.Drawing.Point(9, 9);
+            this.labelNomeForm.Name = "labelNomeForm";
+            this.labelNomeForm.Size = new System.Drawing.Size(295, 59);
+            this.labelNomeForm.TabIndex = 39;
+            this.labelNomeForm.Text = "Animadores";
+            // 
             // FormAnimadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 403);
+            this.ClientSize = new System.Drawing.Size(644, 480);
+            this.Controls.Add(this.labelNomeForm);
             this.Controls.Add(this.groupBoxAnimadores);
             this.Controls.Add(this.dgvAnimadores);
             this.Name = "FormAnimadores";
-            this.Text = "FormAnimadores";
+            this.ShowIcon = false;
+            this.Text = "Bookids - Animadores";
             this.Load += new System.EventHandler(this.FormAnimadores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimadores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).EndInit();
             this.groupBoxAnimadores.ResumeLayout(false);
             this.groupBoxAnimadores.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -370,5 +384,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn especialidadeDataGridViewTextBoxColumn;
         private System.Windows.Forms.MaskedTextBox tbTelemovelAnimadores;
         private System.Windows.Forms.MaskedTextBox tbTelefoneAnimadores;
+        private System.Windows.Forms.Label labelNomeForm;
     }
 }
