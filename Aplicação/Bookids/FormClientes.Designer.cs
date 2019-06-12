@@ -621,9 +621,9 @@
             this.labelNomeForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F);
             this.labelNomeForm.Location = new System.Drawing.Point(9, 9);
             this.labelNomeForm.Name = "labelNomeForm";
-            this.labelNomeForm.Size = new System.Drawing.Size(208, 59);
+            this.labelNomeForm.Size = new System.Drawing.Size(399, 59);
             this.labelNomeForm.TabIndex = 14;
-            this.labelNomeForm.Text = "Clientes";
+            this.labelNomeForm.Text = "Clientes e Filhos";
             // 
             // FormClientes
             // 
