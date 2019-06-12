@@ -19,5 +19,10 @@ namespace Bookids
     
         public virtual Escolas Escolas { get; set; }
         public virtual Eventos Eventos { get; set; }
+
+        public override string ToString()
+        {
+            return Escolas.Nome + " (" + Escolas.Localidade + ")";
+        }
     }
 }
