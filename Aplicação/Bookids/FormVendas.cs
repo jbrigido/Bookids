@@ -75,6 +75,8 @@ namespace Bookids
         private void limparDadosVendas()
         {
             dgvVendas.ClearSelection();
+            lbListaDetalhes.ClearSelected();
+            lbProdutos.ClearSelected();
             dgvVendas.Enabled = true;
             tbNrCartao.Clear();
             tbValorOferta.Clear();
@@ -244,10 +246,12 @@ namespace Bookids
                             NrCompra = compra.NrCompra,
                             Quantidade = (int)nmQuantidade.Value
                         };
+                        produto.StockExistente = produto.StockExistente - detalhe.Quantidade;
                         BookidsContainer.DetalheComprasSet.Add(detalhe);
                         BookidsContainer.SaveChanges();
                     }
                     carregarListaCompras(compra);
+                    carregarListaProdutos();
                 }
             }
             catch

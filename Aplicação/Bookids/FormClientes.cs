@@ -456,19 +456,23 @@ namespace Bookids
 
             if (dr == DialogResult.Yes)
             {
+                try
+                {
                     Filhos filho = (Filhos)dgvFilhos.SelectedRows[0].DataBoundItem;
                     if (filho != null)
                     {
-                        //COMO REMOVER OS FILHOS DO CLIENTE REMOVIDO?
                         BookidsContainer.FilhosSet.Remove(filho);
                         BookidsContainer.SaveChanges();
                         carregarFilhos(cliente);
                         limparDadosFilhos();
                         limparDadosClientes();
+                    }
+                }
+                catch
+                {
 
-                    }                
+                }             
             }
-
         }
     }
 }

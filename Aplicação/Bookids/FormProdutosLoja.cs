@@ -41,8 +41,6 @@ namespace Bookids
                              orderby TipoProduto.Tipo
                              select TipoProduto;
             cbTipoProduto.DataSource = listaTipos.ToList<TipoProduto>();
-            //cbTipoProduto.DisplayMember = "Tipo";
-            //cbTipoProduto.ValueMember = "CodTipoProduto";
         }
 
         private void cbTipoProduto_MouseUp(object sender, MouseEventArgs e)
