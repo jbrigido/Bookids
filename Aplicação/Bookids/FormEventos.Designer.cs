@@ -32,6 +32,11 @@
             this.groupBoxEventos = new System.Windows.Forms.GroupBox();
             this.tbHorasEvento = new System.Windows.Forms.MaskedTextBox();
             this.dgvEventos = new System.Windows.Forms.DataGridView();
+            this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.limiteParticipacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btCancelClean = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nmIdadeMax = new System.Windows.Forms.NumericUpDown();
@@ -64,25 +69,20 @@
             this.cbEscolas = new System.Windows.Forms.ComboBox();
             this.lbParticipacoes = new System.Windows.Forms.ListBox();
             this.groupBoxInscricoes = new System.Windows.Forms.GroupBox();
-            this.lbInscricoes = new System.Windows.Forms.CheckedListBox();
             this.checkBoxFilhoConfirmado = new System.Windows.Forms.CheckBox();
             this.btRemoverFilho = new System.Windows.Forms.Button();
             this.btAdicionarFilho = new System.Windows.Forms.Button();
             this.cbFilhos = new System.Windows.Forms.ComboBox();
-            this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.limiteParticipacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lbInscricoes = new System.Windows.Forms.ListBox();
             this.groupBoxEventos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticipantes)).BeginInit();
             this.groupBoxColaboracoes.SuspendLayout();
             this.groupBoxParticipacoes.SuspendLayout();
             this.groupBoxInscricoes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxEventos
@@ -144,6 +144,38 @@
             this.dgvEventos.Size = new System.Drawing.Size(475, 299);
             this.dgvEventos.TabIndex = 56;
             this.dgvEventos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEventos_MouseClick);
+            // 
+            // nrEventoDataGridViewTextBoxColumn
+            // 
+            this.nrEventoDataGridViewTextBoxColumn.DataPropertyName = "NrEvento";
+            this.nrEventoDataGridViewTextBoxColumn.HeaderText = "NrEvento";
+            this.nrEventoDataGridViewTextBoxColumn.Name = "nrEventoDataGridViewTextBoxColumn";
+            this.nrEventoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // localDataGridViewTextBoxColumn
+            // 
+            this.localDataGridViewTextBoxColumn.DataPropertyName = "Local";
+            this.localDataGridViewTextBoxColumn.HeaderText = "Local";
+            this.localDataGridViewTextBoxColumn.Name = "localDataGridViewTextBoxColumn";
+            this.localDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataHoraDataGridViewTextBoxColumn
+            // 
+            this.dataHoraDataGridViewTextBoxColumn.DataPropertyName = "DataHora";
+            this.dataHoraDataGridViewTextBoxColumn.HeaderText = "DataHora";
+            this.dataHoraDataGridViewTextBoxColumn.Name = "dataHoraDataGridViewTextBoxColumn";
+            this.dataHoraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // limiteParticipacoesDataGridViewTextBoxColumn
+            // 
+            this.limiteParticipacoesDataGridViewTextBoxColumn.DataPropertyName = "LimiteParticipacoes";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.HeaderText = "LimiteParticipacoes";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.Name = "limiteParticipacoesDataGridViewTextBoxColumn";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eventosBindingSource
+            // 
+            this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
             // 
             // btCancelClean
             // 
@@ -439,14 +471,6 @@
             this.groupBoxInscricoes.TabStop = false;
             this.groupBoxInscricoes.Text = "Filhos Inscritos";
             // 
-            // lbInscricoes
-            // 
-            this.lbInscricoes.FormattingEnabled = true;
-            this.lbInscricoes.Location = new System.Drawing.Point(7, 47);
-            this.lbInscricoes.Name = "lbInscricoes";
-            this.lbInscricoes.Size = new System.Drawing.Size(245, 94);
-            this.lbInscricoes.TabIndex = 5;
-            // 
             // checkBoxFilhoConfirmado
             // 
             this.checkBoxFilhoConfirmado.AutoSize = true;
@@ -474,6 +498,7 @@
             this.btAdicionarFilho.TabIndex = 2;
             this.btAdicionarFilho.Text = "Adicionar";
             this.btAdicionarFilho.UseVisualStyleBackColor = true;
+            this.btAdicionarFilho.Click += new System.EventHandler(this.btAdicionarFilho_Click);
             // 
             // cbFilhos
             // 
@@ -484,37 +509,13 @@
             this.cbFilhos.Size = new System.Drawing.Size(245, 21);
             this.cbFilhos.TabIndex = 1;
             // 
-            // nrEventoDataGridViewTextBoxColumn
+            // lbInscricoes
             // 
-            this.nrEventoDataGridViewTextBoxColumn.DataPropertyName = "NrEvento";
-            this.nrEventoDataGridViewTextBoxColumn.HeaderText = "NrEvento";
-            this.nrEventoDataGridViewTextBoxColumn.Name = "nrEventoDataGridViewTextBoxColumn";
-            this.nrEventoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // localDataGridViewTextBoxColumn
-            // 
-            this.localDataGridViewTextBoxColumn.DataPropertyName = "Local";
-            this.localDataGridViewTextBoxColumn.HeaderText = "Local";
-            this.localDataGridViewTextBoxColumn.Name = "localDataGridViewTextBoxColumn";
-            this.localDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataHoraDataGridViewTextBoxColumn
-            // 
-            this.dataHoraDataGridViewTextBoxColumn.DataPropertyName = "DataHora";
-            this.dataHoraDataGridViewTextBoxColumn.HeaderText = "DataHora";
-            this.dataHoraDataGridViewTextBoxColumn.Name = "dataHoraDataGridViewTextBoxColumn";
-            this.dataHoraDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // limiteParticipacoesDataGridViewTextBoxColumn
-            // 
-            this.limiteParticipacoesDataGridViewTextBoxColumn.DataPropertyName = "LimiteParticipacoes";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.HeaderText = "LimiteParticipacoes";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.Name = "limiteParticipacoesDataGridViewTextBoxColumn";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eventosBindingSource
-            // 
-            this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
+            this.lbInscricoes.FormattingEnabled = true;
+            this.lbInscricoes.Location = new System.Drawing.Point(7, 46);
+            this.lbInscricoes.Name = "lbInscricoes";
+            this.lbInscricoes.Size = new System.Drawing.Size(245, 95);
+            this.lbInscricoes.TabIndex = 4;
             // 
             // FormEventos
             // 
@@ -532,6 +533,7 @@
             this.groupBoxEventos.ResumeLayout(false);
             this.groupBoxEventos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmLimiteParticipantes)).EndInit();
@@ -539,7 +541,6 @@
             this.groupBoxParticipacoes.ResumeLayout(false);
             this.groupBoxInscricoes.ResumeLayout(false);
             this.groupBoxInscricoes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -590,6 +591,6 @@
         private System.Windows.Forms.ComboBox cbFilhos;
         private System.Windows.Forms.CheckBox checkBoxFilhoConfirmado;
         private System.Windows.Forms.MaskedTextBox tbHorasEvento;
-        private System.Windows.Forms.CheckedListBox lbInscricoes;
+        private System.Windows.Forms.ListBox lbInscricoes;
     }
 }

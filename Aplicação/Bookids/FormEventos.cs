@@ -81,6 +81,15 @@ namespace Bookids
             lbParticipacoes.DataSource = listaParticipacoes.ToList<Participacoes>();
         }
 
+        private void carregarListaInscricoes(Eventos evento)
+        {
+            var listaInscricoes = from Inscricoes in BookidsContainer.InscricoesSet
+                                  orderby Inscricoes.IdFilho
+                                  where Inscricoes.NrEvento == evento.NrEvento
+                                  select Inscricoes;
+            lbInscricoes.DataSource = listaInscricoes.ToList<Inscricoes>();
+        }
+
         private bool dadosPreenchidosEventos()
         {
             if(tbDescricaoEvento.Text == string.Empty)
@@ -133,6 +142,7 @@ namespace Bookids
             nmIdadeMin.ResetText();
             nmIdadeMax.ResetText();
             lbColaboracoes.ClearSelected();
+            lbParticipacoes.ClearSelected();
             tbDescricaoEvento.Enabled = false;
             nmLimiteParticipantes.Enabled = false;
             tbLocalEvento.Enabled = false;
@@ -149,11 +159,11 @@ namespace Bookids
             cbAnimadores.Enabled = false;
             btAdicionarAnimador.Enabled = false;
             btRemoverAnimador.Enabled = false;
-            lbColaboracoes.DataSource = null;
-            lbParticipacoes.DataSource = null;
+            lbColaboracoes.DataSource = null;           
             cbEscolas.Enabled = false;
             btAdicionarEscola.Enabled = false;
             btRemoverEscola.Enabled = false;
+            lbParticipacoes.DataSource = null;
             cbFilhos.Enabled = false;
             checkBoxFilhoConfirmado.Enabled = false;
             btAdicionarFilho.Enabled = false;
@@ -202,6 +212,9 @@ namespace Bookids
             cbEscolas.Enabled = true;
             btAdicionarEscola.Enabled = true;
             btRemoverEscola.Enabled = true;
+            cbFilhos.Enabled = true;
+            btAdicionarFilho.Enabled = true;
+            btRemoverFilho.Enabled = true;
             dgvEventos.Enabled = false;
         }
 
@@ -265,6 +278,7 @@ namespace Bookids
                 {
                     carregarListaColaboracoes(evento);
                     carregarListaParticipacoes(evento);
+                    carregarListaInscricoes(evento);
                     btCriarEvento.Enabled = false;
                     btEditarEvento.Enabled = true;
                     btApagarEvento.Enabled = true;
@@ -411,6 +425,33 @@ namespace Bookids
                     BookidsContainer.SaveChanges();
                     limparDadosEventos();
                     carregarListaParticipacoes(evento);
+                }
+            }
+        }
+
+        private void btAdicionarFilho_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tem a certeza que deseja adicionar esta inscrição ?",
+                "Adicionar", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+                if (evento != null)
+                {
+                    Filhos filho = (Filhos)cbFilhos.SelectedItem;
+                    if (filho != null)
+                    {
+                        Inscricoes nova = new Inscricoes()
+                        {
+                            Confirmada = checkBoxFilhoConfirmado.Checked,
+                            IdFilho = filho.IdPessoa,
+                            NrEvento = evento.NrEvento
+                        };
+                        BookidsContainer.InscricoesSet.Add(nova);
+                        BookidsContainer.SaveChanges();
+                        limparDadosEventos();
+                    }
                 }
             }
         }
