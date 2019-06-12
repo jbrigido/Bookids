@@ -25,6 +25,13 @@ namespace Bookids
         {
             return Produtos.Designacao + ": " + Quantidade;
         }
+
+        public decimal getTotalDetalhe()
+        {
+            decimal total = Produtos.Preco * Quantidade;
+            
+            return total;
+        }
     }
 
 }

@@ -64,11 +64,11 @@
             this.cbEscolas = new System.Windows.Forms.ComboBox();
             this.lbParticipacoes = new System.Windows.Forms.ListBox();
             this.groupBoxInscricoes = new System.Windows.Forms.GroupBox();
-            this.lbInscricoes = new System.Windows.Forms.CheckedListBox();
             this.checkBoxFilhoConfirmado = new System.Windows.Forms.CheckBox();
             this.btRemoverFilho = new System.Windows.Forms.Button();
             this.btAdicionarFilho = new System.Windows.Forms.Button();
             this.cbFilhos = new System.Windows.Forms.ComboBox();
+            this.lbInscricoes = new System.Windows.Forms.ListBox();
             this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -439,14 +439,6 @@
             this.groupBoxInscricoes.TabStop = false;
             this.groupBoxInscricoes.Text = "Filhos Inscritos";
             // 
-            // lbInscricoes
-            // 
-            this.lbInscricoes.FormattingEnabled = true;
-            this.lbInscricoes.Location = new System.Drawing.Point(7, 47);
-            this.lbInscricoes.Name = "lbInscricoes";
-            this.lbInscricoes.Size = new System.Drawing.Size(245, 94);
-            this.lbInscricoes.TabIndex = 5;
-            // 
             // checkBoxFilhoConfirmado
             // 
             this.checkBoxFilhoConfirmado.AutoSize = true;
@@ -456,6 +448,7 @@
             this.checkBoxFilhoConfirmado.TabIndex = 4;
             this.checkBoxFilhoConfirmado.Text = "Confirmado";
             this.checkBoxFilhoConfirmado.UseVisualStyleBackColor = true;
+            this.checkBoxFilhoConfirmado.CheckedChanged += new System.EventHandler(this.checkBoxFilhoConfirmado_CheckedChanged);
             // 
             // btRemoverFilho
             // 
@@ -474,6 +467,7 @@
             this.btAdicionarFilho.TabIndex = 2;
             this.btAdicionarFilho.Text = "Adicionar";
             this.btAdicionarFilho.UseVisualStyleBackColor = true;
+            this.btAdicionarFilho.Click += new System.EventHandler(this.btAdicionarFilho_Click);
             // 
             // cbFilhos
             // 
@@ -483,6 +477,14 @@
             this.cbFilhos.Name = "cbFilhos";
             this.cbFilhos.Size = new System.Drawing.Size(245, 21);
             this.cbFilhos.TabIndex = 1;
+            // 
+            // lbInscricoes
+            // 
+            this.lbInscricoes.FormattingEnabled = true;
+            this.lbInscricoes.Location = new System.Drawing.Point(7, 46);
+            this.lbInscricoes.Name = "lbInscricoes";
+            this.lbInscricoes.Size = new System.Drawing.Size(245, 95);
+            this.lbInscricoes.TabIndex = 4;
             // 
             // nrEventoDataGridViewTextBoxColumn
             // 
@@ -590,6 +592,6 @@
         private System.Windows.Forms.ComboBox cbFilhos;
         private System.Windows.Forms.CheckBox checkBoxFilhoConfirmado;
         private System.Windows.Forms.MaskedTextBox tbHorasEvento;
-        private System.Windows.Forms.CheckedListBox lbInscricoes;
+        private System.Windows.Forms.ListBox lbInscricoes;
     }
 }
