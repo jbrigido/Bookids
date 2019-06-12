@@ -259,5 +259,23 @@ namespace Bookids
 
             }
         }
+
+        private void checkBoxUtilizouCartao_CheckedChanged(object sender, EventArgs e)
+        {
+            Clientes cliente = (Clientes)cbClientes.SelectedItem;
+            Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+            if(compra != null)
+            {
+                if (checkBoxUtilizouCartao.Checked)
+                {
+                    compra.UtilizouCartao = true;
+                }
+                else
+                {
+                    compra.UtilizouCartao = false;
+                }
+            }
+            BookidsContainer.SaveChanges();
+        }
     }
 }

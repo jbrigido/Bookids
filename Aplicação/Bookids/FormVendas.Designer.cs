@@ -33,6 +33,7 @@
             this.btEditarVenda = new System.Windows.Forms.Button();
             this.btRegistarVenda = new System.Windows.Forms.Button();
             this.gbCliente = new System.Windows.Forms.GroupBox();
+            this.checkBoxUtilizouCartao = new System.Windows.Forms.CheckBox();
             this.tbValorOferta = new System.Windows.Forms.TextBox();
             this.dgvVendas = new System.Windows.Forms.DataGridView();
             this.nrCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,14 +55,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbTipoProduto = new System.Windows.Forms.ComboBox();
             this.gbDetalhes = new System.Windows.Forms.GroupBox();
+            this.labelTotalCompra = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.btRemoverDetalhe = new System.Windows.Forms.Button();
             this.lbListaDetalhes = new System.Windows.Forms.ListBox();
             this.labelNomeForm = new System.Windows.Forms.Label();
             this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.detalheComprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.checkBoxUtilizouCartao = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.labelTotalCompra = new System.Windows.Forms.Label();
             this.gbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
@@ -122,6 +122,17 @@
             this.gbCliente.TabIndex = 10;
             this.gbCliente.TabStop = false;
             this.gbCliente.Text = "Dados Cliente";
+            // 
+            // checkBoxUtilizouCartao
+            // 
+            this.checkBoxUtilizouCartao.AutoSize = true;
+            this.checkBoxUtilizouCartao.Location = new System.Drawing.Point(25, 70);
+            this.checkBoxUtilizouCartao.Name = "checkBoxUtilizouCartao";
+            this.checkBoxUtilizouCartao.Size = new System.Drawing.Size(129, 17);
+            this.checkBoxUtilizouCartao.TabIndex = 18;
+            this.checkBoxUtilizouCartao.Text = "Utilizou Cartão Cliente";
+            this.checkBoxUtilizouCartao.UseVisualStyleBackColor = true;
+            this.checkBoxUtilizouCartao.CheckedChanged += new System.EventHandler(this.checkBoxUtilizouCartao_CheckedChanged);
             // 
             // tbValorOferta
             // 
@@ -335,6 +346,25 @@
             this.gbDetalhes.TabStop = false;
             this.gbDetalhes.Text = "Lista de Compras";
             // 
+            // labelTotalCompra
+            // 
+            this.labelTotalCompra.AutoSize = true;
+            this.labelTotalCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalCompra.Location = new System.Drawing.Point(199, 144);
+            this.labelTotalCompra.Name = "labelTotalCompra";
+            this.labelTotalCompra.Size = new System.Drawing.Size(39, 24);
+            this.labelTotalCompra.TabIndex = 14;
+            this.labelTotalCompra.Text = "X €";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(132, 152);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Total:";
+            // 
             // btRemoverDetalhe
             // 
             this.btRemoverDetalhe.Location = new System.Drawing.Point(6, 211);
@@ -370,35 +400,6 @@
             // detalheComprasBindingSource
             // 
             this.detalheComprasBindingSource.DataSource = typeof(Bookids.DetalheCompras);
-            // 
-            // checkBoxUtilizouCartao
-            // 
-            this.checkBoxUtilizouCartao.AutoSize = true;
-            this.checkBoxUtilizouCartao.Location = new System.Drawing.Point(25, 70);
-            this.checkBoxUtilizouCartao.Name = "checkBoxUtilizouCartao";
-            this.checkBoxUtilizouCartao.Size = new System.Drawing.Size(129, 17);
-            this.checkBoxUtilizouCartao.TabIndex = 18;
-            this.checkBoxUtilizouCartao.Text = "Utilizou Cartão Cliente";
-            this.checkBoxUtilizouCartao.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(132, 152);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Total:";
-            // 
-            // labelTotalCompra
-            // 
-            this.labelTotalCompra.AutoSize = true;
-            this.labelTotalCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalCompra.Location = new System.Drawing.Point(199, 144);
-            this.labelTotalCompra.Name = "labelTotalCompra";
-            this.labelTotalCompra.Size = new System.Drawing.Size(39, 24);
-            this.labelTotalCompra.TabIndex = 14;
-            this.labelTotalCompra.Text = "X €";
             // 
             // FormVendas
             // 
