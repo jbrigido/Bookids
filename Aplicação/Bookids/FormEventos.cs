@@ -168,6 +168,7 @@ namespace Bookids
             checkBoxFilhoConfirmado.Enabled = false;
             btAdicionarFilho.Enabled = false;
             btRemoverFilho.Enabled = false;
+            lbInscricoes.DataSource = null;
             dgvEventos.Enabled = true;
         }
 
@@ -215,6 +216,7 @@ namespace Bookids
             cbFilhos.Enabled = true;
             btAdicionarFilho.Enabled = true;
             btRemoverFilho.Enabled = true;
+            checkBoxFilhoConfirmado.Enabled = true;
             dgvEventos.Enabled = false;
         }
 
@@ -454,6 +456,25 @@ namespace Bookids
                     }
                 }
             }
+        }
+
+        private void checkBoxFilhoConfirmado_CheckedChanged(object sender, EventArgs e)
+        {
+            Eventos evento = (Eventos)dgvEventos.SelectedRows[0].DataBoundItem;
+            Inscricoes inscricao = (Inscricoes)lbInscricoes.SelectedItem;
+            if( inscricao != null)
+            {
+                if (checkBoxFilhoConfirmado.Checked)
+                {
+                    inscricao.Confirmada = true;
+                }
+                else
+                {
+                    inscricao.Confirmada = false;
+                }    
+            }
+            BookidsContainer.SaveChanges();
+            carregarListaInscricoes(evento);
         }
     }
 }

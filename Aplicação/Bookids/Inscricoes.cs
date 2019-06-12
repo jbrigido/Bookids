@@ -20,5 +20,17 @@ namespace Bookids
     
         public virtual Filhos Filhos { get; set; }
         public virtual Eventos Eventos { get; set; }
+
+        public override string ToString()
+        {
+            if(Confirmada == true)
+            {
+                return Filhos.Nome + " - Confirmado"; 
+            }
+            else
+            {
+                return Filhos.Nome;
+            }           
+        }
     }
 }
