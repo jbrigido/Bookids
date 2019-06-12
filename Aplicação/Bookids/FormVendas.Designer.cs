@@ -35,6 +35,7 @@
             this.gbCliente = new System.Windows.Forms.GroupBox();
             this.tbValorOferta = new System.Windows.Forms.TextBox();
             this.dgvVendas = new System.Windows.Forms.DataGridView();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btCancelCleanVenda = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,12 +53,11 @@
             this.gbDetalhes = new System.Windows.Forms.GroupBox();
             this.btRemoverDetalhe = new System.Windows.Forms.Button();
             this.lbListaDetalhes = new System.Windows.Forms.ListBox();
+            this.nrCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.detalheComprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nrCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
             this.gbProdutos.SuspendLayout();
@@ -144,6 +144,12 @@
             this.dgvVendas.Size = new System.Drawing.Size(352, 163);
             this.dgvVendas.TabIndex = 16;
             this.dgvVendas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVendas_MouseClick);
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // btCancelCleanVenda
             // 
@@ -322,18 +328,6 @@
             this.lbListaDetalhes.Size = new System.Drawing.Size(232, 121);
             this.lbListaDetalhes.TabIndex = 0;
             // 
-            // comprasBindingSource
-            // 
-            this.comprasBindingSource.DataSource = typeof(Bookids.Compras);
-            // 
-            // produtosBindingSource
-            // 
-            this.produtosBindingSource.DataSource = typeof(Bookids.Produtos);
-            // 
-            // detalheComprasBindingSource
-            // 
-            this.detalheComprasBindingSource.DataSource = typeof(Bookids.DetalheCompras);
-            // 
             // nrCompraDataGridViewTextBoxColumn
             // 
             this.nrCompraDataGridViewTextBoxColumn.DataPropertyName = "NrCompra";
@@ -348,17 +342,23 @@
             this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
             this.dataDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Total
+            // comprasBindingSource
             // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
+            this.comprasBindingSource.DataSource = typeof(Bookids.Compras);
+            // 
+            // produtosBindingSource
+            // 
+            this.produtosBindingSource.DataSource = typeof(Bookids.Produtos);
+            // 
+            // detalheComprasBindingSource
+            // 
+            this.detalheComprasBindingSource.DataSource = typeof(Bookids.DetalheCompras);
             // 
             // FormVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 557);
+            this.ClientSize = new System.Drawing.Size(818, 557);
             this.Controls.Add(this.gbProdutos);
             this.Controls.Add(this.gbDetalhes);
             this.Controls.Add(this.gbCliente);

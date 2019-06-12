@@ -82,8 +82,6 @@ namespace Bookids
             btEditarVenda.Enabled = false;
             btApagarVenda.Enabled = false;
             btCancelCleanVenda.Enabled = false;
-            btRemoverDetalhe.Enabled = false;
-            btImprimir.Enabled = false;
             gbProdutos.Enabled = false;
             gbDetalhes.Enabled = false;
         }
@@ -114,7 +112,6 @@ namespace Bookids
                 dgvVendas.Enabled = false;
                 btRegistarVenda.Enabled = false;
                 btCancelCleanVenda.Enabled = true;
-                
                 gbProdutos.Enabled = true;
                 gbDetalhes.Enabled = true;
                 carregarListaCompras(compra);
@@ -129,6 +126,7 @@ namespace Bookids
         {
             btRegistarVenda.Enabled = true;
             carregarDadosVendas((Clientes)cbClientes.SelectedItem);
+            dgvVendas.ClearSelection();
         }
 
         private void dgvVendas_MouseClick(object sender, MouseEventArgs e)
