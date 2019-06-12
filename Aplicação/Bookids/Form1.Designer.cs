@@ -66,18 +66,18 @@
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             // 
             // btClientes
             // 
-            this.btClientes.Location = new System.Drawing.Point(315, 51);
+            this.btClientes.Location = new System.Drawing.Point(315, 36);
             this.btClientes.Name = "btClientes";
             this.btClientes.Size = new System.Drawing.Size(172, 24);
             this.btClientes.TabIndex = 1;
@@ -87,7 +87,7 @@
             // 
             // btProdutos
             // 
-            this.btProdutos.Location = new System.Drawing.Point(315, 81);
+            this.btProdutos.Location = new System.Drawing.Point(315, 66);
             this.btProdutos.Name = "btProdutos";
             this.btProdutos.Size = new System.Drawing.Size(172, 23);
             this.btProdutos.TabIndex = 2;
@@ -97,7 +97,7 @@
             // 
             // btEventos
             // 
-            this.btEventos.Location = new System.Drawing.Point(315, 110);
+            this.btEventos.Location = new System.Drawing.Point(315, 95);
             this.btEventos.Name = "btEventos";
             this.btEventos.Size = new System.Drawing.Size(172, 24);
             this.btEventos.TabIndex = 3;
@@ -107,7 +107,7 @@
             // 
             // btAnimadores
             // 
-            this.btAnimadores.Location = new System.Drawing.Point(315, 140);
+            this.btAnimadores.Location = new System.Drawing.Point(315, 125);
             this.btAnimadores.Name = "btAnimadores";
             this.btAnimadores.Size = new System.Drawing.Size(172, 24);
             this.btAnimadores.TabIndex = 4;
@@ -117,7 +117,7 @@
             // 
             // btEscolas
             // 
-            this.btEscolas.Location = new System.Drawing.Point(315, 170);
+            this.btEscolas.Location = new System.Drawing.Point(315, 155);
             this.btEscolas.Name = "btEscolas";
             this.btEscolas.Size = new System.Drawing.Size(172, 23);
             this.btEscolas.TabIndex = 5;
@@ -129,7 +129,7 @@
             // 
             this.lbInfo.BackColor = System.Drawing.SystemColors.Info;
             this.lbInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbInfo.Location = new System.Drawing.Point(12, 110);
+            this.lbInfo.Location = new System.Drawing.Point(12, 95);
             this.lbInfo.Name = "lbInfo";
             this.lbInfo.Size = new System.Drawing.Size(285, 112);
             this.lbInfo.TabIndex = 6;
@@ -138,7 +138,7 @@
             // 
             // btVendas
             // 
-            this.btVendas.Location = new System.Drawing.Point(315, 199);
+            this.btVendas.Location = new System.Drawing.Point(315, 184);
             this.btVendas.Name = "btVendas";
             this.btVendas.Size = new System.Drawing.Size(172, 23);
             this.btVendas.TabIndex = 7;
@@ -150,7 +150,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F);
-            this.label1.Location = new System.Drawing.Point(12, 45);
+            this.label1.Location = new System.Drawing.Point(12, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(258, 59);
             this.label1.TabIndex = 8;
@@ -160,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 242);
+            this.ClientSize = new System.Drawing.Size(502, 220);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btVendas);
             this.Controls.Add(this.lbInfo);
