@@ -208,17 +208,24 @@ namespace Bookids
             DialogResult dr = MessageBox.Show("Tem a certeza que deseja apagar esta escola ?",
                 "Apagar", MessageBoxButtons.YesNo);
 
-            if(dr == DialogResult.Yes)
+            try
             {
-                Escolas escola = (Escolas)dgvEscolas.SelectedRows[0].DataBoundItem;
-                if (escola != null)
+                if (dr == DialogResult.Yes)
                 {
-                    BookidsContainer.EscolasSet.Remove(escola);
-                    BookidsContainer.SaveChanges();
-                    limparDados();
-                    carregarEscolas();
+                    Escolas escola = (Escolas)dgvEscolas.SelectedRows[0].DataBoundItem;
+                    if (escola != null)
+                    {
+                        BookidsContainer.EscolasSet.Remove(escola);
+                        BookidsContainer.SaveChanges();
+                        limparDados();
+                        carregarEscolas();
+                    }
                 }
-            }            
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Esta escola não pode ser eliminada enquanto constar noutros registos !");
+            }
         }
     }
 }
