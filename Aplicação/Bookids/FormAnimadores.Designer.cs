@@ -345,7 +345,7 @@
             this.Controls.Add(this.dgvAnimadores);
             this.Name = "FormAnimadores";
             this.ShowIcon = false;
-            this.Text = "Bookids - Animadores";
+            this.Text = "Bookids - Gestão de Animadores";
             this.Load += new System.EventHandler(this.FormAnimadores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimadores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.animadoresBindingSource)).EndInit();
