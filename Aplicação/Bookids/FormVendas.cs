@@ -269,15 +269,22 @@ namespace Bookids
                     Produtos produto = (Produtos)lbProdutos.SelectedItem;
                     if (produto != null && nmQuantidade.Value > 0)
                     {
-                        DetalheCompras detalhe = new DetalheCompras()
+                        if (nmQuantidade.Value > produto.StockExistente)
                         {
-                            CodProduto = produto.CodProduto,
-                            NrCompra = compra.NrCompra,
-                            Quantidade = (int)nmQuantidade.Value
-                        };
-                        produto.StockExistente = produto.StockExistente - detalhe.Quantidade;
-                        BookidsContainer.DetalheComprasSet.Add(detalhe);
-                        BookidsContainer.SaveChanges();
+                            MessageBox.Show("Não existem produtos suficientes em stock|");
+                        }
+                        else
+                        {
+                            DetalheCompras detalhe = new DetalheCompras()
+                            {
+                                CodProduto = produto.CodProduto,
+                                NrCompra = compra.NrCompra,
+                                Quantidade = (int)nmQuantidade.Value
+                            };
+                            produto.StockExistente = produto.StockExistente - detalhe.Quantidade;
+                            BookidsContainer.DetalheComprasSet.Add(detalhe);
+                            BookidsContainer.SaveChanges();
+                        }
                     }
                     carregarListaCompras(compra);
                     carregarListaProdutos();

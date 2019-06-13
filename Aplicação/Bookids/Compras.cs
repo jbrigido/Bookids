@@ -43,14 +43,14 @@ namespace Bookids
         {
             
             string descricao = "Compra nº: " + compra.NrCompra + " \n " + cliente.Nome + "\n Nº Cartão: " + cliente.NrCartao
-                + "\n________________________________________________________________________________________"
+                + "\n________________________________________________________________"
                 + "\nCompra efetuada a " + compra.Data.ToString("dd/MM/yyyy") + " às " + compra.Data.ToString("HH:mm:ss");
             foreach (DetalheCompras dc in DetalheCompras)
             { 
-                descricao += "\n - " + string.Format("{0} ({1})- {2:F2}/uni", dc.Produtos.Designacao, dc.Quantidade, dc.Produtos.Preco);
+                descricao += "\n - " + string.Format("{0} ({1})- {2:F2} €/uni", dc.Produtos.Designacao, dc.Quantidade, dc.Produtos.Preco);
             }
-            descricao += "\n________________________________________________________________________________________" +
-            string.Format("\nTotal da Compra: €{0:F2}", compra.getTotalCompra());
+            descricao += "\n________________________________________________________________" +
+            string.Format("\nTotal da Compra: € {0:F2}", compra.getTotalCompra());
 
             return descricao;
             
