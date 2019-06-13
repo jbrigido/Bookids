@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,7 +72,15 @@ namespace Bookids
                                       select DetalheCompras;
             foreach (DataGridViewRow item in dgvVendas.Rows)
             {
-                dgvVendas.SelectedRows[0].Cells[2].Value = compra.getTotalCompra();
+                try
+                {
+                    dgvVendas.SelectedRows[0].Cells[2].Value = compra.getTotalCompra();
+                }
+                catch(ArgumentOutOfRangeException ex)
+                {
+
+                }
+                
             }
             lbListaDetalhes.DataSource = listaDetalhesCompra.ToList<DetalheCompras>();
             labelTotalCompra.Text = string.Format("€ {0:C2}", compra.getTotalCompra());
@@ -91,6 +100,7 @@ namespace Bookids
             btCancelCleanVenda.Enabled = false;
             gbProdutos.Enabled = false;
             gbDetalhes.Enabled = false;
+            btExportar.Enabled = false;
         }
 
         private void btRegistarVenda_Click(object sender, EventArgs e)
@@ -149,6 +159,7 @@ namespace Bookids
                     btEditarVenda.Enabled = true;
                     btApagarVenda.Enabled = true;
                     btCancelCleanVenda.Enabled = true;
+                    btExportar.Enabled = true;
                     checkBoxUtilizouCartao.Checked = compra.UtilizouCartao;
                     carregarListaCompras(compra);
                     lbListaDetalhes.ClearSelected();
@@ -231,8 +242,19 @@ namespace Bookids
                 {
                     BookidsContainer.DetalheComprasSet.Remove(detalhe);
                     BookidsContainer.SaveChanges();
-                    limparDadosVendas();
                     carregarListaCompras(compra);
+                }
+            }
+        }
+
+        private void reporStock(DetalheCompras detalhe)
+        {
+            detalhe = (DetalheCompras)lbListaDetalhes.SelectedItem;
+            foreach (Produtos p in produtosBindingSource)
+            {
+                if (detalhe.CodProduto == p.CodProduto)
+                {
+                    p.StockExistente = p.StockExistente + detalhe.Quantidade;
                 }
             }
         }
@@ -264,6 +286,35 @@ namespace Bookids
             catch(ArgumentOutOfRangeException ex)
             {
 
+            }
+        }
+
+        private void btExportar_Click(object sender, EventArgs e)
+        {
+            Clientes cliente = (Clientes)cbClientes.SelectedItem;
+            Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+            if (compra != null)
+            {
+
+                SaveFileDialog saveFileDialogExportar = new SaveFileDialog();
+
+                saveFileDialogExportar.FileName = compra.NrCompra + "_" + cliente.Nome + "_" + cliente.NrCartao + ".txt";
+                saveFileDialogExportar.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                saveFileDialogExportar.FilterIndex = 1;
+                if (saveFileDialogExportar.ShowDialog() == DialogResult.OK)
+                {
+                    string ficheiro = saveFileDialogExportar.FileName;
+                    FileStream fs = new FileStream(ficheiro, FileMode.Create, FileAccess.Write);
+                    StreamWriter sw = new StreamWriter(fs);
+
+                    sw.WriteLine(compra.getFatura(cliente, compra));
+
+                    sw.Close();
+                    fs.Close();
+
+                    MessageBox.Show("Fatura exportada com sucesso!",
+                        "Exportação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

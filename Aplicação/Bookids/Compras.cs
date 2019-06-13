@@ -38,5 +38,22 @@ namespace Bookids
             }
             return total;
         }
+
+        public string getFatura(Clientes cliente, Compras compra)
+        {
+            
+            string descricao = "Compra nº: " + compra.NrCompra + " \n " + cliente.Nome + "\n Nº Cartão: " + cliente.NrCartao
+                + "\n________________________________________________________________________________________"
+                + "\nCompra efetuada a " + compra.Data.ToString("dd/MM/yyyy") + " às " + compra.Data.ToString("HH:mm:ss");
+            foreach (DetalheCompras dc in DetalheCompras)
+            { 
+                descricao += "\n - " + string.Format("{0} ({1})- {2:F2}/uni", dc.Produtos.Designacao, dc.Quantidade, dc.Produtos.Preco);
+            }
+            descricao += "\n________________________________________________________________________________________" +
+            string.Format("\nTotal da Compra: €{0:F2}", compra.getTotalCompra());
+
+            return descricao;
+            
+        }
     }
 }
