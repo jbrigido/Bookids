@@ -98,7 +98,7 @@ namespace Bookids
             {
                 IdCliente = ((Clientes)cbClientes.SelectedItem).IdPessoa,
                 Data = DateTime.Now,
-                UtilizouCartao = false
+                UtilizouCartao = checkBoxUtilizouCartao.Checked
             };
             BookidsContainer.ComprasSet.Add(nova);
             BookidsContainer.SaveChanges();
@@ -116,9 +116,10 @@ namespace Bookids
                 btCancelCleanVenda.Enabled = true;
                 gbProdutos.Enabled = true;
                 gbDetalhes.Enabled = true;
+
                 carregarListaCompras(compra);
             }
-            catch
+            catch(ArgumentOutOfRangeException ex)
             {
 
             }
@@ -143,11 +144,12 @@ namespace Bookids
                     btEditarVenda.Enabled = true;
                     btApagarVenda.Enabled = true;
                     btCancelCleanVenda.Enabled = true;
+                    checkBoxUtilizouCartao.Checked = compra.UtilizouCartao;
                     carregarListaCompras(compra);
                     lbListaDetalhes.ClearSelected();
                 }
             }
-            catch
+            catch(ArgumentOutOfRangeException ex)
             {
 
             }
@@ -169,7 +171,7 @@ namespace Bookids
                     carregarDadosVendas((Clientes)cbClientes.SelectedItem);
                     limparDadosVendas();
                 }
-                catch(ArgumentOutOfRangeException)
+                catch(ArgumentOutOfRangeException ex )
                 {
 
                 }
@@ -204,7 +206,7 @@ namespace Bookids
                     }
                 }
             }
-            catch
+            catch(ArgumentOutOfRangeException ex)
             {
 
             }
@@ -254,7 +256,7 @@ namespace Bookids
                     carregarListaProdutos();
                 }
             }
-            catch
+            catch(ArgumentOutOfRangeException ex)
             {
 
             }
@@ -263,19 +265,40 @@ namespace Bookids
         private void checkBoxUtilizouCartao_CheckedChanged(object sender, EventArgs e)
         {
             Clientes cliente = (Clientes)cbClientes.SelectedItem;
-            Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
-            if(compra != null)
+            if(cliente.NrCartao != null)
             {
-                if (checkBoxUtilizouCartao.Checked)
+                try
                 {
-                    compra.UtilizouCartao = true;
+                    Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
+                    if (compra != null)
+                    {
+                        if (checkBoxUtilizouCartao.Checked)
+                        {
+                            compra.UtilizouCartao = true;
+                        }
+                        else
+                        {
+                            compra.UtilizouCartao = false;
+                        }
+                    }
+                    BookidsContainer.SaveChanges();
                 }
-                else
+                catch(ArgumentOutOfRangeException ex)
                 {
-                    compra.UtilizouCartao = false;
+
                 }
             }
-            BookidsContainer.SaveChanges();
+            else
+            {
+                try
+                {
+                    ((Compras)dgvVendas.SelectedRows[0].DataBoundItem).UtilizouCartao = false;
+                }
+                catch(ArgumentOutOfRangeException ex)
+                {
+
+                }
+            }
         }
     }
 }
