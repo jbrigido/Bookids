@@ -70,12 +70,12 @@
             this.btAdicionarFilho = new System.Windows.Forms.Button();
             this.cbFilhos = new System.Windows.Forms.ComboBox();
             this.labelNomeForm = new System.Windows.Forms.Label();
-            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdadeInferior = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdadeSuperior = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nrEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.limiteParticipacoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxEventos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmIdadeMax)).BeginInit();
@@ -501,44 +501,44 @@
             this.labelNomeForm.TabIndex = 6;
             this.labelNomeForm.Text = "Eventos";
             // 
-            // eventosBindingSource
-            // 
-            this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
-            // 
-            // nrEventoDataGridViewTextBoxColumn
-            // 
-            this.nrEventoDataGridViewTextBoxColumn.DataPropertyName = "NrEvento";
-            this.nrEventoDataGridViewTextBoxColumn.HeaderText = "NrEvento";
-            this.nrEventoDataGridViewTextBoxColumn.Name = "nrEventoDataGridViewTextBoxColumn";
-            this.nrEventoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataHoraDataGridViewTextBoxColumn
-            // 
-            this.dataHoraDataGridViewTextBoxColumn.DataPropertyName = "DataHora";
-            this.dataHoraDataGridViewTextBoxColumn.HeaderText = "DataHora";
-            this.dataHoraDataGridViewTextBoxColumn.Name = "dataHoraDataGridViewTextBoxColumn";
-            this.dataHoraDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // IdadeInferior
             // 
             this.IdadeInferior.DataPropertyName = "IdadeInferior";
-            this.IdadeInferior.HeaderText = "IdadeInferior";
+            this.IdadeInferior.HeaderText = "Idade Mínima";
             this.IdadeInferior.Name = "IdadeInferior";
             this.IdadeInferior.ReadOnly = true;
             // 
             // IdadeSuperior
             // 
             this.IdadeSuperior.DataPropertyName = "IdadeSuperior";
-            this.IdadeSuperior.HeaderText = "IdadeSuperior";
+            this.IdadeSuperior.HeaderText = "Idade Máxima";
             this.IdadeSuperior.Name = "IdadeSuperior";
             this.IdadeSuperior.ReadOnly = true;
+            // 
+            // nrEventoDataGridViewTextBoxColumn
+            // 
+            this.nrEventoDataGridViewTextBoxColumn.DataPropertyName = "NrEvento";
+            this.nrEventoDataGridViewTextBoxColumn.HeaderText = "Nº Evento";
+            this.nrEventoDataGridViewTextBoxColumn.Name = "nrEventoDataGridViewTextBoxColumn";
+            this.nrEventoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataHoraDataGridViewTextBoxColumn
+            // 
+            this.dataHoraDataGridViewTextBoxColumn.DataPropertyName = "DataHora";
+            this.dataHoraDataGridViewTextBoxColumn.HeaderText = "Data e Hora";
+            this.dataHoraDataGridViewTextBoxColumn.Name = "dataHoraDataGridViewTextBoxColumn";
+            this.dataHoraDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // limiteParticipacoesDataGridViewTextBoxColumn
             // 
             this.limiteParticipacoesDataGridViewTextBoxColumn.DataPropertyName = "LimiteParticipacoes";
-            this.limiteParticipacoesDataGridViewTextBoxColumn.HeaderText = "LimiteParticipacoes";
+            this.limiteParticipacoesDataGridViewTextBoxColumn.HeaderText = "Limite de Participantes";
             this.limiteParticipacoesDataGridViewTextBoxColumn.Name = "limiteParticipacoesDataGridViewTextBoxColumn";
             this.limiteParticipacoesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eventosBindingSource
+            // 
+            this.eventosBindingSource.DataSource = typeof(Bookids.Eventos);
             // 
             // FormEventos
             // 

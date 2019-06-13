@@ -42,9 +42,6 @@
             this.cbEscolaFilho = new System.Windows.Forms.ComboBox();
             this.btGuardarFilhos = new System.Windows.Forms.Button();
             this.dgvFilhos = new System.Windows.Forms.DataGridView();
-            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataNascicmentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.filhosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbSexoFilho = new System.Windows.Forms.ComboBox();
             this.tbNomeFilho = new System.Windows.Forms.TextBox();
@@ -73,6 +70,11 @@
             this.tbCartaoCli = new System.Windows.Forms.TextBox();
             this.tbMoradaCli = new System.Windows.Forms.TextBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelNomeForm = new System.Windows.Forms.Label();
+            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataNascicmentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nrCartaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorOfertaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,8 +84,6 @@
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telemovelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.labelNomeForm = new System.Windows.Forms.Label();
             this.gbFilhos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilhos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filhosBindingSource)).BeginInit();
@@ -236,27 +236,6 @@
             this.dgvFilhos.Size = new System.Drawing.Size(344, 109);
             this.dgvFilhos.TabIndex = 18;
             this.dgvFilhos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvFilhos_MouseClick);
-            // 
-            // nomeDataGridViewTextBoxColumn1
-            // 
-            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
-            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // sexoDataGridViewTextBoxColumn
-            // 
-            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
-            this.sexoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataNascicmentoDataGridViewTextBoxColumn
-            // 
-            this.dataNascicmentoDataGridViewTextBoxColumn.DataPropertyName = "DataNascicmento";
-            this.dataNascicmentoDataGridViewTextBoxColumn.HeaderText = "DataNascicmento";
-            this.dataNascicmentoDataGridViewTextBoxColumn.Name = "dataNascicmentoDataGridViewTextBoxColumn";
-            this.dataNascicmentoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // filhosBindingSource
             // 
@@ -548,6 +527,41 @@
             this.dgvClientes.TabIndex = 13;
             this.dgvClientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvClientes_MouseClick);
             // 
+            // clientesBindingSource
+            // 
+            this.clientesBindingSource.DataSource = typeof(Bookids.Clientes);
+            // 
+            // labelNomeForm
+            // 
+            this.labelNomeForm.AutoSize = true;
+            this.labelNomeForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F);
+            this.labelNomeForm.Location = new System.Drawing.Point(9, 9);
+            this.labelNomeForm.Name = "labelNomeForm";
+            this.labelNomeForm.Size = new System.Drawing.Size(399, 59);
+            this.labelNomeForm.TabIndex = 14;
+            this.labelNomeForm.Text = "Clientes e Filhos";
+            // 
+            // nomeDataGridViewTextBoxColumn1
+            // 
+            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
+            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sexoDataGridViewTextBoxColumn
+            // 
+            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
+            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
+            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
+            this.sexoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataNascicmentoDataGridViewTextBoxColumn
+            // 
+            this.dataNascicmentoDataGridViewTextBoxColumn.DataPropertyName = "DataNascicmento";
+            this.dataNascicmentoDataGridViewTextBoxColumn.HeaderText = "Data de Nascicmento";
+            this.dataNascicmentoDataGridViewTextBoxColumn.Name = "dataNascicmentoDataGridViewTextBoxColumn";
+            this.dataNascicmentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // nomeDataGridViewTextBoxColumn
             // 
             this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
@@ -558,14 +572,14 @@
             // nrCartaoDataGridViewTextBoxColumn
             // 
             this.nrCartaoDataGridViewTextBoxColumn.DataPropertyName = "NrCartao";
-            this.nrCartaoDataGridViewTextBoxColumn.HeaderText = "NrCartao";
+            this.nrCartaoDataGridViewTextBoxColumn.HeaderText = "Nº Cartao";
             this.nrCartaoDataGridViewTextBoxColumn.Name = "nrCartaoDataGridViewTextBoxColumn";
             this.nrCartaoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // valorOfertaDataGridViewTextBoxColumn
             // 
             this.valorOfertaDataGridViewTextBoxColumn.DataPropertyName = "ValorOferta";
-            this.valorOfertaDataGridViewTextBoxColumn.HeaderText = "ValorOferta";
+            this.valorOfertaDataGridViewTextBoxColumn.HeaderText = "Valor de Oferta";
             this.valorOfertaDataGridViewTextBoxColumn.Name = "valorOfertaDataGridViewTextBoxColumn";
             this.valorOfertaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -586,7 +600,7 @@
             // codPostalDataGridViewTextBoxColumn
             // 
             this.codPostalDataGridViewTextBoxColumn.DataPropertyName = "CodPostal";
-            this.codPostalDataGridViewTextBoxColumn.HeaderText = "CodPostal";
+            this.codPostalDataGridViewTextBoxColumn.HeaderText = "Código de Postal";
             this.codPostalDataGridViewTextBoxColumn.Name = "codPostalDataGridViewTextBoxColumn";
             this.codPostalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -600,7 +614,7 @@
             // telemovelDataGridViewTextBoxColumn
             // 
             this.telemovelDataGridViewTextBoxColumn.DataPropertyName = "Telemovel";
-            this.telemovelDataGridViewTextBoxColumn.HeaderText = "Telemovel";
+            this.telemovelDataGridViewTextBoxColumn.HeaderText = "Telemóvel";
             this.telemovelDataGridViewTextBoxColumn.Name = "telemovelDataGridViewTextBoxColumn";
             this.telemovelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -610,20 +624,6 @@
             this.mailDataGridViewTextBoxColumn.HeaderText = "Mail";
             this.mailDataGridViewTextBoxColumn.Name = "mailDataGridViewTextBoxColumn";
             this.mailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // clientesBindingSource
-            // 
-            this.clientesBindingSource.DataSource = typeof(Bookids.Clientes);
-            // 
-            // labelNomeForm
-            // 
-            this.labelNomeForm.AutoSize = true;
-            this.labelNomeForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F);
-            this.labelNomeForm.Location = new System.Drawing.Point(9, 9);
-            this.labelNomeForm.Name = "labelNomeForm";
-            this.labelNomeForm.Size = new System.Drawing.Size(399, 59);
-            this.labelNomeForm.TabIndex = 14;
-            this.labelNomeForm.Text = "Clientes e Filhos";
             // 
             // FormClientes
             // 
@@ -684,18 +684,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbEscolaFilho;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nrCartaoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorOfertaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moradaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn localidadeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codPostalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telemovelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sexoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataNascicmentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker dtpDataNascFilho;
         private System.Windows.Forms.Button btCancelCleanFilhos;
         private System.Windows.Forms.Label label10;
@@ -706,5 +694,17 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbMailCli;
         private System.Windows.Forms.Label labelNomeForm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sexoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataNascicmentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nrCartaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorOfertaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moradaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localidadeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codPostalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telemovelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
     }
 }

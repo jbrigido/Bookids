@@ -36,7 +36,7 @@
             this.checkBoxUtilizouCartao = new System.Windows.Forms.CheckBox();
             this.tbValorOferta = new System.Windows.Forms.TextBox();
             this.dgvVendas = new System.Windows.Forms.DataGridView();
-            this.TotalCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btCancelCleanVenda = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,24 +51,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbTipoProduto = new System.Windows.Forms.ComboBox();
             this.gbDetalhes = new System.Windows.Forms.GroupBox();
-            this.btExportar = new System.Windows.Forms.Button();
             this.labelTotalCompra = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btRemoverDetalhe = new System.Windows.Forms.Button();
             this.lbListaDetalhes = new System.Windows.Forms.ListBox();
+            this.btExportar = new System.Windows.Forms.Button();
             this.labelNomeForm = new System.Windows.Forms.Label();
             this.saveFileDialogExportar = new System.Windows.Forms.SaveFileDialog();
-            this.nrCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.detalheComprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nrCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
             this.gbProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmQuantidade)).BeginInit();
             this.gbDetalhes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalheComprasBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -164,11 +164,9 @@
             this.dgvVendas.TabIndex = 16;
             this.dgvVendas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVendas_MouseClick);
             // 
-            // TotalCompra
+            // comprasBindingSource
             // 
-            this.TotalCompra.HeaderText = "Total";
-            this.TotalCompra.Name = "TotalCompra";
-            this.TotalCompra.ReadOnly = true;
+            this.comprasBindingSource.DataSource = typeof(Bookids.Compras);
             // 
             // btCancelCleanVenda
             // 
@@ -319,17 +317,7 @@
             this.gbDetalhes.Size = new System.Drawing.Size(258, 203);
             this.gbDetalhes.TabIndex = 30;
             this.gbDetalhes.TabStop = false;
-            this.gbDetalhes.Text = "Lista de Compras";
-            // 
-            // btExportar
-            // 
-            this.btExportar.Location = new System.Drawing.Point(24, 309);
-            this.btExportar.Name = "btExportar";
-            this.btExportar.Size = new System.Drawing.Size(232, 23);
-            this.btExportar.TabIndex = 15;
-            this.btExportar.Text = "Exportar Fatura";
-            this.btExportar.UseVisualStyleBackColor = true;
-            this.btExportar.Click += new System.EventHandler(this.btExportar_Click);
+            this.gbDetalhes.Text = "Lista de Vendas";
             // 
             // labelTotalCompra
             // 
@@ -367,6 +355,16 @@
             this.lbListaDetalhes.Size = new System.Drawing.Size(232, 121);
             this.lbListaDetalhes.TabIndex = 0;
             // 
+            // btExportar
+            // 
+            this.btExportar.Location = new System.Drawing.Point(24, 309);
+            this.btExportar.Name = "btExportar";
+            this.btExportar.Size = new System.Drawing.Size(232, 23);
+            this.btExportar.TabIndex = 15;
+            this.btExportar.Text = "Exportar Fatura";
+            this.btExportar.UseVisualStyleBackColor = true;
+            this.btExportar.Click += new System.EventHandler(this.btExportar_Click);
+            // 
             // labelNomeForm
             // 
             this.labelNomeForm.AutoSize = true;
@@ -377,10 +375,18 @@
             this.labelNomeForm.TabIndex = 31;
             this.labelNomeForm.Text = "Vendas";
             // 
+            // produtosBindingSource
+            // 
+            this.produtosBindingSource.DataSource = typeof(Bookids.Produtos);
+            // 
+            // detalheComprasBindingSource
+            // 
+            this.detalheComprasBindingSource.DataSource = typeof(Bookids.DetalheCompras);
+            // 
             // nrCompraDataGridViewTextBoxColumn
             // 
             this.nrCompraDataGridViewTextBoxColumn.DataPropertyName = "NrCompra";
-            this.nrCompraDataGridViewTextBoxColumn.HeaderText = "NrCompra";
+            this.nrCompraDataGridViewTextBoxColumn.HeaderText = "Nº Venda";
             this.nrCompraDataGridViewTextBoxColumn.Name = "nrCompraDataGridViewTextBoxColumn";
             this.nrCompraDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -391,17 +397,11 @@
             this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
             this.dataDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // comprasBindingSource
+            // TotalCompra
             // 
-            this.comprasBindingSource.DataSource = typeof(Bookids.Compras);
-            // 
-            // produtosBindingSource
-            // 
-            this.produtosBindingSource.DataSource = typeof(Bookids.Produtos);
-            // 
-            // detalheComprasBindingSource
-            // 
-            this.detalheComprasBindingSource.DataSource = typeof(Bookids.DetalheCompras);
+            this.TotalCompra.HeaderText = "Total";
+            this.TotalCompra.Name = "TotalCompra";
+            this.TotalCompra.ReadOnly = true;
             // 
             // FormVendas
             // 
@@ -420,12 +420,12 @@
             this.gbCliente.ResumeLayout(false);
             this.gbCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).EndInit();
             this.gbProdutos.ResumeLayout(false);
             this.gbProdutos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmQuantidade)).EndInit();
             this.gbDetalhes.ResumeLayout(false);
             this.gbDetalhes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalheComprasBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -463,10 +463,10 @@
         private System.Windows.Forms.CheckBox checkBoxUtilizouCartao;
         private System.Windows.Forms.Label labelTotalCompra;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btExportar;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogExportar;
         private System.Windows.Forms.DataGridViewTextBoxColumn nrCompraDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCompra;
-        private System.Windows.Forms.Button btExportar;
-        private System.Windows.Forms.SaveFileDialog saveFileDialogExportar;
     }
 }
