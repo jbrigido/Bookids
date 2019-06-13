@@ -69,7 +69,12 @@ namespace Bookids
             var listaDetalhesCompra = from DetalheCompras in BookidsContainer.DetalheComprasSet
                                       where DetalheCompras.NrCompra == compra.NrCompra
                                       select DetalheCompras;
+            foreach (DataGridViewRow item in dgvVendas.Rows)
+            {
+                dgvVendas.SelectedRows[0].Cells[2].Value = compra.getTotalCompra();
+            }
             lbListaDetalhes.DataSource = listaDetalhesCompra.ToList<DetalheCompras>();
+            labelTotalCompra.Text = string.Format("€ {0:C2}", compra.getTotalCompra());
         }
 
         private void limparDadosVendas()
