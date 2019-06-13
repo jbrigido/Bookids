@@ -102,6 +102,7 @@ namespace Bookids
             };
             BookidsContainer.ComprasSet.Add(nova);
             BookidsContainer.SaveChanges();
+            limparDadosVendas();
             carregarDadosVendas((Clientes)cbClientes.SelectedItem);
             carregarListaCompras(nova);
         }
@@ -116,7 +117,6 @@ namespace Bookids
                 btCancelCleanVenda.Enabled = true;
                 gbProdutos.Enabled = true;
                 gbDetalhes.Enabled = true;
-
                 carregarListaCompras(compra);
             }
             catch(ArgumentOutOfRangeException ex)
@@ -259,45 +259,6 @@ namespace Bookids
             catch(ArgumentOutOfRangeException ex)
             {
 
-            }
-        }
-
-        private void checkBoxUtilizouCartao_CheckedChanged(object sender, EventArgs e)
-        {
-            Clientes cliente = (Clientes)cbClientes.SelectedItem;
-            if(cliente.NrCartao != null)
-            {
-                try
-                {
-                    Compras compra = (Compras)dgvVendas.SelectedRows[0].DataBoundItem;
-                    if (compra != null)
-                    {
-                        if (checkBoxUtilizouCartao.Checked)
-                        {
-                            compra.UtilizouCartao = true;
-                        }
-                        else
-                        {
-                            compra.UtilizouCartao = false;
-                        }
-                    }
-                    BookidsContainer.SaveChanges();
-                }
-                catch(ArgumentOutOfRangeException ex)
-                {
-
-                }
-            }
-            else
-            {
-                try
-                {
-                    ((Compras)dgvVendas.SelectedRows[0].DataBoundItem).UtilizouCartao = false;
-                }
-                catch(ArgumentOutOfRangeException ex)
-                {
-
-                }
             }
         }
     }
